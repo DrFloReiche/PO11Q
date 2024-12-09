@@ -1,0 +1,12 @@
+tab:data
+fig:RStudio
+fig:RScript
+fig:RScriptex
+fig:folder
+fig:area68
+fig:area84
+fig:normalmean
+fig:first
+fig:95
+fig:unnamed-chunk-76
+tab:fearoncode

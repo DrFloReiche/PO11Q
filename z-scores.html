@@ -29,7 +29,7 @@
   
   
 <link rel="prev" href="reading-week.html"/>
-<link rel="next" href="t-distribution.html"/>
+<link rel="next" href="working-with-r.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -52,6 +52,70 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <style type="text/css">
   
@@ -137,16 +201,63 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html"><i class="fa fa-check"></i>Conceptualisation and Measurement</a>
 <ul>
 <li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#self-assessment-questions"><i class="fa fa-check"></i>Self-Assessment Questions</a></li>
+<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#assessment-1"><i class="fa fa-check"></i>Assessment</a></li>
+<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#assessment-guidelines"><i class="fa fa-check"></i>Assessment Guidelines</a>
+<ul>
+<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#assessment-guidelines-1"><i class="fa fa-check"></i>Assessment Guidelines</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#referencing"><i class="fa fa-check"></i>Referencing</a>
+<ul>
+<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#references-how"><i class="fa fa-check"></i>References: How?</a></li>
+<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#references-harvard"><i class="fa fa-check"></i>References: Harvard</a></li>
+<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#quotations"><i class="fa fa-check"></i>Quotations</a></li>
+<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#long-quotations"><i class="fa fa-check"></i>Long Quotations</a></li>
+<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#list-of-references"><i class="fa fa-check"></i>List of References</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#writing-your-assessment"><i class="fa fa-check"></i>Writing your Assessment</a></li>
+<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#group-work"><i class="fa fa-check"></i>Group Work</a></li>
+<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#next-week-1"><i class="fa fa-check"></i>Next Week</a></li>
 </ul></li>
 <li class="part"><span><b>Week 4</b></span></li>
 <li class="chapter" data-level="" data-path="conceptualisation-and-measurement-1.html"><a href="conceptualisation-and-measurement-1.html"><i class="fa fa-check"></i>Conceptualisation and Measurement</a>
 <ul>
 <li class="chapter" data-level="" data-path="conceptualisation-and-measurement-1.html"><a href="conceptualisation-and-measurement-1.html#self-assessment-questions-1"><i class="fa fa-check"></i>Self-Assessment Questions</a></li>
+<li class="chapter" data-level="" data-path="conceptualisation-and-measurement-1.html"><a href="conceptualisation-and-measurement-1.html#data-set"><i class="fa fa-check"></i>Data Set</a></li>
+<li class="chapter" data-level="" data-path="conceptualisation-and-measurement-1.html"><a href="conceptualisation-and-measurement-1.html#calculations"><i class="fa fa-check"></i>Calculations</a></li>
+<li class="chapter" data-level="" data-path="conceptualisation-and-measurement-1.html"><a href="conceptualisation-and-measurement-1.html#solutions"><i class="fa fa-check"></i>Solutions</a></li>
 </ul></li>
 <li class="part"><span><b>Week 5</b></span></li>
 <li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i>Introduction to R</a>
 <ul>
 <li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#self-assessment-questions-2"><i class="fa fa-check"></i>Self-Assessment Questions</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-rstudio-installation"><i class="fa fa-check"></i>R &amp; RStudio – Installation</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r---getting-started"><i class="fa fa-check"></i>R - Getting Started</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#rscript"><i class="fa fa-check"></i>RScript</a>
+<ul>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#rscript-structure"><i class="fa fa-check"></i>RScript Structure</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#first-steps-in-r"><i class="fa fa-check"></i>First Steps in R</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-working-directory"><i class="fa fa-check"></i>The Working Directory</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-packages"><i class="fa fa-check"></i>R Packages</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#opening-your-data-set"><i class="fa fa-check"></i>Opening your Data Set</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#viewing-the-data"><i class="fa fa-check"></i>Viewing the Data</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#variable-types-in-r"><i class="fa fa-check"></i>Variable Types in R</a>
+<ul>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#nominal-variables"><i class="fa fa-check"></i>Nominal Variables</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#ordinal-variables"><i class="fa fa-check"></i>Ordinal Variables</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#binary-dummy"><i class="fa fa-check"></i>Binary Dummy</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#sub-setting-data"><i class="fa fa-check"></i>Sub-Setting Data</a>
+<ul>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#by-variable"><i class="fa fa-check"></i>By Variable</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#by-observation"><i class="fa fa-check"></i>By Observation</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#keep-if-a-variable-has-a-certain-value-e.g.-pop18-larger-than-10000000"><i class="fa fa-check"></i>Keep if a variable has a certain value, e.g. ‘pop18’ larger than 10,000,000</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#ordering-data"><i class="fa fa-check"></i>Ordering Data</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#grouping-data"><i class="fa fa-check"></i>Grouping Data</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#combining-ordering-and-grouping-data"><i class="fa fa-check"></i>Combining Ordering and Grouping Data</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#saving"><i class="fa fa-check"></i>Saving</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#homework"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
 <li class="part"><span><b>Week 6</b></span></li>
 <li class="chapter" data-level="" data-path="reading-week.html"><a href="reading-week.html"><i class="fa fa-check"></i>Reading Week</a></li>
@@ -154,24 +265,54 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="z-scores.html"><a href="z-scores.html"><i class="fa fa-check"></i>z-Scores</a>
 <ul>
 <li class="chapter" data-level="" data-path="z-scores.html"><a href="z-scores.html#self-assessment-questions-3"><i class="fa fa-check"></i>Self-Assessment Questions</a></li>
-<li class="chapter" data-level="" data-path="z-scores.html"><a href="z-scores.html#solutions"><i class="fa fa-check"></i>Solutions</a></li>
+<li class="chapter" data-level="" data-path="z-scores.html"><a href="z-scores.html#how-to-read-a-z-table"><i class="fa fa-check"></i>How to read a z-table</a></li>
+<li class="chapter" data-level="" data-path="z-scores.html"><a href="z-scores.html#calculations-1"><i class="fa fa-check"></i>Calculations</a></li>
+<li class="chapter" data-level="" data-path="z-scores.html"><a href="z-scores.html#solutions-1"><i class="fa fa-check"></i>Solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html"><i class="fa fa-check"></i>Working with R</a>
+<ul>
+<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#preliminary-stuff"><i class="fa fa-check"></i>Preliminary Stuff</a></li>
+<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#descriptive-statistics"><i class="fa fa-check"></i>Descriptive Statistics</a></li>
+<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#graphs"><i class="fa fa-check"></i>Graphs</a></li>
+<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#basic-graphs"><i class="fa fa-check"></i>Basic Graphs</a></li>
+<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#advanced-graphs"><i class="fa fa-check"></i>Advanced Graphs</a></li>
+<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#even-more-advanced-graphs"><i class="fa fa-check"></i>Even More Advanced Graphs</a></li>
+<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#organising-code-in-the-rscript"><i class="fa fa-check"></i>Organising Code in the RScript</a></li>
+<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#exercises"><i class="fa fa-check"></i>Exercises</a></li>
+<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#captions-for-tables-and-figures-in-word"><i class="fa fa-check"></i>Captions for Tables and Figures in Word</a></li>
+<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#homework-1"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
 <li class="part"><span><b>Week 8</b></span></li>
-<li class="chapter" data-level="" data-path="t-distribution.html"><a href="t-distribution.html"><i class="fa fa-check"></i>t-Distribution</a>
+<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html"><i class="fa fa-check"></i>Confidence Intervals</a>
 <ul>
-<li class="chapter" data-level="" data-path="t-distribution.html"><a href="t-distribution.html#self-assessment-questions-4"><i class="fa fa-check"></i>Self-Assessment Questions</a></li>
+<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html#self-assessment-questions-4"><i class="fa fa-check"></i>Self-Assessment Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="calculating-confidence-intervals.html"><a href="calculating-confidence-intervals.html"><i class="fa fa-check"></i>Calculating Confidence Intervals</a>
+<ul>
+<li class="chapter" data-level="" data-path="calculating-confidence-intervals.html"><a href="calculating-confidence-intervals.html#we-know-sigma"><i class="fa fa-check"></i>1. We know <span class="math inline">\(\sigma\)</span></a></li>
+<li class="chapter" data-level="" data-path="calculating-confidence-intervals.html"><a href="calculating-confidence-intervals.html#we-dont-know-sigma"><i class="fa fa-check"></i>2. We don’t know <span class="math inline">\(\sigma\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html"><i class="fa fa-check"></i>Exercises</a>
+<ul>
+<li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html#conceptual-exercises"><i class="fa fa-check"></i>Conceptual Exercises</a></li>
+<li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html#r-exercises"><i class="fa fa-check"></i>R Exercises</a>
+<ul>
+<li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html#introduction-1"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html#exercises-2"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html#solutions-2"><i class="fa fa-check"></i>Solutions</a></li>
 </ul></li>
 <li class="part"><span><b>Week 9</b></span></li>
 <li class="chapter" data-level="" data-path="significance-testing.html"><a href="significance-testing.html"><i class="fa fa-check"></i>Significance Testing</a>
 <ul>
 <li class="chapter" data-level="" data-path="significance-testing.html"><a href="significance-testing.html#group-work-self-reflection"><i class="fa fa-check"></i>Group Work – Self-Reflection</a></li>
-<li class="chapter" data-level="" data-path="significance-testing.html"><a href="significance-testing.html#solutions-1"><i class="fa fa-check"></i>Solutions</a></li>
+<li class="chapter" data-level="" data-path="significance-testing.html"><a href="significance-testing.html#solutions-3"><i class="fa fa-check"></i>Solutions</a></li>
 </ul></li>
 <li class="part"><span><b>Week 10</b></span></li>
 <li class="chapter" data-level="" data-path="introduction-to-causality.html"><a href="introduction-to-causality.html"><i class="fa fa-check"></i>Introduction to Causality</a>
 <ul>
 <li class="chapter" data-level="" data-path="introduction-to-causality.html"><a href="introduction-to-causality.html#self-assessment-questions-5"><i class="fa fa-check"></i>Self-Assessment Questions</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-causality.html"><a href="introduction-to-causality.html#solutions-2"><i class="fa fa-check"></i>Solutions</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-causality.html"><a href="introduction-to-causality.html#solutions-4"><i class="fa fa-check"></i>Solutions</a></li>
 </ul></li>
 <li class="part"><span><b>Downloads</b></span></li>
 <li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html"><i class="fa fa-check"></i>Downloads</a>
@@ -181,7 +322,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html#r-scripts"><i class="fa fa-check"></i>R Scripts</a></li>
 </ul></li>
 <li class="part"><span><b>List of References</b></span></li>
-<li class="chapter" data-level="" data-path="list-of-references.html"><a href="list-of-references.html"><i class="fa fa-check"></i>List of References</a></li>
+<li class="chapter" data-level="" data-path="list-of-references-1.html"><a href="list-of-references-1.html"><i class="fa fa-check"></i>List of References</a></li>
 </ul>
 
       </nav>
@@ -202,27 +343,82 @@ div.csl-indent {
 <div id="z-scores" class="section level1 unnumbered hasAnchor">
 <h1>z-Scores<a href="z-scores.html#z-scores" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="self-assessment-questions-3" class="section level2 unnumbered hasAnchor">
-<h2>Self-Assessment Questions<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a><a href="z-scores.html#self-assessment-questions-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2>Self-Assessment Questions<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a><a href="z-scores.html#self-assessment-questions-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
-<li></li>
+<li>How do the probability distributions of a discrete and a continuous variable differ?</li>
+<li>What is a sample distribution?</li>
+<li>How does the sample distribution differ from the sampling distribution?</li>
+<li>Why do we need the sampling distribution?</li>
+<li>What is the difference between the standard deviation and the standard error?</li>
 </ol>
 <div class="stop">
 <p>Please stop here and don’t go beyond this point until we have compared notes on your answers.</p>
 </div>
+<hr />
 </div>
-<div id="solutions" class="section level2 unnumbered hasAnchor">
-<h2>Solutions<a href="z-scores.html#solutions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="how-to-read-a-z-table" class="section level2 unnumbered hasAnchor">
+<h2>How to read a z-table<a href="z-scores.html#how-to-read-a-z-table" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In the lecture you have learned about the Normal Distribution. Under the Normal Distribution, the area under the curve is determined by the number of standard deviations around our mean <span class="math inline">\(\mu\)</span>. This number is expressed in the form of the z-score which is defined as:</p>
+<p><span class="math display">\[\begin{equation}
+z=\frac{\text{Observation} - \text{Mean}}{\text{Standard Deviation}}=\frac{y-\mu}{\sigma}
+\end{equation}\]</span></p>
+<p>To put this in words, z takes the difference between a particular value we are interested in and the mean. It then divides this distance by the standard deviation, in order to express the distance in units of standard deviations. Why do we do this? We know that under the Normal Distribution the area of the interval <em>mean</em> <span class="math inline">\(\pm\)</span> <em>one standard deviation</em> is equal to 68%. This is equivalent to the blue area in Figure <a href="z-scores.html#fig:area68">5</a>. This also means that the remaining white area is equal to 32%, or the white section on each side 16%.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:area68"></span>
+<img src="main_files/figure-html/area68-1.png" alt="\label{fig:area68}Area under the Normal Distribution" width="55%" />
+<p class="caption">
+Figure 5: Area under the Normal Distribution
+</p>
+</div>
+<p>Imagine now, we took the point of minus one standard deviation as a starting point, and turn right, as in Figure <a href="z-scores.html#fig:area84">6</a>. The white area is still 16%, so that the blue area needs to be 84%.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:area84"></span>
+<img src="main_files/figure-html/area84-1.png" alt="\label{fig:area84}Right-Tail Probability" width="55%" />
+<p class="caption">
+Figure 6: Right-Tail Probability
+</p>
+</div>
+<p>So the probability of finding a value larger than what is equivalent to minus one standard deviation is 84%. We call this a right-tail probability. The beauty is that we can do this for any point on the x-axis. Once we know how many standard deviations a value is removed from the mean, we can use the right-tail probability to assess how likely a value higher (or lower) than this value is to occur.</p>
+<p>The number of standard deviations is the z-score. Every z-score has a right-tail probability associated with it. These probabilities are listed in the Normal Table (see Moodle). How do we read this Table? Let me take you through the example used in the lecture once more. We assumed that the voter turnout rates of the 2019 European Elections for 28 countries was normally distributed, with <span class="math inline">\(\mu=50.66\)</span> and <span class="math inline">\(\sigma=16.56\)</span>. You can see this distribution visualised in Figure <a href="z-scores.html#fig:normalmean">7</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:normalmean"></span>
+<img src="main_files/figure-html/normalmean-1.png" alt="\label{fig:normalmean}Voter Turnout in the 2017 European Elections (n=28)" width="55%" />
+<p class="caption">
+Figure 7: Voter Turnout in the 2017 European Elections (n=28)
+</p>
+</div>
+<p>The question then was how likely it was for the EU to achieve a voter turnout larger than the voter turnout in the last General Election in the UK (68.8). If we wanted to visualise this, we would need the area to the right of 68.8 on the x-axis. This would look like this:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:first"></span>
+<img src="main_files/figure-html/first-1.png" alt="\label{fig:first}Probability of Voter Turnout &gt; 68.8" width="55%" />
+<p class="caption">
+Figure 8: Probability of Voter Turnout &gt; 68.8
+</p>
+</div>
+<p>In order to calculate the size of this area, we first took the difference between 68.8 and 50.66 which is 18.14. We then divided 18.14 by the standard deviation of 16.56, to express the distance in units of the standard deviation. The result is 1.095411. We know, therefore, that the point of 68.8 percent voter turnout on the x-axis is located 1.095411 standard deviations to the right of the mean.</p>
+<p>We now need to find the right-tail probability that belongs to this value. In the left-most column of the Normal Table you find the z-values with the first decimal place. Move down to 1.1. From here you turn right, until you hit the second decimal place. As our value is 1.10 you will only have to go one column to the right. If the value was 1.11, you would have to go two columns to the right. For a z-score of 1.1 the area is 0.1357, or 13.57%. We can therefore say that with a voter turnout of 50.66 and a standard deviation of 16.56, the probability of achieving a voter turnout higher than 68.6 is 13.57%.</p>
+<p>Before moving on, I need to note that z can be negative. If we were assessing the probability of achieving a voter turnout of less than 32.52% (50.66-18.14), we would get a z-score of -1.1. Because the Normal Distribution is symmetrical, we can use the same process, but need to reverse the logic. Because the right tail probability gives us the area to the right of the z-score, a negative z-score would give us the area to the left of the z-score. So the probability of a voter turnout smaller than 32.52 is also 13.57%.</p>
+<p>With this knowledge at hand, let’s do some calculations.</p>
+<hr />
+</div>
+<div id="calculations-1" class="section level2 unnumbered hasAnchor">
+<h2>Calculations<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a><a href="z-scores.html#calculations-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>The mean weight of a bag of apples is 1 kg. The weight of bags is normally distributed around this mean with a standard deviation of 50g.
+<ol style="list-style-type: lower-alpha">
+<li>Billy is looking for the heaviest bag possible and finds one that is 1082 g. What is the probability of finding a heavier bag?</li>
+<li>What is the probability that Billy will find a bag lighter than 870g?</li>
+<li>How would the results of a. and b. change if the standard deviation was only 40g? Why?</li>
+</ol></li>
+</ol>
+<hr />
+</div>
+<div id="solutions-1" class="section level2 unnumbered hasAnchor">
+<h2>Solutions<a href="z-scores.html#solutions-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>You can find the Solutions in the <a href="https://drfloreiche.github.io/PO11Q/downloads.html">Downloads Section</a>.</p>
-
 </div>
 </div>
-
-
-
 <div class="footnotes">
 <hr />
-<ol start="4">
-<li id="fn4"><p>Some of the content of this worksheet is taken from <span class="citation">Reiche (forthcoming)</span>.<a href="z-scores.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<ol start="7">
+<li id="fn7"><p>Some of the content of this worksheet is taken from <span class="citation">Reiche (forthcoming)</span>.<a href="z-scores.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>These are taken from <span class="citation">Reiche (forthcoming)</span>.<a href="z-scores.html#fnref8" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -231,7 +427,7 @@ div.csl-indent {
         </div>
       </div>
 <a href="reading-week.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="t-distribution.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="working-with-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -287,6 +483,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
