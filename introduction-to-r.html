@@ -50,6 +50,10 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
 
 <style type="text/css">
@@ -385,6 +389,13 @@ Figure 1: RStudio
 </div>
 <p>It has – for now – three components to it. On the left hand-side you see the so-called <code>Console</code> into which you can enter the commands, and in which also most of the results will be displayed. On the right hands side, you see the <code>Workspace</code> which consists of an upper and a lower window. The upper window has three tabs in it. The tab <code>Environment</code> will provide you with a list of all the data sets you have loaded into R, and also of the objects and values you create (more on that later). Under the <code>History</code> tab, you find a history (I know, who would have thought it) of all the commands you have used. This can be very useful to retrace your steps. In the <code>Connections</code> tab you can connect to online sources. We will not use this tab.</p>
 <p>In the lower window, you have five tabs. Under <code>Files</code> you find the file structure of your computer. Once you have set a working directory (more on that in a moment), you can also view the files in your working directory here which gives you a good overview of the files you need to refer to for a particular project. The <code>Plots</code> tab will display the graphs we will be producing. <code>Packages</code> form the heart and soul of R and they make the program as powerful as it is (again, more on that later). RStudio also has a <code>Help</code> function, which is rarely very illuminating. I usually search for stuff online on “stackexchange”, as there is a large community of R users out there who share their knowledge and solutions to problems. We won’t use the last tab <code>Viewer</code>.</p>
+<div class="video">
+<p><strong>Introduction to R Studio</strong></p>
+<p>If you can’t get enough of my delightful German accent, then I have some videos for you in which I go through the respective components of the worksheet on screen. Here is the first:
+<iframe style="border: none;"
+          src="https://web.microsoftstream.com/embed/video/3b27e1dd-9f76-4fdc-84dc-229e11e1e2d5?autoplay=false&amp;showinfo=true"
+          width="640" height="360" allowfullscreen="allowfullscreen"></iframe></p>
+</div>
 <hr />
 </div>
 <div id="rscript" class="section level2 unnumbered hasAnchor">
@@ -408,11 +419,21 @@ Figure 3: Example of an RScript
 </p>
 </div>
 <p>If you precede a line with #, you can write annotations to yourself, for example explaining what you do with a particular command. More on this in the next sub-section.</p>
+<div class="video">
+<p><strong>Appearance</strong></p>
+<iframe style="border: none;" src="https://web.microsoftstream.com/embed/video/813f6949-bbf1-4089-89e9-a1437c287dc9?autoplay=false&amp;showinfo=true" width="640" height="360" allowfullscreen="allowfullscreen">
+</iframe>
+</div>
 <div id="rscript-structure" class="section level3 unnumbered hasAnchor">
 <h3>RScript Structure<a href="introduction-to-r.html#rscript-structure" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Well, I am German, and I like things neat and tidy, so I feel almost compelled to discuss how to properly organise an RScript. But apart from genetical dispositions, a well-organised RScript is also very much in the spirit of reproducibility. It simply makes sense to structure an RScript in such a way that another researcher is able to easily read and understand it.</p>
 <p>First of all, which commands to include? If you introduce me to your current girlfriend or boyfriend, I have no interest in learning about all your past relationships; they have not worked out. In a similar fashion, nobody wants to read through lines of code that are irrelvant. So you will only include in the RScript those commands which produce the output you actually include in the essay or article.</p>
 <p>I stated above that if you precede a line with #, you can write annotations to yourself. This is also a useful way to structure an RScript, for example into exercise numbers, sections of an essay /article, or different stages of data preparation (which we will be doing in due course).</p>
+<div class="video">
+<p><strong>RScript Structure</strong></p>
+<iframe style="border: none;" src="https://web.microsoftstream.com/embed/video/c0e83744-3580-452e-b886-2b44b6019b0f?autoplay=false&amp;showinfo=true" width="640" height="360" allowfullscreen="allowfullscreen">
+</iframe>
+</div>
 <hr />
 </div>
 </div>
@@ -432,6 +453,9 @@ Figure 3: Example of an RScript
 <p>If we now call the object, R will return its value, 8.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="introduction-to-r.html#cb4-1" tabindex="-1"></a>result</span>
 <span id="cb4-2"><a href="introduction-to-r.html#cb4-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">8</span></span></code></pre></div>
+<div class="bulb">
+<p>Make a habit of adding a note underneath each code chunk in your RScript (preceded with a <span style="color:black"><code>#</code></span>) in which you translate the code into plain English. This is especially useful for the lengthy complex chunks.</p>
+</div>
 <hr />
 </div>
 <div id="the-working-directory" class="section level2 unnumbered hasAnchor">
@@ -452,6 +476,11 @@ Figure 4: Folder Structure
 <p>Now we need to tell R to use this folder. If you know the file structure of your computer you can simply use the <code>setwd()</code> command, and enter the path. Here is an example from my computer:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="introduction-to-r.html#cb5-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Warwick/Modules/PO11Q/Seminars/Week 5/R Week 5&quot;</span>)</span></code></pre></div>
 <p>If you don’t know the file structure of your computer, then you can click Session <span class="math inline">\(\rightarrow\)</span> Set Working Directory <span class="math inline">\(\rightarrow\)</span> Choose Directory.</p>
+<div class="video">
+<p><strong>Working Directory</strong></p>
+<iframe style="border: none;" src="https://web.microsoftstream.com/embed/video/d68e2af3-0c74-4453-b908-b4c4ffe51892?autoplay=false&amp;showinfo=true" width="640" height="360" allowfullscreen="allowfullscreen">
+</iframe>
+</div>
 <hr />
 </div>
 <div id="r-packages" class="section level2 unnumbered hasAnchor">
@@ -469,10 +498,15 @@ Figure 4: Folder Structure
 <h2>Opening your Data Set<a href="introduction-to-r.html#opening-your-data-set" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We are now ready to open a data set in R - where it is called a “data frame”. For this, we create a new object <code>EU</code>, and ask R to read “Sheet 1”” of the Excel file <a href="files/Week%201/EU.xlsx">EU.xlsx</a>. Data are taken from <span class="citation">European Comission (n.d.)</span>.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="introduction-to-r.html#cb8-1" tabindex="-1"></a>EU <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;EU.xlsx&quot;</span>, <span class="at">sheet=</span><span class="st">&quot;Sheet1&quot;</span>)</span></code></pre></div>
+<p>We can now use our data in R!</p>
+<div class="video">
+<p><strong>Loading the Data Set</strong></p>
+<iframe style="border: none;" src="https://web.microsoftstream.com/embed/video/86ee6183-590e-4664-ad57-4269cf983f48?autoplay=false&amp;showinfo=true" width="640" height="360" allowfullscreen="allowfullscreen">
+</iframe>
+</div>
 <div class="warning">
 <p>Please do not use the “Import Dataset” button in the Environment, but do this properly, manually. We sometimes need to set options for importing data sets, and the “pointy, clicky” approach won’t be able to offer you what you need.</p>
 </div>
-<p>We can now use our data in R!</p>
 <hr />
 </div>
 <div id="viewing-the-data" class="section level2 unnumbered hasAnchor">
@@ -545,8 +579,15 @@ Figure 4: Folder Structure
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="introduction-to-r.html#cb17-1" tabindex="-1"></a><span class="fu">levels</span>(EU1<span class="sc">$</span>wave)</span>
 <span id="cb17-2"><a href="introduction-to-r.html#cb17-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;Founding&quot;</span>      <span class="st">&quot;First&quot;</span>         <span class="st">&quot;Mediterranean&quot;</span> <span class="st">&quot;Cold War&quot;</span>      <span class="st">&quot;Eastern&quot;</span>      </span>
 <span id="cb17-3"><a href="introduction-to-r.html#cb17-3" tabindex="-1"></a>[<span class="dv">6</span>] <span class="st">&quot;Balkans&quot;</span>      </span></code></pre></div>
-<div class="bulb">
-<p>Make a habit of adding a note underneath each of the more complex code chunks in your RScript (preceded with a <span style="color:black"><code>#</code></span>) in which you translate the code into plain English.</p>
+<div class="video">
+<p><strong>Recoding a Factor Variable</strong></p>
+<iframe style="border: none;" src="https://web.microsoftstream.com/embed/video/23beb1c2-1d75-4ffa-93dc-241c173cb3a6?autoplay=false&amp;showinfo=true" width="640" height="360" allowfullscreen="allowfullscreen">
+</iframe>
+</div>
+<div class="video">
+<p><strong>Recoding Ordered Factor Variables</strong></p>
+<iframe style="border: none;" src="https://web.microsoftstream.com/embed/video/7d29d5e1-272a-4f95-a45c-1d113ab3260e?autoplay=false&amp;showinfo=true" width="640" height="360" allowfullscreen="allowfullscreen">
+</iframe>
 </div>
 </div>
 <div id="binary-dummy" class="section level3 unnumbered hasAnchor">
@@ -592,6 +633,11 @@ Figure 4: Folder Structure
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="introduction-to-r.html#cb24-1" tabindex="-1"></a>EU_pop_large <span class="ot">&lt;-</span> <span class="fu">filter</span>(EU2, pop18 <span class="sc">&gt;</span> <span class="dv">10000000</span>)</span></code></pre></div>
 <p>Here is a list of some operators you can use for this purpose:</p>
 <p><img src="main_files/figure-html/unnamed-chunk-34-1.png" width="455" /></p>
+<div class="video">
+<p><strong>Subsetting Data</strong></p>
+<iframe style="border: none;" src="https://web.microsoftstream.com/embed/video/9a32e5c4-223d-44dd-8ce5-28eeff96ec9c?autoplay=false&amp;showinfo=true" width="640" height="360" allowfullscreen="allowfullscreen">
+</iframe>
+</div>
 <hr />
 </div>
 </div>

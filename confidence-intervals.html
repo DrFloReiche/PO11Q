@@ -50,6 +50,10 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
 
 <style type="text/css">
@@ -395,8 +399,8 @@ Figure 9: 95 Percent Confidence Interval around the Mean
 <div id="we-dont-know-sigma" class="section level3 unnumbered hasAnchor">
 <h3>2. We don’t know <span class="math inline">\(\sigma\)</span><a href="confidence-intervals.html#we-dont-know-sigma" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>If we don’t know the population distribution and its standard deviation, we need to use the t-distribution. As you know from the lecture, the t-distribution is a shape shifter. Its width depends on the degrees of freedom: the more degrees of freedom we have, the more narrow, or the closer to the normal distribution it comes. With df=30 the shapes of the t-distribution and the normal distribution are almost identical. You can see this in the following Figure, comparing the yellow t-distribution for <span class="math inline">\(df=30\)</span> and the black (normal) distribution.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-76"></span>
-<img src="main_files/figure-html/unnamed-chunk-76-1.png" alt="\label{fig:tdistribution}Comparison of t-Distributions" width="55%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-75"></span>
+<img src="main_files/figure-html/unnamed-chunk-75-1.png" alt="\label{fig:tdistribution}Comparison of t-Distributions" width="55%" />
 <p class="caption">
 Figure 10: Comparison of t-Distributions
 </p>
@@ -465,9 +469,9 @@ se=\frac{2}{\sqrt{4}}=1
 <blockquote>
 <p>An influential conventional wisdom holds that civil wars proliferated rapidly with the end of the Cold War and that the root cause of many or most of these has been ethnic and religious antagonisms. We show that the current prevalence of internal war is mainly the result of a steady accumulation of protracted conflicts since the 1950s and 1960s rather than a sudden change associated with a new, post-Cold War international system. We also find that after controlling for per capita income, more ethnically or religiously diverse countries have been no more likely to experience significant civil violence in this period. We argue for understanding civil war in this period in terms of insurgency or rural guerrilla warfare, a particular form of military practice that can be harnessed to diverse political agendas. The factors that explain which countries have been at risk for civil war are not their ethnic or religious characteristics but rather the conditions that favor insurgency. These include poverty – which marks financially and bureaucratically weak states and also favors rebel recruitment – political instability, rough terrain, and large populations.</p>
 </blockquote>
-<p>The <code>fearon</code> dataset contains several variables for each country in 1994, whilst the <code>fearonfull</code> data set contains data for all years from 1945 to 1999. Not all of the operations in the exercises were covered by the material in the lectures / seminars on PO11Q. Some of these rely on the reading, and for some you need to google for help on stackoverflow. You can find a full codebook in Table <a href="confidence-intervals.html#tab:fearoncode">2</a>.</p>
+<p>The <code>fearon</code> dataset contains several variables for each country in 1994, whilst the <code>fearonfull</code> data set contains data for all years from 1945 to 1999. Not all of the operations in the exercises were covered by the material in the lectures / seminars on PO11Q. Some of these rely on the reading, and for some you need to google for help on stackoverflow. You can find a full codebook in Table <a href="confidence-intervals.html#tab:fearoncode">3</a>.</p>
 <table>
-<caption><span id="tab:fearoncode">Table 2: </span>Codebook to Fearon Data Sets</caption>
+<caption><span id="tab:fearoncode">Table 3: </span>Codebook to Fearon Data Sets</caption>
 <colgroup>
 <col width="9%" />
 <col width="90%" />
