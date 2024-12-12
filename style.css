@@ -36,22 +36,34 @@
 
 
 /*____Code Chunk Colour____*/
+
 pre {
-    background-color: #edf2f7 !important;
+    border: 1px solid #cccccc !important;
+    border-color: #cccccc ;
+    page-break-inside: avoid;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1em 1.5em;
+    display: block;
+    word-wrap: break-word;
 }
 
-.sourceCode { color: #2A415F !important; } /* NormalTok*/
-.sourceCode .kw { color: #2A415F !important; } /* KeyWordTok*/
-.sourceCode .dt { color: #2A415F!important; } /* Data Type Tok*/
-.sourceCode .dv, .sourceCode .bn, .sourceCode .fl { color: #2A415F !important; } /*DecValTok = dv, BaseNTok = bn, FloatTok = fl */
-.sourceCode .ch { color: #2A415F !important; } /*. CharTok*/
-.sourceCode .st { color: #2A415F !important; } /*.StringTok */
-.sourceCode .co { color: #2A415F !important; } /*.CommontTok */
-.sourceCode .ot { color: #2A415F!important; } /*.OtherTok */
+
+.sourceCode { color: #5c7ba3 !important; } /* NormalTok*/
+.sourceCode .kw { color: #5c7ba3 !important; } /* KeyWordTok*/
+.sourceCode .dt { color: #5c7ba3!important; } /* Data Type Tok*/
+.sourceCode .dv, .sourceCode .bn, .sourceCode .fl { color: #5c7ba3 !important; } /*DecValTok = dv, BaseNTok = bn, FloatTok = fl */
+.sourceCode .ch { color: #5c7ba3 !important; } /*. CharTok*/
+.sourceCode .st { color: #5c7ba3 !important; } /*.StringTok */
+.sourceCode .co { color: #5c7ba3 !important; } /*.CommontTok */
+.sourceCode .ot { color: #5c7ba3!important; } /*.OtherTok */
 .sourceCode .al { color: #BE531C !important; font-weight: bold; } /*.AlertTok */
-.sourceCode .fu { color: #2A415F!important; } /*.FunctionTok  */
-.sourceCode .re { color: #2A415F!important; } /*.RegionMarkerTok */
-.sourceCode .er { color: #2A415F !important; font-weight: bold; } /*.ErrorTok */
+.sourceCode .fu { color: #5c7ba3!important; } /*.FunctionTok  */
+.sourceCode .re { color: #5c7ba3!important; } /*.RegionMarkerTok */
+.sourceCode .er { color: #5c7ba3 !important; font-weight: bold; } /*.ErrorTok */
 
 
 
@@ -202,5 +214,3 @@ img {
     border: solid 5px #DBE0E6;
     background-image: url("files/reel.png") !important;
   }
-
-
