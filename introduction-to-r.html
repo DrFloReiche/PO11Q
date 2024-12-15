@@ -676,15 +676,16 @@ Base R Solution
 <span id="cb24-8"><a href="introduction-to-r.html#cb24-8" tabindex="-1"></a>                       <span class="st">&#39;2007&#39;</span> <span class="ot">=</span> <span class="st">&quot;No&quot;</span>,</span>
 <span id="cb24-9"><a href="introduction-to-r.html#cb24-9" tabindex="-1"></a>                       <span class="st">&#39;2013&#39;</span> <span class="ot">=</span> <span class="st">&quot;No&quot;</span>))</span>
 <span id="cb24-10"><a href="introduction-to-r.html#cb24-10" tabindex="-1"></a></span>
-<span id="cb24-11"><a href="introduction-to-r.html#cb24-11" tabindex="-1"></a><span class="co"># OR, much easier</span></span>
-<span id="cb24-12"><a href="introduction-to-r.html#cb24-12" tabindex="-1"></a>EU <span class="ot">&lt;-</span> EU <span class="sc">%&gt;%</span> </span>
-<span id="cb24-13"><a href="introduction-to-r.html#cb24-13" tabindex="-1"></a>   <span class="fu">mutate</span>(<span class="at">founding =</span> <span class="fu">factor</span>(<span class="fu">ifelse</span>(access_fac<span class="sc">==</span><span class="st">&quot;1951&quot;</span>, <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>), </span>
-<span id="cb24-14"><a href="introduction-to-r.html#cb24-14" tabindex="-1"></a>                              <span class="at">levels =</span><span class="fu">c</span>(<span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>)))</span>
-<span id="cb24-15"><a href="introduction-to-r.html#cb24-15" tabindex="-1"></a></span>
-<span id="cb24-16"><a href="introduction-to-r.html#cb24-16" tabindex="-1"></a><span class="co"># the result is the same</span></span>
-<span id="cb24-17"><a href="introduction-to-r.html#cb24-17" tabindex="-1"></a></span>
-<span id="cb24-18"><a href="introduction-to-r.html#cb24-18" tabindex="-1"></a><span class="fu">str</span>(EU<span class="sc">$</span>founding)</span>
-<span id="cb24-19"><a href="introduction-to-r.html#cb24-19" tabindex="-1"></a> Factor w<span class="sc">/</span> <span class="dv">2</span> levels <span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;No&quot;</span><span class="sc">:</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">1</span> ...</span></code></pre></div>
+<span id="cb24-11"><a href="introduction-to-r.html#cb24-11" tabindex="-1"></a><span class="co"># OR, much shorter</span></span>
+<span id="cb24-12"><a href="introduction-to-r.html#cb24-12" tabindex="-1"></a></span>
+<span id="cb24-13"><a href="introduction-to-r.html#cb24-13" tabindex="-1"></a>EU <span class="ot">&lt;-</span> EU <span class="sc">%&gt;%</span> </span>
+<span id="cb24-14"><a href="introduction-to-r.html#cb24-14" tabindex="-1"></a>   <span class="fu">mutate</span>(<span class="at">founding =</span> <span class="fu">factor</span>(<span class="fu">ifelse</span>(access_fac<span class="sc">==</span><span class="st">&quot;1951&quot;</span>, <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>), </span>
+<span id="cb24-15"><a href="introduction-to-r.html#cb24-15" tabindex="-1"></a>                              <span class="at">levels =</span><span class="fu">c</span>(<span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>)))</span>
+<span id="cb24-16"><a href="introduction-to-r.html#cb24-16" tabindex="-1"></a></span>
+<span id="cb24-17"><a href="introduction-to-r.html#cb24-17" tabindex="-1"></a><span class="co"># the result is the same</span></span>
+<span id="cb24-18"><a href="introduction-to-r.html#cb24-18" tabindex="-1"></a></span>
+<span id="cb24-19"><a href="introduction-to-r.html#cb24-19" tabindex="-1"></a><span class="fu">str</span>(EU<span class="sc">$</span>founding)</span>
+<span id="cb24-20"><a href="introduction-to-r.html#cb24-20" tabindex="-1"></a> Factor w<span class="sc">/</span> <span class="dv">2</span> levels <span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;No&quot;</span><span class="sc">:</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">1</span> ...</span></code></pre></div>
 <div class="baser">
 <details>
 <summary>
@@ -697,6 +698,7 @@ Base R Solution
 </div>
 <p>
 </p>
+<p>The <code>ifelse</code> function is very handy, and is therefore worth explaining in a little more detail. It reads as <code>ifelse('condition', 'if condition met, then', 'otherwise')</code>. So, the above code reads as “if the value of the variable <code>access_fac</code> is equal to 1951, then code the observation as ‘Yes’, otherwise as ‘No’”.</p>
 <hr />
 </div>
 </div>
