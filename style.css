@@ -214,3 +214,46 @@ img {
     border: solid 5px #DBE0E6;
     background-image: url("files/reel.png") !important;
   }
+
+
+
+.bluebox {
+  padding: 1em;
+  background: #1f3047;
+  color: white;
+  border: 3px solid #1f3047;
+  border-radius: 12px;
+}
+
+.baser {
+  padding: 1em;
+  background: #BCC1C8;
+  color: #4C596C;
+  border: 3px solid #BCC1C8;
+  border-radius: 12px;
+}
+
+@font-face {
+  font-family: "Computer Modern";
+  src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunss.otf');
+}
+
+@font-face {
+  font-family: "Computer Modern";
+  src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunsx.otf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Computer Modern";
+  src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunsi.otf');
+  font-style: italic, oblique;
+}
+
+@font-face {
+  font-family: "Computer Modern";
+  src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunbxo.otf');
+  font-weight: bold;
+  font-style: italic, oblique;
+}
+

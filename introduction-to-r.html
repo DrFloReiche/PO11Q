@@ -588,6 +588,28 @@ Figure 4: Folder Structure
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="introduction-to-r.html#cb19-1" tabindex="-1"></a><span class="fu">levels</span>(EU1<span class="sc">$</span>wave)</span>
 <span id="cb19-2"><a href="introduction-to-r.html#cb19-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;Founding&quot;</span>      <span class="st">&quot;First&quot;</span>         <span class="st">&quot;Mediterranean&quot;</span> <span class="st">&quot;Cold War&quot;</span>      <span class="st">&quot;Eastern&quot;</span>      </span>
 <span id="cb19-3"><a href="introduction-to-r.html#cb19-3" tabindex="-1"></a>[<span class="dv">6</span>] <span class="st">&quot;Balkans&quot;</span>      </span></code></pre></div>
+<p>Please note that some colleagues in the department have decided to take a random dislike to the <code>tidyverse</code> as <strong>one</strong> of currently 21,810 packages<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> and might therefore require you to use base R in their modules. I am still using the <code>tidyverse</code> however, as:</p>
+<ul>
+<li>I think it is nonsense to exclude one package in particular</li>
+<li>my textbook, which is going to be the main textbook for this module once it is published, uses the <code>tidyverse</code></li>
+<li><code>GGPLOT2</code> which is part of the <code>tidyverse</code> simplifies code for generating figures significantly and will do for all but the most specific requirements</li>
+<li>and a lot of support on <a href="https://stackexchange.com/">stackexchange</a> is geared toward the <code>tidyverse</code> as a lot of US-based data scientists work with this package, and so you will find it easier to solve problems</li>
+</ul>
+<p>But to keep everybody happy, I am providing the base R code whenever possible in a collapsible section like this one:</p>
+<div class="baser">
+<details>
+<summary>
+Base R Solution
+</summary>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="introduction-to-r.html#cb20-1" tabindex="-1"></a>EU<span class="sc">$</span>wave <span class="ot">&lt;-</span> <span class="fu">cut</span>(EU<span class="sc">$</span>access, </span>
+<span id="cb20-2"><a href="introduction-to-r.html#cb20-2" tabindex="-1"></a>                  <span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">1950</span>, <span class="dv">1951</span>, <span class="dv">1973</span>, <span class="dv">1986</span>, <span class="dv">1995</span>, <span class="dv">2007</span>, <span class="dv">2013</span>), </span>
+<span id="cb20-3"><a href="introduction-to-r.html#cb20-3" tabindex="-1"></a>                  <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Founding&quot;</span>,<span class="st">&quot;First&quot;</span>,</span>
+<span id="cb20-4"><a href="introduction-to-r.html#cb20-4" tabindex="-1"></a>                           <span class="st">&quot;Mediterranean&quot;</span>, </span>
+<span id="cb20-5"><a href="introduction-to-r.html#cb20-5" tabindex="-1"></a>                           <span class="st">&quot;Cold War&quot;</span>, </span>
+<span id="cb20-6"><a href="introduction-to-r.html#cb20-6" tabindex="-1"></a>                           <span class="st">&quot;Eastern&quot;</span>, </span>
+<span id="cb20-7"><a href="introduction-to-r.html#cb20-7" tabindex="-1"></a>                           <span class="st">&quot;Balkans&quot;</span>))</span></code></pre></div>
+</details>
+</div>
 <div class="video">
 <p><strong>Recoding a Factor Variable</strong></p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/9_5IeNL3VP8?si=xVrgNuWG0L9kDZNo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
@@ -602,18 +624,35 @@ Figure 4: Folder Structure
 <div id="binary-dummy" class="section level3 unnumbered hasAnchor">
 <h3>Binary Dummy<a href="introduction-to-r.html#binary-dummy" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Very often in political science we have yes/no scenarios, such as democracy yes or no, civil war, yes or no, etc. To analyse these scenarios, we can create so-called “dummy variables”. In the present example, let’s specify for each country whether it has been a founding member of the EU. It is a factor variable and so we do this exactly the same way as our initial recoding of the wave variable above:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="introduction-to-r.html#cb20-1" tabindex="-1"></a>EU2 <span class="ot">&lt;-</span> EU <span class="sc">%&gt;%</span></span>
-<span id="cb20-2"><a href="introduction-to-r.html#cb20-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">founding =</span> <span class="fu">recode</span>(access_fac, <span class="st">&#39;1951&#39;</span><span class="ot">=</span><span class="st">&quot;Yes&quot;</span>, </span>
-<span id="cb20-3"><a href="introduction-to-r.html#cb20-3" tabindex="-1"></a>                       <span class="st">&#39;1973&#39;</span> <span class="ot">=</span> <span class="st">&quot;No&quot;</span>,</span>
-<span id="cb20-4"><a href="introduction-to-r.html#cb20-4" tabindex="-1"></a>                       <span class="st">&#39;1981&#39;</span> <span class="ot">=</span> <span class="st">&quot;No&quot;</span>,</span>
-<span id="cb20-5"><a href="introduction-to-r.html#cb20-5" tabindex="-1"></a>                       <span class="st">&#39;1986&#39;</span> <span class="ot">=</span> <span class="st">&quot;No&quot;</span>,</span>
-<span id="cb20-6"><a href="introduction-to-r.html#cb20-6" tabindex="-1"></a>                       <span class="st">&#39;1995&#39;</span> <span class="ot">=</span> <span class="st">&quot;No&quot;</span>,</span>
-<span id="cb20-7"><a href="introduction-to-r.html#cb20-7" tabindex="-1"></a>                       <span class="st">&#39;2004&#39;</span> <span class="ot">=</span> <span class="st">&quot;No&quot;</span>,</span>
-<span id="cb20-8"><a href="introduction-to-r.html#cb20-8" tabindex="-1"></a>                       <span class="st">&#39;2007&#39;</span> <span class="ot">=</span> <span class="st">&quot;No&quot;</span>,</span>
-<span id="cb20-9"><a href="introduction-to-r.html#cb20-9" tabindex="-1"></a>                       <span class="st">&#39;2013&#39;</span> <span class="ot">=</span> <span class="st">&quot;No&quot;</span>))</span>
-<span id="cb20-10"><a href="introduction-to-r.html#cb20-10" tabindex="-1"></a></span>
-<span id="cb20-11"><a href="introduction-to-r.html#cb20-11" tabindex="-1"></a><span class="fu">str</span>(EU2<span class="sc">$</span>founding)</span>
-<span id="cb20-12"><a href="introduction-to-r.html#cb20-12" tabindex="-1"></a> Ord.factor w<span class="sc">/</span> <span class="dv">2</span> levels <span class="st">&quot;Yes&quot;</span><span class="sc">&lt;</span><span class="st">&quot;No&quot;</span><span class="sc">:</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">1</span> ...</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="introduction-to-r.html#cb21-1" tabindex="-1"></a>EU2 <span class="ot">&lt;-</span> EU <span class="sc">%&gt;%</span></span>
+<span id="cb21-2"><a href="introduction-to-r.html#cb21-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">founding =</span> <span class="fu">recode</span>(access_fac, <span class="st">&#39;1951&#39;</span><span class="ot">=</span><span class="st">&quot;Yes&quot;</span>, </span>
+<span id="cb21-3"><a href="introduction-to-r.html#cb21-3" tabindex="-1"></a>                       <span class="st">&#39;1973&#39;</span> <span class="ot">=</span> <span class="st">&quot;No&quot;</span>,</span>
+<span id="cb21-4"><a href="introduction-to-r.html#cb21-4" tabindex="-1"></a>                       <span class="st">&#39;1981&#39;</span> <span class="ot">=</span> <span class="st">&quot;No&quot;</span>,</span>
+<span id="cb21-5"><a href="introduction-to-r.html#cb21-5" tabindex="-1"></a>                       <span class="st">&#39;1986&#39;</span> <span class="ot">=</span> <span class="st">&quot;No&quot;</span>,</span>
+<span id="cb21-6"><a href="introduction-to-r.html#cb21-6" tabindex="-1"></a>                       <span class="st">&#39;1995&#39;</span> <span class="ot">=</span> <span class="st">&quot;No&quot;</span>,</span>
+<span id="cb21-7"><a href="introduction-to-r.html#cb21-7" tabindex="-1"></a>                       <span class="st">&#39;2004&#39;</span> <span class="ot">=</span> <span class="st">&quot;No&quot;</span>,</span>
+<span id="cb21-8"><a href="introduction-to-r.html#cb21-8" tabindex="-1"></a>                       <span class="st">&#39;2007&#39;</span> <span class="ot">=</span> <span class="st">&quot;No&quot;</span>,</span>
+<span id="cb21-9"><a href="introduction-to-r.html#cb21-9" tabindex="-1"></a>                       <span class="st">&#39;2013&#39;</span> <span class="ot">=</span> <span class="st">&quot;No&quot;</span>))</span>
+<span id="cb21-10"><a href="introduction-to-r.html#cb21-10" tabindex="-1"></a></span>
+<span id="cb21-11"><a href="introduction-to-r.html#cb21-11" tabindex="-1"></a><span class="co"># OR, much easier</span></span>
+<span id="cb21-12"><a href="introduction-to-r.html#cb21-12" tabindex="-1"></a>EU2 <span class="ot">&lt;-</span> EU <span class="sc">%&gt;%</span> </span>
+<span id="cb21-13"><a href="introduction-to-r.html#cb21-13" tabindex="-1"></a>   <span class="fu">mutate</span>(<span class="at">founding =</span> <span class="fu">factor</span>(<span class="fu">ifelse</span>(access_fac<span class="sc">==</span><span class="st">&quot;1951&quot;</span>, <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>), </span>
+<span id="cb21-14"><a href="introduction-to-r.html#cb21-14" tabindex="-1"></a>                              <span class="at">levels =</span><span class="fu">c</span>(<span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>)))</span>
+<span id="cb21-15"><a href="introduction-to-r.html#cb21-15" tabindex="-1"></a></span>
+<span id="cb21-16"><a href="introduction-to-r.html#cb21-16" tabindex="-1"></a><span class="co"># the resul tis the same</span></span>
+<span id="cb21-17"><a href="introduction-to-r.html#cb21-17" tabindex="-1"></a></span>
+<span id="cb21-18"><a href="introduction-to-r.html#cb21-18" tabindex="-1"></a><span class="fu">str</span>(EU2<span class="sc">$</span>founding)</span>
+<span id="cb21-19"><a href="introduction-to-r.html#cb21-19" tabindex="-1"></a> Factor w<span class="sc">/</span> <span class="dv">2</span> levels <span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;No&quot;</span><span class="sc">:</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">1</span> ...</span></code></pre></div>
+<div class="baser">
+<details>
+<summary>
+Base R Solution
+</summary>
+<p>Using <span style="color:black"><code>ifelse</code></span>, this is very similar, only the pipe disappears:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="introduction-to-r.html#cb22-1" tabindex="-1"></a>EU2<span class="sc">$</span>founding <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">ifelse</span>(EU<span class="sc">$</span>access_fac<span class="sc">==</span><span class="st">&quot;1951&quot;</span>, <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>), </span>
+<span id="cb22-2"><a href="introduction-to-r.html#cb22-2" tabindex="-1"></a>                              <span class="at">levels =</span><span class="fu">c</span>(<span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>))</span></code></pre></div>
+</details>
+</div>
 <hr />
 </div>
 </div>
@@ -623,23 +662,56 @@ Figure 4: Folder Structure
 <div id="by-variable" class="section level3 unnumbered hasAnchor">
 <h3>By Variable<a href="introduction-to-r.html#by-variable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>If you are sure you won’t need a variable (remember, there is no back button), you can simply drop (i.e. delete) it. Let’s do this with the <code>area</code> variable:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="introduction-to-r.html#cb21-1" tabindex="-1"></a>EU2<span class="sc">$</span>area <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="introduction-to-r.html#cb23-1" tabindex="-1"></a>EU2<span class="sc">$</span>area <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
 <p>If we are dropping multiple variables, we can either perform this operation each time, or use another command which allows us to operate with multiple variables at the same time. The <code>select()</code> command comes from the <code>tidyverse</code> package and specifies which variables we wish to keep:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="introduction-to-r.html#cb22-1" tabindex="-1"></a>EU_pop <span class="ot">&lt;-</span> <span class="fu">select</span>(EU2, country, pop18, access_fac, founding)</span></code></pre></div>
-<p>We can, however, use the same command and tell R which variables to drop by adding a minus sign in fron of the variables we want to delete. The following command produces exactly the same result as the one before:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="introduction-to-r.html#cb23-1" tabindex="-1"></a>EU_pop1 <span class="ot">&lt;-</span> <span class="fu">select</span>(EU2, <span class="sc">-</span>access, <span class="sc">-</span>GDP_2015)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="introduction-to-r.html#cb24-1" tabindex="-1"></a>EU_pop <span class="ot">&lt;-</span> <span class="fu">select</span>(EU2, country, pop18, access_fac, founding)</span></code></pre></div>
+<div class="baser">
+<details>
+<summary>
+Base R Solution
+</summary>
+<p>The package documentation offers some <a href="https://dplyr.tidyverse.org/articles/base.html">basic instructions</a> how to convert the <span style="color:black"><code>tidyverse</code></span> (or <span style="color:black"><code>dyplyr</code></span>, to be precise) code into base R. But here is the solution for the previous code chunk:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="introduction-to-r.html#cb25-1" tabindex="-1"></a>EU_pop <span class="ot">&lt;-</span> <span class="fu">subset</span>(EU2, country, pop18, access_fac, founding)</span></code></pre></div>
+</details>
+</div>
+<p>We can, however, use the same command and tell R which variables to drop by adding a minus sign in from of the variables we want to delete. The following command produces exactly the same result as the one before:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="introduction-to-r.html#cb26-1" tabindex="-1"></a>EU_pop1 <span class="ot">&lt;-</span> <span class="fu">select</span>(EU2, <span class="sc">-</span>access, <span class="sc">-</span>GDP_2015)</span></code></pre></div>
 </div>
 <div id="by-observation" class="section level3 unnumbered hasAnchor">
 <h3>By Observation<a href="introduction-to-r.html#by-observation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Instead of dropping and keeping variables, we can do the same thing to individual observations. Here, we use the <code>slice()</code> command (like a cake) and specify which slices we want to drop or keep. For example to drop the Benelux countries we would delete observations 1, 16 and 19:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="introduction-to-r.html#cb24-1" tabindex="-1"></a>EU_nobenelux <span class="ot">&lt;-</span> <span class="fu">slice</span>(EU2, <span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="dv">16</span>, <span class="sc">-</span><span class="dv">19</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="introduction-to-r.html#cb27-1" tabindex="-1"></a>EU_nobenelux <span class="ot">&lt;-</span> <span class="fu">slice</span>(EU2, <span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="dv">16</span>, <span class="sc">-</span><span class="dv">19</span>)</span></code></pre></div>
+<div class="baser">
+<details>
+<summary>
+Base R Solution
+</summary>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="introduction-to-r.html#cb28-1" tabindex="-1"></a>EU_pop <span class="ot">&lt;-</span> EU2[<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="dv">16</span>, <span class="sc">-</span><span class="dv">19</span>),]</span></code></pre></div>
+</details>
+</div>
 <p>Alternatively, if we were only interested in Benelux countries we would subset to only those observations:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="introduction-to-r.html#cb25-1" tabindex="-1"></a>EU_benelux <span class="ot">&lt;-</span> <span class="fu">slice</span>(EU2, <span class="dv">1</span>, <span class="dv">16</span>, <span class="dv">19</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="introduction-to-r.html#cb29-1" tabindex="-1"></a>EU_benelux <span class="ot">&lt;-</span> <span class="fu">slice</span>(EU2, <span class="dv">1</span>, <span class="dv">16</span>, <span class="dv">19</span>)</span></code></pre></div>
+<div class="baser">
+<details>
+<summary>
+Base R Solution
+</summary>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="introduction-to-r.html#cb30-1" tabindex="-1"></a>EU_pop <span class="ot">&lt;-</span> EU2[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">16</span>, <span class="dv">19</span>),]</span></code></pre></div>
+</details>
+</div>
 </div>
 <div id="keep-if-a-variable-has-a-certain-value-e.g.-pop18-larger-than-10000000" class="section level3 unnumbered hasAnchor">
 <h3>Keep if a variable has a certain value, e.g. ‘pop18’ larger than 10,000,000<a href="introduction-to-r.html#keep-if-a-variable-has-a-certain-value-e.g.-pop18-larger-than-10000000" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>One of the most useful commands is <code>filter()</code>, as it allows us to keep all observations for which the value of a variable is of a particular number. For example if we wanted to conduct an analysis with all countries which have a population in excess of 10 million we could subset by:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="introduction-to-r.html#cb26-1" tabindex="-1"></a>EU_pop_large <span class="ot">&lt;-</span> <span class="fu">filter</span>(EU2, pop18 <span class="sc">&gt;</span> <span class="dv">10000000</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="introduction-to-r.html#cb31-1" tabindex="-1"></a>EU_pop_large <span class="ot">&lt;-</span> <span class="fu">filter</span>(EU2, pop18 <span class="sc">&gt;</span> <span class="dv">10000000</span>)</span></code></pre></div>
+<div class="baser">
+<details>
+<summary>
+Base R Solution
+</summary>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="introduction-to-r.html#cb32-1" tabindex="-1"></a>EU_pop_large <span class="ot">&lt;-</span> <span class="fu">subset</span>(EU2, pop18 <span class="sc">&gt;</span> <span class="dv">10000000</span>)</span></code></pre></div>
+</details>
+</div>
 <p>Here is a list of some operators you can use for this purpose:</p>
 <table style="width:45%; color: black; margin-left: auto; margin-right: auto;" class="table">
 <thead>
@@ -738,117 +810,163 @@ x AND y
 <div id="ordering-data" class="section level2 unnumbered hasAnchor">
 <h2>Ordering Data<a href="introduction-to-r.html#ordering-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The data set in its original state is purposely not ordered by any criterion, such as alphabetical order of countries, etc. But we can use R to do exactly that. Let us work with a subset containing only three variables:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="introduction-to-r.html#cb27-1" tabindex="-1"></a>EU_subset <span class="ot">&lt;-</span> <span class="fu">select</span>(EU2, country, pop18, access)</span></code></pre></div>
-<p>It would be lovely if the command for ordering data would be called <code>order()</code>, but it is called <code>arrange()</code><a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>. Let’s order countries by ascending population in a new data frame called <code>eu_order</code>:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="introduction-to-r.html#cb28-1" tabindex="-1"></a>eu_order <span class="ot">&lt;-</span> <span class="fu">arrange</span>(EU_subset, pop18)</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="introduction-to-r.html#cb33-1" tabindex="-1"></a>EU_subset <span class="ot">&lt;-</span> <span class="fu">select</span>(EU2, country, pop18, access)</span></code></pre></div>
+<p>It would be lovely if the command for ordering data would be called <code>order()</code>, but it is called <code>arrange()</code><a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>. Let’s order countries by ascending population in a new data frame called <code>eu_order</code>:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="introduction-to-r.html#cb34-1" tabindex="-1"></a>eu_order <span class="ot">&lt;-</span> <span class="fu">arrange</span>(EU_subset, pop18)</span></code></pre></div>
+<div class="baser">
+<details>
+<summary>
+Base R Solution
+</summary>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="introduction-to-r.html#cb35-1" tabindex="-1"></a>eu_order <span class="ot">&lt;-</span> EU_subset[<span class="fu">order</span>(EU_subset<span class="sc">$</span>pop18),]</span></code></pre></div>
+</details>
+</div>
 <p>We can now display the first 10 rows with the following command:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="introduction-to-r.html#cb29-1" tabindex="-1"></a>eu_order[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,]</span>
-<span id="cb29-2"><a href="introduction-to-r.html#cb29-2" tabindex="-1"></a><span class="co"># A tibble: 10 × 3</span></span>
-<span id="cb29-3"><a href="introduction-to-r.html#cb29-3" tabindex="-1"></a>   country      pop18 access</span>
-<span id="cb29-4"><a href="introduction-to-r.html#cb29-4" tabindex="-1"></a>   <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>        <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>  <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
-<span id="cb29-5"><a href="introduction-to-r.html#cb29-5" tabindex="-1"></a> <span class="dv">1</span> Malta       <span class="dv">475701</span>   <span class="dv">2004</span></span>
-<span id="cb29-6"><a href="introduction-to-r.html#cb29-6" tabindex="-1"></a> <span class="dv">2</span> Luxembourg  <span class="dv">602005</span>   <span class="dv">1951</span></span>
-<span id="cb29-7"><a href="introduction-to-r.html#cb29-7" tabindex="-1"></a> <span class="dv">3</span> Cyprus      <span class="dv">864236</span>   <span class="dv">2004</span></span>
-<span id="cb29-8"><a href="introduction-to-r.html#cb29-8" tabindex="-1"></a> <span class="dv">4</span> Estonia    <span class="dv">1319133</span>   <span class="dv">2004</span></span>
-<span id="cb29-9"><a href="introduction-to-r.html#cb29-9" tabindex="-1"></a> <span class="dv">5</span> Latvia     <span class="dv">1934379</span>   <span class="dv">2004</span></span>
-<span id="cb29-10"><a href="introduction-to-r.html#cb29-10" tabindex="-1"></a> <span class="dv">6</span> Slovenia   <span class="dv">2066880</span>   <span class="dv">2004</span></span>
-<span id="cb29-11"><a href="introduction-to-r.html#cb29-11" tabindex="-1"></a> <span class="dv">7</span> Lithuania  <span class="dv">2808901</span>   <span class="dv">2004</span></span>
-<span id="cb29-12"><a href="introduction-to-r.html#cb29-12" tabindex="-1"></a> <span class="dv">8</span> Croatia    <span class="dv">4105493</span>   <span class="dv">2013</span></span>
-<span id="cb29-13"><a href="introduction-to-r.html#cb29-13" tabindex="-1"></a> <span class="dv">9</span> Ireland    <span class="dv">4838259</span>   <span class="dv">1973</span></span>
-<span id="cb29-14"><a href="introduction-to-r.html#cb29-14" tabindex="-1"></a><span class="dv">10</span> Slovakia   <span class="dv">5443120</span>   <span class="dv">2004</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="introduction-to-r.html#cb36-1" tabindex="-1"></a>eu_order[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,]</span>
+<span id="cb36-2"><a href="introduction-to-r.html#cb36-2" tabindex="-1"></a><span class="co"># A tibble: 10 × 3</span></span>
+<span id="cb36-3"><a href="introduction-to-r.html#cb36-3" tabindex="-1"></a>   country      pop18 access</span>
+<span id="cb36-4"><a href="introduction-to-r.html#cb36-4" tabindex="-1"></a>   <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>        <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>  <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb36-5"><a href="introduction-to-r.html#cb36-5" tabindex="-1"></a> <span class="dv">1</span> Malta       <span class="dv">475701</span>   <span class="dv">2004</span></span>
+<span id="cb36-6"><a href="introduction-to-r.html#cb36-6" tabindex="-1"></a> <span class="dv">2</span> Luxembourg  <span class="dv">602005</span>   <span class="dv">1951</span></span>
+<span id="cb36-7"><a href="introduction-to-r.html#cb36-7" tabindex="-1"></a> <span class="dv">3</span> Cyprus      <span class="dv">864236</span>   <span class="dv">2004</span></span>
+<span id="cb36-8"><a href="introduction-to-r.html#cb36-8" tabindex="-1"></a> <span class="dv">4</span> Estonia    <span class="dv">1319133</span>   <span class="dv">2004</span></span>
+<span id="cb36-9"><a href="introduction-to-r.html#cb36-9" tabindex="-1"></a> <span class="dv">5</span> Latvia     <span class="dv">1934379</span>   <span class="dv">2004</span></span>
+<span id="cb36-10"><a href="introduction-to-r.html#cb36-10" tabindex="-1"></a> <span class="dv">6</span> Slovenia   <span class="dv">2066880</span>   <span class="dv">2004</span></span>
+<span id="cb36-11"><a href="introduction-to-r.html#cb36-11" tabindex="-1"></a> <span class="dv">7</span> Lithuania  <span class="dv">2808901</span>   <span class="dv">2004</span></span>
+<span id="cb36-12"><a href="introduction-to-r.html#cb36-12" tabindex="-1"></a> <span class="dv">8</span> Croatia    <span class="dv">4105493</span>   <span class="dv">2013</span></span>
+<span id="cb36-13"><a href="introduction-to-r.html#cb36-13" tabindex="-1"></a> <span class="dv">9</span> Ireland    <span class="dv">4838259</span>   <span class="dv">1973</span></span>
+<span id="cb36-14"><a href="introduction-to-r.html#cb36-14" tabindex="-1"></a><span class="dv">10</span> Slovakia   <span class="dv">5443120</span>   <span class="dv">2004</span></span></code></pre></div>
 <p>The content in the brackets refers to the rows (before the comma), and to the columns (after the comma). As we only want certain rows and displaying all variables, I have left the space after the comma blank.</p>
 <p>We can do the same thing in descending order by calling:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="introduction-to-r.html#cb30-1" tabindex="-1"></a>eu_order <span class="ot">&lt;-</span> <span class="fu">arrange</span>(EU_subset, <span class="fu">desc</span>(pop18))</span>
-<span id="cb30-2"><a href="introduction-to-r.html#cb30-2" tabindex="-1"></a>eu_order[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,]</span>
-<span id="cb30-3"><a href="introduction-to-r.html#cb30-3" tabindex="-1"></a><span class="co"># A tibble: 10 × 3</span></span>
-<span id="cb30-4"><a href="introduction-to-r.html#cb30-4" tabindex="-1"></a>   country           pop18 access</span>
-<span id="cb30-5"><a href="introduction-to-r.html#cb30-5" tabindex="-1"></a>   <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>             <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>  <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
-<span id="cb30-6"><a href="introduction-to-r.html#cb30-6" tabindex="-1"></a> <span class="dv">1</span> Germany        <span class="dv">82850000</span>   <span class="dv">1951</span></span>
-<span id="cb30-7"><a href="introduction-to-r.html#cb30-7" tabindex="-1"></a> <span class="dv">2</span> France         <span class="dv">67221943</span>   <span class="dv">1951</span></span>
-<span id="cb30-8"><a href="introduction-to-r.html#cb30-8" tabindex="-1"></a> <span class="dv">3</span> United Kingdom <span class="dv">66238007</span>   <span class="dv">1973</span></span>
-<span id="cb30-9"><a href="introduction-to-r.html#cb30-9" tabindex="-1"></a> <span class="dv">4</span> Italy          <span class="dv">60483973</span>   <span class="dv">1951</span></span>
-<span id="cb30-10"><a href="introduction-to-r.html#cb30-10" tabindex="-1"></a> <span class="dv">5</span> Spain          <span class="dv">46659302</span>   <span class="dv">1986</span></span>
-<span id="cb30-11"><a href="introduction-to-r.html#cb30-11" tabindex="-1"></a> <span class="dv">6</span> Poland         <span class="dv">37976687</span>   <span class="dv">2004</span></span>
-<span id="cb30-12"><a href="introduction-to-r.html#cb30-12" tabindex="-1"></a> <span class="dv">7</span> Romania        <span class="dv">19523621</span>   <span class="dv">2007</span></span>
-<span id="cb30-13"><a href="introduction-to-r.html#cb30-13" tabindex="-1"></a> <span class="dv">8</span> Netherlands    <span class="dv">17181084</span>   <span class="dv">1951</span></span>
-<span id="cb30-14"><a href="introduction-to-r.html#cb30-14" tabindex="-1"></a> <span class="dv">9</span> Belgium        <span class="dv">11413058</span>   <span class="dv">1951</span></span>
-<span id="cb30-15"><a href="introduction-to-r.html#cb30-15" tabindex="-1"></a><span class="dv">10</span> Greece         <span class="dv">10738868</span>   <span class="dv">1981</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="introduction-to-r.html#cb37-1" tabindex="-1"></a>eu_order <span class="ot">&lt;-</span> <span class="fu">arrange</span>(EU_subset, <span class="fu">desc</span>(pop18))</span>
+<span id="cb37-2"><a href="introduction-to-r.html#cb37-2" tabindex="-1"></a>eu_order[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,]</span>
+<span id="cb37-3"><a href="introduction-to-r.html#cb37-3" tabindex="-1"></a><span class="co"># A tibble: 10 × 3</span></span>
+<span id="cb37-4"><a href="introduction-to-r.html#cb37-4" tabindex="-1"></a>   country           pop18 access</span>
+<span id="cb37-5"><a href="introduction-to-r.html#cb37-5" tabindex="-1"></a>   <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>             <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>  <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb37-6"><a href="introduction-to-r.html#cb37-6" tabindex="-1"></a> <span class="dv">1</span> Germany        <span class="dv">82850000</span>   <span class="dv">1951</span></span>
+<span id="cb37-7"><a href="introduction-to-r.html#cb37-7" tabindex="-1"></a> <span class="dv">2</span> France         <span class="dv">67221943</span>   <span class="dv">1951</span></span>
+<span id="cb37-8"><a href="introduction-to-r.html#cb37-8" tabindex="-1"></a> <span class="dv">3</span> United Kingdom <span class="dv">66238007</span>   <span class="dv">1973</span></span>
+<span id="cb37-9"><a href="introduction-to-r.html#cb37-9" tabindex="-1"></a> <span class="dv">4</span> Italy          <span class="dv">60483973</span>   <span class="dv">1951</span></span>
+<span id="cb37-10"><a href="introduction-to-r.html#cb37-10" tabindex="-1"></a> <span class="dv">5</span> Spain          <span class="dv">46659302</span>   <span class="dv">1986</span></span>
+<span id="cb37-11"><a href="introduction-to-r.html#cb37-11" tabindex="-1"></a> <span class="dv">6</span> Poland         <span class="dv">37976687</span>   <span class="dv">2004</span></span>
+<span id="cb37-12"><a href="introduction-to-r.html#cb37-12" tabindex="-1"></a> <span class="dv">7</span> Romania        <span class="dv">19523621</span>   <span class="dv">2007</span></span>
+<span id="cb37-13"><a href="introduction-to-r.html#cb37-13" tabindex="-1"></a> <span class="dv">8</span> Netherlands    <span class="dv">17181084</span>   <span class="dv">1951</span></span>
+<span id="cb37-14"><a href="introduction-to-r.html#cb37-14" tabindex="-1"></a> <span class="dv">9</span> Belgium        <span class="dv">11413058</span>   <span class="dv">1951</span></span>
+<span id="cb37-15"><a href="introduction-to-r.html#cb37-15" tabindex="-1"></a><span class="dv">10</span> Greece         <span class="dv">10738868</span>   <span class="dv">1981</span></span></code></pre></div>
+<div class="baser">
+<details>
+<summary>
+Base R Solution
+</summary>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="introduction-to-r.html#cb38-1" tabindex="-1"></a>eu_order <span class="ot">&lt;-</span> EU_subset[<span class="fu">order</span>(<span class="fu">desc</span>(EU_subset<span class="sc">$</span>pop18)),]</span></code></pre></div>
+</details>
+</div>
 <p>A neat feature of R is that it allows us to order observations by more than one variable. So for example, we could order them by ascending accession wave first, and then by ascending population in 2018 as follows:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="introduction-to-r.html#cb31-1" tabindex="-1"></a>eu_order <span class="ot">&lt;-</span> <span class="fu">arrange</span>(EU_subset, access, pop18)</span>
-<span id="cb31-2"><a href="introduction-to-r.html#cb31-2" tabindex="-1"></a></span>
-<span id="cb31-3"><a href="introduction-to-r.html#cb31-3" tabindex="-1"></a>eu_order[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,]</span>
-<span id="cb31-4"><a href="introduction-to-r.html#cb31-4" tabindex="-1"></a><span class="co"># A tibble: 10 × 3</span></span>
-<span id="cb31-5"><a href="introduction-to-r.html#cb31-5" tabindex="-1"></a>   country           pop18 access</span>
-<span id="cb31-6"><a href="introduction-to-r.html#cb31-6" tabindex="-1"></a>   <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>             <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>  <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
-<span id="cb31-7"><a href="introduction-to-r.html#cb31-7" tabindex="-1"></a> <span class="dv">1</span> Luxembourg       <span class="dv">602005</span>   <span class="dv">1951</span></span>
-<span id="cb31-8"><a href="introduction-to-r.html#cb31-8" tabindex="-1"></a> <span class="dv">2</span> Belgium        <span class="dv">11413058</span>   <span class="dv">1951</span></span>
-<span id="cb31-9"><a href="introduction-to-r.html#cb31-9" tabindex="-1"></a> <span class="dv">3</span> Netherlands    <span class="dv">17181084</span>   <span class="dv">1951</span></span>
-<span id="cb31-10"><a href="introduction-to-r.html#cb31-10" tabindex="-1"></a> <span class="dv">4</span> Italy          <span class="dv">60483973</span>   <span class="dv">1951</span></span>
-<span id="cb31-11"><a href="introduction-to-r.html#cb31-11" tabindex="-1"></a> <span class="dv">5</span> France         <span class="dv">67221943</span>   <span class="dv">1951</span></span>
-<span id="cb31-12"><a href="introduction-to-r.html#cb31-12" tabindex="-1"></a> <span class="dv">6</span> Germany        <span class="dv">82850000</span>   <span class="dv">1951</span></span>
-<span id="cb31-13"><a href="introduction-to-r.html#cb31-13" tabindex="-1"></a> <span class="dv">7</span> Ireland         <span class="dv">4838259</span>   <span class="dv">1973</span></span>
-<span id="cb31-14"><a href="introduction-to-r.html#cb31-14" tabindex="-1"></a> <span class="dv">8</span> Denmark         <span class="dv">5781190</span>   <span class="dv">1973</span></span>
-<span id="cb31-15"><a href="introduction-to-r.html#cb31-15" tabindex="-1"></a> <span class="dv">9</span> United Kingdom <span class="dv">66238007</span>   <span class="dv">1973</span></span>
-<span id="cb31-16"><a href="introduction-to-r.html#cb31-16" tabindex="-1"></a><span class="dv">10</span> Greece         <span class="dv">10738868</span>   <span class="dv">1981</span></span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="introduction-to-r.html#cb39-1" tabindex="-1"></a>eu_order <span class="ot">&lt;-</span> <span class="fu">arrange</span>(EU_subset, access, pop18)</span>
+<span id="cb39-2"><a href="introduction-to-r.html#cb39-2" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="introduction-to-r.html#cb39-3" tabindex="-1"></a>eu_order[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,]</span>
+<span id="cb39-4"><a href="introduction-to-r.html#cb39-4" tabindex="-1"></a><span class="co"># A tibble: 10 × 3</span></span>
+<span id="cb39-5"><a href="introduction-to-r.html#cb39-5" tabindex="-1"></a>   country           pop18 access</span>
+<span id="cb39-6"><a href="introduction-to-r.html#cb39-6" tabindex="-1"></a>   <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>             <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>  <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb39-7"><a href="introduction-to-r.html#cb39-7" tabindex="-1"></a> <span class="dv">1</span> Luxembourg       <span class="dv">602005</span>   <span class="dv">1951</span></span>
+<span id="cb39-8"><a href="introduction-to-r.html#cb39-8" tabindex="-1"></a> <span class="dv">2</span> Belgium        <span class="dv">11413058</span>   <span class="dv">1951</span></span>
+<span id="cb39-9"><a href="introduction-to-r.html#cb39-9" tabindex="-1"></a> <span class="dv">3</span> Netherlands    <span class="dv">17181084</span>   <span class="dv">1951</span></span>
+<span id="cb39-10"><a href="introduction-to-r.html#cb39-10" tabindex="-1"></a> <span class="dv">4</span> Italy          <span class="dv">60483973</span>   <span class="dv">1951</span></span>
+<span id="cb39-11"><a href="introduction-to-r.html#cb39-11" tabindex="-1"></a> <span class="dv">5</span> France         <span class="dv">67221943</span>   <span class="dv">1951</span></span>
+<span id="cb39-12"><a href="introduction-to-r.html#cb39-12" tabindex="-1"></a> <span class="dv">6</span> Germany        <span class="dv">82850000</span>   <span class="dv">1951</span></span>
+<span id="cb39-13"><a href="introduction-to-r.html#cb39-13" tabindex="-1"></a> <span class="dv">7</span> Ireland         <span class="dv">4838259</span>   <span class="dv">1973</span></span>
+<span id="cb39-14"><a href="introduction-to-r.html#cb39-14" tabindex="-1"></a> <span class="dv">8</span> Denmark         <span class="dv">5781190</span>   <span class="dv">1973</span></span>
+<span id="cb39-15"><a href="introduction-to-r.html#cb39-15" tabindex="-1"></a> <span class="dv">9</span> United Kingdom <span class="dv">66238007</span>   <span class="dv">1973</span></span>
+<span id="cb39-16"><a href="introduction-to-r.html#cb39-16" tabindex="-1"></a><span class="dv">10</span> Greece         <span class="dv">10738868</span>   <span class="dv">1981</span></span></code></pre></div>
+<div class="baser">
+<details>
+<summary>
+Base R Solution
+</summary>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="introduction-to-r.html#cb40-1" tabindex="-1"></a>eu_order <span class="ot">&lt;-</span> EU_subset[<span class="fu">order</span>(EU_subset<span class="sc">$</span>access,EU_subset<span class="sc">$</span>pop18),]</span>
+<span id="cb40-2"><a href="introduction-to-r.html#cb40-2" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="introduction-to-r.html#cb40-3" tabindex="-1"></a><span class="co"># or slightly shorter </span></span>
+<span id="cb40-4"><a href="introduction-to-r.html#cb40-4" tabindex="-1"></a></span>
+<span id="cb40-5"><a href="introduction-to-r.html#cb40-5" tabindex="-1"></a>eu_order <span class="ot">&lt;-</span> EU_subset[<span class="fu">order</span>(<span class="fu">with</span>(EU_subset, access,pop18)),]</span></code></pre></div>
+</details>
+</div>
 <hr />
 </div>
 <div id="grouping-data" class="section level2 unnumbered hasAnchor">
 <h2>Grouping Data<a href="introduction-to-r.html#grouping-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Looking at the last example, a question that might spring up is in which accession wave the joining countries brought the largest population increase on average to the EU. We can calculate summary statistics for a particular group by, well, grouping them. The first step is to group data into rows with the same value:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="introduction-to-r.html#cb32-1" tabindex="-1"></a>eu_access <span class="ot">&lt;-</span> <span class="fu">group_by</span>(EU_subset, access)</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="introduction-to-r.html#cb41-1" tabindex="-1"></a>eu_access <span class="ot">&lt;-</span> <span class="fu">group_by</span>(EU_subset, access)</span></code></pre></div>
 <p>By the way: whenever you have grouped anything, and finished analysing data in this grouped version it is essential that you ungroup the data afterwards, so that you don’t unintentionally keep using the groups:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="introduction-to-r.html#cb33-1" tabindex="-1"></a><span class="fu">ungroup</span>(EU_subset)</span>
-<span id="cb33-2"><a href="introduction-to-r.html#cb33-2" tabindex="-1"></a><span class="co"># A tibble: 28 × 3</span></span>
-<span id="cb33-3"><a href="introduction-to-r.html#cb33-3" tabindex="-1"></a>   country     pop18 access</span>
-<span id="cb33-4"><a href="introduction-to-r.html#cb33-4" tabindex="-1"></a>   <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>       <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>  <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
-<span id="cb33-5"><a href="introduction-to-r.html#cb33-5" tabindex="-1"></a> <span class="dv">1</span> Belgium  <span class="dv">11413058</span>   <span class="dv">1951</span></span>
-<span id="cb33-6"><a href="introduction-to-r.html#cb33-6" tabindex="-1"></a> <span class="dv">2</span> Bulgaria  <span class="dv">7050034</span>   <span class="dv">2007</span></span>
-<span id="cb33-7"><a href="introduction-to-r.html#cb33-7" tabindex="-1"></a> <span class="dv">3</span> Czechia  <span class="dv">10610055</span>   <span class="dv">2004</span></span>
-<span id="cb33-8"><a href="introduction-to-r.html#cb33-8" tabindex="-1"></a> <span class="dv">4</span> Denmark   <span class="dv">5781190</span>   <span class="dv">1973</span></span>
-<span id="cb33-9"><a href="introduction-to-r.html#cb33-9" tabindex="-1"></a> <span class="dv">5</span> Germany  <span class="dv">82850000</span>   <span class="dv">1951</span></span>
-<span id="cb33-10"><a href="introduction-to-r.html#cb33-10" tabindex="-1"></a> <span class="dv">6</span> Estonia   <span class="dv">1319133</span>   <span class="dv">2004</span></span>
-<span id="cb33-11"><a href="introduction-to-r.html#cb33-11" tabindex="-1"></a> <span class="dv">7</span> Ireland   <span class="dv">4838259</span>   <span class="dv">1973</span></span>
-<span id="cb33-12"><a href="introduction-to-r.html#cb33-12" tabindex="-1"></a> <span class="dv">8</span> Greece   <span class="dv">10738868</span>   <span class="dv">1981</span></span>
-<span id="cb33-13"><a href="introduction-to-r.html#cb33-13" tabindex="-1"></a> <span class="dv">9</span> Spain    <span class="dv">46659302</span>   <span class="dv">1986</span></span>
-<span id="cb33-14"><a href="introduction-to-r.html#cb33-14" tabindex="-1"></a><span class="dv">10</span> France   <span class="dv">67221943</span>   <span class="dv">1951</span></span>
-<span id="cb33-15"><a href="introduction-to-r.html#cb33-15" tabindex="-1"></a><span class="co"># ℹ 18 more rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="introduction-to-r.html#cb42-1" tabindex="-1"></a><span class="fu">ungroup</span>(EU_subset)</span>
+<span id="cb42-2"><a href="introduction-to-r.html#cb42-2" tabindex="-1"></a><span class="co"># A tibble: 28 × 3</span></span>
+<span id="cb42-3"><a href="introduction-to-r.html#cb42-3" tabindex="-1"></a>   country     pop18 access</span>
+<span id="cb42-4"><a href="introduction-to-r.html#cb42-4" tabindex="-1"></a>   <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>       <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>  <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb42-5"><a href="introduction-to-r.html#cb42-5" tabindex="-1"></a> <span class="dv">1</span> Belgium  <span class="dv">11413058</span>   <span class="dv">1951</span></span>
+<span id="cb42-6"><a href="introduction-to-r.html#cb42-6" tabindex="-1"></a> <span class="dv">2</span> Bulgaria  <span class="dv">7050034</span>   <span class="dv">2007</span></span>
+<span id="cb42-7"><a href="introduction-to-r.html#cb42-7" tabindex="-1"></a> <span class="dv">3</span> Czechia  <span class="dv">10610055</span>   <span class="dv">2004</span></span>
+<span id="cb42-8"><a href="introduction-to-r.html#cb42-8" tabindex="-1"></a> <span class="dv">4</span> Denmark   <span class="dv">5781190</span>   <span class="dv">1973</span></span>
+<span id="cb42-9"><a href="introduction-to-r.html#cb42-9" tabindex="-1"></a> <span class="dv">5</span> Germany  <span class="dv">82850000</span>   <span class="dv">1951</span></span>
+<span id="cb42-10"><a href="introduction-to-r.html#cb42-10" tabindex="-1"></a> <span class="dv">6</span> Estonia   <span class="dv">1319133</span>   <span class="dv">2004</span></span>
+<span id="cb42-11"><a href="introduction-to-r.html#cb42-11" tabindex="-1"></a> <span class="dv">7</span> Ireland   <span class="dv">4838259</span>   <span class="dv">1973</span></span>
+<span id="cb42-12"><a href="introduction-to-r.html#cb42-12" tabindex="-1"></a> <span class="dv">8</span> Greece   <span class="dv">10738868</span>   <span class="dv">1981</span></span>
+<span id="cb42-13"><a href="introduction-to-r.html#cb42-13" tabindex="-1"></a> <span class="dv">9</span> Spain    <span class="dv">46659302</span>   <span class="dv">1986</span></span>
+<span id="cb42-14"><a href="introduction-to-r.html#cb42-14" tabindex="-1"></a><span class="dv">10</span> France   <span class="dv">67221943</span>   <span class="dv">1951</span></span>
+<span id="cb42-15"><a href="introduction-to-r.html#cb42-15" tabindex="-1"></a><span class="co"># ℹ 18 more rows</span></span></code></pre></div>
 <p>But let’s calculate the average population size per accession wave in an elegant command which combines multiple steps by using pipes:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="introduction-to-r.html#cb34-1" tabindex="-1"></a>EU_subset <span class="sc">%&gt;%</span> </span>
-<span id="cb34-2"><a href="introduction-to-r.html#cb34-2" tabindex="-1"></a>  <span class="fu">group_by</span>(access) <span class="sc">%&gt;%</span> </span>
-<span id="cb34-3"><a href="introduction-to-r.html#cb34-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg =</span> <span class="fu">mean</span>(pop18)) <span class="ot">-&gt;</span> eu_popaccess</span>
-<span id="cb34-4"><a href="introduction-to-r.html#cb34-4" tabindex="-1"></a></span>
-<span id="cb34-5"><a href="introduction-to-r.html#cb34-5" tabindex="-1"></a>eu_popaccess</span>
-<span id="cb34-6"><a href="introduction-to-r.html#cb34-6" tabindex="-1"></a><span class="co"># A tibble: 8 × 2</span></span>
-<span id="cb34-7"><a href="introduction-to-r.html#cb34-7" tabindex="-1"></a>  access       avg</span>
-<span id="cb34-8"><a href="introduction-to-r.html#cb34-8" tabindex="-1"></a>   <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span>     <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
-<span id="cb34-9"><a href="introduction-to-r.html#cb34-9" tabindex="-1"></a><span class="dv">1</span>   <span class="dv">1951</span> <span class="fl">39958677.</span></span>
-<span id="cb34-10"><a href="introduction-to-r.html#cb34-10" tabindex="-1"></a><span class="dv">2</span>   <span class="dv">1973</span> <span class="dv">25619152</span> </span>
-<span id="cb34-11"><a href="introduction-to-r.html#cb34-11" tabindex="-1"></a><span class="dv">3</span>   <span class="dv">1981</span> <span class="dv">10738868</span> </span>
-<span id="cb34-12"><a href="introduction-to-r.html#cb34-12" tabindex="-1"></a><span class="dv">4</span>   <span class="dv">1986</span> <span class="fl">28475164.</span></span>
-<span id="cb34-13"><a href="introduction-to-r.html#cb34-13" tabindex="-1"></a><span class="dv">5</span>   <span class="dv">1995</span>  <span class="fl">8151880.</span></span>
-<span id="cb34-14"><a href="introduction-to-r.html#cb34-14" tabindex="-1"></a><span class="dv">6</span>   <span class="dv">2004</span>  <span class="fl">7327746.</span></span>
-<span id="cb34-15"><a href="introduction-to-r.html#cb34-15" tabindex="-1"></a><span class="dv">7</span>   <span class="dv">2007</span> <span class="fl">13286828.</span></span>
-<span id="cb34-16"><a href="introduction-to-r.html#cb34-16" tabindex="-1"></a><span class="dv">8</span>   <span class="dv">2013</span>  <span class="dv">4105493</span> </span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="introduction-to-r.html#cb43-1" tabindex="-1"></a>eu_popaccess <span class="ot">&lt;-</span> EU_subset <span class="sc">%&gt;%</span> </span>
+<span id="cb43-2"><a href="introduction-to-r.html#cb43-2" tabindex="-1"></a>  <span class="fu">group_by</span>(access) <span class="sc">%&gt;%</span> </span>
+<span id="cb43-3"><a href="introduction-to-r.html#cb43-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg =</span> <span class="fu">mean</span>(pop18))</span>
+<span id="cb43-4"><a href="introduction-to-r.html#cb43-4" tabindex="-1"></a></span>
+<span id="cb43-5"><a href="introduction-to-r.html#cb43-5" tabindex="-1"></a>eu_popaccess</span>
+<span id="cb43-6"><a href="introduction-to-r.html#cb43-6" tabindex="-1"></a><span class="co"># A tibble: 8 × 2</span></span>
+<span id="cb43-7"><a href="introduction-to-r.html#cb43-7" tabindex="-1"></a>  access       avg</span>
+<span id="cb43-8"><a href="introduction-to-r.html#cb43-8" tabindex="-1"></a>   <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span>     <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb43-9"><a href="introduction-to-r.html#cb43-9" tabindex="-1"></a><span class="dv">1</span>   <span class="dv">1951</span> <span class="fl">39958677.</span></span>
+<span id="cb43-10"><a href="introduction-to-r.html#cb43-10" tabindex="-1"></a><span class="dv">2</span>   <span class="dv">1973</span> <span class="dv">25619152</span> </span>
+<span id="cb43-11"><a href="introduction-to-r.html#cb43-11" tabindex="-1"></a><span class="dv">3</span>   <span class="dv">1981</span> <span class="dv">10738868</span> </span>
+<span id="cb43-12"><a href="introduction-to-r.html#cb43-12" tabindex="-1"></a><span class="dv">4</span>   <span class="dv">1986</span> <span class="fl">28475164.</span></span>
+<span id="cb43-13"><a href="introduction-to-r.html#cb43-13" tabindex="-1"></a><span class="dv">5</span>   <span class="dv">1995</span>  <span class="fl">8151880.</span></span>
+<span id="cb43-14"><a href="introduction-to-r.html#cb43-14" tabindex="-1"></a><span class="dv">6</span>   <span class="dv">2004</span>  <span class="fl">7327746.</span></span>
+<span id="cb43-15"><a href="introduction-to-r.html#cb43-15" tabindex="-1"></a><span class="dv">7</span>   <span class="dv">2007</span> <span class="fl">13286828.</span></span>
+<span id="cb43-16"><a href="introduction-to-r.html#cb43-16" tabindex="-1"></a><span class="dv">8</span>   <span class="dv">2013</span>  <span class="dv">4105493</span> </span></code></pre></div>
+<div class="baser">
+<details>
+<summary>
+Base R Solution
+</summary>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="introduction-to-r.html#cb44-1" tabindex="-1"></a>eu_popaccess1 <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(pop18 <span class="sc">~</span> access, </span>
+<span id="cb44-2"><a href="introduction-to-r.html#cb44-2" tabindex="-1"></a>                           <span class="at">data =</span> EU_subset, </span>
+<span id="cb44-3"><a href="introduction-to-r.html#cb44-3" tabindex="-1"></a>                           <span class="at">FUN =</span> mean )</span></code></pre></div>
+</details>
+</div>
 <p>You now see a new variable called <code>avg</code> which contains the average population increase for each wave. In which wave did the joining countries have the largest population on average?</p>
 <hr />
 </div>
 <div id="combining-ordering-and-grouping-data" class="section level2 unnumbered hasAnchor">
 <h2>Combining Ordering and Grouping Data<a href="introduction-to-r.html#combining-ordering-and-grouping-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The question was easy to answer here, as we only have a few accession waves. It starts to get unwieldy though, the more groups we have, but we can let R do the job by combining first grouping, and then ordering. So we take the grouped data frame <code>eu_popaccess</code> and order it by descending <code>avg</code>:</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="introduction-to-r.html#cb35-1" tabindex="-1"></a>eu_popaccess_order <span class="ot">&lt;-</span> <span class="fu">arrange</span>(eu_popaccess, <span class="fu">desc</span>(avg))</span>
-<span id="cb35-2"><a href="introduction-to-r.html#cb35-2" tabindex="-1"></a></span>
-<span id="cb35-3"><a href="introduction-to-r.html#cb35-3" tabindex="-1"></a>eu_popaccess_order</span>
-<span id="cb35-4"><a href="introduction-to-r.html#cb35-4" tabindex="-1"></a><span class="co"># A tibble: 8 × 2</span></span>
-<span id="cb35-5"><a href="introduction-to-r.html#cb35-5" tabindex="-1"></a>  access       avg</span>
-<span id="cb35-6"><a href="introduction-to-r.html#cb35-6" tabindex="-1"></a>   <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span>     <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
-<span id="cb35-7"><a href="introduction-to-r.html#cb35-7" tabindex="-1"></a><span class="dv">1</span>   <span class="dv">1951</span> <span class="fl">39958677.</span></span>
-<span id="cb35-8"><a href="introduction-to-r.html#cb35-8" tabindex="-1"></a><span class="dv">2</span>   <span class="dv">1986</span> <span class="fl">28475164.</span></span>
-<span id="cb35-9"><a href="introduction-to-r.html#cb35-9" tabindex="-1"></a><span class="dv">3</span>   <span class="dv">1973</span> <span class="dv">25619152</span> </span>
-<span id="cb35-10"><a href="introduction-to-r.html#cb35-10" tabindex="-1"></a><span class="dv">4</span>   <span class="dv">2007</span> <span class="fl">13286828.</span></span>
-<span id="cb35-11"><a href="introduction-to-r.html#cb35-11" tabindex="-1"></a><span class="dv">5</span>   <span class="dv">1981</span> <span class="dv">10738868</span> </span>
-<span id="cb35-12"><a href="introduction-to-r.html#cb35-12" tabindex="-1"></a><span class="dv">6</span>   <span class="dv">1995</span>  <span class="fl">8151880.</span></span>
-<span id="cb35-13"><a href="introduction-to-r.html#cb35-13" tabindex="-1"></a><span class="dv">7</span>   <span class="dv">2004</span>  <span class="fl">7327746.</span></span>
-<span id="cb35-14"><a href="introduction-to-r.html#cb35-14" tabindex="-1"></a><span class="dv">8</span>   <span class="dv">2013</span>  <span class="dv">4105493</span> </span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="introduction-to-r.html#cb45-1" tabindex="-1"></a>eu_popaccess_order <span class="ot">&lt;-</span> <span class="fu">arrange</span>(eu_popaccess, <span class="fu">desc</span>(avg))</span>
+<span id="cb45-2"><a href="introduction-to-r.html#cb45-2" tabindex="-1"></a></span>
+<span id="cb45-3"><a href="introduction-to-r.html#cb45-3" tabindex="-1"></a>eu_popaccess_order</span>
+<span id="cb45-4"><a href="introduction-to-r.html#cb45-4" tabindex="-1"></a><span class="co"># A tibble: 8 × 2</span></span>
+<span id="cb45-5"><a href="introduction-to-r.html#cb45-5" tabindex="-1"></a>  access       avg</span>
+<span id="cb45-6"><a href="introduction-to-r.html#cb45-6" tabindex="-1"></a>   <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span>     <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb45-7"><a href="introduction-to-r.html#cb45-7" tabindex="-1"></a><span class="dv">1</span>   <span class="dv">1951</span> <span class="fl">39958677.</span></span>
+<span id="cb45-8"><a href="introduction-to-r.html#cb45-8" tabindex="-1"></a><span class="dv">2</span>   <span class="dv">1986</span> <span class="fl">28475164.</span></span>
+<span id="cb45-9"><a href="introduction-to-r.html#cb45-9" tabindex="-1"></a><span class="dv">3</span>   <span class="dv">1973</span> <span class="dv">25619152</span> </span>
+<span id="cb45-10"><a href="introduction-to-r.html#cb45-10" tabindex="-1"></a><span class="dv">4</span>   <span class="dv">2007</span> <span class="fl">13286828.</span></span>
+<span id="cb45-11"><a href="introduction-to-r.html#cb45-11" tabindex="-1"></a><span class="dv">5</span>   <span class="dv">1981</span> <span class="dv">10738868</span> </span>
+<span id="cb45-12"><a href="introduction-to-r.html#cb45-12" tabindex="-1"></a><span class="dv">6</span>   <span class="dv">1995</span>  <span class="fl">8151880.</span></span>
+<span id="cb45-13"><a href="introduction-to-r.html#cb45-13" tabindex="-1"></a><span class="dv">7</span>   <span class="dv">2004</span>  <span class="fl">7327746.</span></span>
+<span id="cb45-14"><a href="introduction-to-r.html#cb45-14" tabindex="-1"></a><span class="dv">8</span>   <span class="dv">2013</span>  <span class="dv">4105493</span> </span></code></pre></div>
+<div class="baser">
+<details>
+<summary>
+Base R Solution
+</summary>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="introduction-to-r.html#cb46-1" tabindex="-1"></a>eu_popaccess_order <span class="ot">&lt;-</span> eu_popaccess[<span class="fu">order</span>(<span class="fu">desc</span>(eu_popaccess<span class="sc">$</span>avg)),]</span></code></pre></div>
+</details>
+</div>
 <hr />
 </div>
 <div id="saving" class="section level2 unnumbered hasAnchor">
@@ -871,7 +989,8 @@ x AND y
 <li id="fn3"><p>Some of the content of this worksheet is taken from <span class="citation">Reiche (forthcoming)</span>.<a href="introduction-to-r.html#fnref3" class="footnote-back">↩︎</a></p></li>
 <li id="fn4"><p>Source: <a href="https://www.garrickadenbuie.com/project/rsthemes/" class="uri">https://www.garrickadenbuie.com/project/rsthemes/</a><a href="introduction-to-r.html#fnref4" class="footnote-back">↩︎</a></p></li>
 <li id="fn5"><p>To “call” means to execute a command.<a href="introduction-to-r.html#fnref5" class="footnote-back">↩︎</a></p></li>
-<li id="fn6"><p>There is a command called <code>order()</code>, but it is not part of the <code>tidyverse</code>, and as this package is steadily on the rise in coding, I am only showing you this here.<a href="introduction-to-r.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p><a href="https://cran.r-project.org/web/packages/" class="uri">https://cran.r-project.org/web/packages/</a><a href="introduction-to-r.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>There is a command called <code>order()</code>, but it is not part of the <code>tidyverse</code>, and as this package is steadily on the rise in coding, I am only showing you this here.<a href="introduction-to-r.html#fnref7" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
