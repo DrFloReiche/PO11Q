@@ -611,6 +611,8 @@ Base R Solution
 Here, we first create a new, empty variable called <code>wave</code> in the <code>EU</code> data set. We then create new values , for example <code>Founding</code> in the variable <code>EU$wave</code> for the condition (this is what the square brackets <code>[ ]</code> do) that the variable <code>access_fac</code> in the <code>EU</code> data set, equals a specific value. For <code>Founding</code> this is is <code>1951</code>. The last step is to turn the <code>wave</code> variable into an ordered factor.
 </details>
 </div>
+<p>
+</p>
 <p>But back to the recoding exercise itself. As the original variable <code>access_fac</code> was already an ordered factor, R (or the <code>mutate</code> function to be precise) also returns <code>wave</code> as an ordered factor. Had we not done this, <code>wave</code> would have been an unorderd factor (aka nominal variable). You can specify in an option to the <code>mutate</code> function whether you want the factor to be ordered or not:</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="introduction-to-r.html#cb20-1" tabindex="-1"></a>EU <span class="ot">&lt;-</span> EU <span class="sc">%&gt;%</span></span>
 <span id="cb20-2"><a href="introduction-to-r.html#cb20-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">wave =</span> <span class="fu">recode</span>(access_fac, <span class="st">&#39;1951&#39;</span><span class="ot">=</span><span class="st">&quot;Founding&quot;</span>, </span>
@@ -648,6 +650,8 @@ Base R Solution
 <span id="cb23-7"><a href="introduction-to-r.html#cb23-7" tabindex="-1"></a>                           <span class="st">&quot;Balkans&quot;</span>))</span></code></pre></div>
 </details>
 </div>
+<p>
+</p>
 <div class="video">
 <p><strong>Recoding a Factor Variable</strong></p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/9_5IeNL3VP8?si=xVrgNuWG0L9kDZNo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
@@ -691,6 +695,8 @@ Base R Solution
 <span id="cb25-2"><a href="introduction-to-r.html#cb25-2" tabindex="-1"></a>                              <span class="at">levels =</span><span class="fu">c</span>(<span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>))</span></code></pre></div>
 </details>
 </div>
+<p>
+</p>
 <hr />
 </div>
 </div>
@@ -713,6 +719,8 @@ Base R Solution
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="introduction-to-r.html#cb28-1" tabindex="-1"></a>EU_pop <span class="ot">&lt;-</span> <span class="fu">subset</span>(EU, country, pop18, access_fac, founding)</span></code></pre></div>
 </details>
 </div>
+<p>
+</p>
 <p>We can, however, use the same command and tell R which variables to drop by adding a minus sign in from of the variables we want to delete. The following command produces exactly the same result as the one before:</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="introduction-to-r.html#cb29-1" tabindex="-1"></a>EU_pop1 <span class="ot">&lt;-</span> <span class="fu">select</span>(EU, <span class="sc">-</span>access, <span class="sc">-</span>GDP_2015)</span></code></pre></div>
 </div>
@@ -728,6 +736,8 @@ Base R Solution
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="introduction-to-r.html#cb31-1" tabindex="-1"></a>EU_pop <span class="ot">&lt;-</span> EU[<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="dv">16</span>, <span class="sc">-</span><span class="dv">19</span>),]</span></code></pre></div>
 </details>
 </div>
+<p>
+</p>
 <p>Alternatively, if we were only interested in Benelux countries we would subset to only those observations:</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="introduction-to-r.html#cb32-1" tabindex="-1"></a>EU_benelux <span class="ot">&lt;-</span> <span class="fu">slice</span>(EU, <span class="dv">1</span>, <span class="dv">16</span>, <span class="dv">19</span>)</span></code></pre></div>
 <div class="baser">
@@ -738,6 +748,8 @@ Base R Solution
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="introduction-to-r.html#cb33-1" tabindex="-1"></a>EU_pop <span class="ot">&lt;-</span> EU[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">16</span>, <span class="dv">19</span>),]</span></code></pre></div>
 </details>
 </div>
+<p>
+</p>
 </div>
 <div id="keep-if-a-variable-has-a-certain-value-e.g.-pop18-larger-than-10000000" class="section level3 unnumbered hasAnchor">
 <h3>Keep if a variable has a certain value, e.g. ‘pop18’ larger than 10,000,000<a href="introduction-to-r.html#keep-if-a-variable-has-a-certain-value-e.g.-pop18-larger-than-10000000" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -751,6 +763,8 @@ Base R Solution
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="introduction-to-r.html#cb35-1" tabindex="-1"></a>EU_pop_large <span class="ot">&lt;-</span> <span class="fu">subset</span>(EU, pop18 <span class="sc">&gt;</span> <span class="dv">10000000</span>)</span></code></pre></div>
 </details>
 </div>
+<p>
+</p>
 <p>Here is a list of some operators you can use for this purpose:</p>
 <table style="width:45%; color: black; margin-left: auto; margin-right: auto;" class="table">
 <thead>
@@ -860,6 +874,8 @@ Base R Solution
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="introduction-to-r.html#cb38-1" tabindex="-1"></a>eu_order <span class="ot">&lt;-</span> EU_subset[<span class="fu">order</span>(EU_subset<span class="sc">$</span>pop18),]</span></code></pre></div>
 </details>
 </div>
+<p>
+</p>
 <p>We can now display the first 10 rows with the following command:</p>
 <div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="introduction-to-r.html#cb39-1" tabindex="-1"></a>eu_order[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,]</span>
 <span id="cb39-2"><a href="introduction-to-r.html#cb39-2" tabindex="-1"></a><span class="co"># A tibble: 10 × 3</span></span>
@@ -900,6 +916,8 @@ Base R Solution
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="introduction-to-r.html#cb41-1" tabindex="-1"></a>eu_order <span class="ot">&lt;-</span> EU_subset[<span class="fu">order</span>(<span class="fu">desc</span>(EU_subset<span class="sc">$</span>pop18)),]</span></code></pre></div>
 </details>
 </div>
+<p>
+</p>
 <p>A neat feature of R is that it allows us to order observations by more than one variable. So for example, we could order them by ascending accession wave first, and then by ascending population in 2018 as follows:</p>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="introduction-to-r.html#cb42-1" tabindex="-1"></a>eu_order <span class="ot">&lt;-</span> <span class="fu">arrange</span>(EU_subset, access, pop18)</span>
 <span id="cb42-2"><a href="introduction-to-r.html#cb42-2" tabindex="-1"></a></span>
@@ -929,6 +947,8 @@ Base R Solution
 <span id="cb43-5"><a href="introduction-to-r.html#cb43-5" tabindex="-1"></a>eu_order <span class="ot">&lt;-</span> EU_subset[<span class="fu">order</span>(<span class="fu">with</span>(EU_subset, access,pop18)),]</span></code></pre></div>
 </details>
 </div>
+<p>
+</p>
 <hr />
 </div>
 <div id="grouping-data" class="section level2 unnumbered hasAnchor">
@@ -978,6 +998,8 @@ Base R Solution
 <span id="cb47-3"><a href="introduction-to-r.html#cb47-3" tabindex="-1"></a>                           <span class="at">FUN =</span> mean )</span></code></pre></div>
 </details>
 </div>
+<p>
+</p>
 <p>You now see a new variable called <code>avg</code> which contains the average population increase for each wave. In which wave did the joining countries have the largest population on average?</p>
 <hr />
 </div>
@@ -1006,6 +1028,8 @@ Base R Solution
 <div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="introduction-to-r.html#cb49-1" tabindex="-1"></a>eu_popaccess_order <span class="ot">&lt;-</span> eu_popaccess[<span class="fu">order</span>(<span class="fu">desc</span>(eu_popaccess<span class="sc">$</span>avg)),]</span></code></pre></div>
 </details>
 </div>
+<p>
+</p>
 <hr />
 </div>
 <div id="saving" class="section level2 unnumbered hasAnchor">
