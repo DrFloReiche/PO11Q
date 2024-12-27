@@ -71,50 +71,35 @@ pre {
 table { caption-side: bottom }
 
 /*____Change fonts to cmss___*/
-
-@font-face {
-  font-family: "Gotham";
-  src: url('~/Dropbox/GitHub Website/Font/gotham_light.otf');
-}
-
-
 h1 {
-  font-family: "Gotham";
-  src: url('~/Dropbox/GitHub Website/Font/gotham_light.otf');
+  font-family: Avenir, Helvetica, "sans serif";
   font-size:   48px;
   font-weight: normal;
 }
 
 
 h2,h3,h4 {
-  font-family: "Gotham";
-  src: url('~/Dropbox/GitHub Website/Font/gotham_light.otf');
+  font-family: Avenir, Helvetica, "sans serif";
   font-size:   24px;
   font-weight: normal;
 }
 
 .book.font-family-0 {
-  font-family: "Gotham";
-  src: url('~/Dropbox/GitHub Website/Font/gotham_light.otf');
+  font-family: Avenir, Helvetica, "sans serif";
 }
-
 .book.font-family-1 {
-  font-family: "Gotham";
-  src: url('~/Dropbox/GitHub Website/Font/gotham_light.otf');
+  font-family: Avenir, Helvetica, "sans serif";
 }
 
 .summary{
-font-family: "Gotham";
-  src: url('~/Dropbox/GitHub Website/Font/gotham_light.otf');
+font-family: Avenir, Helvetica, "sans serif";
 }
 
 
-
 li.appendix span, li.part span { /* for TOC part names */
+  font-family: Avenir, Helvetica, "sans serif";
   margin-top: 1.5em;
   opacity: 1 !important;
-  font-family: "Gotham";
-  src: url('~/Dropbox/GitHub Website/Font/gotham_light.otf');
   text-transform: uppercase;
 }
 
@@ -257,6 +242,28 @@ img {
 }
 
 
+@font-face {
+  font-family: "Computer Modern";
+  src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunss.otf');
+}
 
+@font-face {
+  font-family: "Computer Modern";
+  src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunsx.otf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Computer Modern";
+  src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunsi.otf');
+  font-style: italic, oblique;
+}
+
+@font-face {
+  font-family: "Computer Modern";
+  src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunbxo.otf');
+  font-weight: bold;
+  font-style: italic, oblique;
+}
 
 
