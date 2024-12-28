@@ -484,7 +484,7 @@ Figure 4: Folder Structure
 </p>
 </div>
 <p>You see that there is a sub-folder for each week of the module (I have only done three for illustrative purposes), and that each of these folders is divided into lecture and seminar in turn. Into these you can place the lecture and seminar materials, respectively. Create this system now for PO11Q.</p>
-<p>R works with so-called <code>Working Directories</code>. You can think of these as drawers from which R takes everything it needs to conduct the analysis (such as the data set), and into which it puts everything it produces (such as graph plots). As this will be an R-specific drawer within the seminar, create yet another sub-folder in your seminar folder, and call it something suitable, such as “PO11Q_Seminar_Week 1”. Do NOT call this “Working Directory”, as you will have many of those, rendering this name completely meaningless. Save the file “EU.xlsx” (available on Moodle) into it.</p>
+<p>R works with so-called <code>Working Directories</code>. You can think of these as drawers from which R takes everything it needs to conduct the analysis (such as the data set), and into which it puts everything it produces (such as graph plots). As this will be an R-specific drawer within the seminar, create yet another sub-folder in your seminar folder, and call it something suitable, such as “PO11Q_Seminar_Week 1”. Do NOT call this “Working Directory”, as you will have many of those, rendering this name completely meaningless. Save the file <a href="files/Week%201/EU.xlsx">EU.xlsx</a> into this folder. Data are taken from <span class="citation">European Comission (n.d.)</span>.</p>
 <div class="warning">
 <p>Please set up this structure now. If I find you using a random folder on your desktop named “working directory” in the coming weeks, I am going to implode! I mean it.</p>
 </div>
@@ -511,7 +511,7 @@ Figure 4: Folder Structure
 </div>
 <div id="opening-your-data-set" class="section level2 unnumbered hasAnchor">
 <h2>Opening your Data Set<a href="introduction-to-r.html#opening-your-data-set" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>We are now ready to open a data set in R - where it is called a “data frame”. For this, we create a new object <code>EU</code>, and ask R to read “Sheet 1”” of the Excel file <a href="files/Week%201/EU.xlsx">EU.xlsx</a>. Data are taken from <span class="citation">European Comission (n.d.)</span>.</p>
+<p>We are now ready to open a data set in R - where it is called a “data frame”. For this, we create a new object <code>EU</code>, and ask R to read “Sheet 1”” of the Excel file “EU.xlsx” which we placed in the working directory earlier</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="introduction-to-r.html#cb10-1" tabindex="-1"></a>EU <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;EU.xlsx&quot;</span>, <span class="at">sheet=</span><span class="st">&quot;Sheet1&quot;</span>)</span></code></pre></div>
 <p>We can now use our data in R!</p>
 <div class="video">
