@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz@0,9..40;1,9..40&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Wix+Madefor+Text&display=swap');
+
 
 .book .book-summary {
   background: #2A415F!important;
@@ -74,36 +75,36 @@ table { caption-side: bottom }
 
 /*____Change fonts to cmss___*/
 @font-face {
-  font-family: "DM Sans", serif;
+  font-family: "Wix Madefor Text", serif;
 }
 
 h1 {
-  font-family: "DM Sans", serif;
+  font-family: "Wix Madefor Text", serif;
   font-size:   48px;
   font-weight: normal;
 }
 
 
 h2,h3,h4 {
-  font-family: "DM Sans", serif;
+  font-family: "Wix Madefor Text", serif;
   font-size:   24px;
   font-weight: normal;
 }
 
 .book.font-family-0 {
-  font-family: "DM Sans", serif;
+  font-family: "Wix Madefor Text", serif;
 }
 .book.font-family-1 {
-  font-family: "DM Sans", serif;
+  font-family: "Wix Madefor Text", serif;
 }
 
 .summary{
-font-family: "DM Sans", serif;
+font-family: "Wix Madefor Text", serif;
 }
 
 
 li.appendix span, li.part span { /* for TOC part names */
-  font-family: "DM Sans", serif;
+  font-family: "Wix Madefor Text", serif;
   margin-top: 1.5em;
   opacity: 1 !important;
   text-transform: uppercase;
@@ -114,7 +115,7 @@ li.appendix span, li.part span { /* for TOC part names */
 
 .sourceCode pre {
   margin: 0 !important; /* makes space above and below symmetrical*/
-  font-family: "DM Sans", serif;
+  font-family: "Wix Madefor Text", serif;
   font-size:   16px;
   font-weight: normal;
 }
