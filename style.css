@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cantarell&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@350&display=swap');
 
 
 .book .book-summary {
@@ -73,39 +73,39 @@ pre {
 /*____Table caption at bottom____*/
 table { caption-side: bottom }
 
-/*____Change fonts to Cantarell___*/
+/*____Change fonts to Lexend___*/
 @font-face {
-  font-family: "Cantarell";
+  font-family: "Lexend";
 }
 
 
 
 h1 {
-  font-family: "Cantarell";
+  font-family: "Lexend";
   font-size:   48px;
 }
 
 
 h2,h3,h4 {
-  font-family: "Cantarell";
+  font-family: "Lexend";
   font-size:   24px;
 }
 
 .book.font-family-0 {
-  font-family: "Cantarell";
+  font-family: "Lexend";
 }
 
 .book.font-family-1 {
-  font-family: "Cantarell";
+  font-family: "Lexend";
 }
 
 .summary{
-font-family: "Cantarell";
+font-family: "Lexend";
 }
 
 
 li.appendix span, li.part span { /* for TOC part names */
-  font-family: "Cantarell";
+  font-family: "Lexend";
   margin-top: 1.5em;
   opacity: 1 !important;
   text-transform: uppercase;
@@ -116,7 +116,6 @@ li.appendix span, li.part span { /* for TOC part names */
 
 .sourceCode pre {
   margin: 0 !important; /* makes space above and below symmetrical*/
-  font-family: "Cantarell";
   font-size:   16px;
   font-weight: normal;
 }
