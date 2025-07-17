@@ -2,6 +2,8 @@
 #### WEEK 9 Solutions
 ####################################################
 
+rm(list=ls())
+
 library(tidyverse)
 
 # 1
@@ -77,6 +79,14 @@ ks2 %>%
                           right = FALSE,
                           include.lowest = TRUE)) -> ks2
 
+
+##########################################################################################
+# BASE R
+##########################################################################################
+# ks2$maths_pass <- as.factor(ifelse(ks2$maths < 100, 'Fail', 'Pass'))
+##########################################################################################
+
+
 # 6.B
 prop.test(table(ks2$maths_pass), alternative = "less", p = 0.10, conf.level = 0.95)
 # Statistically insignificant, indicating that the proportion of students who
@@ -96,6 +106,13 @@ t.test(ks2$gps[ks2$maths_pass == "Pass"], alternative = "greater", mu = 105, con
 ks2 %>%
   mutate(pass_fail = ifelse(reading < 100 | maths < 100 | gps < 100,
                             "Fail", "Pass")) -> ks2
+
+
+##########################################################################################
+# BASE R
+##########################################################################################
+# ks2$pass_fail <- as.factor(ifelse(ks2$reading < 100 | ks2$maths < 100 | ks2$gps < 100, 'Fail', 'Pass'))
+##########################################################################################
 
 # 7.b
 t.test(ks2$avg_all[ks2$pass_fail == "Fail"], alternative = "less", mu = 100, conf.level = 0.95)
@@ -120,6 +137,17 @@ ks2 %>%
                      labels = c("Fail", "Pass", "Merit", "Distinction", "Distinction+"),
                      right = FALSE,
                      include.lowest = TRUE)) -> ks2
+
+
+##########################################################################################
+# BASE R
+##########################################################################################
+# ks2$grade <- as.factor(ifelse(ks2$normal < 50, 'Fail',
+#                               ifelse(ks2$normal < 60, 'Pass',
+#                                      ifelse(ks2$normal < 70, 'Merit',
+#                                             ifelse(ks2$normal < 80, 'Distinction', 'Distinction+')))))
+##########################################################################################
+
 
 # 8.c.i
 t.test(ks2$normal[ks2$grade == "Pass"], alternative = "two.sided", 
