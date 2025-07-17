@@ -15,7 +15,7 @@ fig:first
 tab:ggplot2
 tab:glossary7
 fig:95
-fig:unnamed-chunk-89
+fig:unnamed-chunk-91
 tab:fearoncode
 tab:glossary8
 tab:glossary9
