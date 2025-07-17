@@ -176,10 +176,10 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#the-global-view"><i class="fa fa-check"></i>The Global View</a></li>
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#the-weekly-view"><i class="fa fa-check"></i>The Weekly View</a></li>
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#learning-outcomes"><i class="fa fa-check"></i>Learning Outcomes</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#lecture"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#before-the-lecture"><i class="fa fa-check"></i>Before the Lecture</a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#lecture-materials"><i class="fa fa-check"></i>Lecture Materials</a></li>
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#seminar"><i class="fa fa-check"></i>Seminar</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#seminar-getting-to-know-r"><i class="fa fa-check"></i>Seminar – Getting to Know R</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#which-role-does-the-quiz-have"><i class="fa fa-check"></i>Which role does the quiz have?</a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#test-your-knowledge"><i class="fa fa-check"></i>Test Your Knowledge</a></li>
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#what-can-i-find-under-the-label-useful-stuff"><i class="fa fa-check"></i>What can I find under the label “Useful Stuff”?</a></li>
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#fora"><i class="fa fa-check"></i>Fora</a></li>
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#where-can-i-find-information-on-the-assessment"><i class="fa fa-check"></i>Where can I find information on the assessment?</a></li>
@@ -383,7 +383,7 @@ div.csl-indent {
 <p>Just as a reminder, what is a confidence interval?</p>
 <div class="def">
 <p><strong>Confidence Interval</strong></p>
-<p>A confidence Interval for a parameter is an interval of numbers within which the parameter is believed to fall. The probability that this method produces an interval that contains the parameter is called the confidence level. This is a number chosen to be close to 1, such as 0.95 or 0.99. <span class="citation">(Agresti, 2018, p. 110)</span></p>
+<p>A confidence interval is an estimated range, based on a sample, that is likely to contain the true population parameter (such as the mean). If the sampling process were repeated many times, approximately <span class="math inline">\((1 - \alpha) \times 100\%\)</span> of the resulting intervals would contain the true parameter. The value of <span class="math inline">\(\alpha\)</span> determines the confidence level – for example, <span class="math inline">\(\alpha = 0.05\)</span> corresponds to a 95% confidence level, while <span class="math inline">\(\alpha = 0.01\)</span> corresponds to 99%. <span class="citation">(Reiche, forthcoming)</span></p>
 </div>
 <p>There are two scenarios under which we are calculating confidence intervals: (1) we know <span class="math inline">\(\sigma\)</span> (the standard deviation of the population distribution), and (2) we don’t know <span class="math inline">\(\sigma\)</span>. Let me take you through these two scenarios in turn:</p>
 <div id="we-know-sigma" class="section level3 unnumbered hasAnchor">
@@ -417,8 +417,8 @@ Figure 9: 95 Percent Confidence Interval around the Mean
 <div id="we-dont-know-sigma" class="section level3 unnumbered hasAnchor">
 <h3>2. We don’t know <span class="math inline">\(\sigma\)</span><a href="confidence-intervals.html#we-dont-know-sigma" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>If we don’t know the population distribution and its standard deviation, we need to use the t-distribution. As you know from the lecture, the t-distribution is a shape shifter. Its width depends on the degrees of freedom: the more degrees of freedom we have, the more narrow, or the closer to the normal distribution it comes. With df=30 the shapes of the t-distribution and the normal distribution are almost identical. You can see this in the following Figure, comparing the yellow t-distribution for <span class="math inline">\(df=30\)</span> and the black (normal) distribution.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-91"></span>
-<img src="main_files/figure-html/unnamed-chunk-91-1.png" alt="\label{fig:tdistribution}Comparison of t-Distributions" width="55%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-89"></span>
+<img src="main_files/figure-html/unnamed-chunk-89-1.png" alt="\label{fig:tdistribution}Comparison of t-Distributions" width="55%" />
 <p class="caption">
 Figure 10: Comparison of t-Distributions
 </p>
