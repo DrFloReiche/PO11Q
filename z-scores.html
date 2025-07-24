@@ -387,36 +387,37 @@ z=\frac{\text{Observation} - \text{Mean}}{\text{Standard Deviation}}=\frac{y-\mu
 \end{equation}\]</span></p>
 <p>To put this in words, z takes the difference between a particular value we are interested in and the mean. It then divides this distance by the standard deviation, in order to express the distance in units of standard deviations. Why do we do this? We know that under the Normal Distribution the area of the interval <em>mean</em> <span class="math inline">\(\pm\)</span> <em>one standard deviation</em> is equal to 68%. This is equivalent to the blue area in Figure <a href="z-scores.html#fig:area68">5</a>. This also means that the remaining white area is equal to 32%, or the white section on each side 16%.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:area68"></span>
-<img src="main_files/figure-html/area68-1.png" alt="\label{fig:area68}Area under the Normal Distribution" width="55%" />
+<img src="images/Week%207/normalarea.png" alt="\label{fig:area68}Area under the Normal Distribution" width="70%" />
 <p class="caption">
 Figure 5: Area under the Normal Distribution
 </p>
 </div>
 <p>Imagine now, we took the point of minus one standard deviation as a starting point, and turn right, as in Figure <a href="z-scores.html#fig:area84">6</a>. The white area is still 16%, so that the blue area needs to be 84%.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:area84"></span>
-<img src="main_files/figure-html/area84-1.png" alt="\label{fig:area84}Right-Tail Probability" width="55%" />
+<img src="images/Week%207/area84.png" alt="\label{fig:area84}Right-Tail Probability" width="70%" />
 <p class="caption">
 Figure 6: Right-Tail Probability
 </p>
 </div>
 <p>So the probability of finding a value larger than what is equivalent to minus one standard deviation is 84%. We call this a right-tail probability. The beauty is that we can do this for any point on the x-axis. Once we know how many standard deviations a value is removed from the mean, we can use the right-tail probability to assess how likely a value higher (or lower) than this value is to occur.</p>
-<p>The number of standard deviations is the z-score. Every z-score has a right-tail probability associated with it. These probabilities are listed in the Normal Table (see Moodle). How do we read this Table? Let me take you through the example used in the lecture once more. We assumed that the voter turnout rates of the 2019 European Elections for 28 countries was normally distributed, with <span class="math inline">\(\mu=50.66\)</span> and <span class="math inline">\(\sigma=16.56\)</span>. You can see this distribution visualised in Figure <a href="z-scores.html#fig:normalmean">7</a>.</p>
+<p>The number of standard deviations is the z-score. Every z-score has a right-tail probability associated with it. These probabilities are listed in the <a href="files/Downloads/Statistical%20Tables.pdf">Normal Table</a>. How do we read this Table? Let me take you through the example used in the lecture once more. The crime rate in our 32 Scottish councils is normally distributed, with <span class="math inline">\(\mu=280.36\)</span> and <span class="math inline">\(\sigma=69.26\)</span>. You can see this distribution visualised in Figure <a href="z-scores.html#fig:normalmean">7</a>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:normalmean"></span>
-<img src="main_files/figure-html/normalmean-1.png" alt="\label{fig:normalmean}Voter Turnout in the 2017 European Elections (n=28)" width="55%" />
+<img src="images/Week%207/myplot_centerline.png" alt="\label{fig:normalmean}Distribution of Crime Rate in 32 Scotting Councils, 2020" width="70%" />
 <p class="caption">
-Figure 7: Voter Turnout in the 2017 European Elections (n=28)
+Figure 7: Distribution of Crime Rate in 32 Scotting Councils, 2020
 </p>
 </div>
-<p>The question then was how likely it was for the EU to achieve a voter turnout larger than the voter turnout in the last General Election in the UK (68.8). If we wanted to visualise this, we would need the area to the right of 68.8 on the x-axis. This would look like this:</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:first"></span>
-<img src="main_files/figure-html/first-1.png" alt="\label{fig:first}Probability of Voter Turnout &gt; 68.8" width="55%" />
+<p>The question then was how likely it was for us to find a council with a crime rate larger than 400.
+If we wanted to visualise this, we would need the area to the right of 400 on the x-axis. This would look like this:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-63"></span>
+<img src="images/Week%207/prob7.png" alt="\label{fig:crime400}Probability of a Council with a Crime Rate $\geq$ 400" width="65%" />
 <p class="caption">
-Figure 8: Probability of Voter Turnout &gt; 68.8
+Figure 8: Probability of a Council with a Crime Rate <span class="math inline">\(\geq\)</span> 400
 </p>
 </div>
-<p>In order to calculate the size of this area, we first took the difference between 68.8 and 50.66 which is 18.14. We then divided 18.14 by the standard deviation of 16.56, to express the distance in units of the standard deviation. The result is 1.095411. We know, therefore, that the point of 68.8 percent voter turnout on the x-axis is located 1.095411 standard deviations to the right of the mean.</p>
-<p>We now need to find the right-tail probability that belongs to this value. In the left-most column of the Normal Table you find the z-values with the first decimal place. Move down to 1.1. From here you turn right, until you hit the second decimal place. As our value is 1.10 you will only have to go one column to the right. If the value was 1.11, you would have to go two columns to the right. For a z-score of 1.1 the area is 0.1357, or 13.57%. We can therefore say that with a voter turnout of 50.66 and a standard deviation of 16.56, the probability of achieving a voter turnout higher than 68.6 is 13.57%.</p>
-<p>Before moving on, I need to note that z can be negative. If we were assessing the probability of achieving a voter turnout of less than 32.52% (50.66-18.14), we would get a z-score of -1.1. Because the Normal Distribution is symmetrical, we can use the same process, but need to reverse the logic. Because the right tail probability gives us the area to the right of the z-score, a negative z-score would give us the area to the left of the z-score. So the probability of a voter turnout smaller than 32.52 is also 13.57%.</p>
+<p>In order to calculate the size of this area, we first took the difference between 400 and 280.36 which is 119.64. We then divided 119.64 by the standard deviation of 69.26, to express the distance in units of the standard deviation. The result is 1.727404. We know, therefore, that a crime rate of 400 on the x-axis is located 1.727404 standard deviations to the right of the mean.</p>
+<p>We now need to find the right-tail probability that belongs to this value. In the left-most column of the Normal Table you find the z-values with the first decimal place. Move down to 1.7. From here you turn right, until you hit the second decimal place. As our value is 1.73 you will have to go four columns to the right (the first one is for decimal 0). For a z-score of 1.73 the area is 0.0418, or 4.2%. We can therefore say that with an average crime rate of 280.36 and a standard deviation of 69.26, the probability of finding a council with a crime rate higher than 400 was 4.2%.</p>
+<p>Before moving on, I need to note that z can be negative. If we were assessing the probability of finding a council with a crime rate of less than 160.5 (280.36 - 1.73*69.26) we would get a z-score of -1.73. Because the Normal Distribution is symmetrical, we can use the same process, but need to reverse the logic. Because the right tail probability gives us the area to the right of the z-score, a negative z-score would give us the area to the left of the z-score. So the probability of a voter turnout smaller than 160.5 is also 4.2%.</p>
 <p>With this knowledge at hand, let’s do some calculations.</p>
 <hr />
 </div>

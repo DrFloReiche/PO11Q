@@ -11,11 +11,11 @@ tab:glossary5
 fig:area68
 fig:area84
 fig:normalmean
-fig:first
+fig:unnamed-chunk-63
 tab:ggplot2
 tab:glossary7
 fig:95
-fig:unnamed-chunk-92
+fig:unnamed-chunk-99
 tab:fearoncode
 tab:glossary8
 tab:glossary9
