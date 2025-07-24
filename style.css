@@ -344,6 +344,11 @@ div.video {
   margin-bottom: 1em;
 }
 
+.book .book-body .baser code:not(pre code) {
+  background-color: #767da2 !important;
+  color: #1d1f2b !important;
+  font-size: 105%;
+}
 
 
 .flashcard {
