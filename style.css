@@ -1,13 +1,81 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@350&display=swap');
 
 
-.book .book-summary {
-  background: #2A415F!important;
+body {
+  background-color: #1d1f2b !important;
+  color: #e1e2ea !important;
 }
 
 
-.book .book-body {
-  background: #496282!important;
+.book .book-body .page-wrapper .page-inner section,
+.book .book-body,
+.book {
+  background-color: #1d1f2b !important;
+  color: #e1e2ea !important;
+}
+
+.book .book-summary {
+  background-color: #1d1f2b !important;
+  color: #e1e2ea !important;
+}
+
+.book .book-body .page-wrapper .page-inner section {
+  color: #e1e2ea;
+}
+
+a {
+  color: #b3b7cb !important;
+}
+
+/* 1. Keep your TOC links with their existing color */
+.book .book-summary ul.summary li a,
+.book .book-summary ul.summary li a:hover,
+.book .book-summary ul.summary li.active a,
+.book .book-summary ul.summary li.done > a,
+.book .book-summary ul.summary li a.gitbook-link {
+  color: #b3b7cb !important;  /* Your distinct TOC link color */
+  text-decoration: none !important;
+}
+
+/* 2. Content links only — DO NOT affect .book-header */
+.book .book-body .page-inner a,
+.book .book-body .page-inner a:hover,
+.book .book-body .page-inner a:visited,
+.book .book-body .page-inner a:active {
+  color: #cd6118 !important;
+  text-decoration: none !important;
+}
+
+
+
+
+
+code, 
+.book .book-body code {
+  background-color: #1d1f2b !important;
+  color: #e1e2ea !important; /* match your text color */
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-family: 'Lexend', monospace;
+}
+
+pre, pre code {
+  background-color: #1d1f2b !important;
+  color: #e1e2ea !important;
+}
+
+table, th, td {
+  color: #e1e2ea !important;   /* match the rest of your body text */
+  background-color: #1d1f2b !important; /* match background */
+  border-color: #5c7ba3 !important; /* optional: soft blue for border */
+}
+
+thead {
+  color: #e1e2ea !important;
+}
+
+caption {
+  color: #e1e2ea !important;
 }
 
 /*____font in menu____*/
@@ -169,7 +237,7 @@ div.warning {
   background-repeat: no-repeat;
   background-position: 15px center;
   min-height: 110px;
-  color: #000000; /* change to black for contrast on white background */
+  color: #000000 !important; /* change to black for contrast on white background */
   background-color: #F0E0E0;
 
   /* Borders */
@@ -269,17 +337,36 @@ div.video {
 
 .baser {
   padding: 1em;
-  background: #D8CFDD;
-  color: #3C1053;
-  border: 3px solid #D8CFDD;
+  background: #767da2;
+  color: #1d1f2b;
+  border: 3px solid #767da2;
   border-radius: 12px;
   margin-bottom: 1em;
 }
 
+
+
 .flashcard {
   padding: 1em;
-  background: #D8CFDD;
-  color: #3C1053;
-  border: 1px solid #775887;
+  background: #2e0c40;
+  color: #e1e2ea !important;
 }
 
+.flashcard * {
+  background: none;
+  color: #e1e2ea !important;
+  padding: 0;  /* remove inner padding */
+  margin: 0;   /* optional: remove inner margins too */
+}
+
+
+div.bulb,
+div.warning,
+div.stop,
+div.puzzle,
+div.def,
+div.video,
+div.baser,
+div.flashcard {
+  color: #000000 !important;
+}

@@ -355,7 +355,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><div class="line-block">PO11Q: Seminar Companion <img align="right" src="images/Crest.png" width="75"></div></a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><div class="line-block">PO11Q: Seminar Companion <img align="right" src="images/Crest_white.png" width="75"></div></a>
           </h1>
         </div>
 
@@ -407,7 +407,7 @@ Figure 9: 95 Percent Confidence Interval around the Mean
 <p>As the grey area needs to be 95%, the white areas to the left and right need to be equal to 5% jointly. So each of them is 2.5%. When we look into our Table with right-tail probabilities, we therefore need to look for the z-score that corresponds to 0.025 (or 2.5%). When you look in the Normal Table (see <a href="files/Downloads/Statistical%20Tables.pdf">Statistical Tables</a>), then you will find this at z=1.96.</p>
 <p>Now, the question arises, how many standard deviations we need for a 99% confidence interval. The area to the left and right needs to be jointly 1%, or 0.05% each side. We consult the Normal Table again, and try to find the z-score for 0.005. The exact value is not available, only either 0.0051, or 0.0049. 0.0051 would lead to a confidence interval of 98.98%, so not quite large enough. We therefore need to go for 0.0049, and the corresponding z-score of z=2.58.</p>
 <p><span class="math display">\[\begin{equation*}
-\bar{y} \pm 2.58 \times \sigma_{\bar{Y}}
+y = \bar{y} \pm 2.58 \times \sigma_{\bar{Y}}
 \end{equation*}\]</span></p>
 <p>Popping the values in we receive</p>
 <p><span class="math display">\[\begin{equation*}
@@ -489,62 +489,108 @@ se=\frac{2}{\sqrt{4}}=1
 <p>An influential conventional wisdom holds that civil wars proliferated rapidly with the end of the Cold War and that the root cause of many or most of these has been ethnic and religious antagonisms. We show that the current prevalence of internal war is mainly the result of a steady accumulation of protracted conflicts since the 1950s and 1960s rather than a sudden change associated with a new, post-Cold War international system. We also find that after controlling for per capita income, more ethnically or religiously diverse countries have been no more likely to experience significant civil violence in this period. We argue for understanding civil war in this period in terms of insurgency or rural guerrilla warfare, a particular form of military practice that can be harnessed to diverse political agendas. The factors that explain which countries have been at risk for civil war are not their ethnic or religious characteristics but rather the conditions that favor insurgency. These include poverty – which marks financially and bureaucratically weak states and also favors rebel recruitment – political instability, rough terrain, and large populations.</p>
 </blockquote>
 <p>The <code>fearon</code> dataset contains several variables for each country in 1994, whilst the <code>fearonfull</code> data set contains data for all years from 1945 to 1999. Not all of the operations in the exercises were covered by the material in the lectures / seminars on PO11Q. Some of these rely on the reading, and for some you need to google for help on stackoverflow. You can find a full codebook in Table <a href="confidence-intervals.html#tab:fearoncode">9</a>.</p>
-<table>
-<caption><span id="tab:fearoncode">Table 9: </span>Codebook to Fearon Data Sets</caption>
-<colgroup>
-<col width="9%" />
-<col width="90%" />
-</colgroup>
+<table class="table table-striped table-hover" style="color: black; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:fearoncode">Table 9: </span>Codebook to Fearon Data Sets
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Variable</th>
-<th align="left">Label</th>
+<tr>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+Label
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">year</td>
-<td align="left">1945-1999</td>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+year
+</td>
+<td style="text-align:left;">
+1945-1999
+</td>
 </tr>
-<tr class="even">
-<td align="left">war</td>
-<td align="left">0 (no); 1 (yes)</td>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+war
+</td>
+<td style="text-align:left;">
+0 (no); 1 (yes)
+</td>
 </tr>
-<tr class="odd">
-<td align="left">ef</td>
-<td align="left">ethnic fractionalisation (%)</td>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+ef
+</td>
+<td style="text-align:left;">
+ethnic fractionalisation (%)
+</td>
 </tr>
-<tr class="even">
-<td align="left">relfrac</td>
-<td align="left">religious fractionalisation (%)</td>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+relfrac
+</td>
+<td style="text-align:left;">
+religious fractionalisation (%)
+</td>
 </tr>
-<tr class="odd">
-<td align="left">pop</td>
-<td align="left">population (in 1000s)</td>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+pop
+</td>
+<td style="text-align:left;">
+population (in 1000s)
+</td>
 </tr>
-<tr class="even">
-<td align="left">mtnest</td>
-<td align="left">mountainous terrain (%)</td>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+mtnest
+</td>
+<td style="text-align:left;">
+mountainous terrain (%)
+</td>
 </tr>
-<tr class="odd">
-<td align="left">elevdiff</td>
-<td align="left">elevation difference of the highest and lowest points (metres)</td>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+elevdiff
+</td>
+<td style="text-align:left;">
+elevation difference of the highest and lowest points (metres)
+</td>
 </tr>
-<tr class="even">
-<td align="left">polity2</td>
-<td align="left">regime score: -10 (autocracy) to 10 (democracy)</td>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+polity2
+</td>
+<td style="text-align:left;">
+regime score: -10 (autocracy) to 10 (democracy)
+</td>
 </tr>
-<tr class="odd">
-<td align="left">gdpen</td>
-<td align="left">GDP per capita (in 1000s, 1985 US Dollar)</td>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+gdpen
+</td>
+<td style="text-align:left;">
+GDP per capita (in 1000s, 1985 US Dollar)
+</td>
 </tr>
-<tr class="even">
-<td align="left">Oil</td>
-<td align="left">less than 1/3 export revenue from oil (0); 1/3 or more export revenue from oil (1)</td>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+Oil
+</td>
+<td style="text-align:left;">
+less than 1/3 export revenue from oil (0); 1/3 or more export revenue from oil (1)
+</td>
 </tr>
-<tr class="odd">
-<td align="left">plural</td>
-<td align="left">share of largest ethnic group (%)</td>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+plural
+</td>
+<td style="text-align:left;">
+share of largest ethnic group (%)
+</td>
 </tr>
 </tbody>
 </table>
