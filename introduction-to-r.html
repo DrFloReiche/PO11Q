@@ -1,372 +1,129 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html lang="en">
 <head>
-
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Introduction to R | main.knit</title>
-  <meta name="description" content="PO11Q: Seminar Companion " />
-  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
-
-  <meta property="og:title" content="Introduction to R | main.knit" />
-  <meta property="og:type" content="book" />
-  
-  
-  
-
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Introduction to R | main.knit" />
-  
-  
-  
-
-
-
-
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  
-  
-<link rel="prev" href="glossary-3.html"/>
-<link rel="next" href="glossary-4.html"/>
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
-<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
-
-
-
-
-
-
-
-<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
-<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
-<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
-
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Introduction to R |  PO11Q: Introduction to Quantitative Political Analysis I –   Seminar Companion</title>
+<meta name="generator" content="bookdown 0.43 with bs4_book()">
+<meta property="og:title" content="Introduction to R |  PO11Q: Introduction to Quantitative Political Analysis I –   Seminar Companion">
+<meta property="og:type" content="book">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Introduction to R |  PO11Q: Introduction to Quantitative Political Analysis I –   Seminar Companion">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><link href="libs/Lexend-0.4.10/font.css" rel="stylesheet">
+<script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
-
-<style type="text/css">
-  
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-</style>
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
-
-<link rel="stylesheet" href="style.css" type="text/css" />
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+          margin-bottom: 0em;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+<meta name="description" content="Self-Assessment Questions3 How do you calculate the relative frequencies for each of the categories of a variable? Give an example of a dichotomous variable. Why is age a continuous variable...">
+<meta property="og:description" content="Self-Assessment Questions3 How do you calculate the relative frequencies for each of the categories of a variable? Give an example of a dichotomous variable. Why is age a continuous variable...">
+<meta name="twitter:description" content="Self-Assessment Questions3 How do you calculate the relative frequencies for each of the categories of a variable? Give an example of a dichotomous variable. Why is age a continuous variable...">
 </head>
+<body data-spy="scroll" data-target="#toc">
 
-<body>
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
-
-
-  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
-
-    <div class="book-summary">
-      <nav role="navigation">
-
-<ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
-<li class="chapter" data-level="" data-path="companion-features.html"><a href="companion-features.html"><i class="fa fa-check"></i>Companion Features</a></li>
-<li class="chapter" data-level="" data-path="accessibility.html"><a href="accessibility.html"><i class="fa fa-check"></i>Accessibility</a></li>
-<li class="part"><span><b>Week 1</b></span></li>
-<li class="chapter" data-level="" data-path="no-seminar.html"><a href="no-seminar.html"><i class="fa fa-check"></i>No Seminar</a></li>
-<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="part"><span><b>Week 2</b></span></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#introduction-to-moodle"><i class="fa fa-check"></i>Introduction to Moodle</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#the-global-view"><i class="fa fa-check"></i>The Global View</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#the-weekly-view"><i class="fa fa-check"></i>The Weekly View</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#learning-outcomes"><i class="fa fa-check"></i>Learning Outcomes</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#before-the-lecture"><i class="fa fa-check"></i>Before the Lecture</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#lecture-materials"><i class="fa fa-check"></i>Lecture Materials</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#before-the-seminar"><i class="fa fa-check"></i>Before the Seminar</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#seminar"><i class="fa fa-check"></i>Seminar</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#test-your-knowledge"><i class="fa fa-check"></i>Test Your Knowledge</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#what-can-i-find-under-the-label-useful-stuff"><i class="fa fa-check"></i>What can I find under the label “Useful Stuff”?</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#fora"><i class="fa fa-check"></i>Fora</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#where-can-i-find-information-on-the-assessment"><i class="fa fa-check"></i>Where can I find information on the assessment?</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#introduction-to-talis-aspire"><i class="fa fa-check"></i>Introduction to Talis Aspire</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#how-do-i-find-a-reading"><i class="fa fa-check"></i>How do I find a reading?</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#how-do-i-find-a-reading-contd."><i class="fa fa-check"></i>How do I find a reading? (contd.)</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#what-if-the-reading-is-not-digitally-available"><i class="fa fa-check"></i>What if the reading is not digitally available?</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#essential-versus-recommended-reading"><i class="fa fa-check"></i>Essential versus Recommended Reading</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#does-it-make-sense-to-buy-a-book"><i class="fa fa-check"></i>Does it make sense to buy a book?</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#assessment"><i class="fa fa-check"></i>Assessment</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#a-simple-question"><i class="fa fa-check"></i>A Simple Question (?)</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#group-work-1"><i class="fa fa-check"></i>Group Work 1</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#group-work-2"><i class="fa fa-check"></i>Group Work 2</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#homework-for-week-3"><i class="fa fa-check"></i>Homework for Week 3</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="glossary-1.html"><a href="glossary-1.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="part"><span><b>Week 3</b></span></li>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html"><i class="fa fa-check"></i>Conceptualisation and Measurement</a>
-<ul>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#self-assessment-questions"><i class="fa fa-check"></i>Self-Assessment Questions</a></li>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#assessment-1"><i class="fa fa-check"></i>Assessment</a></li>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#assessment-guidelines"><i class="fa fa-check"></i>Assessment Guidelines</a>
-<ul>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#assessment-guidelines-1"><i class="fa fa-check"></i>Assessment Guidelines</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#referencing"><i class="fa fa-check"></i>Referencing</a>
-<ul>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#references-how"><i class="fa fa-check"></i>References: How?</a></li>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#references-harvard"><i class="fa fa-check"></i>References: Harvard</a></li>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#quotations"><i class="fa fa-check"></i>Quotations</a></li>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#long-quotations"><i class="fa fa-check"></i>Long Quotations</a></li>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#list-of-references"><i class="fa fa-check"></i>List of References</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#writing-your-assessment"><i class="fa fa-check"></i>Writing your Assessment</a></li>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#group-work"><i class="fa fa-check"></i>Group Work</a></li>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#homework-for-week-4"><i class="fa fa-check"></i>Homework for Week 4</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="glossary-2.html"><a href="glossary-2.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="part"><span><b>Week 4</b></span></li>
-<li class="chapter" data-level="" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i>Descriptive Statistics</a>
-<ul>
-<li class="chapter" data-level="" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#self-assessment-questions-1"><i class="fa fa-check"></i>Self-Assessment Questions</a></li>
-<li class="chapter" data-level="" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#calculations"><i class="fa fa-check"></i>Calculations</a>
-<ul>
-<li class="chapter" data-level="" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#data-set"><i class="fa fa-check"></i>Data Set</a></li>
-<li class="chapter" data-level="" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#exercises"><i class="fa fa-check"></i>Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#homework-for-week-5"><i class="fa fa-check"></i>Homework for Week 5</a></li>
-<li class="chapter" data-level="" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#solutions"><i class="fa fa-check"></i>Solutions</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="glossary-3.html"><a href="glossary-3.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="part"><span><b>Week 5</b></span></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i>Introduction to R</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#self-assessment-questions-2"><i class="fa fa-check"></i>Self-Assessment Questions</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-rstudio-installation"><i class="fa fa-check"></i>R &amp; RStudio – Installation</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r---getting-started"><i class="fa fa-check"></i>R - Getting Started</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#rscript"><i class="fa fa-check"></i>RScript</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#rscript-structure"><i class="fa fa-check"></i>RScript Structure</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#first-steps-in-r"><i class="fa fa-check"></i>First Steps in R</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-working-directory"><i class="fa fa-check"></i>The Working Directory</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-packages"><i class="fa fa-check"></i>R Packages</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#opening-your-data-set"><i class="fa fa-check"></i>Opening your Data Set</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#viewing-the-data"><i class="fa fa-check"></i>Viewing the Data</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#variable-types-in-r"><i class="fa fa-check"></i>Variable Types in R</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#nominal-variables"><i class="fa fa-check"></i>Nominal Variables</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#ordinal-variables"><i class="fa fa-check"></i>Ordinal Variables</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#binary-dummy"><i class="fa fa-check"></i>Binary Dummy</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#sub-setting-data"><i class="fa fa-check"></i>Sub-Setting Data</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#by-variable"><i class="fa fa-check"></i>By Variable</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#by-observation"><i class="fa fa-check"></i>By Observation</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#keep-if-a-variable-has-a-certain-value"><i class="fa fa-check"></i>Keep if a variable has a certain value</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#ordering-data"><i class="fa fa-check"></i>Ordering Data</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#grouping-data"><i class="fa fa-check"></i>Grouping Data</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#combining-ordering-and-grouping-data"><i class="fa fa-check"></i>Combining Ordering and Grouping Data</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#saving"><i class="fa fa-check"></i>Saving</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#homework-for-week-7"><i class="fa fa-check"></i>Homework for Week 7</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="glossary-4.html"><a href="glossary-4.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards.html"><a href="flashcards.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Week 6</b></span></li>
-<li class="chapter" data-level="" data-path="reading-week.html"><a href="reading-week.html"><i class="fa fa-check"></i>Reading Week</a></li>
-<li class="part"><span><b>Week 7</b></span></li>
-<li class="chapter" data-level="" data-path="z-scores.html"><a href="z-scores.html"><i class="fa fa-check"></i>z-Scores</a>
-<ul>
-<li class="chapter" data-level="" data-path="z-scores.html"><a href="z-scores.html#self-assessment-questions-3"><i class="fa fa-check"></i>Self-Assessment Questions</a></li>
-<li class="chapter" data-level="" data-path="z-scores.html"><a href="z-scores.html#how-to-read-a-z-table"><i class="fa fa-check"></i>How to read a z-table</a></li>
-<li class="chapter" data-level="" data-path="z-scores.html"><a href="z-scores.html#calculations-1"><i class="fa fa-check"></i>Calculations</a></li>
-<li class="chapter" data-level="" data-path="z-scores.html"><a href="z-scores.html#solutions-1"><i class="fa fa-check"></i>Solutions</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html"><i class="fa fa-check"></i>Working with R</a>
-<ul>
-<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#preliminary-stuff"><i class="fa fa-check"></i>Preliminary Stuff</a></li>
-<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#descriptive-statistics-1"><i class="fa fa-check"></i>Descriptive Statistics</a></li>
-<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#graphs"><i class="fa fa-check"></i>Graphs</a></li>
-<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#basic-graphs"><i class="fa fa-check"></i>Basic Graphs</a></li>
-<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#advanced-graphs"><i class="fa fa-check"></i>Advanced Graphs</a></li>
-<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#even-more-advanced-graphs"><i class="fa fa-check"></i>Even More Advanced Graphs</a></li>
-<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#organising-code-in-the-rscript"><i class="fa fa-check"></i>Organising Code in the RScript</a></li>
-<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#exercises-1"><i class="fa fa-check"></i>Exercises</a></li>
-<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#captions-for-tables-and-figures-in-word"><i class="fa fa-check"></i>Captions for Tables and Figures in Word</a></li>
-<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#homework-for-week-8"><i class="fa fa-check"></i>Homework for Week 8</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="glossary-5.html"><a href="glossary-5.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards-1.html"><a href="flashcards-1.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Week 8</b></span></li>
-<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html"><i class="fa fa-check"></i>Confidence Intervals</a>
-<ul>
-<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html#self-assessment-questions-4"><i class="fa fa-check"></i>Self-Assessment Questions</a></li>
-<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html#calculating-confidence-intervals"><i class="fa fa-check"></i>Calculating Confidence Intervals</a>
-<ul>
-<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html#we-know-sigma"><i class="fa fa-check"></i>1. We know <span class="math inline">\(\sigma\)</span></a></li>
-<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html#we-dont-know-sigma"><i class="fa fa-check"></i>2. We don’t know <span class="math inline">\(\sigma\)</span></a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html#exercises-2"><i class="fa fa-check"></i>Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html#conceptual-exercises"><i class="fa fa-check"></i>Conceptual Exercises</a></li>
-<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html#r-exercises"><i class="fa fa-check"></i>R Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html#homework-for-week-9"><i class="fa fa-check"></i>Homework for Week 9</a></li>
-<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html#solutions-2"><i class="fa fa-check"></i>Solutions</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="glossary-6.html"><a href="glossary-6.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards-2.html"><a href="flashcards-2.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Week 9</b></span></li>
-<li class="chapter" data-level="" data-path="significance-testing.html"><a href="significance-testing.html"><i class="fa fa-check"></i>Significance Testing</a>
-<ul>
-<li class="chapter" data-level="" data-path="significance-testing.html"><a href="significance-testing.html#group-work-self-reflection"><i class="fa fa-check"></i>Group Work – Self-Reflection</a></li>
-<li class="chapter" data-level="" data-path="significance-testing.html"><a href="significance-testing.html#r-exercises-1"><i class="fa fa-check"></i>R Exercises</a></li>
-<li class="chapter" data-level="" data-path="significance-testing.html"><a href="significance-testing.html#homework-for-week-10"><i class="fa fa-check"></i>Homework for Week 10</a></li>
-<li class="chapter" data-level="" data-path="significance-testing.html"><a href="significance-testing.html#solutions-3"><i class="fa fa-check"></i>Solutions</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="glossary-7.html"><a href="glossary-7.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards-3.html"><a href="flashcards-3.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Week 10</b></span></li>
-<li class="chapter" data-level="" data-path="introduction-to-causality.html"><a href="introduction-to-causality.html"><i class="fa fa-check"></i>Introduction to Causality</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-causality.html"><a href="introduction-to-causality.html#self-assessment-questions-5"><i class="fa fa-check"></i>Self-Assessment Questions</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-causality.html"><a href="introduction-to-causality.html#exam-preparation"><i class="fa fa-check"></i>Exam Preparation</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-causality.html"><a href="introduction-to-causality.html#homework"><i class="fa fa-check"></i>Homework</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="glossary-8.html"><a href="glossary-8.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards-4.html"><a href="flashcards-4.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Downloads</b></span></li>
-<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html"><i class="fa fa-check"></i>Downloads</a>
-<ul>
-<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html#documents"><i class="fa fa-check"></i>Documents</a></li>
-<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html#data-sets"><i class="fa fa-check"></i>Data Sets</a></li>
-<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html#r-scripts"><i class="fa fa-check"></i>R Scripts</a></li>
-</ul></li>
-<li class="part"><span><b>Glossary</b></span></li>
-<li class="chapter" data-level="" data-path="glossary-9.html"><a href="glossary-9.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="part"><span><b>List of References</b></span></li>
-<li class="chapter" data-level="" data-path="list-of-references-1.html"><a href="list-of-references-1.html"><i class="fa fa-check"></i>List of References</a></li>
-</ul>
-
-      </nav>
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title=""><p><img src="images/Crest_white.png" width="75" style="display:block; margin:auto; margin-bottom:3em;"> PO11Q: Introduction to Quantitative Political Analysis I – <br> Seminar Companion</p></a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
 
-    <div class="book-body">
-      <div class="body-inner">
-        <div class="book-header" role="navigation">
-          <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><div class="line-block">PO11Q: Seminar Companion <img align="right" src="images/Crest_white.png" width="75"></div></a>
-          </h1>
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Preface</a></li>
+<li><a class="" href="companion-features.html">Companion Features</a></li>
+<li><a class="" href="accessibility.html">Accessibility</a></li>
+<li class="book-part">Week 1</li>
+<li><a class="" href="no-seminar.html">No Seminar</a></li>
+<li><a class="" href="glossary.html">Glossary</a></li>
+<li class="book-part">Week 2</li>
+<li><a class="" href="introduction.html">Introduction</a></li>
+<li><a class="" href="glossary-1.html">Glossary</a></li>
+<li class="book-part">Week 3</li>
+<li><a class="" href="conceptualisation-and-measurement.html">Conceptualisation and Measurement</a></li>
+<li><a class="" href="glossary-2.html">Glossary</a></li>
+<li class="book-part">Week 4</li>
+<li><a class="" href="descriptive-statistics.html">Descriptive Statistics</a></li>
+<li><a class="" href="glossary-3.html">Glossary</a></li>
+<li class="book-part">Week 5</li>
+<li><a class="active" href="introduction-to-r.html">Introduction to R</a></li>
+<li><a class="" href="glossary-4.html">Glossary</a></li>
+<li><a class="" href="flashcards.html">Flashcards</a></li>
+<li class="book-part">Week 6</li>
+<li><a class="" href="reading-week.html">Reading Week</a></li>
+<li class="book-part">Week 7</li>
+<li><a class="" href="z-scores.html">z-Scores</a></li>
+<li><a class="" href="working-with-r.html">Working with R</a></li>
+<li><a class="" href="glossary-5.html">Glossary</a></li>
+<li><a class="" href="flashcards-1.html">Flashcards</a></li>
+<li class="book-part">Week 8</li>
+<li><a class="" href="confidence-intervals.html">Confidence Intervals</a></li>
+<li><a class="" href="glossary-6.html">Glossary</a></li>
+<li><a class="" href="flashcards-2.html">Flashcards</a></li>
+<li class="book-part">Week 9</li>
+<li><a class="" href="significance-testing.html">Significance Testing</a></li>
+<li><a class="" href="glossary-7.html">Glossary</a></li>
+<li><a class="" href="flashcards-3.html">Flashcards</a></li>
+<li class="book-part">Week 10</li>
+<li><a class="" href="introduction-to-causality.html">Introduction to Causality</a></li>
+<li><a class="" href="glossary-8.html">Glossary</a></li>
+<li><a class="" href="flashcards-4.html">Flashcards</a></li>
+<li class="book-part">Downloads</li>
+<li><a class="" href="downloads.html">Downloads</a></li>
+<li class="book-part">Glossary</li>
+<li><a class="" href="glossary-9.html">Glossary</a></li>
+<li class="book-part">List of References</li>
+<li><a class="" href="list-of-references-1.html">List of References</a></li>
+</ul>
+
+        <div class="book-extra">
+          
         </div>
-
-        <div class="page-wrapper" tabindex="-1" role="main">
-          <div class="page-inner">
-
-            <section class="normal" id="section-">
-<div id="introduction-to-r" class="section level1 unnumbered hasAnchor">
-<h1>Introduction to R<a href="introduction-to-r.html#introduction-to-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="self-assessment-questions-2" class="section level2 unnumbered hasAnchor">
-<h2>Self-Assessment Questions<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a><a href="introduction-to-r.html#self-assessment-questions-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><script src="sidebar-link.js"></script><div id="introduction-to-r" class="section level1 unnumbered">
+<h1>Introduction to R<a class="anchor" aria-label="anchor" href="#introduction-to-r"><i class="fas fa-link"></i></a>
+</h1>
+<div id="self-assessment-questions-2" class="section level2 unnumbered">
+<h2>Self-Assessment Questions<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Some of the content of this worksheet is taken from &lt;span class="citation"&gt;Reiche (forthcoming)&lt;/span&gt;.&lt;/p&gt;'><sup>3</sup></a><a class="anchor" aria-label="anchor" href="#self-assessment-questions-2"><i class="fas fa-link"></i></a>
+</h2>
 <ol style="list-style-type: decimal">
 <li>How do you calculate the relative frequencies for each of the categories of a variable?</li>
 <li>Give an example of a dichotomous variable.</li>
@@ -377,10 +134,11 @@ div.csl-indent {
 <div class="stop">
 <p>Please stop here and don’t go beyond this point until we have compared notes on your answers.</p>
 </div>
-<hr />
+<hr>
 </div>
-<div id="r-rstudio-installation" class="section level2 unnumbered hasAnchor">
-<h2>R &amp; RStudio – Installation<a href="introduction-to-r.html#r-rstudio-installation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="r-rstudio-installation" class="section level2 unnumbered">
+<h2>R &amp; RStudio – Installation<a class="anchor" aria-label="anchor" href="#r-rstudio-installation"><i class="fas fa-link"></i></a>
+</h2>
 <p>Today we start working with R and the first step is to install the program. Please follow these instructions:</p>
 <ol style="list-style-type: decimal">
 <li>Go to <a href="https://cran.r-project.org/mirrors.html" class="uri">https://cran.r-project.org/mirrors.html</a> and select a server from which you want to download R. It is convention to do this from the server which is nearest to you. Follow on-screen instructions and install the program.</li>
@@ -390,19 +148,20 @@ div.csl-indent {
 <div class="bulb">
 <p>Whilst you need to install both R and RStudio, we will never be working with R directly. Instead, we will be operating it through RStudio.</p>
 </div>
-<hr />
+<hr>
 </div>
-<div id="r---getting-started" class="section level2 unnumbered hasAnchor">
-<h2>R - Getting Started<a href="introduction-to-r.html#r---getting-started" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="r---getting-started" class="section level2 unnumbered">
+<h2>R - Getting Started<a class="anchor" aria-label="anchor" href="#r---getting-started"><i class="fas fa-link"></i></a>
+</h2>
 <p>In this worksheet and also in all other presentations and documents I use on this module, I am using two different fonts:</p>
 <ul>
 <li>Font for plain text</li>
 <li><code>A typewriter font for R functions, values, etc.</code></li>
 </ul>
 <p>I am also regularly including “screenshots” of operations in R with their output. Whenever you see these, please replicate them on your own computer. To start, let’s have a look at RStudio itself. When you open the programme, you are presented with the following screen:</p>
-<div class="figure"><span style="display:block;" id="fig:RStudio"></span>
-<img src="files/Week%205/RStudio.png" alt="\label{fig:RStudio}RStudio" width="60%" />
-<p class="caption">
+<div class="figure">
+<span style="display:block;" id="fig:RStudio"></span>
+<img src="files/Week%205/RStudio.png" alt="\label{fig:RStudio}RStudio" width="60%"><p class="caption">
 Figure 1: RStudio
 </p>
 </div>
@@ -414,46 +173,50 @@ Figure 1: RStudio
 <iframe width="560" height="315" src="https://www.youtube.com/embed/D7p2OXwBur8?si=ECd7It03IArA6_BP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
 </iframe>
 </div>
-<hr />
+<hr>
 </div>
-<div id="rscript" class="section level2 unnumbered hasAnchor">
-<h2>RScript<a href="introduction-to-r.html#rscript" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="rscript" class="section level2 unnumbered">
+<h2>RScript<a class="anchor" aria-label="anchor" href="#rscript"><i class="fas fa-link"></i></a>
+</h2>
 <p>If you read the previous section carefully, you will have noticed that I wrote that you <em>can</em> enter the commands” in the <code>Console</code>. You can, but you shouldn’t. What you should be using instead is an <code>RScript</code>. An <code>RScript</code> is a list of commands you use for a project (an essay, your dissertation, an article) to calculate quantities of interest, such as descriptive statistics in the form of mean, median and mode, and produce graphs.</p>
 <p>One of the foundations of scientific research is “reproducibility”“, or”replicability”. This means that “sufficient information exists with which to understand, evaluate, and build upon a prior work if a third party could replicate the results without any additional information from the author.” <span class="citation">King (1995, p. 444, emphasis removed)</span> This principle applies in academia more generally, because only if you understand what a person has done before you, you can pick their work up whether they left it, and push the boundaries of knowledge further. But a bit closer to home, it is also relevant for conducting quantitative research in assessments. We require you to submit an RScript (or a “do file” if you use Stata) now together with your actual essay. This is not only to check what you have done; data preparation is often the most time-consuming part (as you will soon discover), and this is a way to gain recognition for this work. So it is actually to your advantage, and not a mere plagiarism check.</p>
 <p>The creation of an RScript will allow you to open the raw data, and by running the script, to bring it to exactly where you left off. This saves you saving data sets which can take up a lot of work. If you back the script up properly, you also have an insurance against losing all your work a day before the assessment is due.</p>
 <p>To create an RScript, click File <span class="math inline">\(\rightarrow\)</span> New File <span class="math inline">\(\rightarrow\)</span> RScript. A fourth window opens, and your screen will now look something like this:</p>
-<div class="figure"><span style="display:block;" id="fig:RScript"></span>
-<img src="files/Week%205/rscript.png" alt="\label{fig:RScript}The RScript Window" width="60%" />
-<p class="caption">
+<div class="figure">
+<span style="display:block;" id="fig:RScript"></span>
+<img src="files/Week%205/rscript.png" alt="\label{fig:RScript}The RScript Window" width="60%"><p class="caption">
 Figure 2: The RScript Window
 </p>
 </div>
 <p>You can now write your commands in the RScript, where a new line (for now) means a new command. If you want to execute a command, put the cursor on the line the command is on and press “command” / “enter” simultaneoulsy on a Mac and “Ctrl” / “Enter” on Windows.</p>
 <p>If you precede a line with #, you can write annotations to yourself, for example explaining what you do with a particular command. More on this in the next sub-section.</p>
 <p>Figure <a href="introduction-to-r.html#fig:RScriptex">3</a> shows the start of the RScript for this worksheet. I prefer a dark background, it’s easier on the eyes, especially when you work with R for long periods. You can change the settings in: Tools <span class="math inline">\(\rightarrow\)</span> Global Options <span class="math inline">\(\rightarrow\)</span> Appearance <span class="math inline">\(\rightarrow\)</span> Twilight.</p>
-<div class="figure"><span style="display:block;" id="fig:RScriptex"></span>
-<img src="files/Week%205/RScript_example.png" alt="\label{fig:RScriptex}Example of an RScript" width="75%" />
-<p class="caption">
+<div class="figure">
+<span style="display:block;" id="fig:RScriptex"></span>
+<img src="files/Week%205/RScript_example.png" alt="\label{fig:RScriptex}Example of an RScript" width="75%"><p class="caption">
 Figure 3: Example of an RScript
 </p>
 </div>
 <div class="bulb">
 <p><strong>More Themes</strong></p>
-<p>If you copy and paste the following code chunks into your “Console” and run one at a time, you will have even more themes<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> to choose from:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="introduction-to-r.html#cb1-1" tabindex="-1"></a><span class="fu">install.packages</span>(</span>
-<span id="cb1-2"><a href="introduction-to-r.html#cb1-2" tabindex="-1"></a>  <span class="st">&quot;rsthemes&quot;</span>,</span>
-<span id="cb1-3"><a href="introduction-to-r.html#cb1-3" tabindex="-1"></a>  <span class="at">repos =</span> <span class="fu">c</span>(<span class="at">gadenbuie =</span> <span class="st">&#39;https://gadenbuie.r-universe.dev&#39;</span>, <span class="fu">getOption</span>(<span class="st">&quot;repos&quot;</span>))</span>
-<span id="cb1-4"><a href="introduction-to-r.html#cb1-4" tabindex="-1"></a>)</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="introduction-to-r.html#cb2-1" tabindex="-1"></a>rsthemes<span class="sc">::</span><span class="fu">install_rsthemes</span>()</span></code></pre></div>
-<p>You can also download <a href="files/Week%205/Flos%20Dark%20Theme.rstheme">Flo’s Dark Theme</a><a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> and then “add” it at the bottom of the “Appearance” menu.</p>
+<p>If you copy and paste the following code chunks into your “Console” and run one at a time, you will have even more themes<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Source: &lt;a href="https://www.garrickadenbuie.com/project/rsthemes/" class="uri"&gt;https://www.garrickadenbuie.com/project/rsthemes/&lt;/a&gt;&lt;/p&gt;'><sup>4</sup></a> to choose from:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span></span>
+<span>  <span class="st">"rsthemes"</span>,</span>
+<span>  repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>gadenbuie <span class="op">=</span> <span class="st">'https://gadenbuie.r-universe.dev'</span>, <span class="fu"><a href="https://rdrr.io/r/base/options.html">getOption</a></span><span class="op">(</span><span class="st">"repos"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">rsthemes</span><span class="fu">::</span><span class="fu">install_rsthemes</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>You can also download <a href="files/Week%205/Flos%20Dark%20Theme.rstheme">Flo’s Dark Theme</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;This is a variation of the &lt;a href="https://draculatheme.com/rstudio"&gt;Dracula Theme&lt;/a&gt;.&lt;/p&gt;'><sup>5</sup></a> and then “add” it at the bottom of the “Appearance” menu.</p>
 </div>
 <div class="video">
 <p><strong>Appearance</strong></p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/uq1SYDuC83Y?si=_pQDebuqh189K4C-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
 </iframe>
 </div>
-<div id="rscript-structure" class="section level3 unnumbered hasAnchor">
-<h3>RScript Structure<a href="introduction-to-r.html#rscript-structure" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="rscript-structure" class="section level3 unnumbered">
+<h3>RScript Structure<a class="anchor" aria-label="anchor" href="#rscript-structure"><i class="fas fa-link"></i></a>
+</h3>
 <p>Well, I am German, and I like things neat and tidy, so I feel almost compelled to discuss how to properly organise an RScript. But apart from genetical dispositions, a well-organised RScript is also very much in the spirit of reproducibility. It simply makes sense to structure an RScript in such a way that another researcher is able to easily read and understand it.</p>
 <p>First of all, which commands to include? If you introduce me to your current girlfriend or boyfriend, I have no interest in learning about all your past relationships; they have not worked out. In a similar fashion, nobody wants to read through lines of code that are irrelvant. So you will only include in the RScript those commands which produce the output you actually include in the essay or article.</p>
 <p>I stated above that if you precede a line with #, you can write annotations to yourself. This is also a useful way to structure an RScript, for example into exercise numbers, sections of an essay /article, or different stages of data preparation (which we will be doing in due course).</p>
@@ -462,13 +225,15 @@ Figure 3: Example of an RScript
 <iframe width="560" height="315" src="https://www.youtube.com/embed/kmXRoQYiktk?si=LCooa7grSIw7vE5L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
 </iframe>
 </div>
-<hr />
+<hr>
 </div>
 </div>
-<div id="first-steps-in-r" class="section level2 unnumbered hasAnchor">
-<h2>First Steps in R<a href="introduction-to-r.html#first-steps-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="first-steps-in-r" class="section level2 unnumbered">
+<h2>First Steps in R<a class="anchor" aria-label="anchor" href="#first-steps-in-r"><i class="fas fa-link"></i></a>
+</h2>
 <p>But enough of the preliminary talk, let’s get started in R. In principle, you can think of R as a massive and powerful calculator. So I will use it as such to start of with. If you want to know what the sum of 5 and 3 is, you type:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="introduction-to-r.html#cb3-1" tabindex="-1"></a><span class="dv">5</span><span class="sc">+</span><span class="dv">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fl">5</span><span class="op">+</span><span class="fl">3</span></span></code></pre></div>
 <p>and execute the line as previously explained. In everything that is to follow, commands will be shown in boxes with the output underneath preceded by a number in square brackets. So, including result, the calculation would look like this:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="introduction-to-r.html#cb4-1" tabindex="-1"></a><span class="dv">5</span><span class="sc">+</span><span class="dv">3</span></span>
 <span id="cb4-2"><a href="introduction-to-r.html#cb4-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">8</span></span></code></pre></div>
@@ -476,56 +241,64 @@ Figure 3: Example of an RScript
 <div class="bulb">
 <p>You can copy the code from this page by hovering over the code chunk and clicking the icon in the top-right hand corner. You can then paste it into your RScript.</p>
 </div>
-<p>A fundamental component of R is objects. You can define an object by way of a reversed arrow, and you can assign values, characters, or functions to them. If we want to assign the sum of 5 and 3 to an object called <code>result</code>, for example, we call<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="introduction-to-r.html#cb5-1" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="dv">5</span><span class="sc">+</span><span class="dv">3</span></span></code></pre></div>
+<p>A fundamental component of R is objects. You can define an object by way of a reversed arrow, and you can assign values, characters, or functions to them. If we want to assign the sum of 5 and 3 to an object called <code>result</code>, for example, we call<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;To “call” means to execute a command.&lt;/p&gt;"><sup>6</sup></a></p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fl">5</span><span class="op">+</span><span class="fl">3</span></span></code></pre></div>
 <p>If we now call the object, R will return its value, 8.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="introduction-to-r.html#cb6-1" tabindex="-1"></a>result</span>
 <span id="cb6-2"><a href="introduction-to-r.html#cb6-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">8</span></span></code></pre></div>
 <div class="bulb">
 <p>Make a habit of adding a note underneath each code chunk in your RScript (preceded with a <span style="color:black"><code>#</code></span>) in which you translate the code into plain English. This is especially useful for the lengthy complex chunks.</p>
 </div>
-<hr />
+<hr>
 </div>
-<div id="the-working-directory" class="section level2 unnumbered hasAnchor">
-<h2>The Working Directory<a href="introduction-to-r.html#the-working-directory" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="the-working-directory" class="section level2 unnumbered">
+<h2>The Working Directory<a class="anchor" aria-label="anchor" href="#the-working-directory"><i class="fas fa-link"></i></a>
+</h2>
 <p>It is imperative that you create a suitable filing system to organise the materials for all of your modules. At the very least you should have a folder called “University” or similar, in which you have a sub-folder for each module you take.</p>
 <p>In those modules in which you are working with R, you need to extend this system a little. I have created a schematic of what I have in mind in Figure <a href="introduction-to-r.html#fig:folder">4</a>.</p>
-<div class="figure"><span style="display:block;" id="fig:folder"></span>
-<img src="files/Week%205/Folder%20Structure.png" alt="\label{fig:folder}Folder Structure" width="70%" />
-<p class="caption">
+<div class="figure">
+<span style="display:block;" id="fig:folder"></span>
+<img src="files/Week%205/Folder%20Structure.png" alt="\label{fig:folder}Folder Structure" width="70%"><p class="caption">
 Figure 4: Folder Structure
 </p>
 </div>
-<p>You see that there is a sub-folder for each week of the module (I have only done three for illustrative purposes), and that each of these folders is divided into lecture and seminar in turn. Into these you can place the lecture and seminar materials, respectively. Create this system now for PO11Q.</p>
+<p>You see that there is a sub-folder for each week of the module, and that each of these folders is divided into lecture and seminar in turn. Into these you can place the lecture and seminar materials, respectively. Create this system now for PO11Q.</p>
 <p>R works with so-called <code>Working Directories</code>. You can think of these as drawers from which R takes everything it needs to conduct the analysis (such as the data set), and into which it puts everything it produces (such as graph plots). As this will be an R-specific drawer within the seminar, create yet another sub-folder in your seminar folder, and call it something suitable, such as “PO11Q_Seminar_Week 1”. Do NOT call this “Working Directory”, as you will have many of those, rendering this name completely meaningless. Save the file <a href="files/Week%205/EU.xlsx">EU.xlsx</a> into this folder. Data are taken from <span class="citation">European Comission (n.d.)</span>.</p>
 <div class="warning">
 <p>Please set up this structure now. If I find you using a random folder on your desktop named “working directory” in the coming weeks, I am going to implode! I mean it.</p>
 </div>
-<p>Now we need to tell R to use this folder. If you know the file structure of your computer you can simply use the <code>setwd()</code> command, and enter the path. Here is an example from my computer:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="introduction-to-r.html#cb7-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Warwick/Modules/PO11Q/Seminars/Week 5/R Week 5&quot;</span>)</span></code></pre></div>
+<p>Now we need to tell R to use this folder. If you know the file structure of your computer you can simply use the <code><a href="https://rdrr.io/r/base/getwd.html">setwd()</a></code> command, and enter the path. Here is an example from my computer:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="st">"~/Warwick/Modules/PO11Q/Seminars/Week 5/R Week 5"</span><span class="op">)</span></span></code></pre></div>
 <p>If you don’t know the file structure of your computer, then you can click Session <span class="math inline">\(\rightarrow\)</span> Set Working Directory <span class="math inline">\(\rightarrow\)</span> Choose Directory.</p>
 <div class="video">
 <p><strong>Working Directory</strong></p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ZpWWnTSAfTU?si=fi9Zn304zv26nzB5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
 </iframe>
 </div>
-<hr />
+<hr>
 </div>
-<div id="r-packages" class="section level2 unnumbered hasAnchor">
-<h2>R Packages<a href="introduction-to-r.html#r-packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>It would be difficult to overstate the importance of packages in R. The program has a number of “base” functions which enable the user to do many different basic things, but packages are extensions that allow you to do pretty much anything and everything with this software - this is one of the reasons why I love it so much. The first package we need to use will enable us to load an Excel sheet into R. It is called <code>readxl</code>. You can install any package with the command <code>install.packages()</code> where the package name goes, wrapped in quotation marks, into the brackets:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="introduction-to-r.html#cb8-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;readxl&quot;</span>)</span></code></pre></div>
-<p>We can then load this package into our library with the <code>library()</code> command.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="introduction-to-r.html#cb9-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code></pre></div>
+<div id="r-packages" class="section level2 unnumbered">
+<h2>R Packages<a class="anchor" aria-label="anchor" href="#r-packages"><i class="fas fa-link"></i></a>
+</h2>
+<p>It would be difficult to overstate the importance of packages in R. The program has a number of “base” functions which enable the user to do many different basic things, but packages are extensions that allow you to do pretty much anything and everything with this software - this is one of the reasons why I love it so much. The first package we need to use will enable us to load an Excel sheet into R. It is called <code>readxl</code>. You can install any package with the command <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> where the package name goes, wrapped in quotation marks, into the brackets:</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"readxl"</span><span class="op">)</span></span></code></pre></div>
+<p>We can then load this package into our library with the <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> command.</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span></span></code></pre></div>
 <div class="bulb">
 <p>Once you close R at the end of a session, the library will be reset. When you reopen R, you have to load the packages you require again. But you do not have to install them again.</p>
 </div>
-<hr />
+<hr>
 </div>
-<div id="opening-your-data-set" class="section level2 unnumbered hasAnchor">
-<h2>Opening your Data Set<a href="introduction-to-r.html#opening-your-data-set" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="opening-your-data-set" class="section level2 unnumbered">
+<h2>Opening your Data Set<a class="anchor" aria-label="anchor" href="#opening-your-data-set"><i class="fas fa-link"></i></a>
+</h2>
 <p>We are now ready to open a data set in R - where it is called a “data frame”. For this, we create a new object <code>EU</code>, and ask R to read “Sheet 1”” of the Excel file “EU.xlsx” which we placed in the working directory earlier</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="introduction-to-r.html#cb10-1" tabindex="-1"></a>EU <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;EU.xlsx&quot;</span>, <span class="at">sheet=</span><span class="st">&quot;Sheet1&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">EU</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"EU.xlsx"</span>, sheet<span class="op">=</span><span class="st">"Sheet1"</span><span class="op">)</span></span></code></pre></div>
 <p>We can now use our data in R!</p>
 <div class="video">
 <p><strong>Loading the Data Set</strong></p>
@@ -535,13 +308,15 @@ Figure 4: Folder Structure
 <div class="warning">
 <p>Please do not use the “Import Dataset” button in the Environment, but do this properly, manually. We sometimes need to set options for importing data sets, and the “pointy, clicky” approach won’t be able to offer you what you need.</p>
 </div>
-<hr />
+<hr>
 </div>
-<div id="viewing-the-data" class="section level2 unnumbered hasAnchor">
-<h2>Viewing the Data<a href="introduction-to-r.html#viewing-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Unless you have been cheeky and opened the file in Excel to have a look, you have no idea yet, what the data look like. So it’s a good idea to view the data frame before doing anything with it. You can use the <code>View()</code> command to see the data frame:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="introduction-to-r.html#cb11-1" tabindex="-1"></a><span class="fu">View</span>(EU)</span></code></pre></div>
-<p>If you only want to see the first 6 observations of each variable, use the <code>head()</code> command:</p>
+<div id="viewing-the-data" class="section level2 unnumbered">
+<h2>Viewing the Data<a class="anchor" aria-label="anchor" href="#viewing-the-data"><i class="fas fa-link"></i></a>
+</h2>
+<p>Unless you have been cheeky and opened the file in Excel to have a look, you have no idea yet, what the data look like. So it’s a good idea to view the data frame before doing anything with it. You can use the <code><a href="https://rdrr.io/r/utils/View.html">View()</a></code> command to see the data frame:</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/View.html">View</a></span><span class="op">(</span><span class="va">EU</span><span class="op">)</span></span></code></pre></div>
+<p>If you only want to see the first 6 observations of each variable, use the <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> command:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="introduction-to-r.html#cb12-1" tabindex="-1"></a><span class="fu">head</span>(EU)</span>
 <span id="cb12-2"><a href="introduction-to-r.html#cb12-2" tabindex="-1"></a><span class="co"># A tibble: 6 × 5</span></span>
 <span id="cb12-3"><a href="introduction-to-r.html#cb12-3" tabindex="-1"></a>  country     pop18 access   area GDP_2015</span>
@@ -554,116 +329,131 @@ Figure 4: Folder Structure
 <span id="cb12-10"><a href="introduction-to-r.html#cb12-10" tabindex="-1"></a><span class="dv">6</span> Estonia   <span class="dv">1319133</span>   <span class="dv">2004</span>  <span class="dv">42390</span>  <span class="fl">3.51e10</span></span></code></pre></div>
 <p>If you simply want to know the variable names in the data frame, type:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="introduction-to-r.html#cb13-1" tabindex="-1"></a><span class="fu">names</span>(EU)</span>
-<span id="cb13-2"><a href="introduction-to-r.html#cb13-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;country&quot;</span>  <span class="st">&quot;pop18&quot;</span>    <span class="st">&quot;access&quot;</span>   <span class="st">&quot;area&quot;</span>     <span class="st">&quot;GDP_2015&quot;</span></span></code></pre></div>
-<p>The next one is a very important command, because it reveals not only the variable names and their first few observations, but also the nature of each variable (numerical, character, etc.). It is the <code>str()</code> command, where “str” stands for structure:</p>
+<span id="cb13-2"><a href="introduction-to-r.html#cb13-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"country"</span>  <span class="st">"pop18"</span>    <span class="st">"access"</span>   <span class="st">"area"</span>     <span class="st">"GDP_2015"</span></span></code></pre></div>
+<p>The next one is a very important command, because it reveals not only the variable names and their first few observations, but also the nature of each variable (numerical, character, etc.). It is the <code><a href="https://rdrr.io/r/utils/str.html">str()</a></code> command, where “str” stands for structure:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="introduction-to-r.html#cb14-1" tabindex="-1"></a><span class="fu">str</span>(EU)</span>
 <span id="cb14-2"><a href="introduction-to-r.html#cb14-2" tabindex="-1"></a>tibble [<span class="dv">28</span> × <span class="dv">5</span>] (S3<span class="sc">:</span> tbl_df<span class="sc">/</span>tbl<span class="sc">/</span>data.frame)</span>
-<span id="cb14-3"><a href="introduction-to-r.html#cb14-3" tabindex="-1"></a> <span class="sc">$</span> country <span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">28</span>] <span class="st">&quot;Belgium&quot;</span> <span class="st">&quot;Bulgaria&quot;</span> <span class="st">&quot;Czechia&quot;</span> <span class="st">&quot;Denmark&quot;</span> ...</span>
+<span id="cb14-3"><a href="introduction-to-r.html#cb14-3" tabindex="-1"></a> <span class="sc">$</span> country <span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">28</span>] <span class="st">"Belgium"</span> <span class="st">"Bulgaria"</span> <span class="st">"Czechia"</span> <span class="st">"Denmark"</span> ...</span>
 <span id="cb14-4"><a href="introduction-to-r.html#cb14-4" tabindex="-1"></a> <span class="sc">$</span> pop18   <span class="sc">:</span> num [<span class="dv">1</span><span class="sc">:</span><span class="dv">28</span>] <span class="dv">11413058</span> <span class="dv">7050034</span> <span class="dv">10610055</span> <span class="dv">5781190</span> <span class="dv">82850000</span> ...</span>
 <span id="cb14-5"><a href="introduction-to-r.html#cb14-5" tabindex="-1"></a> <span class="sc">$</span> access  <span class="sc">:</span> num [<span class="dv">1</span><span class="sc">:</span><span class="dv">28</span>] <span class="dv">1951</span> <span class="dv">2007</span> <span class="dv">2004</span> <span class="dv">1973</span> <span class="dv">1951</span> ...</span>
 <span id="cb14-6"><a href="introduction-to-r.html#cb14-6" tabindex="-1"></a> <span class="sc">$</span> area    <span class="sc">:</span> num [<span class="dv">1</span><span class="sc">:</span><span class="dv">28</span>] <span class="dv">30280</span> <span class="dv">108560</span> <span class="dv">77230</span> <span class="dv">42430</span> <span class="dv">348540</span> ...</span>
 <span id="cb14-7"><a href="introduction-to-r.html#cb14-7" tabindex="-1"></a> <span class="sc">$</span> GDP_2015<span class="sc">:</span> num [<span class="dv">1</span><span class="sc">:</span><span class="dv">28</span>] <span class="fl">4.66e+11</span> <span class="fl">1.22e+11</span> <span class="fl">3.19e+11</span> <span class="fl">2.46e+11</span> <span class="fl">3.60e+12</span> ...</span></code></pre></div>
 <p>You can see that R has recognised most variables as numerical, one is displayed as a character variable. This is appropriate for some variables, such as <code>pop18</code>, but not for the ordinal variable <code>access</code> which is ordinal. We need to recode it, and all other variables we are unhappy with.</p>
-<hr />
+<hr>
 </div>
-<div id="variable-types-in-r" class="section level2 unnumbered hasAnchor">
-<h2>Variable Types in R<a href="introduction-to-r.html#variable-types-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="variable-types-in-r" class="section level2 unnumbered">
+<h2>Variable Types in R<a class="anchor" aria-label="anchor" href="#variable-types-in-r"><i class="fas fa-link"></i></a>
+</h2>
 <p>R distinguishes between a number of different variable types and here is a broad overview of them. This will help you in deciding which descriptive statistics to calculate, or into which variable type you need to recode (next step) to achieve what you want. There are two general types:</p>
 <ol style="list-style-type: decimal">
-<li><code>numeric</code> – numbers</li>
-<li><code>character</code> (also called string) – letters</li>
+<li>
+<code>numeric</code> – numbers</li>
+<li>
+<code>character</code> (also called string) – letters</li>
 </ol>
 <p>Within <code>numeric</code> we can distinguish between the following:</p>
 <ul>
-<li><code>factor</code> - nominal</li>
-<li><code>ordered factor</code> - ordinal</li>
-<li><code>integer</code> - numeric, but only “whole” numbers (discrete)</li>
-<li><code>numeric</code> - any number (interval or ratio)</li>
+<li>
+<code>factor</code> - nominal</li>
+<li>
+<code>ordered factor</code> - ordinal</li>
+<li>
+<code>integer</code> - numeric, but only “whole” numbers (discrete)</li>
+<li>
+<code>numeric</code> - any number (interval or ratio)</li>
 </ul>
 <p>Numerical variables are already in the data set, we have to attend to nominal and ordinal variables.</p>
-<div id="nominal-variables" class="section level3 unnumbered hasAnchor">
-<h3>Nominal Variables<a href="introduction-to-r.html#nominal-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="nominal-variables" class="section level3 unnumbered">
+<h3>Nominal Variables<a class="anchor" aria-label="anchor" href="#nominal-variables"><i class="fas fa-link"></i></a>
+</h3>
 <p>In terms of the variable types we encountered in the lecture this week, the country name is a nominal variable. So we need to tell R to turn this into a factor variable. We do this as follows:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="introduction-to-r.html#cb15-1" tabindex="-1"></a>EU<span class="sc">$</span>country <span class="ot">=</span> <span class="fu">factor</span>(EU<span class="sc">$</span>country)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">EU</span><span class="op">$</span><span class="va">country</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">EU</span><span class="op">$</span><span class="va">country</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="ordinal-variables" class="section level3 unnumbered hasAnchor">
-<h3>Ordinal Variables<a href="introduction-to-r.html#ordinal-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="ordinal-variables" class="section level3 unnumbered">
+<h3>Ordinal Variables<a class="anchor" aria-label="anchor" href="#ordinal-variables"><i class="fas fa-link"></i></a>
+</h3>
 <p>As mentioned above, the variable <code>access</code> should be ordinal, and therefore has to be turned into an ordered factor. The command which follows is almost identical to producing a factor variable, only that we add the option <code>ordered = TRUE</code> at the end:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="introduction-to-r.html#cb16-1" tabindex="-1"></a>EU<span class="sc">$</span>access_fac <span class="ot">=</span> <span class="fu">factor</span>(EU<span class="sc">$</span>access, <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">EU</span><span class="op">$</span><span class="va">access_fac</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">EU</span><span class="op">$</span><span class="va">access</span>, ordered <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p>If you are familiar with European Studies, you will know that each accession wave has got a particular name. The 1973 enlargement, for example, is called the “First Enlargement”, the 1981 wave the Mediterranean Enlargement, and so forth. Let us create a new variable which uses these names instead of the years.</p>
 <p>This process is a little more involved, and requires a new package to be installed and loaded: <code>dplyr</code>. This package is part of the so-called <code>tidyverse</code> which is a suite of packages designed to make working with R simpler and commands shorter. You can install all of them by calling <code>install.packages("tidyverse")</code>. We then load the <code>tidyverse</code> with:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="introduction-to-r.html#cb17-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code></pre></div>
 <p>The command which follows takes a little explaining. We start by stating the dataframe we wish to assign the result to, <code>EU</code>. Then we name the data frame that contains the data we wish to manipulate, here also <code>EU</code>. The symbol which follows, <code>\%&gt;\%</code>, reads as “and then”, and is called a “pipe”. So we take the data frame <code>EU</code> “and then” carry out a function called <code>mutate</code>. It creates a new variable. This function in turn defines the new variable <code>wave</code> by recoding the variable <code>access_fac</code>. The command then specifies all categories of the “old” variable <code>access_fac</code> and what their respective values in the “new” variable <code>wave</code> are going to be. The categories in each are set in quotation marks, as they are factor / character categories.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="introduction-to-r.html#cb18-1" tabindex="-1"></a>EU <span class="ot">&lt;-</span> EU <span class="sc">%&gt;%</span></span>
-<span id="cb18-2"><a href="introduction-to-r.html#cb18-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">wave =</span> <span class="fu">recode</span>(access_fac, <span class="st">&#39;1951&#39;</span><span class="ot">=</span><span class="st">&quot;Founding&quot;</span>, </span>
-<span id="cb18-3"><a href="introduction-to-r.html#cb18-3" tabindex="-1"></a>                       <span class="st">&#39;1973&#39;</span><span class="ot">=</span> <span class="st">&quot;First&quot;</span>,</span>
-<span id="cb18-4"><a href="introduction-to-r.html#cb18-4" tabindex="-1"></a>                       <span class="st">&#39;1981&#39;</span><span class="ot">=</span> <span class="st">&quot;Mediterranean&quot;</span>,</span>
-<span id="cb18-5"><a href="introduction-to-r.html#cb18-5" tabindex="-1"></a>                       <span class="st">&#39;1986&#39;</span> <span class="ot">=</span> <span class="st">&quot;Mediterranean&quot;</span>,</span>
-<span id="cb18-6"><a href="introduction-to-r.html#cb18-6" tabindex="-1"></a>                       <span class="st">&#39;1995&#39;</span> <span class="ot">=</span> <span class="st">&quot;Cold War&quot;</span>,</span>
-<span id="cb18-7"><a href="introduction-to-r.html#cb18-7" tabindex="-1"></a>                       <span class="st">&#39;2004&#39;</span> <span class="ot">=</span> <span class="st">&quot;Eastern&quot;</span>,</span>
-<span id="cb18-8"><a href="introduction-to-r.html#cb18-8" tabindex="-1"></a>                       <span class="st">&#39;2007&#39;</span> <span class="ot">=</span> <span class="st">&quot;Eastern&quot;</span>,</span>
-<span id="cb18-9"><a href="introduction-to-r.html#cb18-9" tabindex="-1"></a>                       <span class="st">&#39;2013&#39;</span> <span class="ot">=</span> <span class="st">&quot;Balkans&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">EU</span> <span class="op">&lt;-</span> <span class="va">EU</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>wave <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/recode.html">recode</a></span><span class="op">(</span><span class="va">access_fac</span>, <span class="st">'1951'</span><span class="op">=</span><span class="st">"Founding"</span>, </span>
+<span>                       <span class="st">'1973'</span><span class="op">=</span> <span class="st">"First"</span>,</span>
+<span>                       <span class="st">'1981'</span><span class="op">=</span> <span class="st">"Mediterranean"</span>,</span>
+<span>                       <span class="st">'1986'</span> <span class="op">=</span> <span class="st">"Mediterranean"</span>,</span>
+<span>                       <span class="st">'1995'</span> <span class="op">=</span> <span class="st">"Cold War"</span>,</span>
+<span>                       <span class="st">'2004'</span> <span class="op">=</span> <span class="st">"Eastern"</span>,</span>
+<span>                       <span class="st">'2007'</span> <span class="op">=</span> <span class="st">"Eastern"</span>,</span>
+<span>                       <span class="st">'2013'</span> <span class="op">=</span> <span class="st">"Balkans"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>Please note that some colleagues in the department object to the use of the <code>tidyverse</code> as a “dialect” of R, and require you to use base R in their modules. However, on this module I am still using the <code>tidyverse</code>, as:</p>
 <ul>
 <li>my textbook, which is going to be the main textbook for this module from 2026, uses the <code>tidyverse</code>, and I think it is pedagogically wrong to divert from the main text in my seminars</li>
-<li>I do not think it makes sense to exclude <em>one</em> of currently 22,382 packages<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a></li>
-<li><code>GGPLOT2</code> which is part of the <code>tidyverse</code> simplifies code for generating figures significantly and will do for all but the most specific requirements</li>
+<li>I do not think it makes sense to exclude <em>one</em> of currently 22,382 packages<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://cran.r-project.org/web/packages/" class="uri"&gt;https://cran.r-project.org/web/packages/&lt;/a&gt;&lt;/p&gt;'><sup>7</sup></a>
+</li>
+<li>
+<code>GGPLOT2</code> which is part of the <code>tidyverse</code> simplifies code for generating figures significantly and will do for all but the most specific requirements</li>
 <li>a lot of support on <a href="https://stackexchange.com/">stackexchange</a> is geared toward the <code>tidyverse</code> as a lot of US-based data scientists work with this package, and so you will find it easier to solve problems</li>
 </ul>
 <p>But to keep everybody happy, I am providing the base R code whenever possible in a collapsible section like this one:</p>
 <div class="baser">
-<details>
-<summary>
+<details><summary>
 Base R Solution
-</summary>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="introduction-to-r.html#cb19-1" tabindex="-1"></a>EU<span class="sc">$</span>wave <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb19-2"><a href="introduction-to-r.html#cb19-2" tabindex="-1"></a>EU<span class="sc">$</span>wave[EU<span class="sc">$</span>access_fac<span class="sc">==</span><span class="st">&#39;1951&#39;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Founding&quot;</span></span>
-<span id="cb19-3"><a href="introduction-to-r.html#cb19-3" tabindex="-1"></a>EU<span class="sc">$</span>wave[EU<span class="sc">$</span>access_fac<span class="sc">==</span><span class="st">&#39;1973&#39;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;First&quot;</span></span>
-<span id="cb19-4"><a href="introduction-to-r.html#cb19-4" tabindex="-1"></a>EU<span class="sc">$</span>wave[EU<span class="sc">$</span>access_fac<span class="sc">==</span><span class="st">&#39;1981&#39;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Mediterranean&quot;</span></span>
-<span id="cb19-5"><a href="introduction-to-r.html#cb19-5" tabindex="-1"></a>EU<span class="sc">$</span>wave[EU<span class="sc">$</span>access_fac<span class="sc">==</span><span class="st">&#39;1986&#39;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Mediterranean&quot;</span></span>
-<span id="cb19-6"><a href="introduction-to-r.html#cb19-6" tabindex="-1"></a>EU<span class="sc">$</span>wave[EU<span class="sc">$</span>access_fac<span class="sc">==</span><span class="st">&#39;1995&#39;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Cold War&quot;</span></span>
-<span id="cb19-7"><a href="introduction-to-r.html#cb19-7" tabindex="-1"></a>EU<span class="sc">$</span>wave[EU<span class="sc">$</span>access_fac<span class="sc">==</span><span class="st">&#39;2004&#39;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Eastern&quot;</span></span>
-<span id="cb19-8"><a href="introduction-to-r.html#cb19-8" tabindex="-1"></a>EU<span class="sc">$</span>wave[EU<span class="sc">$</span>access_fac<span class="sc">==</span><span class="st">&#39;2007&#39;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Eastern&quot;</span></span>
-<span id="cb19-9"><a href="introduction-to-r.html#cb19-9" tabindex="-1"></a>EU<span class="sc">$</span>wave[EU<span class="sc">$</span>access_fac<span class="sc">==</span><span class="st">&#39;2013&#39;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Balkans&quot;</span></span>
-<span id="cb19-10"><a href="introduction-to-r.html#cb19-10" tabindex="-1"></a></span>
-<span id="cb19-11"><a href="introduction-to-r.html#cb19-11" tabindex="-1"></a>EU<span class="sc">$</span>wave <span class="ot">&lt;-</span> <span class="fu">factor</span>(EU<span class="sc">$</span>wave, <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+</summary><div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">EU</span><span class="op">$</span><span class="va">wave</span> <span class="op">&lt;-</span> <span class="cn">NA</span></span>
+<span><span class="va">EU</span><span class="op">$</span><span class="va">wave</span><span class="op">[</span><span class="va">EU</span><span class="op">$</span><span class="va">access_fac</span><span class="op">==</span><span class="st">'1951'</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Founding"</span></span>
+<span><span class="va">EU</span><span class="op">$</span><span class="va">wave</span><span class="op">[</span><span class="va">EU</span><span class="op">$</span><span class="va">access_fac</span><span class="op">==</span><span class="st">'1973'</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"First"</span></span>
+<span><span class="va">EU</span><span class="op">$</span><span class="va">wave</span><span class="op">[</span><span class="va">EU</span><span class="op">$</span><span class="va">access_fac</span><span class="op">==</span><span class="st">'1981'</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Mediterranean"</span></span>
+<span><span class="va">EU</span><span class="op">$</span><span class="va">wave</span><span class="op">[</span><span class="va">EU</span><span class="op">$</span><span class="va">access_fac</span><span class="op">==</span><span class="st">'1986'</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Mediterranean"</span></span>
+<span><span class="va">EU</span><span class="op">$</span><span class="va">wave</span><span class="op">[</span><span class="va">EU</span><span class="op">$</span><span class="va">access_fac</span><span class="op">==</span><span class="st">'1995'</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Cold War"</span></span>
+<span><span class="va">EU</span><span class="op">$</span><span class="va">wave</span><span class="op">[</span><span class="va">EU</span><span class="op">$</span><span class="va">access_fac</span><span class="op">==</span><span class="st">'2004'</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Eastern"</span></span>
+<span><span class="va">EU</span><span class="op">$</span><span class="va">wave</span><span class="op">[</span><span class="va">EU</span><span class="op">$</span><span class="va">access_fac</span><span class="op">==</span><span class="st">'2007'</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Eastern"</span></span>
+<span><span class="va">EU</span><span class="op">$</span><span class="va">wave</span><span class="op">[</span><span class="va">EU</span><span class="op">$</span><span class="va">access_fac</span><span class="op">==</span><span class="st">'2013'</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Balkans"</span></span>
+<span></span>
+<span><span class="va">EU</span><span class="op">$</span><span class="va">wave</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">EU</span><span class="op">$</span><span class="va">wave</span>, ordered <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 Here, we first create a new, empty variable called <code>wave</code> in the <code>EU</code> data set. We then create new values , for example <code>Founding</code> in the variable <code>EU$wave</code> for the condition (this is what the square brackets <code>[ ]</code> do) that the variable <code>access_fac</code> in the <code>EU</code> data set, equals a specific value. For <code>Founding</code> this is is <code>1951</code>. The last step is to turn the <code>wave</code> variable into an ordered factor.
 </details>
 </div>
 <p>But back to the recoding exercise itself. As the original variable <code>access_fac</code> was already an ordered factor, R (or the <code>mutate</code> function to be precise) also returns <code>wave</code> as an ordered factor. Had we not done this, <code>wave</code> would have been an unorderd factor (aka nominal variable). You can specify in an option to the <code>mutate</code> function whether you want the factor to be ordered or not:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="introduction-to-r.html#cb20-1" tabindex="-1"></a>EU <span class="ot">&lt;-</span> EU <span class="sc">%&gt;%</span></span>
-<span id="cb20-2"><a href="introduction-to-r.html#cb20-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">wave =</span> <span class="fu">recode</span>(access_fac, <span class="st">&#39;1951&#39;</span><span class="ot">=</span><span class="st">&quot;Founding&quot;</span>, </span>
-<span id="cb20-3"><a href="introduction-to-r.html#cb20-3" tabindex="-1"></a>                       <span class="st">&#39;1973&#39;</span><span class="ot">=</span> <span class="st">&quot;First&quot;</span>,</span>
-<span id="cb20-4"><a href="introduction-to-r.html#cb20-4" tabindex="-1"></a>                       <span class="st">&#39;1981&#39;</span><span class="ot">=</span> <span class="st">&quot;Mediterranean&quot;</span>,</span>
-<span id="cb20-5"><a href="introduction-to-r.html#cb20-5" tabindex="-1"></a>                       <span class="st">&#39;1986&#39;</span> <span class="ot">=</span> <span class="st">&quot;Mediterranean&quot;</span>,</span>
-<span id="cb20-6"><a href="introduction-to-r.html#cb20-6" tabindex="-1"></a>                       <span class="st">&#39;1995&#39;</span> <span class="ot">=</span> <span class="st">&quot;Cold War&quot;</span>,</span>
-<span id="cb20-7"><a href="introduction-to-r.html#cb20-7" tabindex="-1"></a>                       <span class="st">&#39;2004&#39;</span> <span class="ot">=</span> <span class="st">&quot;Eastern&quot;</span>,</span>
-<span id="cb20-8"><a href="introduction-to-r.html#cb20-8" tabindex="-1"></a>                       <span class="st">&#39;2007&#39;</span> <span class="ot">=</span> <span class="st">&quot;Eastern&quot;</span>,</span>
-<span id="cb20-9"><a href="introduction-to-r.html#cb20-9" tabindex="-1"></a>                       <span class="st">&#39;2013&#39;</span> <span class="ot">=</span> <span class="st">&quot;Balkans&quot;</span>), <span class="at">ordered=</span><span class="cn">TRUE</span>)</span></code></pre></div>
-<p>An alternative procedure, producing exactly the same result is to use the <code>cut()</code> function on the <code>access</code> variable which literally cuts up a variable into chunks at the points we specify. This only works on numerical variables! We are fine to use it here, as we didn’t change <code>access</code>, and it is still numerical. Incidentally, this shows you the benefit of always creating a new variable instead of overwriting the original: there is no “back” button in R, if you mess up, you will have the pleasure to start from the beginning.</p>
-<p>Again, we use the <code>mutate</code> function, this time naming our new variable <code>wave1</code> (so as not to overwrite the <code>wave</code> variable we created with the <code>recode()</code> function). This time, we cut up the original variable at the accession years, and specify the levels, this time as <code>labels</code>. Labels denominate the output, whilst <code>level</code> are input. A factor only knows <code>levels</code> which is set by the <code>label</code> function. Here we have already created the levels with the <code>cut()</code> function, and assign labels to these in the second step.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="introduction-to-r.html#cb21-1" tabindex="-1"></a>EU <span class="ot">&lt;-</span> EU <span class="sc">%&gt;%</span> </span>
-<span id="cb21-2"><a href="introduction-to-r.html#cb21-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">wave1=</span><span class="fu">cut</span>(access, </span>
-<span id="cb21-3"><a href="introduction-to-r.html#cb21-3" tabindex="-1"></a>                  <span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">1950</span>, <span class="dv">1951</span>, <span class="dv">1973</span>, <span class="dv">1986</span>, <span class="dv">1995</span>, <span class="dv">2007</span>, <span class="dv">2013</span>), </span>
-<span id="cb21-4"><a href="introduction-to-r.html#cb21-4" tabindex="-1"></a>                  <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Founding&quot;</span>,<span class="st">&quot;First&quot;</span>,</span>
-<span id="cb21-5"><a href="introduction-to-r.html#cb21-5" tabindex="-1"></a>                           <span class="st">&quot;Mediterranean&quot;</span>, </span>
-<span id="cb21-6"><a href="introduction-to-r.html#cb21-6" tabindex="-1"></a>                           <span class="st">&quot;Cold War&quot;</span>, </span>
-<span id="cb21-7"><a href="introduction-to-r.html#cb21-7" tabindex="-1"></a>                           <span class="st">&quot;Eastern&quot;</span>, </span>
-<span id="cb21-8"><a href="introduction-to-r.html#cb21-8" tabindex="-1"></a>                           <span class="st">&quot;Balkans&quot;</span>))) </span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">EU</span> <span class="op">&lt;-</span> <span class="va">EU</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>wave <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/recode.html">recode</a></span><span class="op">(</span><span class="va">access_fac</span>, <span class="st">'1951'</span><span class="op">=</span><span class="st">"Founding"</span>, </span>
+<span>                       <span class="st">'1973'</span><span class="op">=</span> <span class="st">"First"</span>,</span>
+<span>                       <span class="st">'1981'</span><span class="op">=</span> <span class="st">"Mediterranean"</span>,</span>
+<span>                       <span class="st">'1986'</span> <span class="op">=</span> <span class="st">"Mediterranean"</span>,</span>
+<span>                       <span class="st">'1995'</span> <span class="op">=</span> <span class="st">"Cold War"</span>,</span>
+<span>                       <span class="st">'2004'</span> <span class="op">=</span> <span class="st">"Eastern"</span>,</span>
+<span>                       <span class="st">'2007'</span> <span class="op">=</span> <span class="st">"Eastern"</span>,</span>
+<span>                       <span class="st">'2013'</span> <span class="op">=</span> <span class="st">"Balkans"</span><span class="op">)</span>, ordered<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<p>An alternative procedure, producing exactly the same result is to use the <code><a href="https://rdrr.io/r/base/cut.html">cut()</a></code> function on the <code>access</code> variable which literally cuts up a variable into chunks at the points we specify. This only works on numerical variables! We are fine to use it here, as we didn’t change <code>access</code>, and it is still numerical. Incidentally, this shows you the benefit of always creating a new variable instead of overwriting the original: there is no “back” button in R, if you mess up, you will have the pleasure to start from the beginning.</p>
+<p>Again, we use the <code>mutate</code> function, this time naming our new variable <code>wave1</code> (so as not to overwrite the <code>wave</code> variable we created with the <code><a href="https://dplyr.tidyverse.org/reference/recode.html">recode()</a></code> function). This time, we cut up the original variable at the accession years, and specify the levels, this time as <code>labels</code>. Labels denominate the output, whilst <code>level</code> are input. A factor only knows <code>levels</code> which is set by the <code>label</code> function. Here we have already created the levels with the <code><a href="https://rdrr.io/r/base/cut.html">cut()</a></code> function, and assign labels to these in the second step.</p>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">EU</span> <span class="op">&lt;-</span> <span class="va">EU</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>wave1<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/cut.html">cut</a></span><span class="op">(</span><span class="va">access</span>, </span>
+<span>                  breaks<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1950</span>, <span class="fl">1951</span>, <span class="fl">1973</span>, <span class="fl">1986</span>, <span class="fl">1995</span>, <span class="fl">2007</span>, <span class="fl">2013</span><span class="op">)</span>, </span>
+<span>                  labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Founding"</span>,<span class="st">"First"</span>,</span>
+<span>                           <span class="st">"Mediterranean"</span>, </span>
+<span>                           <span class="st">"Cold War"</span>, </span>
+<span>                           <span class="st">"Eastern"</span>, </span>
+<span>                           <span class="st">"Balkans"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> </span></code></pre></div>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="introduction-to-r.html#cb22-1" tabindex="-1"></a><span class="fu">levels</span>(EU<span class="sc">$</span>wave)</span>
-<span id="cb22-2"><a href="introduction-to-r.html#cb22-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;Founding&quot;</span>      <span class="st">&quot;First&quot;</span>         <span class="st">&quot;Mediterranean&quot;</span> <span class="st">&quot;Cold War&quot;</span>      <span class="st">&quot;Eastern&quot;</span>       <span class="st">&quot;Balkans&quot;</span>      </span></code></pre></div>
+<span id="cb22-2"><a href="introduction-to-r.html#cb22-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"Founding"</span>      <span class="st">"First"</span>         <span class="st">"Mediterranean"</span> <span class="st">"Cold War"</span>      <span class="st">"Eastern"</span>       <span class="st">"Balkans"</span>      </span></code></pre></div>
 <div class="baser">
-<details>
-<summary>
+<details><summary>
 Base R Solution
-</summary>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="introduction-to-r.html#cb23-1" tabindex="-1"></a>EU<span class="sc">$</span>wave <span class="ot">&lt;-</span> <span class="fu">cut</span>(EU<span class="sc">$</span>access, </span>
-<span id="cb23-2"><a href="introduction-to-r.html#cb23-2" tabindex="-1"></a>                  <span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">1950</span>, <span class="dv">1951</span>, <span class="dv">1973</span>, <span class="dv">1986</span>, <span class="dv">1995</span>, <span class="dv">2007</span>, <span class="dv">2013</span>), </span>
-<span id="cb23-3"><a href="introduction-to-r.html#cb23-3" tabindex="-1"></a>                  <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Founding&quot;</span>,<span class="st">&quot;First&quot;</span>,</span>
-<span id="cb23-4"><a href="introduction-to-r.html#cb23-4" tabindex="-1"></a>                           <span class="st">&quot;Mediterranean&quot;</span>, </span>
-<span id="cb23-5"><a href="introduction-to-r.html#cb23-5" tabindex="-1"></a>                           <span class="st">&quot;Cold War&quot;</span>, </span>
-<span id="cb23-6"><a href="introduction-to-r.html#cb23-6" tabindex="-1"></a>                           <span class="st">&quot;Eastern&quot;</span>, </span>
-<span id="cb23-7"><a href="introduction-to-r.html#cb23-7" tabindex="-1"></a>                           <span class="st">&quot;Balkans&quot;</span>))</span></code></pre></div>
+</summary><div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">EU</span><span class="op">$</span><span class="va">wave</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cut.html">cut</a></span><span class="op">(</span><span class="va">EU</span><span class="op">$</span><span class="va">access</span>, </span>
+<span>                  breaks<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1950</span>, <span class="fl">1951</span>, <span class="fl">1973</span>, <span class="fl">1986</span>, <span class="fl">1995</span>, <span class="fl">2007</span>, <span class="fl">2013</span><span class="op">)</span>, </span>
+<span>                  labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Founding"</span>,<span class="st">"First"</span>,</span>
+<span>                           <span class="st">"Mediterranean"</span>, </span>
+<span>                           <span class="st">"Cold War"</span>, </span>
+<span>                           <span class="st">"Eastern"</span>, </span>
+<span>                           <span class="st">"Balkans"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </details>
 </div>
 <div class="video">
@@ -677,112 +467,116 @@ Base R Solution
 </iframe>
 </div>
 </div>
-<div id="binary-dummy" class="section level3 unnumbered hasAnchor">
-<h3>Binary Dummy<a href="introduction-to-r.html#binary-dummy" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="binary-dummy" class="section level3 unnumbered">
+<h3>Binary Dummy<a class="anchor" aria-label="anchor" href="#binary-dummy"><i class="fas fa-link"></i></a>
+</h3>
 <p>Very often in political science we have yes/no scenarios, such as democracy yes or no, civil war, yes or no, etc. To analyse these scenarios, we can create so-called “dummy variables”. In the present example, let’s specify for each country whether it has been a founding member of the EU. It is a factor variable and so we do this exactly the same way as our initial recoding of the wave variable above:</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="introduction-to-r.html#cb24-1" tabindex="-1"></a>EU <span class="ot">&lt;-</span> EU <span class="sc">%&gt;%</span></span>
-<span id="cb24-2"><a href="introduction-to-r.html#cb24-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">founding =</span> <span class="fu">recode</span>(access_fac, <span class="st">&#39;1951&#39;</span><span class="ot">=</span><span class="st">&quot;Yes&quot;</span>, </span>
-<span id="cb24-3"><a href="introduction-to-r.html#cb24-3" tabindex="-1"></a>                       <span class="st">&#39;1973&#39;</span> <span class="ot">=</span> <span class="st">&quot;No&quot;</span>,</span>
-<span id="cb24-4"><a href="introduction-to-r.html#cb24-4" tabindex="-1"></a>                       <span class="st">&#39;1981&#39;</span> <span class="ot">=</span> <span class="st">&quot;No&quot;</span>,</span>
-<span id="cb24-5"><a href="introduction-to-r.html#cb24-5" tabindex="-1"></a>                       <span class="st">&#39;1986&#39;</span> <span class="ot">=</span> <span class="st">&quot;No&quot;</span>,</span>
-<span id="cb24-6"><a href="introduction-to-r.html#cb24-6" tabindex="-1"></a>                       <span class="st">&#39;1995&#39;</span> <span class="ot">=</span> <span class="st">&quot;No&quot;</span>,</span>
-<span id="cb24-7"><a href="introduction-to-r.html#cb24-7" tabindex="-1"></a>                       <span class="st">&#39;2004&#39;</span> <span class="ot">=</span> <span class="st">&quot;No&quot;</span>,</span>
-<span id="cb24-8"><a href="introduction-to-r.html#cb24-8" tabindex="-1"></a>                       <span class="st">&#39;2007&#39;</span> <span class="ot">=</span> <span class="st">&quot;No&quot;</span>,</span>
-<span id="cb24-9"><a href="introduction-to-r.html#cb24-9" tabindex="-1"></a>                       <span class="st">&#39;2013&#39;</span> <span class="ot">=</span> <span class="st">&quot;No&quot;</span>))</span>
+<span id="cb24-2"><a href="introduction-to-r.html#cb24-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">founding =</span> <span class="fu">recode</span>(access_fac, <span class="st">'1951'</span><span class="ot">=</span><span class="st">"Yes"</span>, </span>
+<span id="cb24-3"><a href="introduction-to-r.html#cb24-3" tabindex="-1"></a>                       <span class="st">'1973'</span> <span class="ot">=</span> <span class="st">"No"</span>,</span>
+<span id="cb24-4"><a href="introduction-to-r.html#cb24-4" tabindex="-1"></a>                       <span class="st">'1981'</span> <span class="ot">=</span> <span class="st">"No"</span>,</span>
+<span id="cb24-5"><a href="introduction-to-r.html#cb24-5" tabindex="-1"></a>                       <span class="st">'1986'</span> <span class="ot">=</span> <span class="st">"No"</span>,</span>
+<span id="cb24-6"><a href="introduction-to-r.html#cb24-6" tabindex="-1"></a>                       <span class="st">'1995'</span> <span class="ot">=</span> <span class="st">"No"</span>,</span>
+<span id="cb24-7"><a href="introduction-to-r.html#cb24-7" tabindex="-1"></a>                       <span class="st">'2004'</span> <span class="ot">=</span> <span class="st">"No"</span>,</span>
+<span id="cb24-8"><a href="introduction-to-r.html#cb24-8" tabindex="-1"></a>                       <span class="st">'2007'</span> <span class="ot">=</span> <span class="st">"No"</span>,</span>
+<span id="cb24-9"><a href="introduction-to-r.html#cb24-9" tabindex="-1"></a>                       <span class="st">'2013'</span> <span class="ot">=</span> <span class="st">"No"</span>))</span>
 <span id="cb24-10"><a href="introduction-to-r.html#cb24-10" tabindex="-1"></a></span>
 <span id="cb24-11"><a href="introduction-to-r.html#cb24-11" tabindex="-1"></a><span class="co"># OR, much shorter</span></span>
 <span id="cb24-12"><a href="introduction-to-r.html#cb24-12" tabindex="-1"></a></span>
 <span id="cb24-13"><a href="introduction-to-r.html#cb24-13" tabindex="-1"></a>EU <span class="ot">&lt;-</span> EU <span class="sc">%&gt;%</span> </span>
-<span id="cb24-14"><a href="introduction-to-r.html#cb24-14" tabindex="-1"></a>   <span class="fu">mutate</span>(<span class="at">founding =</span> <span class="fu">factor</span>(<span class="fu">ifelse</span>(access_fac<span class="sc">==</span><span class="st">&quot;1951&quot;</span>, <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>), </span>
-<span id="cb24-15"><a href="introduction-to-r.html#cb24-15" tabindex="-1"></a>                              <span class="at">levels =</span><span class="fu">c</span>(<span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>)))</span>
+<span id="cb24-14"><a href="introduction-to-r.html#cb24-14" tabindex="-1"></a>   <span class="fu">mutate</span>(<span class="at">founding =</span> <span class="fu">factor</span>(<span class="fu">ifelse</span>(access_fac<span class="sc">==</span><span class="st">"1951"</span>, <span class="st">"Yes"</span>, <span class="st">"No"</span>), </span>
+<span id="cb24-15"><a href="introduction-to-r.html#cb24-15" tabindex="-1"></a>                              <span class="at">levels =</span><span class="fu">c</span>(<span class="st">"Yes"</span>, <span class="st">"No"</span>)))</span>
 <span id="cb24-16"><a href="introduction-to-r.html#cb24-16" tabindex="-1"></a></span>
 <span id="cb24-17"><a href="introduction-to-r.html#cb24-17" tabindex="-1"></a><span class="co"># the result is the same</span></span>
 <span id="cb24-18"><a href="introduction-to-r.html#cb24-18" tabindex="-1"></a></span>
 <span id="cb24-19"><a href="introduction-to-r.html#cb24-19" tabindex="-1"></a><span class="fu">str</span>(EU<span class="sc">$</span>founding)</span>
-<span id="cb24-20"><a href="introduction-to-r.html#cb24-20" tabindex="-1"></a> Factor w<span class="sc">/</span> <span class="dv">2</span> levels <span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;No&quot;</span><span class="sc">:</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">1</span> ...</span></code></pre></div>
+<span id="cb24-20"><a href="introduction-to-r.html#cb24-20" tabindex="-1"></a> Factor w<span class="sc">/</span> <span class="dv">2</span> levels <span class="st">"Yes"</span>,<span class="st">"No"</span><span class="sc">:</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">1</span> ...</span></code></pre></div>
 <div class="baser">
-<details>
-<summary>
+<details><summary>
 Base R Solution
-</summary>
-<p>Using <span style="color:black"><code>ifelse</code></span>, this is very similar, only the pipe disappears:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="introduction-to-r.html#cb25-1" tabindex="-1"></a>EU<span class="sc">$</span>founding <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">ifelse</span>(EU<span class="sc">$</span>access_fac<span class="sc">==</span><span class="st">&quot;1951&quot;</span>, <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>), </span>
-<span id="cb25-2"><a href="introduction-to-r.html#cb25-2" tabindex="-1"></a>                              <span class="at">levels =</span><span class="fu">c</span>(<span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>))</span></code></pre></div>
+</summary><p>Using <span style="color:black"><code>ifelse</code></span>, this is very similar, only the pipe disappears:</p>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">EU</span><span class="op">$</span><span class="va">founding</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">EU</span><span class="op">$</span><span class="va">access_fac</span><span class="op">==</span><span class="st">"1951"</span>, <span class="st">"Yes"</span>, <span class="st">"No"</span><span class="op">)</span>, </span>
+<span>                              levels <span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Yes"</span>, <span class="st">"No"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </details>
 </div>
 <p>The <code>ifelse</code> function is very handy, and is therefore worth explaining in a little more detail. It reads as <code>ifelse('condition', 'if condition met, then', 'otherwise')</code>. So, the above code reads as “if the value of the variable <code>access_fac</code> is equal to 1951, then code the observation as ‘Yes’, otherwise as ‘No’”.</p>
-<hr />
+<hr>
 </div>
 </div>
-<div id="sub-setting-data" class="section level2 unnumbered hasAnchor">
-<h2>Sub-Setting Data<a href="introduction-to-r.html#sub-setting-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="sub-setting-data" class="section level2 unnumbered">
+<h2>Sub-Setting Data<a class="anchor" aria-label="anchor" href="#sub-setting-data"><i class="fas fa-link"></i></a>
+</h2>
 <p>When we start analysing data, we rarely need all data at the same time. We might not need some variables, at all, for example, or we only want to work with certain observations, such as those countries in the “founding” wave. In these cases, we can subset the data. I will show you some examples of subsetting now.</p>
-<div id="by-variable" class="section level3 unnumbered hasAnchor">
-<h3>By Variable<a href="introduction-to-r.html#by-variable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="by-variable" class="section level3 unnumbered">
+<h3>By Variable<a class="anchor" aria-label="anchor" href="#by-variable"><i class="fas fa-link"></i></a>
+</h3>
 <p>If you are sure you won’t need a variable (remember, there is no back button), you can simply drop (i.e. delete) it. Let’s do this with the <code>area</code> variable:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="introduction-to-r.html#cb26-1" tabindex="-1"></a>EU<span class="sc">$</span>area <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
-<p>If we are dropping multiple variables, we can either perform this operation each time, or use another command which allows us to operate with multiple variables at the same time. The <code>select()</code> command comes from the <code>tidyverse</code> package and specifies which variables we wish to keep:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="introduction-to-r.html#cb27-1" tabindex="-1"></a>EU_pop <span class="ot">&lt;-</span> <span class="fu">select</span>(EU, country, pop18, access_fac, founding)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">EU</span><span class="op">$</span><span class="va">area</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
+<p>If we are dropping multiple variables, we can either perform this operation each time, or use another command which allows us to operate with multiple variables at the same time. The <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> command comes from the <code>tidyverse</code> package and specifies which variables we wish to keep:</p>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">EU_pop</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">EU</span>, <span class="va">country</span>, <span class="va">pop18</span>, <span class="va">access_fac</span>, <span class="va">founding</span><span class="op">)</span></span></code></pre></div>
 <p>This creates a new data frame called <code>EU_pop</code> containing only the variables <code>country</code>, <code>pop18</code>, <code>access_fac</code>, and <code>founding</code>.</p>
 <div class="baser">
-<details>
-<summary>
+<details><summary>
 Base R Solution
-</summary>
-<p>The package documentation offers some <a href="https://dplyr.tidyverse.org/articles/base.html">basic instructions</a> how to convert the <span style="color:black"><code>tidyverse</code></span> (or <span style="color:black"><code>dyplyr</code></span>, to be precise) code into base R. But here is the solution for the previous code chunk:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="introduction-to-r.html#cb28-1" tabindex="-1"></a>EU_pop <span class="ot">&lt;-</span> <span class="fu">subset</span>(EU, country, pop18, access_fac, founding)</span></code></pre></div>
+</summary><p>The package documentation offers some <a href="https://dplyr.tidyverse.org/articles/base.html">basic instructions</a> how to convert the <span style="color:black"><code>tidyverse</code></span> (or <span style="color:black"><code>dyplyr</code></span>, to be precise) code into base R. But here is the solution for the previous code chunk:</p>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">EU_pop</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">EU</span>, <span class="va">country</span>, <span class="va">pop18</span>, <span class="va">access_fac</span>, <span class="va">founding</span><span class="op">)</span></span></code></pre></div>
 </details>
 </div>
 <p>We can, however, use the same command and tell R which variables to drop by adding a minus sign in from of the variables we want to delete. The following command produces exactly the same result as the one before:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="introduction-to-r.html#cb29-1" tabindex="-1"></a>EU_pop1 <span class="ot">&lt;-</span> <span class="fu">select</span>(EU, <span class="sc">-</span>access, <span class="sc">-</span>GDP_2015)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">EU_pop1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">EU</span>, <span class="op">-</span><span class="va">access</span>, <span class="op">-</span><span class="va">GDP_2015</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="by-observation" class="section level3 unnumbered hasAnchor">
-<h3>By Observation<a href="introduction-to-r.html#by-observation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Instead of dropping and keeping variables, we can do the same thing to individual observations. Here, we use the <code>slice()</code> command (like a cake) and specify which slices we want to drop or keep. For example to drop the Benelux countries we would delete observations 1, 16 and 19:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="introduction-to-r.html#cb30-1" tabindex="-1"></a>EU_nobenelux <span class="ot">&lt;-</span> <span class="fu">slice</span>(EU, <span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="dv">16</span>, <span class="sc">-</span><span class="dv">19</span>)</span></code></pre></div>
+<div id="by-observation" class="section level3 unnumbered">
+<h3>By Observation<a class="anchor" aria-label="anchor" href="#by-observation"><i class="fas fa-link"></i></a>
+</h3>
+<p>Instead of dropping and keeping variables, we can do the same thing to individual observations. Here, we use the <code><a href="https://dplyr.tidyverse.org/reference/slice.html">slice()</a></code> command (like a cake) and specify which slices we want to drop or keep. For example to drop the Benelux countries we would delete observations 1, 16 and 19:</p>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">EU_nobenelux</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="va">EU</span>, <span class="op">-</span><span class="fl">1</span>, <span class="op">-</span><span class="fl">16</span>, <span class="op">-</span><span class="fl">19</span><span class="op">)</span></span></code></pre></div>
 <div class="baser">
-<details>
-<summary>
+<details><summary>
 Base R Solution
-</summary>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="introduction-to-r.html#cb31-1" tabindex="-1"></a>EU_pop <span class="ot">&lt;-</span> EU[<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="dv">16</span>, <span class="sc">-</span><span class="dv">19</span>),]</span></code></pre></div>
+</summary><div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">EU_pop</span> <span class="op">&lt;-</span> <span class="va">EU</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="op">-</span><span class="fl">16</span>, <span class="op">-</span><span class="fl">19</span><span class="op">)</span>,<span class="op">]</span></span></code></pre></div>
 </details>
 </div>
 <p>Alternatively, if we were only interested in Benelux countries we would subset to only those observations:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="introduction-to-r.html#cb32-1" tabindex="-1"></a>EU_benelux <span class="ot">&lt;-</span> <span class="fu">slice</span>(EU, <span class="dv">1</span>, <span class="dv">16</span>, <span class="dv">19</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">EU_benelux</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="va">EU</span>, <span class="fl">1</span>, <span class="fl">16</span>, <span class="fl">19</span><span class="op">)</span></span></code></pre></div>
 <div class="baser">
-<details>
-<summary>
+<details><summary>
 Base R Solution
-</summary>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="introduction-to-r.html#cb33-1" tabindex="-1"></a>EU_pop <span class="ot">&lt;-</span> EU[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">16</span>, <span class="dv">19</span>),]</span></code></pre></div>
+</summary><div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">EU_pop</span> <span class="op">&lt;-</span> <span class="va">EU</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">16</span>, <span class="fl">19</span><span class="op">)</span>,<span class="op">]</span></span></code></pre></div>
 </details>
 </div>
 </div>
-<div id="keep-if-a-variable-has-a-certain-value" class="section level3 unnumbered hasAnchor">
-<h3>Keep if a variable has a certain value<a href="introduction-to-r.html#keep-if-a-variable-has-a-certain-value" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>One of the most useful commands is <code>filter()</code>, as it allows us to keep all observations for which the value of a variable is of a particular number. For example if we wanted to conduct an analysis with all countries which have a population in excess of 10 million we could subset by:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="introduction-to-r.html#cb34-1" tabindex="-1"></a>EU_pop_large <span class="ot">&lt;-</span> <span class="fu">filter</span>(EU, pop18 <span class="sc">&gt;</span> <span class="dv">10000000</span>)</span></code></pre></div>
+<div id="keep-if-a-variable-has-a-certain-value" class="section level3 unnumbered">
+<h3>Keep if a variable has a certain value<a class="anchor" aria-label="anchor" href="#keep-if-a-variable-has-a-certain-value"><i class="fas fa-link"></i></a>
+</h3>
+<p>One of the most useful commands is <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>, as it allows us to keep all observations for which the value of a variable is of a particular number. For example if we wanted to conduct an analysis with all countries which have a population in excess of 10 million we could subset by:</p>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">EU_pop_large</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">EU</span>, <span class="va">pop18</span> <span class="op">&gt;</span> <span class="fl">10000000</span><span class="op">)</span></span></code></pre></div>
 <div class="baser">
-<details>
-<summary>
+<details><summary>
 Base R Solution
-</summary>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="introduction-to-r.html#cb35-1" tabindex="-1"></a>EU_pop_large <span class="ot">&lt;-</span> <span class="fu">subset</span>(EU, pop18 <span class="sc">&gt;</span> <span class="dv">10000000</span>)</span></code></pre></div>
+</summary><div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">EU_pop_large</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">EU</span>, <span class="va">pop18</span> <span class="op">&gt;</span> <span class="fl">10000000</span><span class="op">)</span></span></code></pre></div>
 </details>
 </div>
 <p>Here is a list of some operators you can use for this purpose:</p>
-<table style="width:45%; color: black; margin-left: auto; margin-right: auto;" class="table">
-<thead>
-<tr>
+<div class="inline-table"><table style="width:45%; color: black; margin-left: auto; margin-right: auto;" class="table">
+<thead><tr>
 <th style="text-align:left;">
 Operator
 </th>
 <th style="text-align:left;">
 Description
 </th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr>
 <td style="text-align:left;min-width: 0.25in; ">
@@ -857,27 +651,29 @@ x AND y
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <div class="video">
 <p><strong>Subsetting Data</strong></p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6lsmiXvWK-U?si=uizPzqBH5g5An6Ki" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
 </iframe>
 </div>
-<hr />
+<hr>
 </div>
 </div>
-<div id="ordering-data" class="section level2 unnumbered hasAnchor">
-<h2>Ordering Data<a href="introduction-to-r.html#ordering-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="ordering-data" class="section level2 unnumbered">
+<h2>Ordering Data<a class="anchor" aria-label="anchor" href="#ordering-data"><i class="fas fa-link"></i></a>
+</h2>
 <p>The data set in its original state is purposely not ordered by any criterion, such as alphabetical order of countries, etc. But we can use R to do exactly that. Let us work with a subset containing only three variables:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="introduction-to-r.html#cb36-1" tabindex="-1"></a>EU_subset <span class="ot">&lt;-</span> <span class="fu">select</span>(EU, country, pop18, access)</span></code></pre></div>
-<p>It would be lovely if the command for ordering data would be called <code>order()</code>, but it is called <code>arrange()</code><a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>. Let’s order countries by ascending population in a new data frame called <code>eu_order</code>:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="introduction-to-r.html#cb37-1" tabindex="-1"></a>eu_order <span class="ot">&lt;-</span> <span class="fu">arrange</span>(EU_subset, pop18)</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">EU_subset</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">EU</span>, <span class="va">country</span>, <span class="va">pop18</span>, <span class="va">access</span><span class="op">)</span></span></code></pre></div>
+<p>It would be lovely if the command for ordering data would be called <code><a href="https://rdrr.io/r/base/order.html">order()</a></code>, but it is called <code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;There is a command called &lt;code&gt;order()&lt;/code&gt;, but it is not part of the &lt;code&gt;tidyverse&lt;/code&gt;, and as this package is steadily on the rise in coding, I am only showing you this here.&lt;/p&gt;"><sup>8</sup></a>. Let’s order countries by ascending population in a new data frame called <code>eu_order</code>:</p>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">eu_order</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">EU_subset</span>, <span class="va">pop18</span><span class="op">)</span></span></code></pre></div>
 <div class="baser">
-<details>
-<summary>
+<details><summary>
 Base R Solution
-</summary>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="introduction-to-r.html#cb38-1" tabindex="-1"></a>eu_order <span class="ot">&lt;-</span> EU_subset[<span class="fu">order</span>(EU_subset<span class="sc">$</span>pop18),]</span></code></pre></div>
+</summary><div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">eu_order</span> <span class="op">&lt;-</span> <span class="va">EU_subset</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">EU_subset</span><span class="op">$</span><span class="va">pop18</span><span class="op">)</span>,<span class="op">]</span></span></code></pre></div>
 </details>
 </div>
 <p>We can now display the first 10 rows with the following command:</p>
@@ -913,11 +709,10 @@ Base R Solution
 <span id="cb40-14"><a href="introduction-to-r.html#cb40-14" tabindex="-1"></a> <span class="dv">9</span> Belgium        <span class="dv">11413058</span>   <span class="dv">1951</span></span>
 <span id="cb40-15"><a href="introduction-to-r.html#cb40-15" tabindex="-1"></a><span class="dv">10</span> Greece         <span class="dv">10738868</span>   <span class="dv">1981</span></span></code></pre></div>
 <div class="baser">
-<details>
-<summary>
+<details><summary>
 Base R Solution
-</summary>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="introduction-to-r.html#cb41-1" tabindex="-1"></a>eu_order <span class="ot">&lt;-</span> EU_subset[<span class="fu">order</span>(<span class="fu">desc</span>(EU_subset<span class="sc">$</span>pop18)),]</span></code></pre></div>
+</summary><div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">eu_order</span> <span class="op">&lt;-</span> <span class="va">EU_subset</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">EU_subset</span><span class="op">$</span><span class="va">pop18</span><span class="op">)</span><span class="op">)</span>,<span class="op">]</span></span></code></pre></div>
 </details>
 </div>
 <p>A neat feature of R is that it allows us to order observations by more than one variable. So for example, we could order them by ascending accession wave first, and then by ascending population in 2018 as follows:</p>
@@ -938,23 +733,24 @@ Base R Solution
 <span id="cb42-15"><a href="introduction-to-r.html#cb42-15" tabindex="-1"></a> <span class="dv">9</span> United Kingdom <span class="dv">66238007</span>   <span class="dv">1973</span></span>
 <span id="cb42-16"><a href="introduction-to-r.html#cb42-16" tabindex="-1"></a><span class="dv">10</span> Greece         <span class="dv">10738868</span>   <span class="dv">1981</span></span></code></pre></div>
 <div class="baser">
-<details>
-<summary>
+<details><summary>
 Base R Solution
-</summary>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="introduction-to-r.html#cb43-1" tabindex="-1"></a>eu_order <span class="ot">&lt;-</span> EU_subset[<span class="fu">order</span>(EU_subset<span class="sc">$</span>access,EU_subset<span class="sc">$</span>pop18),]</span>
-<span id="cb43-2"><a href="introduction-to-r.html#cb43-2" tabindex="-1"></a></span>
-<span id="cb43-3"><a href="introduction-to-r.html#cb43-3" tabindex="-1"></a><span class="co"># or slightly shorter </span></span>
-<span id="cb43-4"><a href="introduction-to-r.html#cb43-4" tabindex="-1"></a></span>
-<span id="cb43-5"><a href="introduction-to-r.html#cb43-5" tabindex="-1"></a>eu_order <span class="ot">&lt;-</span> EU_subset[<span class="fu">order</span>(<span class="fu">with</span>(EU_subset, access,pop18)),]</span></code></pre></div>
+</summary><div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">eu_order</span> <span class="op">&lt;-</span> <span class="va">EU_subset</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">EU_subset</span><span class="op">$</span><span class="va">access</span>,<span class="va">EU_subset</span><span class="op">$</span><span class="va">pop18</span><span class="op">)</span>,<span class="op">]</span></span>
+<span></span>
+<span><span class="co"># or slightly shorter </span></span>
+<span></span>
+<span><span class="va">eu_order</span> <span class="op">&lt;-</span> <span class="va">EU_subset</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">EU_subset</span>, <span class="va">access</span>,<span class="va">pop18</span><span class="op">)</span><span class="op">)</span>,<span class="op">]</span></span></code></pre></div>
 </details>
 </div>
-<hr />
+<hr>
 </div>
-<div id="grouping-data" class="section level2 unnumbered hasAnchor">
-<h2>Grouping Data<a href="introduction-to-r.html#grouping-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="grouping-data" class="section level2 unnumbered">
+<h2>Grouping Data<a class="anchor" aria-label="anchor" href="#grouping-data"><i class="fas fa-link"></i></a>
+</h2>
 <p>Looking at the last example, a question that might spring up is in which accession wave the joining countries brought the largest population increase on average to the EU. We can calculate summary statistics for a particular group by, well, grouping them. The first step is to group data into rows with the same value:</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="introduction-to-r.html#cb44-1" tabindex="-1"></a>eu_access <span class="ot">&lt;-</span> <span class="fu">group_by</span>(EU_subset, access)</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">eu_access</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">EU_subset</span>, <span class="va">access</span><span class="op">)</span></span></code></pre></div>
 <p>By the way: whenever you have grouped anything, and finished analysing data in this grouped version it is essential that you ungroup the data afterwards, so that you don’t unintentionally keep using the groups:</p>
 <div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="introduction-to-r.html#cb45-1" tabindex="-1"></a><span class="fu">ungroup</span>(EU_subset)</span>
 <span id="cb45-2"><a href="introduction-to-r.html#cb45-2" tabindex="-1"></a><span class="co"># A tibble: 28 × 3</span></span>
@@ -989,20 +785,20 @@ Base R Solution
 <span id="cb46-15"><a href="introduction-to-r.html#cb46-15" tabindex="-1"></a><span class="dv">7</span>   <span class="dv">2007</span> <span class="fl">13286828.</span></span>
 <span id="cb46-16"><a href="introduction-to-r.html#cb46-16" tabindex="-1"></a><span class="dv">8</span>   <span class="dv">2013</span>  <span class="dv">4105493</span> </span></code></pre></div>
 <div class="baser">
-<details>
-<summary>
+<details><summary>
 Base R Solution
-</summary>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="introduction-to-r.html#cb47-1" tabindex="-1"></a>eu_popaccess1 <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(pop18 <span class="sc">~</span> access, </span>
-<span id="cb47-2"><a href="introduction-to-r.html#cb47-2" tabindex="-1"></a>                           <span class="at">data =</span> EU_subset, </span>
-<span id="cb47-3"><a href="introduction-to-r.html#cb47-3" tabindex="-1"></a>                           <span class="at">FUN =</span> mean )</span></code></pre></div>
+</summary><div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">eu_popaccess1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span><span class="va">pop18</span> <span class="op">~</span> <span class="va">access</span>, </span>
+<span>                           data <span class="op">=</span> <span class="va">EU_subset</span>, </span>
+<span>                           FUN <span class="op">=</span> <span class="va">mean</span> <span class="op">)</span></span></code></pre></div>
 </details>
 </div>
 <p>You now see a new variable called <code>avg</code> which contains the average population increase for each wave. In which wave did the joining countries have the largest population on average?</p>
-<hr />
+<hr>
 </div>
-<div id="combining-ordering-and-grouping-data" class="section level2 unnumbered hasAnchor">
-<h2>Combining Ordering and Grouping Data<a href="introduction-to-r.html#combining-ordering-and-grouping-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="combining-ordering-and-grouping-data" class="section level2 unnumbered">
+<h2>Combining Ordering and Grouping Data<a class="anchor" aria-label="anchor" href="#combining-ordering-and-grouping-data"><i class="fas fa-link"></i></a>
+</h2>
 <p>The question was easy to answer here, as we only have a few accession waves. It starts to get unwieldy though, the more groups we have, but we can let R do the job by combining first grouping, and then ordering. So we take the grouped data frame <code>eu_popaccess</code> and order it by descending <code>avg</code>:</p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="introduction-to-r.html#cb48-1" tabindex="-1"></a>eu_popaccess_order <span class="ot">&lt;-</span> <span class="fu">arrange</span>(eu_popaccess, <span class="fu">desc</span>(avg))</span>
 <span id="cb48-2"><a href="introduction-to-r.html#cb48-2" tabindex="-1"></a></span>
@@ -1019,22 +815,23 @@ Base R Solution
 <span id="cb48-13"><a href="introduction-to-r.html#cb48-13" tabindex="-1"></a><span class="dv">7</span>   <span class="dv">2004</span>  <span class="fl">7327746.</span></span>
 <span id="cb48-14"><a href="introduction-to-r.html#cb48-14" tabindex="-1"></a><span class="dv">8</span>   <span class="dv">2013</span>  <span class="dv">4105493</span> </span></code></pre></div>
 <div class="baser">
-<details>
-<summary>
+<details><summary>
 Base R Solution
-</summary>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="introduction-to-r.html#cb49-1" tabindex="-1"></a>eu_popaccess_order <span class="ot">&lt;-</span> eu_popaccess[<span class="fu">order</span>(<span class="fu">desc</span>(eu_popaccess<span class="sc">$</span>avg)),]</span></code></pre></div>
+</summary><div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">eu_popaccess_order</span> <span class="op">&lt;-</span> <span class="va">eu_popaccess</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">eu_popaccess</span><span class="op">$</span><span class="va">avg</span><span class="op">)</span><span class="op">)</span>,<span class="op">]</span></span></code></pre></div>
 </details>
 </div>
-<hr />
+<hr>
 </div>
-<div id="saving" class="section level2 unnumbered hasAnchor">
-<h2>Saving<a href="introduction-to-r.html#saving" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="saving" class="section level2 unnumbered">
+<h2>Saving<a class="anchor" aria-label="anchor" href="#saving"><i class="fas fa-link"></i></a>
+</h2>
 <p>Please now save this RScript into the same folder (working directory) as the raw data. When R asks before closing, there is no need to save the workspace or the data, as running the RScript on the raw data will bring you precisely to where you left off.</p>
-<hr />
+<hr>
 </div>
-<div id="homework-for-week-7" class="section level2 unnumbered hasAnchor">
-<h2>Homework for Week 7<a href="introduction-to-r.html#homework-for-week-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="homework-for-week-7" class="section level2 unnumbered">
+<h2>Homework for Week 7<a class="anchor" aria-label="anchor" href="#homework-for-week-7"><i class="fas fa-link"></i></a>
+</h2>
 <ul>
 <li>Finish working through this worksheet.</li>
 <li>Add a note underneath each code chunk in your RScript (by starting the line with <code>#</code>), translating the code into plain English. This will help you learn the vocabulary and grammar of R quicker. If you are unsure what individual functions mean, you can find a .csv file with a full list for each week underneath the flashcards (see below, but <a href="files/excelfiles/PO11Q_Week%205_All.csv">here is an example</a>).</li>
@@ -1045,81 +842,70 @@ Base R Solution
 </ul>
 </div>
 </div>
-<div class="footnotes">
-<hr />
-<ol start="3">
-<li id="fn3"><p>Some of the content of this worksheet is taken from <span class="citation">Reiche (forthcoming)</span>.<a href="introduction-to-r.html#fnref3" class="footnote-back">↩︎</a></p></li>
-<li id="fn4"><p>Source: <a href="https://www.garrickadenbuie.com/project/rsthemes/" class="uri">https://www.garrickadenbuie.com/project/rsthemes/</a><a href="introduction-to-r.html#fnref4" class="footnote-back">↩︎</a></p></li>
-<li id="fn5"><p>This is a variation of the <a href="https://draculatheme.com/rstudio">Dracula Theme</a>.<a href="introduction-to-r.html#fnref5" class="footnote-back">↩︎</a></p></li>
-<li id="fn6"><p>To “call” means to execute a command.<a href="introduction-to-r.html#fnref6" class="footnote-back">↩︎</a></p></li>
-<li id="fn7"><p><a href="https://cran.r-project.org/web/packages/" class="uri">https://cran.r-project.org/web/packages/</a><a href="introduction-to-r.html#fnref7" class="footnote-back">↩︎</a></p></li>
-<li id="fn8"><p>There is a command called <code>order()</code>, but it is not part of the <code>tidyverse</code>, and as this package is steadily on the rise in coding, I am only showing you this here.<a href="introduction-to-r.html#fnref8" class="footnote-back">↩︎</a></p></li>
-</ol>
+
+  <div class="chapter-nav">
+<div class="prev"><a href="glossary-3.html">Glossary</a></div>
+<div class="next"><a href="glossary-4.html">Glossary</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#introduction-to-r">Introduction to R</a></li>
+<li><a class="nav-link" href="#self-assessment-questions-2">Self-Assessment Questions3</a></li>
+<li><a class="nav-link" href="#r-rstudio-installation">R &amp; RStudio – Installation</a></li>
+<li><a class="nav-link" href="#r---getting-started">R - Getting Started</a></li>
+<li>
+<a class="nav-link" href="#rscript">RScript</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#rscript-structure">RScript Structure</a></li></ul>
+</li>
+<li><a class="nav-link" href="#first-steps-in-r">First Steps in R</a></li>
+<li><a class="nav-link" href="#the-working-directory">The Working Directory</a></li>
+<li><a class="nav-link" href="#r-packages">R Packages</a></li>
+<li><a class="nav-link" href="#opening-your-data-set">Opening your Data Set</a></li>
+<li><a class="nav-link" href="#viewing-the-data">Viewing the Data</a></li>
+<li>
+<a class="nav-link" href="#variable-types-in-r">Variable Types in R</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#nominal-variables">Nominal Variables</a></li>
+<li><a class="nav-link" href="#ordinal-variables">Ordinal Variables</a></li>
+<li><a class="nav-link" href="#binary-dummy">Binary Dummy</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#sub-setting-data">Sub-Setting Data</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#by-variable">By Variable</a></li>
+<li><a class="nav-link" href="#by-observation">By Observation</a></li>
+<li><a class="nav-link" href="#keep-if-a-variable-has-a-certain-value">Keep if a variable has a certain value</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#ordering-data">Ordering Data</a></li>
+<li><a class="nav-link" href="#grouping-data">Grouping Data</a></li>
+<li><a class="nav-link" href="#combining-ordering-and-grouping-data">Combining Ordering and Grouping Data</a></li>
+<li><a class="nav-link" href="#saving">Saving</a></li>
+<li><a class="nav-link" href="#homework-for-week-7">Homework for Week 7</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
 </div>
-            </section>
+    </nav>
+</div>
 
-          </div>
-        </div>
-      </div>
-<a href="glossary-3.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="glossary-4.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
-    </div>
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong><p><img src="images/Crest_white.png" width="75" style="display:block; margin:auto; margin-bottom:3em;"> PO11Q: Introduction to Quantitative Political Analysis I – <br> Seminar Companion</p></strong>" was written by </p>
+<p><strong>Dr Flo Reiche</strong> <br><strong>Department of Politics and International Studies</strong> <br><strong>University of Warwick</strong></p>. It was last built on 26 July, 2025.
   </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
-<script>
-gitbook.require(["gitbook"], function(gitbook) {
-gitbook.start({
-  "sharing": {
-    "github": false,
-    "facebook": true,
-    "twitter": true,
-    "linkedin": false,
-    "weibo": false,
-    "instapaper": false,
-    "vk": false,
-    "whatsapp": false,
-    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-  },
-  "fontsettings": {
-    "theme": "white",
-    "family": "sans",
-    "size": 2
-  },
-  "edit": {
-    "link": null,
-    "text": null
-  },
-  "history": {
-    "link": null,
-    "text": null
-  },
-  "view": {
-    "link": null,
-    "text": null
-  },
-  "download": null,
-  "search": {
-    "engine": "fuse",
-    "options": null
-  },
-  "toc": {
-    "collapse": "section"
-  },
-  "toc_depth": 2,
-  "keep_tex": true
-});
-});
-</script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
@@ -1131,7 +917,22 @@ gitbook.start({
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
 </script>
 </body>
-
 </html>

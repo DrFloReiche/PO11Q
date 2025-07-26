@@ -1,372 +1,129 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html lang="en">
 <head>
-
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Confidence Intervals | main.knit</title>
-  <meta name="description" content="PO11Q: Seminar Companion " />
-  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
-
-  <meta property="og:title" content="Confidence Intervals | main.knit" />
-  <meta property="og:type" content="book" />
-  
-  
-  
-
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Confidence Intervals | main.knit" />
-  
-  
-  
-
-
-
-
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  
-  
-<link rel="prev" href="flashcards-1.html"/>
-<link rel="next" href="glossary-6.html"/>
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
-<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
-
-
-
-
-
-
-
-<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
-<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
-<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
-
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Confidence Intervals |  PO11Q: Introduction to Quantitative Political Analysis I –   Seminar Companion</title>
+<meta name="generator" content="bookdown 0.43 with bs4_book()">
+<meta property="og:title" content="Confidence Intervals |  PO11Q: Introduction to Quantitative Political Analysis I –   Seminar Companion">
+<meta property="og:type" content="book">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Confidence Intervals |  PO11Q: Introduction to Quantitative Political Analysis I –   Seminar Companion">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><link href="libs/Lexend-0.4.10/font.css" rel="stylesheet">
+<script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
-
-<style type="text/css">
-  
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-</style>
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
-
-<link rel="stylesheet" href="style.css" type="text/css" />
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+          margin-bottom: 0em;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+<meta name="description" content="Self-Assessment Questions11 How do we interpret a confidence interval? What does the central limit theorem postulate? Why do we need it? Why do we need a t-distribution? What is the difference...">
+<meta property="og:description" content="Self-Assessment Questions11 How do we interpret a confidence interval? What does the central limit theorem postulate? Why do we need it? Why do we need a t-distribution? What is the difference...">
+<meta name="twitter:description" content="Self-Assessment Questions11 How do we interpret a confidence interval? What does the central limit theorem postulate? Why do we need it? Why do we need a t-distribution? What is the difference...">
 </head>
+<body data-spy="scroll" data-target="#toc">
 
-<body>
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
-
-
-  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
-
-    <div class="book-summary">
-      <nav role="navigation">
-
-<ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
-<li class="chapter" data-level="" data-path="companion-features.html"><a href="companion-features.html"><i class="fa fa-check"></i>Companion Features</a></li>
-<li class="chapter" data-level="" data-path="accessibility.html"><a href="accessibility.html"><i class="fa fa-check"></i>Accessibility</a></li>
-<li class="part"><span><b>Week 1</b></span></li>
-<li class="chapter" data-level="" data-path="no-seminar.html"><a href="no-seminar.html"><i class="fa fa-check"></i>No Seminar</a></li>
-<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="part"><span><b>Week 2</b></span></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#introduction-to-moodle"><i class="fa fa-check"></i>Introduction to Moodle</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#the-global-view"><i class="fa fa-check"></i>The Global View</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#the-weekly-view"><i class="fa fa-check"></i>The Weekly View</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#learning-outcomes"><i class="fa fa-check"></i>Learning Outcomes</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#before-the-lecture"><i class="fa fa-check"></i>Before the Lecture</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#lecture-materials"><i class="fa fa-check"></i>Lecture Materials</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#before-the-seminar"><i class="fa fa-check"></i>Before the Seminar</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#seminar"><i class="fa fa-check"></i>Seminar</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#test-your-knowledge"><i class="fa fa-check"></i>Test Your Knowledge</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#what-can-i-find-under-the-label-useful-stuff"><i class="fa fa-check"></i>What can I find under the label “Useful Stuff”?</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#fora"><i class="fa fa-check"></i>Fora</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#where-can-i-find-information-on-the-assessment"><i class="fa fa-check"></i>Where can I find information on the assessment?</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#introduction-to-talis-aspire"><i class="fa fa-check"></i>Introduction to Talis Aspire</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#how-do-i-find-a-reading"><i class="fa fa-check"></i>How do I find a reading?</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#how-do-i-find-a-reading-contd."><i class="fa fa-check"></i>How do I find a reading? (contd.)</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#what-if-the-reading-is-not-digitally-available"><i class="fa fa-check"></i>What if the reading is not digitally available?</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#essential-versus-recommended-reading"><i class="fa fa-check"></i>Essential versus Recommended Reading</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#does-it-make-sense-to-buy-a-book"><i class="fa fa-check"></i>Does it make sense to buy a book?</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#assessment"><i class="fa fa-check"></i>Assessment</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#a-simple-question"><i class="fa fa-check"></i>A Simple Question (?)</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#group-work-1"><i class="fa fa-check"></i>Group Work 1</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#group-work-2"><i class="fa fa-check"></i>Group Work 2</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#homework-for-week-3"><i class="fa fa-check"></i>Homework for Week 3</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="glossary-1.html"><a href="glossary-1.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="part"><span><b>Week 3</b></span></li>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html"><i class="fa fa-check"></i>Conceptualisation and Measurement</a>
-<ul>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#self-assessment-questions"><i class="fa fa-check"></i>Self-Assessment Questions</a></li>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#assessment-1"><i class="fa fa-check"></i>Assessment</a></li>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#assessment-guidelines"><i class="fa fa-check"></i>Assessment Guidelines</a>
-<ul>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#assessment-guidelines-1"><i class="fa fa-check"></i>Assessment Guidelines</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#referencing"><i class="fa fa-check"></i>Referencing</a>
-<ul>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#references-how"><i class="fa fa-check"></i>References: How?</a></li>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#references-harvard"><i class="fa fa-check"></i>References: Harvard</a></li>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#quotations"><i class="fa fa-check"></i>Quotations</a></li>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#long-quotations"><i class="fa fa-check"></i>Long Quotations</a></li>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#list-of-references"><i class="fa fa-check"></i>List of References</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#writing-your-assessment"><i class="fa fa-check"></i>Writing your Assessment</a></li>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#group-work"><i class="fa fa-check"></i>Group Work</a></li>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#homework-for-week-4"><i class="fa fa-check"></i>Homework for Week 4</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="glossary-2.html"><a href="glossary-2.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="part"><span><b>Week 4</b></span></li>
-<li class="chapter" data-level="" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i>Descriptive Statistics</a>
-<ul>
-<li class="chapter" data-level="" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#self-assessment-questions-1"><i class="fa fa-check"></i>Self-Assessment Questions</a></li>
-<li class="chapter" data-level="" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#calculations"><i class="fa fa-check"></i>Calculations</a>
-<ul>
-<li class="chapter" data-level="" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#data-set"><i class="fa fa-check"></i>Data Set</a></li>
-<li class="chapter" data-level="" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#exercises"><i class="fa fa-check"></i>Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#homework-for-week-5"><i class="fa fa-check"></i>Homework for Week 5</a></li>
-<li class="chapter" data-level="" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#solutions"><i class="fa fa-check"></i>Solutions</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="glossary-3.html"><a href="glossary-3.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="part"><span><b>Week 5</b></span></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i>Introduction to R</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#self-assessment-questions-2"><i class="fa fa-check"></i>Self-Assessment Questions</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-rstudio-installation"><i class="fa fa-check"></i>R &amp; RStudio – Installation</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r---getting-started"><i class="fa fa-check"></i>R - Getting Started</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#rscript"><i class="fa fa-check"></i>RScript</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#rscript-structure"><i class="fa fa-check"></i>RScript Structure</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#first-steps-in-r"><i class="fa fa-check"></i>First Steps in R</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-working-directory"><i class="fa fa-check"></i>The Working Directory</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-packages"><i class="fa fa-check"></i>R Packages</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#opening-your-data-set"><i class="fa fa-check"></i>Opening your Data Set</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#viewing-the-data"><i class="fa fa-check"></i>Viewing the Data</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#variable-types-in-r"><i class="fa fa-check"></i>Variable Types in R</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#nominal-variables"><i class="fa fa-check"></i>Nominal Variables</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#ordinal-variables"><i class="fa fa-check"></i>Ordinal Variables</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#binary-dummy"><i class="fa fa-check"></i>Binary Dummy</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#sub-setting-data"><i class="fa fa-check"></i>Sub-Setting Data</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#by-variable"><i class="fa fa-check"></i>By Variable</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#by-observation"><i class="fa fa-check"></i>By Observation</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#keep-if-a-variable-has-a-certain-value"><i class="fa fa-check"></i>Keep if a variable has a certain value</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#ordering-data"><i class="fa fa-check"></i>Ordering Data</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#grouping-data"><i class="fa fa-check"></i>Grouping Data</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#combining-ordering-and-grouping-data"><i class="fa fa-check"></i>Combining Ordering and Grouping Data</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#saving"><i class="fa fa-check"></i>Saving</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#homework-for-week-7"><i class="fa fa-check"></i>Homework for Week 7</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="glossary-4.html"><a href="glossary-4.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards.html"><a href="flashcards.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Week 6</b></span></li>
-<li class="chapter" data-level="" data-path="reading-week.html"><a href="reading-week.html"><i class="fa fa-check"></i>Reading Week</a></li>
-<li class="part"><span><b>Week 7</b></span></li>
-<li class="chapter" data-level="" data-path="z-scores.html"><a href="z-scores.html"><i class="fa fa-check"></i>z-Scores</a>
-<ul>
-<li class="chapter" data-level="" data-path="z-scores.html"><a href="z-scores.html#self-assessment-questions-3"><i class="fa fa-check"></i>Self-Assessment Questions</a></li>
-<li class="chapter" data-level="" data-path="z-scores.html"><a href="z-scores.html#how-to-read-a-z-table"><i class="fa fa-check"></i>How to read a z-table</a></li>
-<li class="chapter" data-level="" data-path="z-scores.html"><a href="z-scores.html#calculations-1"><i class="fa fa-check"></i>Calculations</a></li>
-<li class="chapter" data-level="" data-path="z-scores.html"><a href="z-scores.html#solutions-1"><i class="fa fa-check"></i>Solutions</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html"><i class="fa fa-check"></i>Working with R</a>
-<ul>
-<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#preliminary-stuff"><i class="fa fa-check"></i>Preliminary Stuff</a></li>
-<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#descriptive-statistics-1"><i class="fa fa-check"></i>Descriptive Statistics</a></li>
-<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#graphs"><i class="fa fa-check"></i>Graphs</a></li>
-<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#basic-graphs"><i class="fa fa-check"></i>Basic Graphs</a></li>
-<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#advanced-graphs"><i class="fa fa-check"></i>Advanced Graphs</a></li>
-<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#even-more-advanced-graphs"><i class="fa fa-check"></i>Even More Advanced Graphs</a></li>
-<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#organising-code-in-the-rscript"><i class="fa fa-check"></i>Organising Code in the RScript</a></li>
-<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#exercises-1"><i class="fa fa-check"></i>Exercises</a></li>
-<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#captions-for-tables-and-figures-in-word"><i class="fa fa-check"></i>Captions for Tables and Figures in Word</a></li>
-<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#homework-for-week-8"><i class="fa fa-check"></i>Homework for Week 8</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="glossary-5.html"><a href="glossary-5.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards-1.html"><a href="flashcards-1.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Week 8</b></span></li>
-<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html"><i class="fa fa-check"></i>Confidence Intervals</a>
-<ul>
-<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html#self-assessment-questions-4"><i class="fa fa-check"></i>Self-Assessment Questions</a></li>
-<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html#calculating-confidence-intervals"><i class="fa fa-check"></i>Calculating Confidence Intervals</a>
-<ul>
-<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html#we-know-sigma"><i class="fa fa-check"></i>1. We know <span class="math inline">\(\sigma\)</span></a></li>
-<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html#we-dont-know-sigma"><i class="fa fa-check"></i>2. We don’t know <span class="math inline">\(\sigma\)</span></a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html#exercises-2"><i class="fa fa-check"></i>Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html#conceptual-exercises"><i class="fa fa-check"></i>Conceptual Exercises</a></li>
-<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html#r-exercises"><i class="fa fa-check"></i>R Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html#homework-for-week-9"><i class="fa fa-check"></i>Homework for Week 9</a></li>
-<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html#solutions-2"><i class="fa fa-check"></i>Solutions</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="glossary-6.html"><a href="glossary-6.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards-2.html"><a href="flashcards-2.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Week 9</b></span></li>
-<li class="chapter" data-level="" data-path="significance-testing.html"><a href="significance-testing.html"><i class="fa fa-check"></i>Significance Testing</a>
-<ul>
-<li class="chapter" data-level="" data-path="significance-testing.html"><a href="significance-testing.html#group-work-self-reflection"><i class="fa fa-check"></i>Group Work – Self-Reflection</a></li>
-<li class="chapter" data-level="" data-path="significance-testing.html"><a href="significance-testing.html#r-exercises-1"><i class="fa fa-check"></i>R Exercises</a></li>
-<li class="chapter" data-level="" data-path="significance-testing.html"><a href="significance-testing.html#homework-for-week-10"><i class="fa fa-check"></i>Homework for Week 10</a></li>
-<li class="chapter" data-level="" data-path="significance-testing.html"><a href="significance-testing.html#solutions-3"><i class="fa fa-check"></i>Solutions</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="glossary-7.html"><a href="glossary-7.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards-3.html"><a href="flashcards-3.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Week 10</b></span></li>
-<li class="chapter" data-level="" data-path="introduction-to-causality.html"><a href="introduction-to-causality.html"><i class="fa fa-check"></i>Introduction to Causality</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-causality.html"><a href="introduction-to-causality.html#self-assessment-questions-5"><i class="fa fa-check"></i>Self-Assessment Questions</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-causality.html"><a href="introduction-to-causality.html#exam-preparation"><i class="fa fa-check"></i>Exam Preparation</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-causality.html"><a href="introduction-to-causality.html#homework"><i class="fa fa-check"></i>Homework</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="glossary-8.html"><a href="glossary-8.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards-4.html"><a href="flashcards-4.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Downloads</b></span></li>
-<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html"><i class="fa fa-check"></i>Downloads</a>
-<ul>
-<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html#documents"><i class="fa fa-check"></i>Documents</a></li>
-<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html#data-sets"><i class="fa fa-check"></i>Data Sets</a></li>
-<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html#r-scripts"><i class="fa fa-check"></i>R Scripts</a></li>
-</ul></li>
-<li class="part"><span><b>Glossary</b></span></li>
-<li class="chapter" data-level="" data-path="glossary-9.html"><a href="glossary-9.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="part"><span><b>List of References</b></span></li>
-<li class="chapter" data-level="" data-path="list-of-references-1.html"><a href="list-of-references-1.html"><i class="fa fa-check"></i>List of References</a></li>
-</ul>
-
-      </nav>
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title=""><p><img src="images/Crest_white.png" width="75" style="display:block; margin:auto; margin-bottom:3em;"> PO11Q: Introduction to Quantitative Political Analysis I – <br> Seminar Companion</p></a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
 
-    <div class="book-body">
-      <div class="body-inner">
-        <div class="book-header" role="navigation">
-          <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><div class="line-block">PO11Q: Seminar Companion <img align="right" src="images/Crest_white.png" width="75"></div></a>
-          </h1>
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Preface</a></li>
+<li><a class="" href="companion-features.html">Companion Features</a></li>
+<li><a class="" href="accessibility.html">Accessibility</a></li>
+<li class="book-part">Week 1</li>
+<li><a class="" href="no-seminar.html">No Seminar</a></li>
+<li><a class="" href="glossary.html">Glossary</a></li>
+<li class="book-part">Week 2</li>
+<li><a class="" href="introduction.html">Introduction</a></li>
+<li><a class="" href="glossary-1.html">Glossary</a></li>
+<li class="book-part">Week 3</li>
+<li><a class="" href="conceptualisation-and-measurement.html">Conceptualisation and Measurement</a></li>
+<li><a class="" href="glossary-2.html">Glossary</a></li>
+<li class="book-part">Week 4</li>
+<li><a class="" href="descriptive-statistics.html">Descriptive Statistics</a></li>
+<li><a class="" href="glossary-3.html">Glossary</a></li>
+<li class="book-part">Week 5</li>
+<li><a class="" href="introduction-to-r.html">Introduction to R</a></li>
+<li><a class="" href="glossary-4.html">Glossary</a></li>
+<li><a class="" href="flashcards.html">Flashcards</a></li>
+<li class="book-part">Week 6</li>
+<li><a class="" href="reading-week.html">Reading Week</a></li>
+<li class="book-part">Week 7</li>
+<li><a class="" href="z-scores.html">z-Scores</a></li>
+<li><a class="" href="working-with-r.html">Working with R</a></li>
+<li><a class="" href="glossary-5.html">Glossary</a></li>
+<li><a class="" href="flashcards-1.html">Flashcards</a></li>
+<li class="book-part">Week 8</li>
+<li><a class="active" href="confidence-intervals.html">Confidence Intervals</a></li>
+<li><a class="" href="glossary-6.html">Glossary</a></li>
+<li><a class="" href="flashcards-2.html">Flashcards</a></li>
+<li class="book-part">Week 9</li>
+<li><a class="" href="significance-testing.html">Significance Testing</a></li>
+<li><a class="" href="glossary-7.html">Glossary</a></li>
+<li><a class="" href="flashcards-3.html">Flashcards</a></li>
+<li class="book-part">Week 10</li>
+<li><a class="" href="introduction-to-causality.html">Introduction to Causality</a></li>
+<li><a class="" href="glossary-8.html">Glossary</a></li>
+<li><a class="" href="flashcards-4.html">Flashcards</a></li>
+<li class="book-part">Downloads</li>
+<li><a class="" href="downloads.html">Downloads</a></li>
+<li class="book-part">Glossary</li>
+<li><a class="" href="glossary-9.html">Glossary</a></li>
+<li class="book-part">List of References</li>
+<li><a class="" href="list-of-references-1.html">List of References</a></li>
+</ul>
+
+        <div class="book-extra">
+          
         </div>
-
-        <div class="page-wrapper" tabindex="-1" role="main">
-          <div class="page-inner">
-
-            <section class="normal" id="section-">
-<div id="confidence-intervals" class="section level1 unnumbered hasAnchor">
-<h1>Confidence Intervals<a href="confidence-intervals.html#confidence-intervals" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="self-assessment-questions-4" class="section level2 unnumbered hasAnchor">
-<h2>Self-Assessment Questions<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a><a href="confidence-intervals.html#self-assessment-questions-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><script src="sidebar-link.js"></script><div id="confidence-intervals" class="section level1 unnumbered">
+<h1>Confidence Intervals<a class="anchor" aria-label="anchor" href="#confidence-intervals"><i class="fas fa-link"></i></a>
+</h1>
+<div id="self-assessment-questions-4" class="section level2 unnumbered">
+<h2>Self-Assessment Questions<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Some of the content of this worksheet is taken from &lt;span class="citation"&gt;Reiche (forthcoming)&lt;/span&gt;.&lt;/p&gt;'><sup>11</sup></a><a class="anchor" aria-label="anchor" href="#self-assessment-questions-4"><i class="fas fa-link"></i></a>
+</h2>
 <ol style="list-style-type: decimal">
 <li>How do we interpret a confidence interval?</li>
 <li>What does the central limit theorem postulate?</li>
@@ -377,18 +134,20 @@ div.csl-indent {
 <div class="stop">
 <p>Please stop here and don’t go beyond this point until we have compared notes on your answers.</p>
 </div>
-<hr />
+<hr>
 </div>
-<div id="calculating-confidence-intervals" class="section level2 unnumbered hasAnchor">
-<h2>Calculating Confidence Intervals<a href="confidence-intervals.html#calculating-confidence-intervals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="calculating-confidence-intervals" class="section level2 unnumbered">
+<h2>Calculating Confidence Intervals<a class="anchor" aria-label="anchor" href="#calculating-confidence-intervals"><i class="fas fa-link"></i></a>
+</h2>
 <p>Just as a reminder, what is a confidence interval?</p>
 <div class="def">
 <p><strong>Confidence Interval</strong></p>
 <p>A confidence interval is an estimated range, based on a sample, that is likely to contain the true population parameter (such as the mean). If the sampling process were repeated many times, approximately <span class="math inline">\((1 - \alpha) \times 100\%\)</span> of the resulting intervals would contain the true parameter. The value of <span class="math inline">\(\alpha\)</span> determines the confidence level – for example, <span class="math inline">\(\alpha = 0.05\)</span> corresponds to a 95% confidence level, while <span class="math inline">\(\alpha = 0.01\)</span> corresponds to 99%. <span class="citation">(Reiche, forthcoming)</span></p>
 </div>
 <p>There are two scenarios under which we are calculating confidence intervals: (1) we know <span class="math inline">\(\sigma\)</span> (the standard deviation of the population distribution), and (2) we don’t know <span class="math inline">\(\sigma\)</span>. Let me take you through these two scenarios in turn:</p>
-<div id="we-know-sigma" class="section level3 unnumbered hasAnchor">
-<h3>1. We know <span class="math inline">\(\sigma\)</span><a href="confidence-intervals.html#we-know-sigma" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="we-know-sigma" class="section level3 unnumbered">
+<h3>1. We know <span class="math inline">\(\sigma\)</span><a class="anchor" aria-label="anchor" href="#we-know-sigma"><i class="fas fa-link"></i></a>
+</h3>
 <p>If we know the population distribution, then we can use z. Assume we have sample data on the age of students in the university with n=81, and <span class="math inline">\(\bar{y}=26\)</span>. The standard deviation of the population (<span class="math inline">\(\sigma\)</span>) is 9. We now want an interval within which we find with 99% certainty the true average age of students (we did this example with 95% in the lecture).</p>
 <p>We start with calculating the standard error:</p>
 <p><span class="math display">\[\begin{equation*}
@@ -398,9 +157,9 @@ div.csl-indent {
     \sigma_{\bar{y}} = \frac{9}{\sqrt{81}} = 1
 \end{equation*}\]</span></p>
 <p>What is important to bear in mind for the construction of confidence intervals, is that we do not just need the right-tail probability, because the area we are trying to cover under the distribution is symmetrical around the mean. This is visualised in Figure <a href="confidence-intervals.html#fig:95">9</a> where the area is defined between <span class="math inline">\(\pm\)</span> 1.96 standard deviations around the mean.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:95"></span>
-<img src="images/Week%208/myplot.png" alt="\label{fig:95}95 Percent Confidence Interval around the Mean" width="55%" />
-<p class="caption">
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:95"></span>
+<img src="images/Week%208/myplot.png" alt="\label{fig:95}95 Percent Confidence Interval around the Mean" width="55%"><p class="caption">
 Figure 9: 95 Percent Confidence Interval around the Mean
 </p>
 </div>
@@ -415,12 +174,13 @@ y = \bar{y} \pm 2.58 \times \sigma_{\bar{Y}}
 \end{equation*}\]</span></p>
 <p>As a result, we can say that with 99% certainty the true average age of students at Warwick lies between 23.42 and 28.58. Note that this confidence interval is wider than the 95% one where the boundaries were defined as 24.04 and 27.96. As we went for higher certainty here, the confidence interval became wider. If we want our interval to contain the true average in 99 out of 100 samples, we need to cast our net wider than if we were content with 95.</p>
 </div>
-<div id="we-dont-know-sigma" class="section level3 unnumbered hasAnchor">
-<h3>2. We don’t know <span class="math inline">\(\sigma\)</span><a href="confidence-intervals.html#we-dont-know-sigma" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="we-dont-know-sigma" class="section level3 unnumbered">
+<h3>2. We don’t know <span class="math inline">\(\sigma\)</span><a class="anchor" aria-label="anchor" href="#we-dont-know-sigma"><i class="fas fa-link"></i></a>
+</h3>
 <p>If we don’t know the population distribution and its standard deviation, we need to use the t-distribution. As you know from the lecture, the t-distribution is a shape shifter. Its width depends on the degrees of freedom: the more degrees of freedom we have, the more narrow, or the closer to the normal distribution it comes. With df=30 the shapes of the t-distribution and the normal distribution are almost identical. You can see this in the following Figure, comparing the yellow t-distribution for <span class="math inline">\(df=30\)</span> and the black (normal) distribution.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-99"></span>
-<img src="images/Week%208/myplot2.png" alt="\label{fig:tdistribution}Comparison of t-Distributions" width="65%" />
-<p class="caption">
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-99"></span>
+<img src="images/Week%208/myplot2.png" alt="\label{fig:tdistribution}Comparison of t-Distributions" width="65%"><p class="caption">
 Figure 10: Comparison of t-Distributions
 </p>
 </div>
@@ -443,27 +203,31 @@ se=\frac{2}{\sqrt{4}}=1
 <p>The resulting boundaries are 20.159 as the lower boundary, and 31.841 as the upper boundary. This is far wider than the 99% confidence interval we had for the normal distribution, where the lower and upper boundaries were 23.42 and 28.58, respectively. This is a reflection of the fact that we only had a very small sample (<span class="math inline">\(n=4\)</span>) to base our inference on and therefore have a lot of uncertainty in our inference.</p>
 <p>To conclude, it is fair to say that the procedure is essentially the same as with the normal procedure, only that have to go the extra step of taking into account the degrees of freedom.</p>
 <p>You are now ready to do some exercises.</p>
-<hr />
+<hr>
 </div>
 </div>
-<div id="exercises-2" class="section level2 unnumbered hasAnchor">
-<h2>Exercises<a href="confidence-intervals.html#exercises-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="conceptual-exercises" class="section level3 unnumbered hasAnchor">
-<h3>Conceptual Exercises<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a><a href="confidence-intervals.html#conceptual-exercises" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="exercises-2" class="section level2 unnumbered">
+<h2>Exercises<a class="anchor" aria-label="anchor" href="#exercises-2"><i class="fas fa-link"></i></a>
+</h2>
+<div id="conceptual-exercises" class="section level3 unnumbered">
+<h3>Conceptual Exercises<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;These are taken from &lt;span class="citation"&gt;Reiche (forthcoming)&lt;/span&gt;.&lt;/p&gt;'><sup>12</sup></a><a class="anchor" aria-label="anchor" href="#conceptual-exercises"><i class="fas fa-link"></i></a>
+</h3>
 <ol style="list-style-type: decimal">
 <li>The number of diners visiting a restaurant on a Thursday is normally distributed with a mean of 150 and standard deviation of 30. One Thursday only 100 people eat in the restaurant, and the manager says, “next week will be better”.
 <ol style="list-style-type: lower-alpha">
 <li>What is the probability she is right?</li>
-<li>The number of diners on a Friday is also normally distributed with a mean of 200 and a standard deviation of 50. Which two values, symmetrical around the mean contain the number of Friday diners 80% of the time?<br />
+<li>The number of diners on a Friday is also normally distributed with a mean of 200 and a standard deviation of 50. Which two values, symmetrical around the mean contain the number of Friday diners 80% of the time?<br>
 </li>
-</ol></li>
+</ol>
+</li>
 <li>A researcher is analysing individuals’ relative fear of being a victim of burglary on a 1-100 scale. This variable is normally distributed. A random sample of 9 individuals found a mean score of 47 on the scale with a sample variance of 158.76 for fear of being burgled.
 <ol style="list-style-type: lower-alpha">
 <li>What distribution would be used to calculate an 80% confidence interval around this mean?</li>
 <li>Construct that interval.</li>
-<li>Is this a suitable sample size for seeing whether individuals are more nervous around burglary or murder, which is found to have an 80% confidence interval between 2.76 and 14.65?<br />
+<li>Is this a suitable sample size for seeing whether individuals are more nervous around burglary or murder, which is found to have an 80% confidence interval between 2.76 and 14.65?<br>
 </li>
-</ol></li>
+</ol>
+</li>
 <li>We are investigating the height of men in the UK. For this we have obtained a random sample of 100 UK men and found they had a mean height of 180cm with a standard deviation of 10cm.
 <ol style="list-style-type: lower-alpha">
 <li>Construct a 95% confidence interval for the mean height of UK males.</li>
@@ -475,34 +239,36 @@ se=\frac{2}{\sqrt{4}}=1
 <li>On average 95% of confidence intervals constructed would contain the population mean.</li>
 <li>On average 95% of the means of samples with 100 respondents will fall within the upper and lower bands.</li>
 <li>On average 95% of the sample means equal the population mean.</li>
-</ol></li>
-</ol></li>
 </ol>
-<hr />
+</li>
+</ol>
+</li>
+</ol>
+<hr>
 </div>
-<div id="r-exercises" class="section level3 unnumbered hasAnchor">
-<h3>R Exercises<a href="confidence-intervals.html#r-exercises" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="introduction-1" class="section level4 unnumbered hasAnchor">
-<h4>Introduction<a href="confidence-intervals.html#introduction-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="r-exercises" class="section level3 unnumbered">
+<h3>R Exercises<a class="anchor" aria-label="anchor" href="#r-exercises"><i class="fas fa-link"></i></a>
+</h3>
+<div id="introduction-1" class="section level4 unnumbered">
+<h4>Introduction<a class="anchor" aria-label="anchor" href="#introduction-1"><i class="fas fa-link"></i></a>
+</h4>
 <p>For the purpose of this worksheet you will be using a replication data set from <span class="citation">Dorff (2011)</span> which provides replication data for the famous study of the determinants of civil war by <span class="citation">Fearon &amp; Laitin (2003)</span>. This is the abstract, taken from the article:</p>
 <blockquote>
 <p>An influential conventional wisdom holds that civil wars proliferated rapidly with the end of the Cold War and that the root cause of many or most of these has been ethnic and religious antagonisms. We show that the current prevalence of internal war is mainly the result of a steady accumulation of protracted conflicts since the 1950s and 1960s rather than a sudden change associated with a new, post-Cold War international system. We also find that after controlling for per capita income, more ethnically or religiously diverse countries have been no more likely to experience significant civil violence in this period. We argue for understanding civil war in this period in terms of insurgency or rural guerrilla warfare, a particular form of military practice that can be harnessed to diverse political agendas. The factors that explain which countries have been at risk for civil war are not their ethnic or religious characteristics but rather the conditions that favor insurgency. These include poverty – which marks financially and bureaucratically weak states and also favors rebel recruitment – political instability, rough terrain, and large populations.</p>
 </blockquote>
 <p>The <code>fearon</code> dataset contains several variables for each country in 1994, whilst the <code>fearonfull</code> data set contains data for all years from 1945 to 1999. Not all of the operations in the exercises were covered by the material in the lectures / seminars on PO11Q. Some of these rely on the reading, and for some you need to google for help on stackoverflow. You can find a full codebook in Table <a href="confidence-intervals.html#tab:fearoncode">9</a>.</p>
-<table class="table table-striped table-hover" style="color: black; margin-left: auto; margin-right: auto;">
+<div class="inline-table"><table class="table table-striped table-hover" style="color: black; margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:fearoncode">Table 9: </span>Codebook to Fearon Data Sets
 </caption>
-<thead>
-<tr>
+<thead><tr>
 <th style="text-align:left;">
 Variable
 </th>
 <th style="text-align:left;">
 Label
 </th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr>
 <td style="text-align:left;min-width: 1.25in; ">
@@ -593,26 +359,32 @@ share of largest ethnic group (%)
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
-<div id="exercises-3" class="section level4 unnumbered hasAnchor">
-<h4>Exercises<a href="confidence-intervals.html#exercises-3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="exercises-3" class="section level4 unnumbered">
+<h4>Exercises<a class="anchor" aria-label="anchor" href="#exercises-3"><i class="fas fa-link"></i></a>
+</h4>
 <p>These exercises are deliberately slightly more advanced than those of previous weeks to push you a little. For some of these you will have to use google, as we have not covered all the necessary functions on the module, yet.</p>
 <ol style="list-style-type: decimal">
-<li><p>Produce a new data frame of df1, df2, df3, df4. For each dataset, arrange them according to countries with:</p>
+<li>
+<p>Produce a new data frame of df1, df2, df3, df4. For each dataset, arrange them according to countries with:</p>
 <ol style="list-style-type: lower-alpha">
 <li>Lowest Ethnic Fractionalisation</li>
 <li>Highest Population</li>
 <li>Highest mountainous terrain</li>
 <li>Lowest elevation</li>
-</ol></li>
+</ol>
+</li>
 <li><p>Create a data frame which looks upon countries that used to be British colonies. Transform the British colony variable into a binary factor of “No” and “Yes”.</p></li>
-<li><p>Make a dummy variable which shows whether or not a country is majority Muslim, given that the requirement of a majority Muslim country is more than 50% of its population. Do not forget to order the factors.</p>
+<li>
+<p>Make a dummy variable which shows whether or not a country is majority Muslim, given that the requirement of a majority Muslim country is more than 50% of its population. Do not forget to order the factors.</p>
 <ol style="list-style-type: lower-alpha">
 <li>Use cut()</li>
 <li>Use ifelse()</li>
-</ol></li>
-<li><p>The Polity IV score measures democracy on a scale from -10 to +10 where -10 is equal to perfect autocracy and +10 equal to perfect democracy. Often, the democratisation literature distinguishes between autocracies, anocracies and democracies. We can achieve this differentiation in the Polity IV score as follows:</p>
+</ol>
+</li>
+<li>
+<p>The Polity IV score measures democracy on a scale from -10 to +10 where -10 is equal to perfect autocracy and +10 equal to perfect democracy. Often, the democratisation literature distinguishes between autocracies, anocracies and democracies. We can achieve this differentiation in the Polity IV score as follows:</p>
 <ul>
 <li>Autocracies: -10 to -6</li>
 <li>Anocracies: -5 to +5</li>
@@ -622,13 +394,17 @@ share of largest ethnic group (%)
 <ol style="list-style-type: lower-alpha">
 <li>Into an ordered factor</li>
 <li>Into a binary dummy variable of Democracy/Non-Democracy where only the level “Democracy” of the previous step remains as “Democracy”.</li>
-</ol></li>
-<li><p>Find the mean difference between:</p>
+</ol>
+</li>
+<li>
+<p>Find the mean difference between:</p>
 <ol style="list-style-type: lower-alpha">
 <li>the share of largest ethnic group and second largest ethnic group.</li>
 <li>the share of largest ethnic group and second largest ethnic group within former British colonies (using previous exercise no. 4).</li>
-</ol></li>
-<li><p>Let’s do some more recoding:</p>
+</ol>
+</li>
+<li>
+<p>Let’s do some more recoding:</p>
 <ol style="list-style-type: lower-alpha">
 <li>Create an age-group dataframe with the following categories:</li>
 </ol>
@@ -643,125 +419,114 @@ share of largest ethnic group (%)
 <li>Transform the values into numeric values, and separate into a lower and upper category</li>
 <li>Create a column - Find the mid of each levels</li>
 <li>Create a column - Find the interval of each levels</li>
-</ol></li>
-<li><p>For this exercise use the data frame <code>fearonfull</code> which contains data for all years between 1945 and 1999. Population is defined in terms of 1,000s.</p>
+</ol>
+</li>
+<li>
+<p>For this exercise use the data frame <code>fearonfull</code> which contains data for all years between 1945 and 1999. Population is defined in terms of 1,000s.</p>
 <ol style="list-style-type: lower-alpha">
 <li>Create a new data which consists of countries with more than 10000000 people. (large population)</li>
 <li>Find the average of population of each large population country from 1945-1999. Hint: group according to country, then find the mean.</li>
-</ol></li>
-<li><p>Sub-setting data, using the <code>fearonfull</code> data frame:</p>
+</ol>
+</li>
+<li>
+<p>Sub-setting data, using the <code>fearonfull</code> data frame:</p>
 <ol style="list-style-type: lower-alpha">
 <li>Extract the necessary variables to compare the social fractionalization between countries.</li>
 <li>Retain the last row of the dataset.</li>
 <li>Filter the dataset with only countries in an ongoing war (variable <code>ended</code>).</li>
 <li>Find the country with an ongoing war in 1999.</li>
-</ol></li>
+</ol>
+</li>
 <li><p>Generate a dataframe and find all countries with GDP per capita greater than the world’s mean in 1999 (Function hint: <code>filter</code>)</p></li>
 <li><p>Generate a dataframe that only consist of data from 1998 and 1999. Change the data format into a wide data using spread for the observations of GDP per capita (you need to use <code>fearonfull</code> again).</p></li>
 <li><p>Generate a data frame consisting of list of countries and their populations in 1945 and 1995. Find the mean of population differences between 1945 and 1995. Find the mean of population differences between 1945 and 1995 (you need to use <code>fearonfull</code> again).</p></li>
 <li><p>Calculate the average GDP per capita each oil-producing country has had between 1945 and 1999. Which has the highest mean of GDP per capita (you need to use <code>fearonfull</code> again)?</p></li>
-<li><p>For this exercise use the <code>fearonfull</code> data set.</p>
+<li>
+<p>For this exercise use the <code>fearonfull</code> data set.</p>
 <ol style="list-style-type: lower-alpha">
 <li>Check how many missing values are in the dataset as a whole and in the <code>polity2</code> variable.</li>
 <li>Omit rows with missing values in GDP per capita and population using the <code>filter</code> function.</li>
-</ol></li>
-<li><p>Use the data in exercise number 13.</p>
+</ol>
+</li>
+<li>
+<p>Use the data in exercise number 13.</p>
 <ol style="list-style-type: lower-alpha">
 <li>Calculate the averages of GDP per capita and population per country between 1945 and 1999. Find the mean GDP per country.</li>
 <li>Filter the top 10 highest GDP countries</li>
-</ol></li>
+</ol>
+</li>
 <li><p>Find the difference between each country’s largest ethnic group and second largest ethnic group. Arrange the countries in ascending order based on the difference</p></li>
 </ol>
-<hr />
+<hr>
 </div>
 </div>
 </div>
-<div id="homework-for-week-9" class="section level2 unnumbered hasAnchor">
-<h2>Homework for Week 9<a href="confidence-intervals.html#homework-for-week-9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="homework-for-week-9" class="section level2 unnumbered">
+<h2>Homework for Week 9<a class="anchor" aria-label="anchor" href="#homework-for-week-9"><i class="fas fa-link"></i></a>
+</h2>
 <ul>
 <li>Read the essential literature for the lecture. There is no separate reading for the seminar.</li>
 <li>Work through <a href="https://drfloreiche.github.io/PO11Q/flashcards-2.html">this week’s flashcards</a> to familiarise yourself with the relevant R functions.</li>
 <li>Find an example for each NEW function and apply it in R to ensure it works</li>
 <li>Work on this week’s R exercises. There are plenty to give you the opportunity to practice with R and I am not expecting you to finish all of them by next week. I recommend doing the first six.</li>
 </ul>
-<hr />
+<hr>
 </div>
-<div id="solutions-2" class="section level2 unnumbered hasAnchor">
-<h2>Solutions<a href="confidence-intervals.html#solutions-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="solutions-2" class="section level2 unnumbered">
+<h2>Solutions<a class="anchor" aria-label="anchor" href="#solutions-2"><i class="fas fa-link"></i></a>
+</h2>
 <p>You can find the Solutions in the <a href="https://drfloreiche.github.io/PO11Q/downloads.html">Downloads Section</a>. Please note that the conceptual exercises have a document in the “Documents” Section, whereas the solutions to the R Exercises are in an RScript in the section of the same name.</p>
 </div>
 </div>
-<div class="footnotes">
-<hr />
-<ol start="11">
-<li id="fn11"><p>Some of the content of this worksheet is taken from <span class="citation">Reiche (forthcoming)</span>.<a href="confidence-intervals.html#fnref11" class="footnote-back">↩︎</a></p></li>
-<li id="fn12"><p>These are taken from <span class="citation">Reiche (forthcoming)</span>.<a href="confidence-intervals.html#fnref12" class="footnote-back">↩︎</a></p></li>
-</ol>
+
+  <div class="chapter-nav">
+<div class="prev"><a href="flashcards-1.html">Flashcards</a></div>
+<div class="next"><a href="glossary-6.html">Glossary</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#confidence-intervals">Confidence Intervals</a></li>
+<li><a class="nav-link" href="#self-assessment-questions-4">Self-Assessment Questions11</a></li>
+<li>
+<a class="nav-link" href="#calculating-confidence-intervals">Calculating Confidence Intervals</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#we-know-sigma">1. We know \(\sigma\)</a></li>
+<li><a class="nav-link" href="#we-dont-know-sigma">2. We don’t know \(\sigma\)</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#exercises-2">Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#conceptual-exercises">Conceptual Exercises12</a></li>
+<li><a class="nav-link" href="#r-exercises">R Exercises</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#homework-for-week-9">Homework for Week 9</a></li>
+<li><a class="nav-link" href="#solutions-2">Solutions</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
 </div>
-            </section>
+    </nav>
+</div>
 
-          </div>
-        </div>
-      </div>
-<a href="flashcards-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="glossary-6.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
-    </div>
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong><p><img src="images/Crest_white.png" width="75" style="display:block; margin:auto; margin-bottom:3em;"> PO11Q: Introduction to Quantitative Political Analysis I – <br> Seminar Companion</p></strong>" was written by </p>
+<p><strong>Dr Flo Reiche</strong> <br><strong>Department of Politics and International Studies</strong> <br><strong>University of Warwick</strong></p>. It was last built on 26 July, 2025.
   </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
-<script>
-gitbook.require(["gitbook"], function(gitbook) {
-gitbook.start({
-  "sharing": {
-    "github": false,
-    "facebook": true,
-    "twitter": true,
-    "linkedin": false,
-    "weibo": false,
-    "instapaper": false,
-    "vk": false,
-    "whatsapp": false,
-    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-  },
-  "fontsettings": {
-    "theme": "white",
-    "family": "sans",
-    "size": 2
-  },
-  "edit": {
-    "link": null,
-    "text": null
-  },
-  "history": {
-    "link": null,
-    "text": null
-  },
-  "view": {
-    "link": null,
-    "text": null
-  },
-  "download": null,
-  "search": {
-    "engine": "fuse",
-    "options": null
-  },
-  "toc": {
-    "collapse": "section"
-  },
-  "toc_depth": 2,
-  "keep_tex": true
-});
-});
-</script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
@@ -773,7 +538,22 @@ gitbook.start({
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
 </script>
 </body>
-
 </html>

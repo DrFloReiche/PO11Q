@@ -1,372 +1,129 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html lang="en">
 <head>
-
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Introduction to Causality | main.knit</title>
-  <meta name="description" content="PO11Q: Seminar Companion " />
-  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
-
-  <meta property="og:title" content="Introduction to Causality | main.knit" />
-  <meta property="og:type" content="book" />
-  
-  
-  
-
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Introduction to Causality | main.knit" />
-  
-  
-  
-
-
-
-
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  
-  
-<link rel="prev" href="flashcards-3.html"/>
-<link rel="next" href="glossary-8.html"/>
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
-<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
-
-
-
-
-
-
-
-<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
-<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
-<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
-
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Introduction to Causality |  PO11Q: Introduction to Quantitative Political Analysis I –   Seminar Companion</title>
+<meta name="generator" content="bookdown 0.43 with bs4_book()">
+<meta property="og:title" content="Introduction to Causality |  PO11Q: Introduction to Quantitative Political Analysis I –   Seminar Companion">
+<meta property="og:type" content="book">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Introduction to Causality |  PO11Q: Introduction to Quantitative Political Analysis I –   Seminar Companion">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><link href="libs/Lexend-0.4.10/font.css" rel="stylesheet">
+<script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
-
-<style type="text/css">
-  
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-</style>
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
-
-<link rel="stylesheet" href="style.css" type="text/css" />
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+          margin-bottom: 0em;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+<meta name="description" content="Self-Assessment Questions How do causality in every day life and causality in statistics differ? Explain the role of symmetry and asymmetry in causality. Give an example for a counterfactual. Why...">
+<meta property="og:description" content="Self-Assessment Questions How do causality in every day life and causality in statistics differ? Explain the role of symmetry and asymmetry in causality. Give an example for a counterfactual. Why...">
+<meta name="twitter:description" content="Self-Assessment Questions How do causality in every day life and causality in statistics differ? Explain the role of symmetry and asymmetry in causality. Give an example for a counterfactual. Why...">
 </head>
+<body data-spy="scroll" data-target="#toc">
 
-<body>
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
-
-
-  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
-
-    <div class="book-summary">
-      <nav role="navigation">
-
-<ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
-<li class="chapter" data-level="" data-path="companion-features.html"><a href="companion-features.html"><i class="fa fa-check"></i>Companion Features</a></li>
-<li class="chapter" data-level="" data-path="accessibility.html"><a href="accessibility.html"><i class="fa fa-check"></i>Accessibility</a></li>
-<li class="part"><span><b>Week 1</b></span></li>
-<li class="chapter" data-level="" data-path="no-seminar.html"><a href="no-seminar.html"><i class="fa fa-check"></i>No Seminar</a></li>
-<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="part"><span><b>Week 2</b></span></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#introduction-to-moodle"><i class="fa fa-check"></i>Introduction to Moodle</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#the-global-view"><i class="fa fa-check"></i>The Global View</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#the-weekly-view"><i class="fa fa-check"></i>The Weekly View</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#learning-outcomes"><i class="fa fa-check"></i>Learning Outcomes</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#before-the-lecture"><i class="fa fa-check"></i>Before the Lecture</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#lecture-materials"><i class="fa fa-check"></i>Lecture Materials</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#before-the-seminar"><i class="fa fa-check"></i>Before the Seminar</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#seminar"><i class="fa fa-check"></i>Seminar</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#test-your-knowledge"><i class="fa fa-check"></i>Test Your Knowledge</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#what-can-i-find-under-the-label-useful-stuff"><i class="fa fa-check"></i>What can I find under the label “Useful Stuff”?</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#fora"><i class="fa fa-check"></i>Fora</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#where-can-i-find-information-on-the-assessment"><i class="fa fa-check"></i>Where can I find information on the assessment?</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#introduction-to-talis-aspire"><i class="fa fa-check"></i>Introduction to Talis Aspire</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#how-do-i-find-a-reading"><i class="fa fa-check"></i>How do I find a reading?</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#how-do-i-find-a-reading-contd."><i class="fa fa-check"></i>How do I find a reading? (contd.)</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#what-if-the-reading-is-not-digitally-available"><i class="fa fa-check"></i>What if the reading is not digitally available?</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#essential-versus-recommended-reading"><i class="fa fa-check"></i>Essential versus Recommended Reading</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#does-it-make-sense-to-buy-a-book"><i class="fa fa-check"></i>Does it make sense to buy a book?</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#assessment"><i class="fa fa-check"></i>Assessment</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#a-simple-question"><i class="fa fa-check"></i>A Simple Question (?)</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#group-work-1"><i class="fa fa-check"></i>Group Work 1</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#group-work-2"><i class="fa fa-check"></i>Group Work 2</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#homework-for-week-3"><i class="fa fa-check"></i>Homework for Week 3</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="glossary-1.html"><a href="glossary-1.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="part"><span><b>Week 3</b></span></li>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html"><i class="fa fa-check"></i>Conceptualisation and Measurement</a>
-<ul>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#self-assessment-questions"><i class="fa fa-check"></i>Self-Assessment Questions</a></li>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#assessment-1"><i class="fa fa-check"></i>Assessment</a></li>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#assessment-guidelines"><i class="fa fa-check"></i>Assessment Guidelines</a>
-<ul>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#assessment-guidelines-1"><i class="fa fa-check"></i>Assessment Guidelines</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#referencing"><i class="fa fa-check"></i>Referencing</a>
-<ul>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#references-how"><i class="fa fa-check"></i>References: How?</a></li>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#references-harvard"><i class="fa fa-check"></i>References: Harvard</a></li>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#quotations"><i class="fa fa-check"></i>Quotations</a></li>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#long-quotations"><i class="fa fa-check"></i>Long Quotations</a></li>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#list-of-references"><i class="fa fa-check"></i>List of References</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#writing-your-assessment"><i class="fa fa-check"></i>Writing your Assessment</a></li>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#group-work"><i class="fa fa-check"></i>Group Work</a></li>
-<li class="chapter" data-level="" data-path="conceptualisation-and-measurement.html"><a href="conceptualisation-and-measurement.html#homework-for-week-4"><i class="fa fa-check"></i>Homework for Week 4</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="glossary-2.html"><a href="glossary-2.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="part"><span><b>Week 4</b></span></li>
-<li class="chapter" data-level="" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i>Descriptive Statistics</a>
-<ul>
-<li class="chapter" data-level="" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#self-assessment-questions-1"><i class="fa fa-check"></i>Self-Assessment Questions</a></li>
-<li class="chapter" data-level="" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#calculations"><i class="fa fa-check"></i>Calculations</a>
-<ul>
-<li class="chapter" data-level="" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#data-set"><i class="fa fa-check"></i>Data Set</a></li>
-<li class="chapter" data-level="" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#exercises"><i class="fa fa-check"></i>Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#homework-for-week-5"><i class="fa fa-check"></i>Homework for Week 5</a></li>
-<li class="chapter" data-level="" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#solutions"><i class="fa fa-check"></i>Solutions</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="glossary-3.html"><a href="glossary-3.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="part"><span><b>Week 5</b></span></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i>Introduction to R</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#self-assessment-questions-2"><i class="fa fa-check"></i>Self-Assessment Questions</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-rstudio-installation"><i class="fa fa-check"></i>R &amp; RStudio – Installation</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r---getting-started"><i class="fa fa-check"></i>R - Getting Started</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#rscript"><i class="fa fa-check"></i>RScript</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#rscript-structure"><i class="fa fa-check"></i>RScript Structure</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#first-steps-in-r"><i class="fa fa-check"></i>First Steps in R</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-working-directory"><i class="fa fa-check"></i>The Working Directory</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-packages"><i class="fa fa-check"></i>R Packages</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#opening-your-data-set"><i class="fa fa-check"></i>Opening your Data Set</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#viewing-the-data"><i class="fa fa-check"></i>Viewing the Data</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#variable-types-in-r"><i class="fa fa-check"></i>Variable Types in R</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#nominal-variables"><i class="fa fa-check"></i>Nominal Variables</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#ordinal-variables"><i class="fa fa-check"></i>Ordinal Variables</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#binary-dummy"><i class="fa fa-check"></i>Binary Dummy</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#sub-setting-data"><i class="fa fa-check"></i>Sub-Setting Data</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#by-variable"><i class="fa fa-check"></i>By Variable</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#by-observation"><i class="fa fa-check"></i>By Observation</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#keep-if-a-variable-has-a-certain-value"><i class="fa fa-check"></i>Keep if a variable has a certain value</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#ordering-data"><i class="fa fa-check"></i>Ordering Data</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#grouping-data"><i class="fa fa-check"></i>Grouping Data</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#combining-ordering-and-grouping-data"><i class="fa fa-check"></i>Combining Ordering and Grouping Data</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#saving"><i class="fa fa-check"></i>Saving</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#homework-for-week-7"><i class="fa fa-check"></i>Homework for Week 7</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="glossary-4.html"><a href="glossary-4.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards.html"><a href="flashcards.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Week 6</b></span></li>
-<li class="chapter" data-level="" data-path="reading-week.html"><a href="reading-week.html"><i class="fa fa-check"></i>Reading Week</a></li>
-<li class="part"><span><b>Week 7</b></span></li>
-<li class="chapter" data-level="" data-path="z-scores.html"><a href="z-scores.html"><i class="fa fa-check"></i>z-Scores</a>
-<ul>
-<li class="chapter" data-level="" data-path="z-scores.html"><a href="z-scores.html#self-assessment-questions-3"><i class="fa fa-check"></i>Self-Assessment Questions</a></li>
-<li class="chapter" data-level="" data-path="z-scores.html"><a href="z-scores.html#how-to-read-a-z-table"><i class="fa fa-check"></i>How to read a z-table</a></li>
-<li class="chapter" data-level="" data-path="z-scores.html"><a href="z-scores.html#calculations-1"><i class="fa fa-check"></i>Calculations</a></li>
-<li class="chapter" data-level="" data-path="z-scores.html"><a href="z-scores.html#solutions-1"><i class="fa fa-check"></i>Solutions</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html"><i class="fa fa-check"></i>Working with R</a>
-<ul>
-<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#preliminary-stuff"><i class="fa fa-check"></i>Preliminary Stuff</a></li>
-<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#descriptive-statistics-1"><i class="fa fa-check"></i>Descriptive Statistics</a></li>
-<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#graphs"><i class="fa fa-check"></i>Graphs</a></li>
-<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#basic-graphs"><i class="fa fa-check"></i>Basic Graphs</a></li>
-<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#advanced-graphs"><i class="fa fa-check"></i>Advanced Graphs</a></li>
-<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#even-more-advanced-graphs"><i class="fa fa-check"></i>Even More Advanced Graphs</a></li>
-<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#organising-code-in-the-rscript"><i class="fa fa-check"></i>Organising Code in the RScript</a></li>
-<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#exercises-1"><i class="fa fa-check"></i>Exercises</a></li>
-<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#captions-for-tables-and-figures-in-word"><i class="fa fa-check"></i>Captions for Tables and Figures in Word</a></li>
-<li class="chapter" data-level="" data-path="working-with-r.html"><a href="working-with-r.html#homework-for-week-8"><i class="fa fa-check"></i>Homework for Week 8</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="glossary-5.html"><a href="glossary-5.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards-1.html"><a href="flashcards-1.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Week 8</b></span></li>
-<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html"><i class="fa fa-check"></i>Confidence Intervals</a>
-<ul>
-<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html#self-assessment-questions-4"><i class="fa fa-check"></i>Self-Assessment Questions</a></li>
-<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html#calculating-confidence-intervals"><i class="fa fa-check"></i>Calculating Confidence Intervals</a>
-<ul>
-<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html#we-know-sigma"><i class="fa fa-check"></i>1. We know <span class="math inline">\(\sigma\)</span></a></li>
-<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html#we-dont-know-sigma"><i class="fa fa-check"></i>2. We don’t know <span class="math inline">\(\sigma\)</span></a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html#exercises-2"><i class="fa fa-check"></i>Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html#conceptual-exercises"><i class="fa fa-check"></i>Conceptual Exercises</a></li>
-<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html#r-exercises"><i class="fa fa-check"></i>R Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html#homework-for-week-9"><i class="fa fa-check"></i>Homework for Week 9</a></li>
-<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html#solutions-2"><i class="fa fa-check"></i>Solutions</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="glossary-6.html"><a href="glossary-6.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards-2.html"><a href="flashcards-2.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Week 9</b></span></li>
-<li class="chapter" data-level="" data-path="significance-testing.html"><a href="significance-testing.html"><i class="fa fa-check"></i>Significance Testing</a>
-<ul>
-<li class="chapter" data-level="" data-path="significance-testing.html"><a href="significance-testing.html#group-work-self-reflection"><i class="fa fa-check"></i>Group Work – Self-Reflection</a></li>
-<li class="chapter" data-level="" data-path="significance-testing.html"><a href="significance-testing.html#r-exercises-1"><i class="fa fa-check"></i>R Exercises</a></li>
-<li class="chapter" data-level="" data-path="significance-testing.html"><a href="significance-testing.html#homework-for-week-10"><i class="fa fa-check"></i>Homework for Week 10</a></li>
-<li class="chapter" data-level="" data-path="significance-testing.html"><a href="significance-testing.html#solutions-3"><i class="fa fa-check"></i>Solutions</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="glossary-7.html"><a href="glossary-7.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards-3.html"><a href="flashcards-3.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Week 10</b></span></li>
-<li class="chapter" data-level="" data-path="introduction-to-causality.html"><a href="introduction-to-causality.html"><i class="fa fa-check"></i>Introduction to Causality</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-causality.html"><a href="introduction-to-causality.html#self-assessment-questions-5"><i class="fa fa-check"></i>Self-Assessment Questions</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-causality.html"><a href="introduction-to-causality.html#exam-preparation"><i class="fa fa-check"></i>Exam Preparation</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-causality.html"><a href="introduction-to-causality.html#homework"><i class="fa fa-check"></i>Homework</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="glossary-8.html"><a href="glossary-8.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards-4.html"><a href="flashcards-4.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Downloads</b></span></li>
-<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html"><i class="fa fa-check"></i>Downloads</a>
-<ul>
-<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html#documents"><i class="fa fa-check"></i>Documents</a></li>
-<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html#data-sets"><i class="fa fa-check"></i>Data Sets</a></li>
-<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html#r-scripts"><i class="fa fa-check"></i>R Scripts</a></li>
-</ul></li>
-<li class="part"><span><b>Glossary</b></span></li>
-<li class="chapter" data-level="" data-path="glossary-9.html"><a href="glossary-9.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="part"><span><b>List of References</b></span></li>
-<li class="chapter" data-level="" data-path="list-of-references-1.html"><a href="list-of-references-1.html"><i class="fa fa-check"></i>List of References</a></li>
-</ul>
-
-      </nav>
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title=""><p><img src="images/Crest_white.png" width="75" style="display:block; margin:auto; margin-bottom:3em;"> PO11Q: Introduction to Quantitative Political Analysis I – <br> Seminar Companion</p></a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
 
-    <div class="book-body">
-      <div class="body-inner">
-        <div class="book-header" role="navigation">
-          <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><div class="line-block">PO11Q: Seminar Companion <img align="right" src="images/Crest_white.png" width="75"></div></a>
-          </h1>
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Preface</a></li>
+<li><a class="" href="companion-features.html">Companion Features</a></li>
+<li><a class="" href="accessibility.html">Accessibility</a></li>
+<li class="book-part">Week 1</li>
+<li><a class="" href="no-seminar.html">No Seminar</a></li>
+<li><a class="" href="glossary.html">Glossary</a></li>
+<li class="book-part">Week 2</li>
+<li><a class="" href="introduction.html">Introduction</a></li>
+<li><a class="" href="glossary-1.html">Glossary</a></li>
+<li class="book-part">Week 3</li>
+<li><a class="" href="conceptualisation-and-measurement.html">Conceptualisation and Measurement</a></li>
+<li><a class="" href="glossary-2.html">Glossary</a></li>
+<li class="book-part">Week 4</li>
+<li><a class="" href="descriptive-statistics.html">Descriptive Statistics</a></li>
+<li><a class="" href="glossary-3.html">Glossary</a></li>
+<li class="book-part">Week 5</li>
+<li><a class="" href="introduction-to-r.html">Introduction to R</a></li>
+<li><a class="" href="glossary-4.html">Glossary</a></li>
+<li><a class="" href="flashcards.html">Flashcards</a></li>
+<li class="book-part">Week 6</li>
+<li><a class="" href="reading-week.html">Reading Week</a></li>
+<li class="book-part">Week 7</li>
+<li><a class="" href="z-scores.html">z-Scores</a></li>
+<li><a class="" href="working-with-r.html">Working with R</a></li>
+<li><a class="" href="glossary-5.html">Glossary</a></li>
+<li><a class="" href="flashcards-1.html">Flashcards</a></li>
+<li class="book-part">Week 8</li>
+<li><a class="" href="confidence-intervals.html">Confidence Intervals</a></li>
+<li><a class="" href="glossary-6.html">Glossary</a></li>
+<li><a class="" href="flashcards-2.html">Flashcards</a></li>
+<li class="book-part">Week 9</li>
+<li><a class="" href="significance-testing.html">Significance Testing</a></li>
+<li><a class="" href="glossary-7.html">Glossary</a></li>
+<li><a class="" href="flashcards-3.html">Flashcards</a></li>
+<li class="book-part">Week 10</li>
+<li><a class="active" href="introduction-to-causality.html">Introduction to Causality</a></li>
+<li><a class="" href="glossary-8.html">Glossary</a></li>
+<li><a class="" href="flashcards-4.html">Flashcards</a></li>
+<li class="book-part">Downloads</li>
+<li><a class="" href="downloads.html">Downloads</a></li>
+<li class="book-part">Glossary</li>
+<li><a class="" href="glossary-9.html">Glossary</a></li>
+<li class="book-part">List of References</li>
+<li><a class="" href="list-of-references-1.html">List of References</a></li>
+</ul>
+
+        <div class="book-extra">
+          
         </div>
-
-        <div class="page-wrapper" tabindex="-1" role="main">
-          <div class="page-inner">
-
-            <section class="normal" id="section-">
-<div id="introduction-to-causality" class="section level1 unnumbered hasAnchor">
-<h1>Introduction to Causality<a href="introduction-to-causality.html#introduction-to-causality" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="self-assessment-questions-5" class="section level2 unnumbered hasAnchor">
-<h2>Self-Assessment Questions<a href="introduction-to-causality.html#self-assessment-questions-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><script src="sidebar-link.js"></script><div id="introduction-to-causality" class="section level1 unnumbered">
+<h1>Introduction to Causality<a class="anchor" aria-label="anchor" href="#introduction-to-causality"><i class="fas fa-link"></i></a>
+</h1>
+<div id="self-assessment-questions-5" class="section level2 unnumbered">
+<h2>Self-Assessment Questions<a class="anchor" aria-label="anchor" href="#self-assessment-questions-5"><i class="fas fa-link"></i></a>
+</h2>
 <ol style="list-style-type: decimal">
 <li>How do causality in every day life and causality in statistics differ?</li>
 <li>Explain the role of symmetry and asymmetry in causality.</li>
@@ -378,13 +135,15 @@ div.csl-indent {
 <p>Please stop here and don’t go beyond this point until we have compared notes on your answers.</p>
 </div>
 </div>
-<div id="exam-preparation" class="section level2 unnumbered hasAnchor">
-<h2>Exam Preparation<a href="introduction-to-causality.html#exam-preparation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="exam-preparation" class="section level2 unnumbered">
+<h2>Exam Preparation<a class="anchor" aria-label="anchor" href="#exam-preparation"><i class="fas fa-link"></i></a>
+</h2>
 <p>We will go through the solutions to the mock exam today. Please prepare this exam and note questions about the module content which we will discuss.</p>
-<hr />
+<hr>
 </div>
-<div id="homework" class="section level2 unnumbered hasAnchor">
-<h2>Homework<a href="introduction-to-causality.html#homework" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="homework" class="section level2 unnumbered">
+<h2>Homework<a class="anchor" aria-label="anchor" href="#homework"><i class="fas fa-link"></i></a>
+</h2>
 <ul>
 <li>Work through <a href="https://drfloreiche.github.io/PO11Q/flashcards-4.html">this week’s flashcards</a> to familiarise yourself with the relevant R functions.</li>
 <li>Find an example for each NEW function and apply it in R to ensure it works</li>
@@ -392,70 +151,42 @@ div.csl-indent {
 </ul>
 </div>
 </div>
-            </section>
+  <div class="chapter-nav">
+<div class="prev"><a href="flashcards-3.html">Flashcards</a></div>
+<div class="next"><a href="glossary-8.html">Glossary</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#introduction-to-causality">Introduction to Causality</a></li>
+<li><a class="nav-link" href="#self-assessment-questions-5">Self-Assessment Questions</a></li>
+<li><a class="nav-link" href="#exam-preparation">Exam Preparation</a></li>
+<li><a class="nav-link" href="#homework">Homework</a></li>
+</ul>
 
-          </div>
-        </div>
-      </div>
-<a href="flashcards-3.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="glossary-8.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
-    </div>
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong><p><img src="images/Crest_white.png" width="75" style="display:block; margin:auto; margin-bottom:3em;"> PO11Q: Introduction to Quantitative Political Analysis I – <br> Seminar Companion</p></strong>" was written by </p>
+<p><strong>Dr Flo Reiche</strong> <br><strong>Department of Politics and International Studies</strong> <br><strong>University of Warwick</strong></p>. It was last built on 26 July, 2025.
   </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
-<script>
-gitbook.require(["gitbook"], function(gitbook) {
-gitbook.start({
-  "sharing": {
-    "github": false,
-    "facebook": true,
-    "twitter": true,
-    "linkedin": false,
-    "weibo": false,
-    "instapaper": false,
-    "vk": false,
-    "whatsapp": false,
-    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-  },
-  "fontsettings": {
-    "theme": "white",
-    "family": "sans",
-    "size": 2
-  },
-  "edit": {
-    "link": null,
-    "text": null
-  },
-  "history": {
-    "link": null,
-    "text": null
-  },
-  "view": {
-    "link": null,
-    "text": null
-  },
-  "download": null,
-  "search": {
-    "engine": "fuse",
-    "options": null
-  },
-  "toc": {
-    "collapse": "section"
-  },
-  "toc_depth": 2,
-  "keep_tex": true
-});
-});
-</script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
@@ -467,7 +198,22 @@ gitbook.start({
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
 </script>
 </body>
-
 </html>
