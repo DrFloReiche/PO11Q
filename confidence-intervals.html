@@ -148,8 +148,9 @@
 <div id="we-know-sigma" class="section level3 unnumbered">
 <h3>1. We know <span class="math inline">\(\sigma\)</span><a class="anchor" aria-label="anchor" href="#we-know-sigma"><i class="fas fa-link"></i></a>
 </h3>
-<p>If we know the population distribution, then we can use z. Assume we have sample data on the age of students in the university with n=81, and <span class="math inline">\(\bar{y}=26\)</span>. The standard deviation of the population (<span class="math inline">\(\sigma\)</span>) is 9. We now want an interval within which we find with 99% certainty the true average age of students (we did this example with 95% in the lecture).</p>
-<p>We start with calculating the standard error:</p>
+<p>If the population distribution is known and the population standard deviation (<span class="math inline">\(\sigma\)</span>) is available, we can construct a confidence interval using the standard normal distribution (z-distribution).</p>
+<p>Assume we have a sample of student ages with sample size <span class="math inline">\(n = 81\)</span> and a sample mean <span class="math inline">\(\bar{y} = 26\)</span>. The population standard deviation is known to be <span class="math inline">\(\sigma = 9\)</span>. We aim to construct a 99% confidence interval for the true population mean age of students. (In the lecture, we considered the 95% confidence level for this same scenario.)</p>
+<p>We begin by calculating the standard error of the sample mean:</p>
 <p><span class="math display">\[\begin{equation*}
     \sigma_{\bar{y}} = \frac{\sigma}{\sqrt{n}}
 \end{equation*}\]</span></p>
@@ -163,7 +164,7 @@
 Figure 9: 95 Percent Confidence Interval around the Mean
 </p>
 </div>
-<p>As the grey area needs to be 95%, the white areas to the left and right need to be equal to 5% jointly. So each of them is 2.5%. When we look into our Table with right-tail probabilities, we therefore need to look for the z-score that corresponds to 0.025 (or 2.5%). When you look in the Normal Table (see <a href="files/Downloads/Statistical%20Tables.pdf">Statistical Tables</a>), then you will find this at z=1.96.</p>
+<p>As the orange area needs to be 95%, the remaing areas to the left and right need to be equal to 5% jointly. So each of them is 2.5%. When we look into our Table with right-tail probabilities, we therefore need to look for the z-score that corresponds to 0.025 (or 2.5%). When you look in the Normal Table (see <a href="files/Downloads/Statistical%20Tables.pdf">Statistical Tables</a>), then you will find this at z=1.96.</p>
 <p>Now, the question arises, how many standard deviations we need for a 99% confidence interval. The area to the left and right needs to be jointly 1%, or 0.05% each side. We consult the Normal Table again, and try to find the z-score for 0.005. The exact value is not available, only either 0.0051, or 0.0049. 0.0051 would lead to a confidence interval of 98.98%, so not quite large enough. We therefore need to go for 0.0049, and the corresponding z-score of z=2.58.</p>
 <p><span class="math display">\[\begin{equation*}
 y = \bar{y} \pm 2.58 \times \sigma_{\bar{Y}}
@@ -172,19 +173,19 @@ y = \bar{y} \pm 2.58 \times \sigma_{\bar{Y}}
 <p><span class="math display">\[\begin{equation*}
 26 \pm 2.58 \times 1
 \end{equation*}\]</span></p>
-<p>As a result, we can say that with 99% certainty the true average age of students at Warwick lies between 23.42 and 28.58. Note that this confidence interval is wider than the 95% one where the boundaries were defined as 24.04 and 27.96. As we went for higher certainty here, the confidence interval became wider. If we want our interval to contain the true average in 99 out of 100 samples, we need to cast our net wider than if we were content with 95.</p>
+<p>As a result, we can say that we are 99% confident that the true average age of students at Warwick lies between 23.42 and 28.58. Note that this confidence interval is wider than the 95% one where the boundaries were defined as 24.04 and 27.96. As we went for higher certainty here, the confidence interval became wider. If we want our interval to contain the true average in 99 out of 100 samples, we need to cast our net wider than if we were content with 95.</p>
 </div>
 <div id="we-dont-know-sigma" class="section level3 unnumbered">
 <h3>2. We don’t know <span class="math inline">\(\sigma\)</span><a class="anchor" aria-label="anchor" href="#we-dont-know-sigma"><i class="fas fa-link"></i></a>
 </h3>
 <p>If we don’t know the population distribution and its standard deviation, we need to use the t-distribution. As you know from the lecture, the t-distribution is a shape shifter. Its width depends on the degrees of freedom: the more degrees of freedom we have, the more narrow, or the closer to the normal distribution it comes. With df=30 the shapes of the t-distribution and the normal distribution are almost identical. You can see this in the following Figure, comparing the yellow t-distribution for <span class="math inline">\(df=30\)</span> and the black (normal) distribution.</p>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-99"></span>
+<span style="display:block;" id="fig:unnamed-chunk-102"></span>
 <img src="images/Week%208/myplot2.png" alt="\label{fig:tdistribution}Comparison of t-Distributions" width="65%"><p class="caption">
 Figure 10: Comparison of t-Distributions
 </p>
 </div>
-<p>In reversed logic, this also means that the t-distribution is rather wide for small sample sizes (and small df). Consequently, a confidence interval of a given level (e.g. 99%) would be much wider for a small sample size than under the normal distribution (or t-distributions with higher sample sizes). Let me illustrate this using the same sample average as for the normal distribution example above, <span class="math inline">\(\bar{y}=26\)</span>. We have a sample standard deviation (<span class="math inline">\(s\)</span>) of 2. Our sample size is very small, we only have <span class="math inline">\(n=4\)</span>. Again, we want an interval within which we find with 99% certainty the true average age of students.</p>
+<p>In reversed logic, this also means that the t-distribution is rather wide for small sample sizes (and small df). Consequently, a confidence interval of a given level (e.g. 99%) would be much wider for a small sample size than under the normal distribution (or t-distributions with higher sample sizes). Let me illustrate this using the same sample average as for the normal distribution example above, <span class="math inline">\(\bar{y}=26\)</span>. We have a sample standard deviation (<span class="math inline">\(s\)</span>) of 2. Our sample size is very small, we only have <span class="math inline">\(n=4\)</span>. Again, we want an interval within which we find with 99% confidence the true average age of students.</p>
 <p>We start by estimating the standard error:</p>
 <p><span class="math display">\[\begin{equation*}
     se=\frac{s}{\sqrt{n}}
@@ -200,7 +201,7 @@ se=\frac{2}{\sqrt{4}}=1
 <p><span class="math display">\[\begin{equation*}
 26 \pm 5.841 \times 1
 \end{equation*}\]</span></p>
-<p>The resulting boundaries are 20.159 as the lower boundary, and 31.841 as the upper boundary. This is far wider than the 99% confidence interval we had for the normal distribution, where the lower and upper boundaries were 23.42 and 28.58, respectively. This is a reflection of the fact that we only had a very small sample (<span class="math inline">\(n=4\)</span>) to base our inference on and therefore have a lot of uncertainty in our inference.</p>
+<p>The resulting boundaries are 20.159 as the lower boundary, and 31.841 as the upper boundary. This is far wider than the 99% confidence interval we obtained for the normal distribution, where the lower and upper boundaries were 23.42 and 28.58, respectively. This is a reflection of the fact that we only had a very small sample (<span class="math inline">\(n=4\)</span>) to base our inference on and therefore have a lot of uncertainty in our inference.</p>
 <p>To conclude, it is fair to say that the procedure is essentially the same as with the normal procedure, only that have to go the extra step of taking into account the degrees of freedom.</p>
 <p>You are now ready to do some exercises.</p>
 <hr>

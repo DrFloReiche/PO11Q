@@ -385,7 +385,7 @@ Figure 4: Folder Structure
 <p>This process is a little more involved, and requires a new package to be installed and loaded: <code>dplyr</code>. This package is part of the so-called <code>tidyverse</code> which is a suite of packages designed to make working with R simpler and commands shorter. You can install all of them by calling <code>install.packages("tidyverse")</code>. We then load the <code>tidyverse</code> with:</p>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code></pre></div>
-<p>The command which follows takes a little explaining. We start by stating the dataframe we wish to assign the result to, <code>EU</code>. Then we name the data frame that contains the data we wish to manipulate, here also <code>EU</code>. The symbol which follows, <code>\%&gt;\%</code>, reads as “and then”, and is called a “pipe”. So we take the data frame <code>EU</code> “and then” carry out a function called <code>mutate</code>. It creates a new variable. This function in turn defines the new variable <code>wave</code> by recoding the variable <code>access_fac</code>. The command then specifies all categories of the “old” variable <code>access_fac</code> and what their respective values in the “new” variable <code>wave</code> are going to be. The categories in each are set in quotation marks, as they are factor / character categories.</p>
+<p>The command which follows takes a little explaining. We start by stating the dataframe we wish to assign the result to, <code>EU</code>. Then we name the data frame that contains the data we wish to manipulate, here also <code>EU</code>. The symbol which follows, <code>\%&gt;\%</code>, reads as “and then”, and is called a “pipe”. So we take the data frame <code>EU</code> “and then” carry out a function called <code>mutate</code>. It creates a new variable called <code>wave</code> by recoding the variable <code>access_fac</code>. The command then specifies all categories of the “old” variable <code>access_fac</code> and what their respective values in the “new” variable <code>wave</code> are going to be. The categories in each are set in quotation marks, as they are factor / character categories.</p>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">EU</span> <span class="op">&lt;-</span> <span class="va">EU</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>wave <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/recode.html">recode</a></span><span class="op">(</span><span class="va">access_fac</span>, <span class="st">'1951'</span><span class="op">=</span><span class="st">"Founding"</span>, </span>
@@ -399,7 +399,7 @@ Figure 4: Folder Structure
 <p>Please note that some colleagues in the department object to the use of the <code>tidyverse</code> as a “dialect” of R, and require you to use base R in their modules. However, on this module I am still using the <code>tidyverse</code>, as:</p>
 <ul>
 <li>my textbook, which is going to be the main textbook for this module from 2026, uses the <code>tidyverse</code>, and I think it is pedagogically wrong to divert from the main text in my seminars</li>
-<li>I do not think it makes sense to exclude <em>one</em> of currently 22,382 packages<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://cran.r-project.org/web/packages/" class="uri"&gt;https://cran.r-project.org/web/packages/&lt;/a&gt;&lt;/p&gt;'><sup>7</sup></a>
+<li>I do not think it makes sense to exclude <em>one</em> of currently 22,505 packages<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://cran.r-project.org/web/packages/" class="uri"&gt;https://cran.r-project.org/web/packages/&lt;/a&gt;&lt;/p&gt;'><sup>7</sup></a>
 </li>
 <li>
 <code>GGPLOT2</code> which is part of the <code>tidyverse</code> simplifies code for generating figures significantly and will do for all but the most specific requirements</li>
@@ -424,7 +424,7 @@ Base R Solution
 Here, we first create a new, empty variable called <code>wave</code> in the <code>EU</code> data set. We then create new values , for example <code>Founding</code> in the variable <code>EU$wave</code> for the condition (this is what the square brackets <code>[ ]</code> do) that the variable <code>access_fac</code> in the <code>EU</code> data set, equals a specific value. For <code>Founding</code> this is is <code>1951</code>. The last step is to turn the <code>wave</code> variable into an ordered factor.
 </details>
 </div>
-<p>But back to the recoding exercise itself. As the original variable <code>access_fac</code> was already an ordered factor, R (or the <code>mutate</code> function to be precise) also returns <code>wave</code> as an ordered factor. Had we not done this, <code>wave</code> would have been an unorderd factor (aka nominal variable). You can specify in an option to the <code>mutate</code> function whether you want the factor to be ordered or not:</p>
+<p>But back to the recoding exercise itself. Please note that the original variable <code>access_fac</code> was already an ordered factor. Therefore, R (or the <code>mutate</code> function to be precise) also returns <code>wave</code> as an ordered factor. Had <code>access_fac</code> been an unordered factor (aka nominal variable), <code>wave</code> would also have been an unorderd factor. You can specify in an option to the <code>mutate</code> function whether you want the factor to be ordered or not:</p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">EU</span> <span class="op">&lt;-</span> <span class="va">EU</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>wave <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/recode.html">recode</a></span><span class="op">(</span><span class="va">access_fac</span>, <span class="st">'1951'</span><span class="op">=</span><span class="st">"Founding"</span>, </span>
@@ -435,9 +435,15 @@ Here, we first create a new, empty variable called <code>wave</code> in the <cod
 <span>                       <span class="st">'2004'</span> <span class="op">=</span> <span class="st">"Eastern"</span>,</span>
 <span>                       <span class="st">'2007'</span> <span class="op">=</span> <span class="st">"Eastern"</span>,</span>
 <span>                       <span class="st">'2013'</span> <span class="op">=</span> <span class="st">"Balkans"</span><span class="op">)</span>, ordered<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<p>An alternative procedure, producing exactly the same result is to use the <code><a href="https://rdrr.io/r/base/cut.html">cut()</a></code> function on the <code>access</code> variable which literally cuts up a variable into chunks at the points we specify. This only works on numerical variables! We are fine to use it here, as we didn’t change <code>access</code>, and it is still numerical. Incidentally, this shows you the benefit of always creating a new variable instead of overwriting the original: there is no “back” button in R, if you mess up, you will have the pleasure to start from the beginning.</p>
-<p>Again, we use the <code>mutate</code> function, this time naming our new variable <code>wave1</code> (so as not to overwrite the <code>wave</code> variable we created with the <code><a href="https://dplyr.tidyverse.org/reference/recode.html">recode()</a></code> function). This time, we cut up the original variable at the accession years, and specify the levels, this time as <code>labels</code>. Labels denominate the output, whilst <code>level</code> are input. A factor only knows <code>levels</code> which is set by the <code>label</code> function. Here we have already created the levels with the <code><a href="https://rdrr.io/r/base/cut.html">cut()</a></code> function, and assign labels to these in the second step.</p>
+<p><code>access</code> only had a handful of numbers, and each of the years in this variable turned out to be a particular category or wave we are interested in. But sometimes you have numerical variables, in which you want to recode a variable of a more continuous nature into categories. If we tried to recode a variable that contains the age of respondents into a categorical variable, it would be tedious to assign a category to each value of age. This is where the <code><a href="https://rdrr.io/r/base/cut.html">cut()</a></code> function comes in handy, as it literally cuts up a variable into chunks at the points we specify.Let’s apply this to the <code>access</code> variable.</p>
+<p>Again, we use the <code>mutate</code> function, this time naming our new variable <code>wave1</code> (so as not to overwrite the <code>wave</code> variable we created with the <code><a href="https://dplyr.tidyverse.org/reference/recode.html">recode()</a></code> function). The <code><a href="https://rdrr.io/r/base/cut.html">cut()</a></code> function splits a numeric variable into intervals using the <code>breaks</code> we specify in the function. Importantly, these intervals are left-open and right-closed. This means that each interval includes its upper boundary, but not the lower one. This sounds complicated, so let me give you an example. If, for example, we called</p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cut.html">cut</a></span><span class="op">(</span><span class="va">x</span>, breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">20</span>, <span class="fl">30</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p>then the first interval would start at 10 and include all values greater than 10 and up to and including 20. The next interval would contain all values that are larger than 20 and up to and including 30.</p>
+<p>When we apply this to our <code>access</code>, we therefore need to specify the breaks as follows:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="introduction-to-r.html#cb27-1" tabindex="-1"></a><span class="fu">cut</span>(access, <span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">1950</span>, <span class="dv">1951</span>, <span class="dv">1973</span>, <span class="dv">1986</span>, <span class="dv">1995</span>, <span class="dv">2007</span>, <span class="dv">2013</span>), </span></code></pre></div>
+<p>The first category (<code>Founding</code>) thus contains all years up to and including 1951, the next category (<code>First</code>), all years up to and including 1973, and so forth. Having created these categories (or <code>levels</code> in R terminology), we can then label them accordingly with <code>labels</code>.</p>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">EU</span> <span class="op">&lt;-</span> <span class="va">EU</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>wave1<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/cut.html">cut</a></span><span class="op">(</span><span class="va">access</span>, </span>
 <span>                  breaks<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1950</span>, <span class="fl">1951</span>, <span class="fl">1973</span>, <span class="fl">1986</span>, <span class="fl">1995</span>, <span class="fl">2007</span>, <span class="fl">2013</span><span class="op">)</span>, </span>
@@ -446,13 +452,13 @@ Here, we first create a new, empty variable called <code>wave</code> in the <cod
 <span>                           <span class="st">"Cold War"</span>, </span>
 <span>                           <span class="st">"Eastern"</span>, </span>
 <span>                           <span class="st">"Balkans"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> </span></code></pre></div>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">EU</span><span class="op">$</span><span class="va">wave</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] "Founding"      "First"         "Mediterranean" "Cold War"      "Eastern"       "Balkans"      </code></pre>
 <div class="baser">
 <details><summary>
 Base R Solution
-</summary><div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+</summary><div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">EU</span><span class="op">$</span><span class="va">wave</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cut.html">cut</a></span><span class="op">(</span><span class="va">EU</span><span class="op">$</span><span class="va">access</span>, </span>
 <span>                  breaks<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1950</span>, <span class="fl">1951</span>, <span class="fl">1973</span>, <span class="fl">1986</span>, <span class="fl">1995</span>, <span class="fl">2007</span>, <span class="fl">2013</span><span class="op">)</span>, </span>
 <span>                  labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Founding"</span>,<span class="st">"First"</span>,</span>
@@ -476,8 +482,8 @@ Base R Solution
 <div id="binary-dummy" class="section level3 unnumbered">
 <h3>Binary Dummy<a class="anchor" aria-label="anchor" href="#binary-dummy"><i class="fas fa-link"></i></a>
 </h3>
-<p>Very often in political science we have yes/no scenarios, such as democracy yes or no, civil war, yes or no, etc. To analyse these scenarios, we can create so-called “dummy variables”. In the present example, let’s specify for each country whether it has been a founding member of the EU. It is a factor variable and so we do this exactly the same way as our initial recoding of the wave variable above:</p>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<p>Very often in political science we have yes/no scenarios, such as democracy yes or no, civil war, yes or no, etc. To analyse these scenarios, we can create so-called “dummy variables”. In the present example, let’s specify for each country whether it has been a founding member of the EU. It is a factor variable and so we do could do this exactly the same way as our initial recoding of the wave variable above:</p>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">EU</span> <span class="op">&lt;-</span> <span class="va">EU</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>founding <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/recode.html">recode</a></span><span class="op">(</span><span class="va">access_fac</span>, <span class="st">'1951'</span><span class="op">=</span><span class="st">"Yes"</span>, </span>
 <span>                       <span class="st">'1973'</span> <span class="op">=</span> <span class="st">"No"</span>,</span>
@@ -486,28 +492,21 @@ Base R Solution
 <span>                       <span class="st">'1995'</span> <span class="op">=</span> <span class="st">"No"</span>,</span>
 <span>                       <span class="st">'2004'</span> <span class="op">=</span> <span class="st">"No"</span>,</span>
 <span>                       <span class="st">'2007'</span> <span class="op">=</span> <span class="st">"No"</span>,</span>
-<span>                       <span class="st">'2013'</span> <span class="op">=</span> <span class="st">"No"</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># OR, much shorter</span></span>
-<span></span>
-<span><span class="va">EU</span> <span class="op">&lt;-</span> <span class="va">EU</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>                       <span class="st">'2013'</span> <span class="op">=</span> <span class="st">"No"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p>There is a much shorter way to do this, however, and shorter is always preferred in coding so long as it leads to the same result. We can apply the <code><a href="https://rdrr.io/r/base/ifelse.html">ifelse()</a></code> function which follows the rationale: <code>ifelse('condition', 'if condition met, then', 'otherwise')</code>. Here, if <code>access_fac=="1951"</code> we want to assign the value <code>"Yes"</code>, if not <code>"No"</code>:</p>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">EU</span> <span class="op">&lt;-</span> <span class="va">EU</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>founding <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">access_fac</span><span class="op">==</span><span class="st">"1951"</span>, <span class="st">"Yes"</span>, <span class="st">"No"</span><span class="op">)</span>, </span>
-<span>                              levels <span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Yes"</span>, <span class="st">"No"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># the result is the same</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">EU</span><span class="op">$</span><span class="va">founding</span><span class="op">)</span></span></code></pre></div>
-<pre><code> Factor w/ 2 levels "Yes","No": 1 2 2 2 1 2 2 2 2 1 ...</code></pre>
+<span>                              levels <span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Yes"</span>, <span class="st">"No"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="baser">
 <details><summary>
 Base R Solution
 </summary><p>Using <span style="color:black"><code>ifelse</code></span>, this is very similar, only the pipe disappears:</p>
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">EU</span><span class="op">$</span><span class="va">founding</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">EU</span><span class="op">$</span><span class="va">access_fac</span><span class="op">==</span><span class="st">"1951"</span>, <span class="st">"Yes"</span>, <span class="st">"No"</span><span class="op">)</span>, </span>
 <span>                              levels <span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Yes"</span>, <span class="st">"No"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </details>
 </div>
-<p>The <code>ifelse</code> function is very handy, and is therefore worth explaining in a little more detail. It reads as <code>ifelse('condition', 'if condition met, then', 'otherwise')</code>. So, the above code reads as “if the value of the variable <code>access_fac</code> is equal to 1951, then code the observation as ‘Yes’, otherwise as ‘No’”.</p>
 <hr>
 </div>
 </div>
@@ -519,44 +518,44 @@ Base R Solution
 <h3>By Variable<a class="anchor" aria-label="anchor" href="#by-variable"><i class="fas fa-link"></i></a>
 </h3>
 <p>If you are sure you won’t need a variable (remember, there is no back button), you can simply drop (i.e. delete) it. Let’s do this with the <code>area</code> variable:</p>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">EU</span><span class="op">$</span><span class="va">area</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
 <p>If we are dropping multiple variables, we can either perform this operation each time, or use another command which allows us to operate with multiple variables at the same time. The <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> command comes from the <code>tidyverse</code> package and specifies which variables we wish to keep:</p>
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">EU_pop</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">EU</span>, <span class="va">country</span>, <span class="va">pop18</span>, <span class="va">access_fac</span>, <span class="va">founding</span><span class="op">)</span></span></code></pre></div>
 <p>This creates a new data frame called <code>EU_pop</code> containing only the variables <code>country</code>, <code>pop18</code>, <code>access_fac</code>, and <code>founding</code>.</p>
 <div class="baser">
 <details><summary>
 Base R Solution
 </summary><p>The package documentation offers some <a href="https://dplyr.tidyverse.org/articles/base.html">basic instructions</a> how to convert the <span style="color:black"><code>tidyverse</code></span> (or <span style="color:black"><code>dyplyr</code></span>, to be precise) code into base R. But here is the solution for the previous code chunk:</p>
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">EU_pop</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">EU</span>, <span class="va">country</span>, <span class="va">pop18</span>, <span class="va">access_fac</span>, <span class="va">founding</span><span class="op">)</span></span></code></pre></div>
 </details>
 </div>
 <p>We can, however, use the same command and tell R which variables to drop by adding a minus sign in from of the variables we want to delete. The following command produces exactly the same result as the one before:</p>
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">EU_pop1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">EU</span>, <span class="op">-</span><span class="va">access</span>, <span class="op">-</span><span class="va">GDP_2015</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div id="by-observation" class="section level3 unnumbered">
 <h3>By Observation<a class="anchor" aria-label="anchor" href="#by-observation"><i class="fas fa-link"></i></a>
 </h3>
 <p>Instead of dropping and keeping variables, we can do the same thing to individual observations. Here, we use the <code><a href="https://dplyr.tidyverse.org/reference/slice.html">slice()</a></code> command (like a cake) and specify which slices we want to drop or keep. For example to drop the Benelux countries we would delete observations 1, 16 and 19:</p>
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">EU_nobenelux</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="va">EU</span>, <span class="op">-</span><span class="fl">1</span>, <span class="op">-</span><span class="fl">16</span>, <span class="op">-</span><span class="fl">19</span><span class="op">)</span></span></code></pre></div>
 <div class="baser">
 <details><summary>
 Base R Solution
-</summary><div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+</summary><div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">EU_pop</span> <span class="op">&lt;-</span> <span class="va">EU</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="op">-</span><span class="fl">16</span>, <span class="op">-</span><span class="fl">19</span><span class="op">)</span>,<span class="op">]</span></span></code></pre></div>
 </details>
 </div>
 <p>Alternatively, if we were only interested in Benelux countries we would subset to only those observations:</p>
-<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">EU_benelux</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="va">EU</span>, <span class="fl">1</span>, <span class="fl">16</span>, <span class="fl">19</span><span class="op">)</span></span></code></pre></div>
 <div class="baser">
 <details><summary>
 Base R Solution
-</summary><div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+</summary><div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">EU_pop</span> <span class="op">&lt;-</span> <span class="va">EU</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">16</span>, <span class="fl">19</span><span class="op">)</span>,<span class="op">]</span></span></code></pre></div>
 </details>
 </div>
@@ -565,12 +564,12 @@ Base R Solution
 <h3>Keep if a variable has a certain value<a class="anchor" aria-label="anchor" href="#keep-if-a-variable-has-a-certain-value"><i class="fas fa-link"></i></a>
 </h3>
 <p>One of the most useful commands is <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>, as it allows us to keep all observations for which the value of a variable is of a particular number. For example if we wanted to conduct an analysis with all countries which have a population in excess of 10 million we could subset by:</p>
-<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">EU_pop_large</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">EU</span>, <span class="va">pop18</span> <span class="op">&gt;</span> <span class="fl">10000000</span><span class="op">)</span></span></code></pre></div>
 <div class="baser">
 <details><summary>
 Base R Solution
-</summary><div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+</summary><div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">EU_pop_large</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">EU</span>, <span class="va">pop18</span> <span class="op">&gt;</span> <span class="fl">10000000</span><span class="op">)</span></span></code></pre></div>
 </details>
 </div>
@@ -675,20 +674,20 @@ x AND y
 <h2>Ordering Data<a class="anchor" aria-label="anchor" href="#ordering-data"><i class="fas fa-link"></i></a>
 </h2>
 <p>The data set in its original state is purposely not ordered by any criterion, such as alphabetical order of countries, etc. But we can use R to do exactly that. Let us work with a subset containing only three variables:</p>
-<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">EU_subset</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">EU</span>, <span class="va">country</span>, <span class="va">pop18</span>, <span class="va">access</span><span class="op">)</span></span></code></pre></div>
 <p>It would be lovely if the command for ordering data would be called <code><a href="https://rdrr.io/r/base/order.html">order()</a></code>, but it is called <code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;There is a command called &lt;code&gt;order()&lt;/code&gt;, but it is not part of the &lt;code&gt;tidyverse&lt;/code&gt;, and as this package is steadily on the rise in coding, I am only showing you this here.&lt;/p&gt;"><sup>8</sup></a>. Let’s order countries by ascending population in a new data frame called <code>eu_order</code>:</p>
-<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">eu_order</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">EU_subset</span>, <span class="va">pop18</span><span class="op">)</span></span></code></pre></div>
 <div class="baser">
 <details><summary>
 Base R Solution
-</summary><div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
+</summary><div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">eu_order</span> <span class="op">&lt;-</span> <span class="va">EU_subset</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">EU_subset</span><span class="op">$</span><span class="va">pop18</span><span class="op">)</span>,<span class="op">]</span></span></code></pre></div>
 </details>
 </div>
 <p>We can now display the first 10 rows with the following command:</p>
-<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">eu_order</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>,<span class="op">]</span></span></code></pre></div>
 <pre><code># A tibble: 10 × 3
    country      pop18 access
@@ -705,7 +704,7 @@ Base R Solution
 10 Slovakia   5443120   2004</code></pre>
 <p>The content in the brackets refers to the rows (before the comma), and to the columns (after the comma). As we only want certain rows and displaying all variables, I have left the space after the comma blank.</p>
 <p>We can do the same thing in descending order by calling:</p>
-<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">eu_order</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">EU_subset</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">pop18</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">eu_order</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>,<span class="op">]</span></span></code></pre></div>
 <pre><code># A tibble: 10 × 3
@@ -724,12 +723,12 @@ Base R Solution
 <div class="baser">
 <details><summary>
 Base R Solution
-</summary><div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
+</summary><div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">eu_order</span> <span class="op">&lt;-</span> <span class="va">EU_subset</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">EU_subset</span><span class="op">$</span><span class="va">pop18</span><span class="op">)</span><span class="op">)</span>,<span class="op">]</span></span></code></pre></div>
 </details>
 </div>
 <p>A neat feature of R is that it allows us to order observations by more than one variable. So for example, we could order them by ascending accession wave first, and then by ascending population in 2018 as follows:</p>
-<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">eu_order</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">EU_subset</span>, <span class="va">access</span>, <span class="va">pop18</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">eu_order</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>,<span class="op">]</span></span></code></pre></div>
@@ -749,7 +748,7 @@ Base R Solution
 <div class="baser">
 <details><summary>
 Base R Solution
-</summary><div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
+</summary><div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">eu_order</span> <span class="op">&lt;-</span> <span class="va">EU_subset</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">EU_subset</span><span class="op">$</span><span class="va">access</span>,<span class="va">EU_subset</span><span class="op">$</span><span class="va">pop18</span><span class="op">)</span>,<span class="op">]</span></span>
 <span></span>
 <span><span class="co"># or slightly shorter </span></span>
@@ -763,10 +762,10 @@ Base R Solution
 <h2>Grouping Data<a class="anchor" aria-label="anchor" href="#grouping-data"><i class="fas fa-link"></i></a>
 </h2>
 <p>Looking at the last example, a question that might spring up is in which accession wave the joining countries brought the largest population increase on average to the EU. We can calculate summary statistics for a particular group by, well, grouping them. The first step is to group data into rows with the same value:</p>
-<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">eu_access</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">EU_subset</span>, <span class="va">access</span><span class="op">)</span></span></code></pre></div>
 <p>By the way: whenever you have grouped anything, and finished analysing data in this grouped version it is essential that you ungroup the data afterwards, so that you don’t unintentionally keep using the groups:</p>
-<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="va">EU_subset</span><span class="op">)</span></span></code></pre></div>
 <pre><code># A tibble: 28 × 3
    country     pop18 access
@@ -783,7 +782,7 @@ Base R Solution
 10 France   67221943   1951
 # ℹ 18 more rows</code></pre>
 <p>But let’s calculate the average population size per accession wave in an elegant command which combines multiple steps by using pipes:</p>
-<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">eu_popaccess</span> <span class="op">&lt;-</span> <span class="va">EU_subset</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">access</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>avg <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pop18</span><span class="op">)</span><span class="op">)</span></span>
@@ -803,7 +802,7 @@ Base R Solution
 <div class="baser">
 <details><summary>
 Base R Solution
-</summary><div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
+</summary><div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">eu_popaccess1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span><span class="va">pop18</span> <span class="op">~</span> <span class="va">access</span>, </span>
 <span>                           data <span class="op">=</span> <span class="va">EU_subset</span>, </span>
 <span>                           FUN <span class="op">=</span> <span class="va">mean</span> <span class="op">)</span></span></code></pre></div>
@@ -816,7 +815,7 @@ Base R Solution
 <h2>Combining Ordering and Grouping Data<a class="anchor" aria-label="anchor" href="#combining-ordering-and-grouping-data"><i class="fas fa-link"></i></a>
 </h2>
 <p>The question was easy to answer here, as we only have a few accession waves. It starts to get unwieldy though, the more groups we have, but we can let R do the job by combining first grouping, and then ordering. So we take the grouped data frame <code>eu_popaccess</code> and order it by descending <code>avg</code>:</p>
-<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">eu_popaccess_order</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">eu_popaccess</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">avg</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">eu_popaccess_order</span></span></code></pre></div>
@@ -834,7 +833,7 @@ Base R Solution
 <div class="baser">
 <details><summary>
 Base R Solution
-</summary><div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
+</summary><div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">eu_popaccess_order</span> <span class="op">&lt;-</span> <span class="va">eu_popaccess</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">eu_popaccess</span><span class="op">$</span><span class="va">avg</span><span class="op">)</span><span class="op">)</span>,<span class="op">]</span></span></code></pre></div>
 </details>
 </div>
