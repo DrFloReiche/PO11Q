@@ -55,8 +55,13 @@ fearon <- fearon %>%
 table(fearon$british)
 
 
+#3.If we order all countries by population size, what is the population size at the 40th percentile?
 
-#3. Make a dummy variable which shows whether or not a country is majority Muslim, given that the requirement of a majority Muslim country is more than 50% of its population. Do not forget to order the factors.
+quantile(fearon$pop, probs = 0.4)
+
+
+
+#4. Make a dummy variable which shows whether or not a country is majority Muslim, given that the requirement of a majority Muslim country is more than 50% of its population. Do not forget to order the factors.
 #a. Use cut()
 #b. Use ifelse()
 
@@ -87,7 +92,7 @@ fearon3 <- fearon %>%
 table(fearon3$muslimcoun)
 
 
-#4. The Polity IV score measures democracy on a scale from -10 to +10 where -10 is equal to perfect autocracy and +10 equal to perfect democracy. Often, the democratisation literature distinguishes between autocracies, anocracies and democracies. We can achieve this differentiation in the Polity IV score as follows...
+#5. The Polity IV score measures democracy on a scale from -10 to +10 where -10 is equal to perfect autocracy and +10 equal to perfect democracy. Often, the democratisation literature distinguishes between autocracies, anocracies and democracies. We can achieve this differentiation in the Polity IV score as follows...
 # a. Into an ordered factor
 # b. Into a binary dummy variable – Democracy/Non-Democracy
 
@@ -126,7 +131,7 @@ table(fearon_polity1$democracy)
 
 
 
-#5.	Find the mean difference between: 
+#6.	Find the mean difference between: 
 # a. the share of largest ethnic group and second largest ethnic group
 fearon$diffshare <- fearon$plural-fearon$second
 mean(fearon$diffshare, na.rm=TRUE)
@@ -136,7 +141,7 @@ fearon_brit <- filter(fearon, british=="Yes")
 fearon_brit$diffeth <- fearon_brit$plural-fearon_brit$second
 mean(fearon_brit$diffeth, na.rm=TRUE)
 
-#6. a. Create an age-group dataframe like the following; 
+#7. a. Create an age-group dataframe like the following; 
 #   Age Group
 #   **********
 #    NA
@@ -173,7 +178,7 @@ agegroup$upper <- as.numeric(as.character(agegroup$upper))
 agegroup$mid <- (agegroup$lower + agegroup$upper)/2
 
 
-#7. For this exercise use the data frame `fearonfull` which contains data for all years between 1945 and 1999. Population is defined in terms of 1000s. 
+#8. For this exercise use the data frame `fearonfull` which contains data for all years between 1945 and 1999. Population is defined in terms of 1000s. 
 #a.  Create a new data which consists of countries with more than 10000000 people.  (large population)
 #b.  Find the average of population of each large population country from 1945-1999. Hint: group according to country, then find the mean
 
@@ -192,7 +197,7 @@ fearonpop1 <- fearonpop %>%
 fearonpop1
 
 
-#8. Sub-setting data, using the 'fearonfull' data frame:
+#9. Sub-setting data, using the 'fearonfull' data frame:
 #a. Extract the necessary variables to compare the social fractionalization between countries
 #b. Retain the last row of the dataset
 #c. Filter the dataset with only countries in an ongoing war (variable=ended)
@@ -222,7 +227,7 @@ d
 ############################################################################################
 
 
-#9. Find all countries with gdp per capita greater than the world's mean in 1999 (you need to use `fearonfull` again).
+#10. Find all countries with gdp per capita greater than the world's mean in 1999 (you need to use `fearonfull` again).
 
 meangdp <- filter(fearonfull, year==1999)
 meangdp1 <- meangdp %>% filter (gdpen>mean(meangdp$gdpen,  na.rm=TRUE)) %>% select(country)
@@ -245,7 +250,7 @@ meangdp1 <- meangdp %>% filter (gdpen>mean(meangdp$gdpen,  na.rm=TRUE)) %>% sele
 
 
 
-#10. Generate a dataframe that only consist of data from 1998 and 1999. Change the data format into a wide data using spread for the observations of gdp per capita (you need to use `fearonfull` again).
+#11. Generate a dataframe that only consist of data from 1998 and 1999. Change the data format into a wide data using spread for the observations of gdp per capita (you need to use `fearonfull` again).
 
 fearon4 <- filter(fearonfull, year == 1998| year==1999)
 fearon4_spread <- spread (fearon4, year, gdpen)
@@ -268,7 +273,7 @@ fearon4_spread <- spread (fearon4, year, gdpen)
 
 
 
-#11. Generate a data consisting of list of countries and its population in 1945 and 1995
+#12. Generate a data consisting of list of countries and its population in 1945 and 1995
 #Find the mean of population differences between 1945 and 1995 (you need to use `fearonfull` again).
 
 fearon5 <- filter(fearonfull, year == 1945| year == 1995)
@@ -298,7 +303,7 @@ fearon5_a <- fearon5 %>%
 ##########################################################################################
 
 
-#12. Find the oil-producing country (Oil=1) with the highest mean of gdp per capita over the years (you need to use `fearonfull` again).
+#13. Find the oil-producing country (Oil=1) with the highest mean of gdp per capita over the years (you need to use `fearonfull` again).
 
 fearon6 <- filter(fearonfull, Oil==1)
 
@@ -318,7 +323,7 @@ fearon_gdp
 
 
 
-#13. For this exercise use the `fearonfull` data set.
+#14. For this exercise use the `fearonfull` data set.
 #a. Check how many missing values are in the dataset
 #b. Omit rows with missing values in gdp per capita and population using filter
 
@@ -335,7 +340,7 @@ fearon8 <- filter(fearonfull, !is.na(gdpen), !is.na(pop))
 ##########################################################################################
 
 
-#14. Use the data in exercise number 13.
+#15. Use the data in exercise number 13.
 #a. Summarize the mean of gdp per capita and population per country over the years. Find the mean gdp per country
 #b. Filter the top 10 highest gdp countries
 
@@ -373,7 +378,7 @@ fearon_border
 
 
 
-#15. Find the difference between each country's largest ethnic group and second largest ethnic group in 1994. Arrange the countries in ascending order based on the difference
+#16. Find the difference between each country's largest ethnic group and second largest ethnic group in 1994. Arrange the countries in ascending order based on the difference
 
 fearon$diffshare <- fearon$plural-fearon$second
 
@@ -388,14 +393,14 @@ fearon_diff <-  fearon %>%
 
 fearon_diff
 
-#16. Using the data in exercise 18, save the dataframes as:
+#17. Using the data in exercise 16, save the dataframes as:
 #a. CSV to be read in excel
 #b. DTA file 
 #c. R Data
 
-write.csv(fearonspread1, file = "fearon")
-write_dta(fearonspread1, "fearon.dta")
-save(fearonspread1, file = "fearon.RData")
+write.csv(fearon_diff, file = "fearon")
+write_dta(fearon_diff, "fearon.dta")
+save(fearon_diff, file = "fearon.RData")
 
 
 
