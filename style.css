@@ -1,22 +1,29 @@
 /* ----------------------------------------
-   Lexend Font Import
+   Fonts
 ---------------------------------------- */
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@350;500&display=swap');
-
-
-/* ----------------------------------------
-   Fira Math Font Import
----------------------------------------- */
-
-
 @import url('https://fonts.googleapis.com/css2?family=Recursive:wght,MONO@375,1&display=swap');
 
 /* ----------------------------------------
-   Base Styles
+   Design tokens
 ---------------------------------------- */
-body, .book, .content, .sidebar, .navbar {
-  background-color: #1d1f2b !important;
-  color: #e1e2ea !important;
+:root {
+  --bg: #1d1f2b;
+  --fg: #e1e2ea;
+  --muted: #b3b7cb;
+  --accent: #cd6118;   /* primary orange */
+  --accent-2: #cb7334; /* secondary orange */
+  --panel: #44496f;
+  --panel-2: #5a5f80;
+  --hover: #393A3B;
+}
+
+/* ----------------------------------------
+   Base
+---------------------------------------- */
+html, body, main, .quarto-container {
+  background-color: var(--bg) !important;
+  color: var(--fg) !important;
   font-family: 'Lexend', sans-serif !important;
   font-weight: 350;
 }
@@ -25,184 +32,187 @@ body, .book, .content, .sidebar, .navbar {
    Headings
 ---------------------------------------- */
 h1 {
-  font-size: 48px;
+  font-size: 38px;
   font-family: 'Lexend', sans-serif;
+  margin-top: 5rem; /* adjust to taste */
 }
 
-h2, h3, h4 {
+
+h2 {
+  font-size: 30px;
+  font-family: 'Lexend', sans-serif;
+  margin-top: 3rem; /* adjust to taste */
+}
+
+h3, h4 {
   font-size: 24px;
   font-family: 'Lexend', sans-serif;
 }
 
-
 /* ----------------------------------------
-   Sidebar / TOC
+   Sidebar (Book nav) + TOC
 ---------------------------------------- */
-.sidebar {
-  background-color: #1d1f2b !important;
-  color: #e1e2ea !important;
+.quarto-sidebar,
+#quarto-sidebar,
+.sidebar,
+.sidebar-navigation {
+  background-color: var(--bg) !important;
+  color: var(--fg) !important;
   font-family: 'Lexend', sans-serif;
+  font-weight: 350;
 }
 
-.sidebar ul li a {
-  color: #b3b7cb !important;
+/* Generic sidebar links */
+.quarto-sidebar .sidebar-menu a,
+.quarto-sidebar .menu-text,
+.quarto-sidebar .sidebar-item .sidebar-link {
+  color: var(--muted) !important;
   text-decoration: none !important;
 }
 
-.sidebar ul li a:hover {
-  background: #393A3B;
+/* Hover state */
+.quarto-sidebar .sidebar-menu a:hover,
+.quarto-sidebar .sidebar-item .sidebar-link:hover {
+  background: var(--hover);
+  color: var(--fg) !important;
   text-decoration: none;
 }
 
-.sidebar ul li.active > a {
+/* Active item (current page) — make orange */
+.quarto-sidebar .sidebar-item .sidebar-link[aria-current="page"],
+.quarto-sidebar .sidebar-item .active > .sidebar-link,
+.sidebar-item[aria-current="page"] > .sidebar-link {
+  color: var(--accent) !important;
   font-weight: 500;
-  color: #e8f1f2;
 }
 
-
-/* Left sidebar TOC: PART and (if present) APPENDIX dividers */
-.book-toc li.book-part,
-.book-toc li.appendix {
+/* Part/section titles (Quarto book) — make orange + uppercase */
+.sidebar-section .sidebar-title,
+.sidebar-item-section > .sidebar-item-container > .sidebar-title,
+.quarto-sidebar .sidebar-section .sidebar-title,
+.quarto-sidebar .sidebar-title {
   font-family: 'Lexend', sans-serif;
-  margin-top: 2.0em;
-  opacity: 1 !important;
-  text-transform: uppercase;
-  color: #cb7334 !important; 
-}
-
-/* Uppercase the very top "Table of contents" heading in bs4_book */
-header.sidebar.sidebar-book nav[aria-label="Table of contents"] > h2 {
-  font-family: 'Lexend', sans-serif;
+  font-weight: 350;
+  margin-top: 2em;
+  color: var(--accent) !important;
   text-transform: uppercase !important;
   opacity: 1 !important;
-  margin-top: 2.0em;
-  color: #cb7334 !important;
+  letter-spacing: 0.02em;
 }
 
+/* Optional: make all sidebar link chevrons/indicators inherit color */
+.sidebar .sidebar-tools,
+.sidebar .sidebar-item-toggle {
+  color: var(--muted) !important;
+}
 
-/* Darken the active highlight in the "On this page" TOC */
-.nav-link.active {
-  background-color: #44496f !important;  /* a darker shade*/
-  color: #e1e2ea !important;            
+/* “On this page” floating TOC (right) */
+nav#TOC .nav-link { color: var(--muted) !important; }
+nav#TOC .nav-link:hover { color: var(--fg) !important; background: var(--hover) !important; }
+nav#TOC .nav-link.active {
+  background-color: var(--panel) !important;
+  color: var(--fg) !important;
   font-weight: 600;
-  border-radius: 4px;                    
+  border-radius: 4px;
 }
-
-/* Sidebar links */
-
-.custom-sidebar-link {
-  margin-top: 1em;
-  text-align: left;
-  font-family: 'Lexend', sans-serif;
-}
-.custom-sidebar-link a {
-  color: #e1e2ea;
-  font-weight: 500;
-  text-decoration: none;
-}
-.custom-sidebar-link a:hover {
-  color: #cd6118;
-}
-
-
 
 
 /* ----------------------------------------
-   Navbar
+   Links in main content
 ---------------------------------------- */
-.navbar {
-  background-color: #1d1f2b !important;
-  color: #e1e2ea !important;
-}
-
-.navbar a {
-  color: #b3b7cb !important;
-  font-family: 'Lexend', sans-serif;
-  font-weight: 500;
-}
-
-/* ----------------------------------------
-   Links in Content
----------------------------------------- */
-.content a,
-.content a:visited,
-.content a:hover,
-.content a:active {
-  color: #cd6118 !important;
+main a,
+main a:visited,
+main a:hover,
+main a:active {
+  color: var(--accent) !important;
   text-decoration: none;
 }
 
 
-
-
-
+/* glossary entries */
+main .gls a,
+main .gls a:visited,
+main .gls a:hover,
+main .gls a:active {
+  color: #77a0d4 !important;
+}
 
 /* ----------------------------------------
    Figures & Captions
 ---------------------------------------- */
-img {
+img { display: block; margin: auto; text-align: center; }
+.figure, .quarto-figure, figure {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 auto 1.5em auto !important;
   display: block;
-  margin: auto;
-  text-align: center;
+  text-align: center !important;
 }
-
-.caption {
+.figure .figure-img, figure img { margin-bottom: 1em !important; }
+.figure .figure-caption, figure > figcaption {
+  margin-top: 0 !important;
+  margin-bottom: 2em !important;
   text-align: center;
+  font-style: italic;
+  color: #d1d4e0;
+  font-size: 0.9em;
 }
-
-
-/* Control the space between the image and the caption (bs4_book / Bootstrap) */
-.figure .figure-img     { margin-bottom: 1em !important; } /* gap above caption */
-.figure .figure-caption { margin-top: 0em !important; }          /* optional */
-
-/* If your build uses the older markup (<p class="caption">) instead: */
-.figure > p.caption { margin-top: 1em !important; }
-
-
 
 /* ----------------------------------------
-   Callout Blocks
+   Callouts (Quarto) + Legacy custom blocks
 ---------------------------------------- */
+.callout { border-radius: 9px; }
+.callout .callout-body { background-color: var(--bg) !important; color: var(--fg) !important; }
+.callout-note { border: 3px solid #3e618e; border-left-width: 20px; border-top-width: 20px; }
+.callout-warning, .callout-caution, .callout-important { border: 3px solid #993333; border-left-width: 20px; border-top-width: 20px; }
+.callout-tip { border: 3px solid #695887; border-left-width: 20px; border-top-width: 20px; }
+.callout-definition { border: 3px solid #c78c1f; border-left-width: 20px; border-top-width: 20px; }
+.callout .callout-body code:not(pre code) { background-color: var(--bg) !important; color: var(--fg) !important; font-size: 105%; }
+
+/* Legacy blocks */
 div.bulb,
 div.warning,
 div.stop,
 div.puzzle,
 div.def,
-div.video,
-div.baser,
-div.flashcard {
+div.video {
   padding: 1em;
-  margin: 1em 0;
-  padding-left: 100px;
+  padding-left: 100px;      /* space for icon */
+  margin-top: 2rem;         /* empty space above */
+  margin-bottom: 2rem;      /* empty space below */
   background-size: 70px;
   background-repeat: no-repeat;
   background-position: 15px center;
   min-height: 110px;
-  color: #000000 !important;
+  color: #000 !important;
 }
 
+
+
 div.bulb {
-  background-color: #1d1f2b;
+  background-color: var(--bg);
   border: 3px solid #3e618e;
   border-top: 20px solid #3e618e;
   border-left: 20px solid #3e618e;
-  color: #e1e2ea !important;
+  color: var(--fg) !important;
   background-image: url("files/bulb_white.png") !important;
 }
 
 div.bulb code:not(pre code) {
-  background-color: #1d1f2b !important;
-  color: #e1e2ea !important;
+  background-color: var(--bg) !important;
+  color: var(--fg) !important;
   font-size: 105%;
 }
 
-
-div.warning, div.stop {
-  background-color: #1d1f2b;
+div.warning,
+div.stop {
+  background-color: var(--bg);
   border: 3px solid #993333;
   border-top: 20px solid #993333;
   border-left: 20px solid #993333;
-  color: #e1e2ea !important;
+  color: var(--fg) !important;
   background-image: url("files/slip_white.png") !important;
 }
 
@@ -211,57 +221,67 @@ div.stop {
 }
 
 div.puzzle {
-  background-color: #1d1f2b;
+  background-color: var(--bg);
   border: 3px solid #695887;
   border-top: 20px solid #695887;
   border-left: 20px solid #695887;
-  color: #e1e2ea !important;
+  color: var(--fg) !important;
   background-image: url("files/puzzle_white.png") !important;
 }
 
 div.def {
-  background-color: #1d1f2b;
+  background-color: var(--bg);
   border: 3px solid #c78c1f;
   border-top: 20px solid #c78c1f;
   border-left: 20px solid #c78c1f;
-  color: #e1e2ea !important;
+  color: var(--fg) !important;
   background-image: url("files/pencil_white.png") !important;
 }
 
 div.video {
-  background-color: #1d1f2b;
+  background-color: var(--bg);
   border: 3px solid #A4B1C1;
   border-top: 20px solid #A4B1C1;
   border-left: 20px solid #A4B1C1;
-  color: #e1e2ea !important;
+  color: var(--fg) !important;
   background-image: url("files/reel_white.png") !important;
 }
 
 .baser {
+  padding-top: 0.75em;
+  padding-left: 1em;
+  margin-top: 2em;
+  margin-bottom: 2em;
   background: #767da2;
-  color: #1d1f2b;
   border: 3px solid #767da2;
   border-radius: 9px;
+  color: #1d1f2b !important; /* black-ish text for collapsed state */
+
+}
+
+.baser summary {
+  color: #1d1f2b !important; /* ensure collapsed summary text is black */
 }
 
 .baser code:not(pre code) {
   background-color: #767da2 !important;
-  color: #1d1f2b !important;
+  color: var(--bg) !important;
   font-size: 105%;
 }
 
 
 .flashcard {
+  padding: 1em;
   background: #111111;
-  color: #e1e2ea !important;
-  border: 3px solid #5a5f80;
+  color: var(--fg) !important;
+  border: 3px solid var(--panel-2);
   border-radius: 12px;
   margin-bottom: 1em;
 }
 
 .flashcard * {
   background: none;
-  color: #e1e2ea !important;
+  color: var(--fg) !important;
   padding: 0;
   margin: 0;
 }
@@ -272,55 +292,12 @@ div.video {
 }
 
 
-
-
-.figure,
-.inline-figure {
-  border: none !important;
-  box-shadow: none !important;
-  background: transparent !important;
-  padding: 0 !important;
-  margin: 0 auto !important;
-  text-align: center !important;
-  display: block;
-}
-
-.figure,
-.inline-figure {
-  border: none !important;
-  box-shadow: none !important;
-  background: transparent !important;
-  padding: 0 !important;
-  margin: 0 auto 1.5em auto !important; /* only bottom margin */
-  display: block;
-}
-
-
-/* Fix the text-align typo and force center */
-.figure,
-.inline-figure {
-  text-align: center !important;
-}
-
-/* Style caption nicely */
-
-.figure p.caption {
-  text-align: center;
-  margin-top: 0;
-  margin-bottom: 2em;
-  font-style: italic;
-  color: #d1d4e0;
-  font-size: 0.9em;
-}
-
-
-
 /* ----------------------------------------
-   Inline Code
+   Inline code
 ---------------------------------------- */
 code, kbd, samp {
-  background-color: #1d1f2b !important;
-  color: #e1e2ea !important;
+  background-color: var(--bg) !important;
+  color: var(--fg) !important;
   font-family: "Recursive", sans-serif !important;
   padding: 0.15em 0.15em;
   font-size: 0.85em;
@@ -328,15 +305,12 @@ code, kbd, samp {
   border: none !important;
 }
 
-
 /* ----------------------------------------
-   CODE CHUNKS
+   Code blocks + copy button
 ---------------------------------------- */
-
-
-
-.sourceCode {
-  background-color: #1d1f2b !important;
+div.sourceCode,
+pre.sourceCode {
+  background-color: var(--bg) !important;
   color: #d8dee9 !important;
   border-radius: 6px;
   padding: 1em;
@@ -348,52 +322,70 @@ code, kbd, samp {
   width: 100% !important;
   max-width: 100% !important;
   box-sizing: border-box !important;
-  position: relative;
-  border: 2px solid #5a5f80;
+  position: relative;             /* needed for absolute button */
+  border: 2px solid var(--panel-2);
   margin-top: 1.5em;
   margin-bottom: 1.5em;
+  min-height: 2.2em;              /* just enough to fit one-line code + button */
 }
 
-.sourceCode * {
+div.sourceCode * {
   color: #d8dee9 !important;
 }
 
-
-.sourceCode pre,
-.sourceCode code {
+div.sourceCode pre,
+div.sourceCode code {
   background: transparent !important;
   margin: 0 !important;
   padding: 0 !important;
   border: none !important;
 }
 
-.sourceCode > button {
+/* Quarto copy button */
+div.sourceCode > button.code-copy-button,
+.code-copy-button {
   position: absolute;
-  top: 0.5em;
+   top: 0.05em;                     /* nudge closer to top */
   right: 0.5em;
-  z-index: 10;
+  background: white !important;
+  opacity: 1;
+  color: black !important;
+  outline: none;
+  box-shadow: none;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  padding: 0.2em 0.4em;           /* smaller padding so button looks lighter */
+  font-size: 0.7rem;              /* slightly smaller text/icon */
+  line-height: 1;                 
 }
 
+div.sourceCode > button.code-copy-button:hover,
+div.sourceCode > button.code-copy-button:focus {
+  background: white !important;
+  color: black !important;
+}
+
+
+
 /* ----------------------------------------
-   Output Chunks
+   Outputs
 ---------------------------------------- */
-
-
-/* Remove background/padding from wrappers of <pre><code> blocks */
-div.output, div.downlit, div.cell-output, div.cell-output-display, div.cell-output-stdout {
+div.cell-output,
+div.cell-output-display,
+div.cell-output-stdout,
+div.cell-output-stderr,
+div.quarto-appendix {
   background-color: transparent !important;
   padding: 0 !important;
   margin: 0 !important;
   border: none !important;
   box-shadow: none !important;
 }
-
-
 pre:not(.sourceCode) {
   background: transparent !important;
   margin: -0.5em 0 2.5em 0;
   padding: 1em !important;
-  border: 2px solid #5a5f80;
+  border: 2px solid var(--panel-2);
   border-radius: 6px;
   font-size: 0.9rem !important;
   font-family: "Recursive", sans-serif !important;
@@ -407,260 +399,310 @@ pre:not(.sourceCode) {
 }
 
 
-/* ----------------------------------------
-   Code Chunk Button
----------------------------------------- */
-
-
-.sourceCode > button.btn-copy,
-.sourceCode > button.btn-copy {
-  background: white !important;
-  opacity: 1;
-  color: black !important;
-  outline: none;
-  box-shadow: none;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  padding: 0.3em 0.6em;
-  font-size: 0.75rem;
-}
-
-.sourceCode > button.btn-copy:hover,
-.sourceCode > button.btn-copy:focus {
-  background: white !important;
-  opacity: 1;
-  color: black !important;
-  outline: none;
-  box-shadow: none;
-}
-
-/* ----------------------------------------
-   Horizontal Line
----------------------------------------- */
-
-hr {
-  border: none;
-  border-top: 4px solid #5a5f80; /* adjust color */
-  margin: 2em 0;
-}
-
 
 /* ----------------------------------------
    Tables
 ---------------------------------------- */
 table, th, td {
-  color: #e1e2ea !important;
-  background-color: #1d1f2b !important;
+  color: var(--fg) !important;
+  background-color: var(--bg) !important;
   border-color: #adbdd1 !important;
   font-size: 0.9em;
 }
+thead, caption { color: var(--fg) !important; }
+table { caption-side: bottom; }
 
-thead, caption {
-  color: #e1e2ea !important;
-}
-
-table {
-  caption-side: bottom;
-}
-
-
-/* ---------------------------------------------------
-   No Borders in Tables, default: all borders present
-   
-   apply with
-   <div class="custom-html-table">
-   ...table...
-   </div>
------------------------------------------------------- */
-
-/* remove all borders */
+/* Optional wrappers */
 .custom-html-table table,
 .custom-html-table th,
-.custom-html-table td {
-  border: none !important;
-  border-collapse: collapse;
-}
-
-/* Top and bottom border: double line */
-.custom-html-table table {
-  border-top: 4px double #e1e2ea !important;
-  border-bottom: 4px double #e1e2ea !important;
-}
-
-/* Border under the header row only (single solid line) */
-.custom-html-table table thead tr {
-  border-bottom: 1.5px solid #e1e2ea !important;
-}
-
-.custom-html-table table thead th {
-  border-bottom: 1.5px solid #e1e2ea !important;
-}
-
-/* Center text and add small padding */
-.custom-html-table th,
-.custom-html-table td {
-  text-align: left;
-  padding: 0.2em 0.4em;
-}
+.custom-html-table td { border: none !important; border-collapse: collapse; }
+.custom-html-table table { border-top: 4px double var(--fg) !important; border-bottom: 4px double var(--fg) !important; }
+.custom-html-table thead tr,
+.custom-html-table thead th { border-bottom: 1.5px solid var(--fg) !important; }
+.custom-html-table th, .custom-html-table td { text-align: left; padding: 0.2em 0.4em; }
 
 
-/* TOP-BOTTOMRULE Remove all borders except double top & bottom on table */
-.top-bottom-rule-only table,
-.top-bottom-rule-only th,
-.top-bottom-rule-only td {
-  border: none !important;
-  border-collapse: collapse;
-}
 
+/* Scope */
 .top-bottom-rule-only table {
-  border-top: 4px double #e1e2ea !important;
-  border-bottom: 4px double #e1e2ea !important;
+  border-collapse: collapse !important;
+  border-top: 4px double var(--fg) !important;
+  border-bottom: 4px double var(--fg) !important;
+}
+
+/* Treat <thead> like a normal row group (i.e., like <tbody>) */
+.top-bottom-rule-only thead {
+  display: table-row-group !important;
+  background: transparent !important;
+}
+
+/* Make header cells render "as is" and remove inner borders */
+.top-bottom-rule-only thead th,
+.top-bottom-rule-only thead td,
+.top-bottom-rule-only tbody th,
+.top-bottom-rule-only tbody td {
+  border: 0 !important;
+  font-weight: inherit !important;
+  text-transform: none !important;
+  background: transparent !important;
+  position: static !important; /* undo sticky header behaviors */
+}
+
+/* Neutralize <strong> in that first row (and anywhere in thead) */
+.top-bottom-rule-only thead strong {
+  font-weight: inherit !important;
 }
 
 
 
 
 
-/* GLOSSARY TABLES */
 
-/* remove all borders */
+
+
+
+
 .glossary-table table,
 .glossary-table th,
-.glossary-table td {
-  border: none !important;
-  border-collapse: collapse;
-}
+.glossary-table td { border: none !important; border-collapse: collapse; }
+.glossary-table table { border-top: 4px double var(--fg) !important; border-bottom: 4px double var(--fg) !important; }
+.glossary-table thead tr,
+.glossary-table thead th { border-bottom: 1.5px solid var(--fg) !important; }
+.glossary-table th, .glossary-table td { text-align: left; padding: 0.7em 0.4em; }
 
-/* Top and bottom border: double line */
-.glossary-table table {
-  border-top: 4px double #e1e2ea !important;
-  border-bottom: 4px double #e1e2ea !important;
-}
 
-/* Border under the header row only (single solid line) */
-.glossary-table table thead tr {
-  border-bottom: 1.5px solid #e1e2ea !important;
-}
+.glossary-table td:first-child,
+.glossary-table th:first-child { min-width: 1.25in; }
 
-.glossary-table table thead th {
-  border-bottom: 1.5px solid #e1e2ea !important;
-}
 
-/* Center text and add small padding */
-.glossary-table th,
-.glossary-table td {
-  text-align: left;
-  padding: 0.7em 0.4em;
-}
-
-/* ----------------------------------------
-   Download This Button
----------------------------------------- */
-
-a.btn-primary {
-  background-color: #e57726;
-  border-color: #e57726;
-  color: #000;
-  margin-top: 0.75rem;
-  display: inline-block;
-  text-align: left; /* ensures text aligns left inside button */
-  padding: 0.5em 1em; /* optional, for spacing */
-}
-
-a.btn-primary:hover {
-  background-color: #e57726;
-  border-color: #e57726;
-  color: #000;
-}
-
-a.btn-primary .btn-content {
-  display: inline-flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  text-align: left;
-}
-
-.icon-img {
-  width: 1em;
-  height: 1em;
-  margin-right: 0.4em;
-  vertical-align: middle;
-  display: inline-block;
-}
-
-/* muted gray for disabled state */
-a.btn-primary.disabled,
-a.btn-primary[aria-disabled="true"] {
-  background-color: #cb7334;
-  border-color: #cb7334;
-  color: #4d4d4d;
-  pointer-events: none;
-  cursor: not-allowed;
-  opacity: 0.85;
-  text-decoration: none;
-  margin-top: 0.75rem;
-}
 
 
 /* ----------------------------------------
-   Display on mobiles
+   Buttons
 ---------------------------------------- */
+a.btn-primary, .btn.btn-primary {
+  background-color: #e57726 !important;
+  border-color: #e57726 !important;
+  color: #000 !important;
+  margin-top: 0.75rem;
+  display: inline-block;
+  text-align: left;
+  padding: 0.5em 1em;
+}
+a.btn-primary:hover, .btn.btn-primary:hover {
+  background-color: #e57726 !important;
+  border-color: #e57726 !important;
+  color: #000 !important;
+}
+a.btn-primary .btn-content { display: inline-flex; align-items: center; justify-content: flex-start; width: 100%; text-align: left; }
+.icon-img { width: 1em; height: 1em; margin-right: 0.4em; vertical-align: middle; display: inline-block; }
+a.btn-primary.disabled, a.btn-primary[aria-disabled="true"], .btn.btn-primary.disabled, .btn.btn-primary:disabled {
+  background-color: var(--accent-2) !important; border-color: var(--accent-2) !important; color: #4d4d4d !important;
+  pointer-events: none; cursor: not-allowed; opacity: 0.85; text-decoration: none; margin-top: 0.75rem;
+}
 
-/* --- Mobile TOC / Navbar dropdown (bs4_book) --- */
-@media (max-width: 991.98px) {
-  /* Collapsible TOC panel (id is #toc in bs4_book) */
-  #toc,
-  #toc.collapse,
-  #toc.collapse.show,
-  .sidebar .collapse,
-  .sidebar .collapse.show,
-  header.sidebar.sidebar-book,
-  header.sidebar.sidebar-book nav[aria-label="Table of contents"] {
-    background-color: #1d1f2b !important;
-    color: #e1e2ea !important;
-  }
 
-  /* Links inside the mobile TOC */
-/* Links inside the mobile TOC - scoped to nav only */
-#toc nav a,
-header.sidebar.sidebar-book nav a {
-  color: #b3b7cb !important;
+
+/* ----------------------------------------
+   Quarto book sidebar fixes (append at END of style.css)
+---------------------------------------- */
+/* All chapter links: equal vertical padding */
+#quarto-sidebar .sidebar-item .sidebar-link {
+  display: block;          /* ensure padding applies to whole clickable area */
+  padding-top: 0.4rem;      /* adjust to taste */
+  padding-bottom: 0.4rem;
+  font-weight: 350;         /* lighter for inactive */
+}
+
+/* Active chapter link overrides font weight and color */
+#quarto-sidebar .sidebar-item .sidebar-link.active,
+#quarto-sidebar .sidebar-item .sidebar-link[aria-current="page"] {
+  color: var(--accent) !important;
+  font-weight: 500;         /* heavier */
+}
+
+/* Ensure inner spans inherit the link color */
+#quarto-sidebar .sidebar-link .chapter-title,
+#quarto-sidebar .sidebar-link .chapter-number,
+#quarto-sidebar .sidebar-link .menu-text {
+  color: inherit !important;
+}
+
+/* Hover state = orange */
+#quarto-sidebar .sidebar-item .sidebar-link:hover {
+  color: var(--accent) !important;
+  background: var(--hover);
+}
+
+/* PART titles (when present) — orange + UPPERCASE */
+#quarto-sidebar .sidebar-menu-container .sidebar-section .sidebar-title,
+#quarto-sidebar .sidebar-item-section > .sidebar-item-container > .sidebar-title {
+  color: var(--accent) !important;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  margin-top: 2em;
+}
+
+/* (Optional) keep non-active links muted by default */
+#quarto-sidebar .sidebar-item .sidebar-link {
+  color: var(--muted) !important;
   text-decoration: none !important;
 }
-#toc nav a:hover,
-header.sidebar.sidebar-book nav a:hover {
-  background: #393A3B !important;
-  color: #e1e2ea !important;
+
+/* Book title in left navigation bar */
+#quarto-sidebar .sidebar-header .sidebar-title {
+  color: var(--accent) !important;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 
-/* When TOC is rendered as a navbar dropdown on small screens */
+
+/* ----------------------------------------
+   Hide chapter title
+---------------------------------------- */
+
+
+/* Hide the page/chapter title block at the top */
+header#title-block-header,
+.quarto-title-block {
+  display: none !important;
+}
+
+/* Optional: tighten the gap that the title block would have added */
+main.content {
+  margin-top: 0 !important;
+}
+
+
+/* ----------------------------------------
+   Block Quotes
+---------------------------------------- */
+
+/* Blockquotes — lighter text & matching vertical bar */
+blockquote {
+  color: var(--muted) !important; /* lighter text */
+  border-left: 4px solid var(--muted) !important; /* vertical bar same color */
+}
+
+blockquote p {
+  color: var(--muted) !important; /* ensure paragraphs inside are also lighter */
+}
+
+/* ----------------------------------------
+   Mobile
+---------------------------------------- */
+
+/* Navbar + collapsed panel */
+#quarto-header .navbar,
+#quarto-header .navbar-collapse,
+header.navbar,
+.navbar,
+.navbar.bg-body,
+.navbar.bg-light,
+.navbar.bg-white {
+  background-color: var(--bg) !important;
+}
+
+/* Dropdown */
+#quarto-header .dropdown-menu,
 .navbar .dropdown-menu {
-  background-color: #1d1f2b !important;
-  color: #e1e2ea !important;
-  border-color: #5a5f80 !important;
-}
-.navbar .dropdown-item {
-  color: #b3b7cb !important;
-}
-.navbar .dropdown-item:hover,
-.navbar .dropdown-item:focus {
-  background-color: #393A3B !important;
-  color: #e1e2ea !important;
-}
-.navbar .dropdown-item.active,
-.navbar .dropdown-item:active {
-  background-color: #44496f !important;
-  color: #e1e2ea !important;
+  background-color: var(--bg) !important;
+  color: var(--fg) !important;
+  border-color: var(--panel-2) !important;
 }
 
-/* Ensure the "Table of contents" toggle button matches the theme */
-.navbar .nav-link.dropdown-toggle,
-.navbar .navbar-toggler {
-  color: #b3b7cb !important;
-  border-color: #5a5f80 !important;
+/* Toggler icon visible on dark bg */
+.navbar-toggler { border-color: var(--panel-2) !important; }
+.navbar .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(225,226,234,1)' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
 }
 
 
 
+/* ----------------------------------------
+   TOP NAVBAR
+---------------------------------------- */
+
+
+/* Compact top navbar */
+#quarto-header {
+  --nav-bg: #44496f;
+  --nav-fg: #d0d2e2;
+}
+
+#quarto-header .navbar {
+  padding: 0.25rem 0;
+  min-height: 44px;                 /* touch target */
+  box-shadow: 0 2px 10px rgba(0,0,0,.08);
+  background: var(--nav-bg) !important;
+}
+
+/* brand + links share typography/colors */
+#quarto-header .navbar-brand,
+#quarto-header .navbar-nav .nav-link {
+  font-size: 0.95rem;
+  line-height: 1.1;
+  color: var(--nav-fg) !important;
+}
+
+#quarto-header .navbar .nav-link:hover,
+#quarto-header .navbar .nav-link:focus {
+  opacity: .85;
+}
+
+/* brand layout + logo size */
+#quarto-header .navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: .5rem; /* keep if you like extra spacing in addition to img margins */
+}
+#quarto-header .navbar-brand img {
+  height: 24px;
+  width: auto;
+}
+
+/* title tweaks (inherits color/size from .navbar-brand) */
+#quarto-header .navbar-brand .navbar-title {
+  margin: 0;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* long/short title toggle */
+#quarto-header .navbar-title .title-short { display: none; }
+@media (max-width: 575.98px) { /* Bootstrap “sm” breakpoint */
+  #quarto-header .navbar-title .title-long { display: none; }
+  #quarto-header .navbar-title .title-short { display: inline; }
+}
+
+/* keep your logo margins as-is */
+#quarto-header .navbar-brand img { margin-right: .6rem; margin-left: .2rem; }
+
+
+
+/* ----------------------------------------
+   Mobile NAVBAR
+---------------------------------------- */
+
+
+
+/* Mobile: recolor the small bar under the navbar */
+@media (max-width: 991.98px) { /* Bootstrap lg breakpoint */
+  /* The mobile sidebar toggle/header (class names vary by Quarto version) */
+  .quarto-sidebar-toggle,
+  .quarto-secondary-nav,
+  .sidebar-header {
+    background: #575e8e !important;    /* reuse your navbar colors */
+    color: #dfe1ec !important;
+    border-color: transparent !important;
+  }
+
+  /* Ensure text/icons inside that bar also adopt the color */
+  .quarto-sidebar-toggle *,
+  .quarto-secondary-nav a,
+  .quarto-secondary-nav .nav-link,
+  .quarto-secondary-nav .bi {
+    color: #dfe1ec !important;
+  }
+}

@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Dr Flo Reiche">
 
-<title> PO11Q: Introduction to Quantitative Political Analysis I – PO11Q: Introduction to Quantitative Political Analysis I</title>
+<title>Week 4 – PO11Q: Introduction to Quantitative Political Analysis I</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -30,7 +49,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01-PO11Q.html" rel="next">
+<link href="./05-PO11Q.html" rel="next">
+<link href="./03-PO11Q.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -66,11 +86,42 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <meta name="theme-color" content="#1d1f2b" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#1d1f2b" media="(prefers-color-scheme: light)">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -99,7 +150,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-title">Preface</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-PO11Q.html"><span class="chapter-title">Week 4</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -113,7 +164,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Preface</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -133,7 +184,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-PO11Q.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 4</span></a>
+  <a href="./04-PO11Q.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Week 4</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -191,9 +242,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
-  <li><a href="#companion-features" id="toc-companion-features" class="nav-link" data-scroll-target="#companion-features">Companion Features</a></li>
-  <li><a href="#accessibility" id="toc-accessibility" class="nav-link" data-scroll-target="#accessibility">Accessibility</a></li>
+  <li><a href="#self-assessment-questions" id="toc-self-assessment-questions" class="nav-link active" data-scroll-target="#self-assessment-questions">Self-Assessment Questions</a></li>
+  <li><a href="#group-work" id="toc-group-work" class="nav-link" data-scroll-target="#group-work">Group Work</a></li>
+  <li><a href="#descriptive-statistics-by-hand" id="toc-descriptive-statistics-by-hand" class="nav-link" data-scroll-target="#descriptive-statistics-by-hand">Descriptive Statistics by Hand</a>
+  <ul class="collapse">
+  <li><a href="#data-set" id="toc-data-set" class="nav-link" data-scroll-target="#data-set">Data Set</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
+  </ul></li>
+  <li><a href="#homework-for-week-5" id="toc-homework-for-week-5" class="nav-link" data-scroll-target="#homework-for-week-5">Homework for Week 5</a></li>
+  <li><a href="#glossary" id="toc-glossary" class="nav-link" data-scroll-target="#glossary">Glossary</a></li>
   </ul>
 </nav>
     </div>
@@ -202,27 +260,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><p><img src="images/Crest_white.png" width="75" style="display:block; margin:auto; margin-bottom:3em;"> PO11Q: Introduction to Quantitative Political Analysis I</p></h1>
+<h1 class="title"><span class="chapter-title">Week 4</span></h1>
 </div>
 
 
-<div class="quarto-title-meta-author">
-  <div class="quarto-title-meta-heading">Author</div>
-  <div class="quarto-title-meta-heading">Affiliation</div>
-  
-    <div class="quarto-title-meta-contents">
-    <p class="author">Dr Flo Reiche </p>
-  </div>
-  <div class="quarto-title-meta-contents">
-        <p class="affiliation">
-            Department of Politics and International Studies, University of Warwick
-          </p>
-      </div>
-  </div>
 
 <div class="quarto-title-meta">
 
-      
+    
   
     
   </div>
@@ -232,68 +277,241 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<style>
-/* Re-enable title block on this page only */
-header#title-block-header, .quarto-title-block { display: block !important; }
-
-/* index page only (because it's inline here) */
-.quarto-title-block { 
-  background: transparent !important;
-  padding: 1rem 0 !important;
-  border: 0 !important;
-}
-/* hide the large title text but keep meta (author/affiliation) */
-.quarto-title-block .quarto-title h1.title { 
-  display: none !important; 
-}
-/* center the meta nicely */
-.quarto-title-block .quarto-title-meta {
-  display: flex !important;
-  justify-content: center !important;
-  text-align: center !important;
-  gap: .75rem;
-}
-</style>
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>A vast amount of political research is quantitative, and even if you decide never to conduct quantitative analysis yourself, you will find an introductory level of knowledge in quantitative methods useful to critically engage with your discipline as a whole. Skills in data analysis are also crucial for finding employment in graduate-level jobs.</p>
-<p>This module will deliver an introduction to quantitative political analysis. It is based on Reiche’s typology of Quantitative Methods, and explores each of its tasks (conceptualisation and measurement, numerical data, data analysis, and interpretation) at an introductory level. The module uses the software R.</p>
-<p>This is the online companion to the seminars on PO11Q. It hosts all of the material needed for the seminars and replaces the physical worksheets which we work through in some of the seminars. This is environmentally friendlier, and once we get to working with R, it also allows you to copy/paste code directly from the code chunks in this online companion.</p>
-<p>I hope you find this useful!</p>
-<div style="text-align: left; margin-top: 0.5em; margin-bottom: 1em;">
-<p><img src="files/signature_white.png" width="200" style="display: inline-block; margin-bottom: 0.5em;"> <span style="font-size: 28px; font-weight: bold; color: #e1e2ea;"><br></span></p>
-</div>
-</section>
-<section id="companion-features" class="level1 unnumbered">
-<h1 class="unnumbered">Companion Features</h1>
-<p>You will find embedded in the text six different types of boxes which serve different purposes:</p>
+<section id="self-assessment-questions" class="level1 unnumbered">
+<h1 class="unnumbered">Self-Assessment Questions<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></h1>
+<ol type="1">
+<li>How can we distinguish between an attribute and a predictor?</li>
+<li>Why are descriptive statistics useful?</li>
+<li>Why do we need measures of centrality and spread?</li>
+<li>Why is the standard deviation more useful as a statistic than the deviation?</li>
+<li>Why is the sum of deviations always equal to zero?</li>
+</ol>
 <div class="stop">
-<p>This box appears whenever I want you to stop at a particular point in the worksheet and to flag up to me that you are done.</p>
-</div>
-<div class="warning">
-<p>This appears when you need to be careful with your coding in R to avoid problems.</p>
-</div>
-<div class="bulb">
-<p>Some explanations that will hopefully make your work with this webpage or learning the material itself easier.</p>
-</div>
-<div class="video">
-<p>We will start working with R in week 5, and I have recorded some videos to ease you into working with the program.</p>
-</div>
-<div class="puzzle">
-<p>A brief question which tests your understanding of the previous material.</p>
-</div>
-<div class="def">
-<p>A definition we encountered in the lecture.</p>
+<p>Please stop here and don’t go beyond this point until we have compared notes on your answers.</p>
 </div>
 </section>
-<section id="accessibility" class="level1 unnumbered">
-<h1 class="unnumbered">Accessibility</h1>
-<p>The companion uses the font “<a href="https://fonts.google.com/specimen/Lexend">Lexend</a>”. Lexend fonts are intended to reduce visual stress and so improve reading performance. Initially they were designed with dyslexia and struggling readers in mind, but Bonnie Shaver-Troup, creator of the Lexend project, soon found out that these fonts are also great for everyone else.</p>
-<p>Code is displayed in <a href="https://www.recursive.design/">Recursive Mono</a>. The font’s characters share the same width for clear legibility and perfect alignment. This is particularly helpful for use in programming and data-heavy design tasks, but also allows for creative possibilities in display typography.</p>
-<p>The companion also uses a dark mode theme. For many users, including some neurodivergent individuals, dark mode can reduce eye strain and enhance focus by minimising visual overstimulation.</p>
-<p>Whilst I recognise that mobile phones play an essential part in all our daily lives, please note that this companion is optimised for display on tablets, laptops, and desktop computers.</p>
+<section id="group-work" class="level1 unnumbered">
+<h1 class="unnumbered">Group Work</h1>
+<ul>
+<li>Come together in groups according to the concept you have chosen</li>
+<li>Evaluate how your concept is conceptualised and measured in empirical political science research.</li>
+<li>Identify and discuss questions you have about the assessment</li>
+</ul>
+</section>
+<section id="descriptive-statistics-by-hand" class="level1 unnumbered">
+<h1 class="unnumbered">Descriptive Statistics by Hand</h1>
+<section id="data-set" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="data-set">Data Set</h2>
+<p>&nbsp;</p>
+<div class="custom-html-table">
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Data Set</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">i</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">income</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">age</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center; min-width: 0.25in;">1</td>
+<td style="text-align: center;">450</td>
+<td style="text-align: center;">21</td>
+</tr>
+<tr class="even">
+<td style="text-align: center; min-width: 0.25in;">2</td>
+<td style="text-align: center;">550</td>
+<td style="text-align: center;">23</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center; min-width: 0.25in;">3</td>
+<td style="text-align: center;">300</td>
+<td style="text-align: center;">27</td>
+</tr>
+<tr class="even">
+<td style="text-align: center; min-width: 0.25in;">4</td>
+<td style="text-align: center;">650</td>
+<td style="text-align: center;">30</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center; min-width: 0.25in;">5</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr class="even">
+<td style="text-align: center; min-width: 0.25in;">6</td>
+<td style="text-align: center;">900</td>
+<td style="text-align: center;">18</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center; min-width: 0.25in;">7</td>
+<td style="text-align: center;">200</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr class="even">
+<td style="text-align: center; min-width: 0.25in;">8</td>
+<td style="text-align: center;">250</td>
+<td style="text-align: center;">22</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center; min-width: 0.25in;">9</td>
+<td style="text-align: center;">300</td>
+<td style="text-align: center;">21</td>
+</tr>
+<tr class="even">
+<td style="text-align: center; min-width: 0.25in;">10</td>
+<td style="text-align: center;">600</td>
+<td style="text-align: center;">21</td>
+</tr>
+</tbody>
+</table>
 
 
+</div>
+</div>
+</div>
+<p>&nbsp;</p>
+</section>
+<section id="exercises" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
+<p>Calculate the following descriptive statistics for each variable:</p>
+<ul>
+<li>Mean</li>
+<li>Mode</li>
+<li>Median</li>
+<li>Range</li>
+<li>Standard Deviation</li>
+<li>Variance</li>
+<li>the <span class="math inline">\(70^{\text{th}}\)</span> percentile</li>
+</ul>
+</section>
+<section id="solutions" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="solutions">Solutions</h2>
+<p>You can find the Solutions <a href="files/Downloads/Week 4/PO11Q_Seminar_Week-4_Worksheet_Solutions.pdf">here</a> or in the <a href="https://drfloreiche.github.io/PO11Q/11-Downloads.html">Downloads Section</a>.</p>
+</section>
+</section>
+<section id="homework-for-week-5" class="level1 unnumbered">
+<h1 class="unnumbered">Homework for Week 5</h1>
+<ul>
+<li>Finish and submit your summative report</li>
+<li>Read the items marked “essential” on the reading list (see Talis).</li>
+<li>In the seminars we will start working with R in Week 5. Please ensure that you do the following BEFORE coming to the seminar:
+<ul>
+<li>Download R and RStudio, following <a href="https://drfloreiche.github.io/PO11Q/introduction-to-r.html#r-rstudio-installation">these instructions</a>.</li>
+<li>There is no need to go any further than the installation. We will cover the rest of the worksheet in the seminar.</li>
+<li>Should you be prompted to install “developer tools”, please press “yes”. But make sure you are on a good internet connection and that you have a little time. Galaxies have formed and collapsed in less time…</li>
+</ul></li>
+</ul>
+</section>
+<section id="glossary" class="level1 unnumbered">
+<h1 class="unnumbered">Glossary</h1>
+<p>&nbsp;</p>
+<div class="glossary-table">
+<div class="cell" data-tbl-colwidths="[25,75]">
+<div id="tbl-glossary4" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[25,75]">
+<figure class="quarto-float quarto-float-tbl figure">
+<div aria-describedby="tbl-glossary4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="cell table table-sm table-striped small">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Term</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">cross-sectional data</td>
+<td style="text-align: left;">Look at different units (or cross-sections) <span class="math inline">\(i\)</span> at a single point in time</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">data set</td>
+<td style="text-align: left;">A collection of numerical values for individual observations, separated into distinctive variables</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">descriptive statistics</td>
+<td style="text-align: left;">Summarise information about the centre and variability of a variable</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">deviation</td>
+<td style="text-align: left;">The deviation <span class="math inline">\(d\)</span> of an observation <span class="math inline">\(y_{i}\)</span> from the sample mean <span class="math inline">\(\bar{y}\)</span> is the difference between them: <span class="math inline">\(d=y_{i}-\bar{y}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">interquartile range</td>
+<td style="text-align: left;">The difference between the 3<span class="math inline">\(^{\text{rd}}\)</span> and the 1<span class="math inline">\(^{\text{st}}\)</span> quartiles</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">mean</td>
+<td style="text-align: left;">Is equal to the sum of the observations divided by the number of observations</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">median</td>
+<td style="text-align: left;">Separates the lower half from the upper half of observations</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">mode</td>
+<td style="text-align: left;">Is the most frequently occurring value</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">percentile</td>
+<td style="text-align: left;">In ordered data, the percentile refers to the value of a variable below which a certain proportion of observations falls</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">primary data</td>
+<td style="text-align: left;">Primary data are data you have collected yourself</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">quartile</td>
+<td style="text-align: left;">Divides ordered data into four equal parts and indicates the percentage of observations that falls into the respective quartile and below</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">range</td>
+<td style="text-align: left;">The difference between the largest and the smallest observation</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">secondary data</td>
+<td style="text-align: left;">Secondary data are data which have been collected by somebody else</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">standard deviation</td>
+<td style="text-align: left;">The standard deviation s is defined as <span class="math display">\[\begin{equation*}s=\sqrt{\frac{\text{sum of squared deviations}}{\text{sample size} -1}}=\sqrt{\frac{\Sigma(y_{i} - \bar{y})^2}{n-1}}\end{equation*}\]</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">variance</td>
+<td style="text-align: left;">Is equal to the squared standard deviation</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-glossary4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Glossary Week 4
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>&nbsp;</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="ref-reiche:forthcoming" class="csl-entry" role="listitem">
+Reiche, F. (forthcoming). <em><span class="nocase">Introduction to Quantitative Methods in the Social Sciences</span></em>. Oxford: Oxford University Press.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Some of the content of this worksheet is taken from <span class="citation" data-cites="reiche:forthcoming">Reiche (forthcoming)</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -756,10 +974,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./03-PO11Q.html" class="pagination-link" aria-label="Week 3">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Week 3</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01-PO11Q.html" class="pagination-link" aria-label="Week 1">
-        <span class="nav-page-text"><span class="chapter-title">Week 1</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./05-PO11Q.html" class="pagination-link" aria-label="Week 5">
+        <span class="nav-page-text"><span class="chapter-title">Week 5</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
