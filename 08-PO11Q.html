@@ -320,7 +320,25 @@ window.Quarto = {
 <li>Why do we need it?</li>
 <li>Why do we need a t-distribution?</li>
 <li>What is the difference between the normal distribution and the t-distribution?</li>
+<li>Use the app below to change the sample size, sample standard deviation and the desired confidence level to see how they affect the width of a confidence interval. Reflect first on how a new value will alter the distribution before carrying out the change.</li>
 </ol>
+<!-- Shiny app iframe -->
+<iframe id="mmm-iframe" src="https://drflorianreiche.shinyapps.io/shiny_confidence_interval/" title="Mean • Median • Mode" style="width:100%; border:0; display:block; min-height:520px;">
+</iframe>
+
+<!-- iFrame Resizer (parent side) -->
+<script src="https://cdn.jsdelivr.net/npm/iframe-resizer/js/iframeResizer.min.js"></script>
+<script>
+  iFrameResize({
+    // use false while debugging; lock it down after:
+    // checkOrigin: false,
+    checkOrigin: ['https://drflorianreiche.shinyapps.io'],
+    heightCalculationMethod: 'max',
+    sizeHeight: true,
+    minHeight: 520,
+    log: false
+  }, '#mmm-iframe');
+</script>
 <div class="stop">
 <p>Please stop here and don’t go beyond this point until we have compared notes on your answers.</p>
 </div>
