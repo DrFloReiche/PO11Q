@@ -399,8 +399,10 @@ t \;=\; \frac{\bar{x} - \mu_0}{\,s/\sqrt{n}\,}.
 t \;=\; \frac{(\bar{x}-\mu_0)/s}{\,1/\sqrt{n}\,} \;=\; d\,\sqrt{n}.
 \]</span></p>
 <p>Therefore, holding the significance level <span class="math inline">\(\alpha\)</span> fixed, a larger value for <span class="math inline">\(|d|\)</span> or larger <span class="math inline">\(n\)</span> increases <span class="math inline">\(|t|\)</span> and therefore power.</p>
-<p><strong>Interpretation (guidelines, context-dependent)</strong></p>
+<div class="bulb">
+<p><strong>Interpretation</strong></p>
 <p>Small <span class="math inline">\(d \approx 0.2\)</span>, Medium <span class="math inline">\(d \approx 0.5\)</span>, Large <span class="math inline">\(d \approx 0.8\)</span>. Note that these are rough guidelines, only. The onus is on you as a researcher to judge what is required/acceptable in the context of your project.</p>
+</div>
 </section>
 <section id="an-application" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="an-application">An Application</h2>
@@ -787,7 +789,7 @@ Reiche, F. (forthcoming). <em><span class="nocase">Introduction to Quantitative 
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/drfloreiche\.github\.io\/PO11Q\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
