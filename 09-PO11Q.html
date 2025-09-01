@@ -429,15 +429,15 @@ t \;=\; \frac{(\bar{x}-\mu_0)/s}{\,1/\sqrt{n}\,} \;=\; d\,\sqrt{n}.
 <ul>
 <li>X-axis: sample size <span class="math inline">\(n\)</span> (one-sample test).</li>
 <li>Y-axis: power (0 to 1).</li>
-<li>Solid curve: analytical power for your current <span class="math inline">\(d\)</span> (equivalently, the current <span class="math inline">\(t\)</span> at the chosen <span class="math inline">\(n\)</span>) and <span class="math inline">\(\alpha\)</span>.</li>
+<li>Solid curve: analytical power for your current settings. If you enter <span class="math inline">\(d\)</span>, the curve uses that <span class="math inline">\(d\)</span>; if you enter <span class="math inline">\(t\)</span>, the app converts to <span class="math inline">\(d = t/\sqrt{n}\)</span> at the current <span class="math inline">\(n\)</span>.</li>
 <li>Dashed horizontal line at 0.80: common “adequate power” target.</li>
-<li>Dotted vertical line: your current <span class="math inline">\(n\)</span>; the dot shows the current power.</li>
+<li>Dotted vertical line (grey): your current <span class="math inline">\(n\)</span>; the dot on the curve shows the current power.</li>
+<li>Dotted vertical line (orange) with label: the smallest <span class="math inline">\(n\)</span> that reaches 0.80 power (shown as “n ≈ … @ 0.80 power”) when it exists within the plotted range. The x-axis includes ticks at both the current <span class="math inline">\(n\)</span> and this <span class="math inline">\(n\)</span>.</li>
 </ul></li>
 <li>Finding the sample size you need
 <ul>
-<li>Slide along the solid curve until it crosses the dashed 0.80 line.</li>
-<li>The x-value at that crossing is the minimum <span class="math inline">\(n\)</span> (approximately) to reach 80% power for your chosen <span class="math inline">\(d\)</span> and <span class="math inline">\(\alpha\)</span>.</li>
-<li>If the curve does not reach 0.80 within the plotted range, you need a larger <span class="math inline">\(n\)</span>, a larger effect of interest (bigger <span class="math inline">\(|d|\)</span>), a one-sided test (only if justified), or a larger <span class="math inline">\(\alpha\)</span> (with caution).</li>
+<li>Read the orange line and its label: that <span class="math inline">\(n\)</span> is the approximate sample size required to achieve 80% power for your chosen <span class="math inline">\(d\)</span> (or <span class="math inline">\(t\)</span>) and <span class="math inline">\(\alpha\)</span>.</li>
+<li>If no orange line appears (the curve never reaches 0.80 in the range), you need a larger <span class="math inline">\(n\)</span>, a larger effect of interest (bigger <span class="math inline">\(|d|\)</span>), a one-sided test (only if justified), or a larger <span class="math inline">\(\alpha\)</span> (with caution).</li>
 </ul></li>
 <li>How the controls shift the curve
 <ul>
