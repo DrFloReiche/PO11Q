@@ -336,9 +336,9 @@ window.Quarto = {
 </ol>
 <p>Three ideas determine how confidently we can answer these:</p>
 <ul>
-<li>Effect size: the <em>magnitude</em> of the difference or relationship. Larger effects are easier to spot and usually more practically important.</li>
+<li><a href="https://drfloreiche.github.io/PO11Q/12-Glossary.html">Effect size</a>: the magnitude of the difference or relationship. Larger effects are easier to spot and usually more practically important.</li>
 <li>Sample size (<span class="math inline">\(n\)</span>): how much data we have. Bigger <span class="math inline">\(n\)</span> reduces sampling noise, tightens confidence intervals, and increases the chance of detecting real effects.</li>
-<li>Sensitivity (power): the probability that a test will detect a true effect (reject <span class="math inline">\(H_0\)</span> when it is false). Power grows with larger effects and larger samples, and shrinks when you demand stronger evidence (smaller <span class="math inline">\(\alpha\)</span>) or when variability is high.</li>
+<li><a href="https://drfloreiche.github.io/PO11Q/12-Glossary.html">Power (aka “Sensitivity”)</a>: the probability that a test will detect a true effect (reject <span class="math inline">\(H_0\)</span> when it is false). Power grows with larger effects and larger samples, and shrinks when you demand stronger evidence (smaller <span class="math inline">\(\alpha\)</span>) or when variability is high.</li>
 </ul>
 <p><strong>Why this matters</strong></p>
 <ul>
@@ -468,7 +468,7 @@ t \;=\; \frac{(\bar{x}-\mu_0)/s}{\,1/\sqrt{n}\,} \;=\; d\,\sqrt{n}.
 </ul></li>
 <li>Remember
 <ul>
-<li>Power is <span class="math inline">\(P(\text{reject } H_0 \mid \text{effect exists})\)</span> — it is not a <span class="math inline">\(p\)</span>-value and not the probability that <span class="math inline">\(H_0\)</span> is true.</li>
+<li>Power is the probability of rejecting the null-hypothesis, given that an effect exists, or formally: <span class="math inline">\(P(\text{reject } H_0 \mid \text{effect exists})\)</span>. It is important to remember that it is not the <span class="math inline">\(p\)</span>-value and not the probability that <span class="math inline">\(H_0\)</span> is true.</li>
 <li>Pair power planning with a smallest effect size of interest (what <span class="math inline">\(d\)</span> would be meaningful in your context).</li>
 </ul></li>
 </ul>
@@ -477,9 +477,9 @@ t \;=\; \frac{(\bar{x}-\mu_0)/s}{\,1/\sqrt{n}\,} \;=\; d\,\sqrt{n}.
 <section id="what-this-means-in-practice" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="what-this-means-in-practice">What this means in practice:</h2>
 <ul>
-<li>Statistically significant <span class="math inline">\(\neq\)</span> practically important. With very large <span class="math inline">\(n\)</span>, even tiny effects can be significant.<br>
+<li>That a result is statistically significant does not mean that it is practically important. With very large <span class="math inline">\(n\)</span>, even tiny effects can be significant.<br>
 </li>
-<li>Non-significant <span class="math inline">\(\neq\)</span> no effect. With small <span class="math inline">\(n\)</span>, a real effect can be missed because power is low.</li>
+<li>Equally, insignificant results do no mean “no true effect”. With small <span class="math inline">\(n\)</span>, a real effect can be missed because power is low.</li>
 </ul>
 </section>
 </section>
@@ -607,8 +607,16 @@ t \;=\; \frac{(\bar{x}-\mu_0)/s}{\,1/\sqrt{n}\,} \;=\; d\,\sqrt{n}.
 <td style="text-align: left;">The critical value is a threshold that determines the boundary for rejecting the null hypothesis (H<span class="math inline">\(_0\)</span>) in a hypothesis test. It is a point on the probability distribution of the test statistic beyond which the null hypothesis is rejected. The critical value is chosen based on the significance level (<span class="math inline">\(\alpha\)</span>) of the test, which represents the probability of making a Type I error (i.e., rejecting a true null hypothesis).</td>
 </tr>
 <tr class="even">
+<td style="text-align: left;">effect size</td>
+<td style="text-align: left;">The magnitude of the difference or relationship. Larger effects are easier to spot and usually more practically important</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">hypothesis</td>
 <td style="text-align: left;">In statistics, a hypothesis is a formal statement about a population parameter or relationship between variables. Hypotheses guide statistical tests to determine whether data support or refute them. The hypothesis suggesting an effect or difference is called the alternative hypothesis. The alternative hypothesis is always paired with a null-hypothesis, suggesting no effect or difference.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">power</td>
+<td style="text-align: left;">Also known as “sensitivity”. It is the probability that a test will detect a true effect (reject <span class="math inline">\(H_0\)</span> when it is false). Power grows with larger effects and larger samples, and shrinks when you demand stronger evidence (smaller <span class="math inline">\(\alpha\)</span>) or when variability is high</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">p-value</td>
