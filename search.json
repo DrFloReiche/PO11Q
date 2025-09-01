@@ -710,6 +710,36 @@
     ]
   },
   {
+    "objectID": "09-PO11Q.html#cohens-d-for-a-one-sample-t-test",
+    "href": "09-PO11Q.html#cohens-d-for-a-one-sample-t-test",
+    "title": "Week 9",
+    "section": "Cohen’s \\(d\\) for a one-sample t-test",
+    "text": "Cohen’s \\(d\\) for a one-sample t-test\nTo measure effect size, we will be using Cohen’s \\(d\\). This is a standardized mean difference between your sample mean and a reference value \\(\\mu_0\\):\n\\[\nd \\;=\\; \\frac{\\bar{x} - \\mu_0}{s},\n\\]\nwhere \\(\\bar{x}\\) is the sample mean and \\(s\\) is the sample standard deviation. Because \\(d\\) is measured in standard-deviation units, it allows comparison across scales and studies.\nHow does this relate to the t-test you know from the lecture? Let’s start with the one-sample t-statistic:\n\\[\nt \\;=\\; \\frac{\\bar{x} - \\mu_0}{\\,s/\\sqrt{n}\\,}.\n\\]\n\nThe denominator \\(s/\\sqrt{n}\\) is the standard error (se) of the mean. It is the typical amount your sample mean \\(\\bar{x}\\) will wander around the true value just because of random sampling. As you collect more data (\\(n\\) grows), the denominator \\(\\sqrt{n}\\) gets bigger, so the standard error gets smaller.\n\nIf we now divide the numerator and denominator in the \\(t\\) formula by \\(s\\), we obtain Cohen’s \\(d\\):\n\\[\nt \\;=\\; \\frac{(\\bar{x}-\\mu_0)/s}{\\,1/\\sqrt{n}\\,} \\;=\\; d\\,\\sqrt{n}.\n\\]\nTherefore, holding the significance level \\(\\alpha\\) fixed, a larger value for \\(|d|\\) or larger \\(n\\) increases \\(|t|\\) and therefore power.\nInterpretation (guidelines, context-dependent)\nSmall \\(d \\approx 0.2\\), Medium \\(d \\approx 0.5\\), Large \\(d \\approx 0.8\\). Note that these are rough guidelines, only. The onus is on you as a researcher to judge what is required/acceptable in the context of your project.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Week 9</span>"
+    ]
+  },
+  {
+    "objectID": "09-PO11Q.html#an-application",
+    "href": "09-PO11Q.html#an-application",
+    "title": "Week 9",
+    "section": "An Application",
+    "text": "An Application\nTo illustrate how this works in practice, I have written an application that shows how effect size (Cohen’s \\(d\\) in a one-sample test), sample size (\\(n\\)), and sensitivity (statistical power) work together. The app now lets you choose either an effect size \\(d\\) or a \\(t\\)-statistic as the input and automatically displays the corresponding value of the other using the identity \\(t = d\\sqrt{n}\\).\nHere is how to use it:\n\nChoose input type and set a value:\n\nEffect size (Small / Medium / Large) — this sets \\(d = (\\bar{x} - \\mu_0)/s\\) and the app shows the implied \\(t = d\\sqrt{n}\\).\nOr choose the \\(t\\)-statistic \\(t\\) — the app converts it to \\(d = t/\\sqrt{n}\\) at the current \\(n\\).\n\nSet the sample size \\(n\\).\n\nPick \\(\\alpha\\) (significance level).\n\nInterpret the Estimated power panel and the Power vs \\(n\\) plot (your chosen \\(n\\) is marked).\n\nThe plot title displays the current \\(d\\), \\(t\\), and \\(\\alpha\\) so you can see the linkage \\(t = d\\sqrt{n}\\).\nThe dashed horizontal line at 0.80 marks a common target for “adequate” power.\n\n\n\nHow to read the Power vs \\(n\\) plot\n\nAxes and lines\n\nX-axis: sample size \\(n\\) (one-sample test).\nY-axis: power (0 to 1).\nSolid curve: analytical power for your current \\(d\\) (equivalently, the current \\(t\\) at the chosen \\(n\\)) and \\(\\alpha\\).\nDashed horizontal line at 0.80: common “adequate power” target.\nDotted vertical line: your current \\(n\\); the dot shows the current power.\n\nFinding the sample size you need\n\nSlide along the solid curve until it crosses the dashed 0.80 line.\nThe x-value at that crossing is the minimum \\(n\\) (approximately) to reach 80% power for your chosen \\(d\\) and \\(\\alpha\\).\nIf the curve does not reach 0.80 within the plotted range, you need a larger \\(n\\), a larger effect of interest (bigger \\(|d|\\)), a one-sided test (only if justified), or a larger \\(\\alpha\\) (with caution).\n\nHow the controls shift the curve\n\nEffect size \\(|d|\\) increases → curve moves up/left (less \\(n\\) needed).\n\\(\\alpha\\) increases (e.g., 0.10 vs 0.05) → curve moves up; \\(\\alpha\\) decreases → curve moves down.\nIf you enter \\(t\\) instead of \\(d\\), the app uses \\(d = t/\\sqrt{n}\\) at the current \\(n\\) to draw the curve; changing \\(n\\) updates the implied \\(d\\) and therefore the curve.\n\nShape and diminishing returns\n\nThe curve is steepest at small \\(n\\) and flattens as power approaches 1.\nBecause \\(t = d\\sqrt{n}\\), power grows roughly with \\(\\sqrt{n}\\):\n\nIf the effect size halves, expect to need about 4× the \\(n\\) to keep similar power.\nDoubling \\(n\\) helps, but each doubling adds less power than the last.\n\n\nInterpreting the dot and the line\n\nThe dot is your current power at the chosen \\(n\\).\nIf the dot is below the 0.80 line, increase \\(n\\) (or adjust \\(d\\) or \\(\\alpha\\)) until the curve crosses 0.80.\n\nRemember\n\nPower is \\(P(\\text{reject } H_0 \\mid \\text{effect exists})\\) — it is not a \\(p\\)-value and not the probability that \\(H_0\\) is true.\nPair power planning with a smallest effect size of interest (what \\(d\\) would be meaningful in your context).",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Week 9</span>"
+    ]
+  },
+  {
+    "objectID": "09-PO11Q.html#what-this-means-in-practice",
+    "href": "09-PO11Q.html#what-this-means-in-practice",
+    "title": "Week 9",
+    "section": "What this means in practice:",
+    "text": "What this means in practice:\n\nStatistically significant \\(\\neq\\) practically important. With very large \\(n\\), even tiny effects can be significant.\n\nNon-significant \\(\\neq\\) no effect. With small \\(n\\), a real effect can be missed because power is low.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Week 9</span>"
+    ]
+  },
+  {
     "objectID": "09-PO11Q.html#r-exercises",
     "href": "09-PO11Q.html#r-exercises",
     "title": "Week 9",

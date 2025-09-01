@@ -271,6 +271,15 @@ window.Quarto = {
    
   <ul>
   <li><a href="#group-work-self-reflection" id="toc-group-work-self-reflection" class="nav-link active" data-scroll-target="#group-work-self-reflection">Group Work – Self-Reflection</a></li>
+  <li><a href="#how-effect-size-sample-size-and-sensitivity-shape-inference" id="toc-how-effect-size-sample-size-and-sensitivity-shape-inference" class="nav-link" data-scroll-target="#how-effect-size-sample-size-and-sensitivity-shape-inference">How effect size, sample size, and sensitivity shape inference</a>
+  <ul class="collapse">
+  <li><a href="#cohens-d-for-a-one-sample-t-test" id="toc-cohens-d-for-a-one-sample-t-test" class="nav-link" data-scroll-target="#cohens-d-for-a-one-sample-t-test">Cohen’s <span class="math inline">\(d\)</span> for a one-sample <em>t</em>-test</a></li>
+  <li><a href="#an-application" id="toc-an-application" class="nav-link" data-scroll-target="#an-application">An Application</a>
+  <ul class="collapse">
+  <li><a href="#how-to-read-the-power-vs-n-plot" id="toc-how-to-read-the-power-vs-n-plot" class="nav-link" data-scroll-target="#how-to-read-the-power-vs-n-plot">How to read the Power vs <span class="math inline">\(n\)</span> plot</a></li>
+  </ul></li>
+  <li><a href="#what-this-means-in-practice" id="toc-what-this-means-in-practice" class="nav-link" data-scroll-target="#what-this-means-in-practice">What this means in practice:</a></li>
+  </ul></li>
   <li><a href="#significance-testing" id="toc-significance-testing" class="nav-link" data-scroll-target="#significance-testing">Significance Testing</a>
   <ul class="collapse">
   <li><a href="#r-exercises" id="toc-r-exercises" class="nav-link" data-scroll-target="#r-exercises">R Exercises</a></li>
@@ -316,6 +325,156 @@ window.Quarto = {
 <div class="stop">
 <p>Please stop here and don’t go beyond this point until we have compared notes on your answers.</p>
 </div>
+</section>
+<section id="how-effect-size-sample-size-and-sensitivity-shape-inference" class="level1">
+<h1>How effect size, sample size, and sensitivity shape inference</h1>
+<p>In statistical inference we care about two questions:</p>
+<ol type="1">
+<li><strong>Is there evidence of a real effect?</strong> (a hypothesis test / <span class="math inline">\(p\)</span>-value question)<br>
+</li>
+<li><strong>How big is the effect, and is it meaningful?</strong> (an effect size / estimation question)</li>
+</ol>
+<p>Three ideas determine how confidently we can answer these:</p>
+<ul>
+<li>Effect size: the <em>magnitude</em> of the difference or relationship. Larger effects are easier to spot and usually more practically important.</li>
+<li>Sample size (<span class="math inline">\(n\)</span>): how much data we have. Bigger <span class="math inline">\(n\)</span> reduces sampling noise, tightens confidence intervals, and increases the chance of detecting real effects.</li>
+<li>Sensitivity (power): the probability that a test will detect a true effect (reject <span class="math inline">\(H_0\)</span> when it is false). Power grows with larger effects and larger samples, and shrinks when you demand stronger evidence (smaller <span class="math inline">\(\alpha\)</span>) or when variability is high.</li>
+</ul>
+<p><strong>Why this matters</strong></p>
+<ul>
+<li>A tiny effect can be statistically significant with a very large <span class="math inline">\(n\)</span> but still be practically unimportant.<br>
+</li>
+<li>A moderate effect can be missed (non-significant) with a small <span class="math inline">\(n\)</span> because power is low.<br>
+</li>
+<li>Good study planning balances what size of effect matters (your minimum important difference) with a sample size that gives adequate power (often 80%) at your chosen <span class="math inline">\(\alpha\)</span>.</li>
+</ul>
+<p><strong>Rule-of-thumb scenarios</strong></p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Effect Size</th>
+<th>Sample Size</th>
+<th>Likely Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Large</td>
+<td>Small</td>
+<td>May still detect effect</td>
+</tr>
+<tr class="even">
+<td>Small</td>
+<td>Large</td>
+<td>Likely to detect even small effect</td>
+</tr>
+<tr class="odd">
+<td>Small</td>
+<td>Small</td>
+<td>Low power — may miss real effect</td>
+</tr>
+<tr class="even">
+<td>Large</td>
+<td>Large</td>
+<td>High chance of detecting effect</td>
+</tr>
+</tbody>
+</table>
+<section id="cohens-d-for-a-one-sample-t-test" class="level2">
+<h2 class="anchored" data-anchor-id="cohens-d-for-a-one-sample-t-test">Cohen’s <span class="math inline">\(d\)</span> for a one-sample <em>t</em>-test</h2>
+<p>To measure effect size, we will be using Cohen’s <span class="math inline">\(d\)</span>. This is a standardized mean difference between your sample mean and a reference value <span class="math inline">\(\mu_0\)</span>:</p>
+<p><span class="math display">\[
+d \;=\; \frac{\bar{x} - \mu_0}{s},
+\]</span></p>
+<p>where <span class="math inline">\(\bar{x}\)</span> is the sample mean and <span class="math inline">\(s\)</span> is the sample standard deviation. Because <span class="math inline">\(d\)</span> is measured in standard-deviation units, it allows comparison across scales and studies.</p>
+<p>How does this relate to the t-test you know from the lecture? Let’s start with the one-sample t-statistic:</p>
+<p><span class="math display">\[
+t \;=\; \frac{\bar{x} - \mu_0}{\,s/\sqrt{n}\,}.
+\]</span></p>
+<ul>
+<li>The denominator <span class="math inline">\(s/\sqrt{n}\)</span> is the standard error (se) of the mean. It is the typical amount your sample mean <span class="math inline">\(\bar{x}\)</span> will wander around the true value just because of random sampling. As you collect more data (<span class="math inline">\(n\)</span> grows), the denominator <span class="math inline">\(\sqrt{n}\)</span> gets bigger, so the standard error gets smaller.</li>
+</ul>
+<p>If we now divide the numerator and denominator in the <span class="math inline">\(t\)</span> formula by <span class="math inline">\(s\)</span>, we obtain Cohen’s <span class="math inline">\(d\)</span>:</p>
+<p><span class="math display">\[
+t \;=\; \frac{(\bar{x}-\mu_0)/s}{\,1/\sqrt{n}\,} \;=\; d\,\sqrt{n}.
+\]</span></p>
+<p>Therefore, holding the significance level <span class="math inline">\(\alpha\)</span> fixed, a larger value for <span class="math inline">\(|d|\)</span> or larger <span class="math inline">\(n\)</span> increases <span class="math inline">\(|t|\)</span> and therefore power.</p>
+<p><strong>Interpretation (guidelines, context-dependent)</strong></p>
+<p>Small <span class="math inline">\(d \approx 0.2\)</span>, Medium <span class="math inline">\(d \approx 0.5\)</span>, Large <span class="math inline">\(d \approx 0.8\)</span>. Note that these are rough guidelines, only. The onus is on you as a researcher to judge what is required/acceptable in the context of your project.</p>
+</section>
+<section id="an-application" class="level2">
+<h2 class="anchored" data-anchor-id="an-application">An Application</h2>
+<p>To illustrate how this works in practice, I have written <a href="https://drflorianreiche.shinyapps.io/shiny_effect_size/">an application</a> that shows how effect size (Cohen’s <span class="math inline">\(d\)</span> in a one-sample test), sample size (<span class="math inline">\(n\)</span>), and sensitivity (statistical power) work together. The app now lets you choose either an effect size <span class="math inline">\(d\)</span> or a <span class="math inline">\(t\)</span>-statistic as the input and automatically displays the corresponding value of the other using the identity <span class="math inline">\(t = d\sqrt{n}\)</span>.</p>
+<p>Here is how to use it:</p>
+<ol type="1">
+<li>Choose input type and set a value:
+<ul>
+<li>Effect size (Small / Medium / Large) — this sets <span class="math inline">\(d = (\bar{x} - \mu_0)/s\)</span> and the app shows the implied <span class="math inline">\(t = d\sqrt{n}\)</span>.</li>
+<li>Or choose the <span class="math inline">\(t\)</span>-statistic <span class="math inline">\(t\)</span> — the app converts it to <span class="math inline">\(d = t/\sqrt{n}\)</span> at the current <span class="math inline">\(n\)</span>.</li>
+</ul></li>
+<li>Set the sample size <span class="math inline">\(n\)</span>.<br>
+</li>
+<li>Pick <span class="math inline">\(\alpha\)</span> (significance level).<br>
+</li>
+<li>Interpret the Estimated power panel and the Power vs <span class="math inline">\(n\)</span> plot (your chosen <span class="math inline">\(n\)</span> is marked).
+<ul>
+<li>The plot title displays the current <span class="math inline">\(d\)</span>, <span class="math inline">\(t\)</span>, and <span class="math inline">\(\alpha\)</span> so you can see the linkage <span class="math inline">\(t = d\sqrt{n}\)</span>.</li>
+<li>The dashed horizontal line at 0.80 marks a common target for “adequate” power.</li>
+</ul></li>
+</ol>
+<section id="how-to-read-the-power-vs-n-plot" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-read-the-power-vs-n-plot">How to read the Power vs <span class="math inline">\(n\)</span> plot</h3>
+<ul>
+<li>Axes and lines
+<ul>
+<li>X-axis: sample size <span class="math inline">\(n\)</span> (one-sample test).</li>
+<li>Y-axis: power (0 to 1).</li>
+<li>Solid curve: analytical power for your current <span class="math inline">\(d\)</span> (equivalently, the current <span class="math inline">\(t\)</span> at the chosen <span class="math inline">\(n\)</span>) and <span class="math inline">\(\alpha\)</span>.</li>
+<li>Dashed horizontal line at 0.80: common “adequate power” target.</li>
+<li>Dotted vertical line: your current <span class="math inline">\(n\)</span>; the dot shows the current power.</li>
+</ul></li>
+<li>Finding the sample size you need
+<ul>
+<li>Slide along the solid curve until it crosses the dashed 0.80 line.</li>
+<li>The x-value at that crossing is the minimum <span class="math inline">\(n\)</span> (approximately) to reach 80% power for your chosen <span class="math inline">\(d\)</span> and <span class="math inline">\(\alpha\)</span>.</li>
+<li>If the curve does not reach 0.80 within the plotted range, you need a larger <span class="math inline">\(n\)</span>, a larger effect of interest (bigger <span class="math inline">\(|d|\)</span>), a one-sided test (only if justified), or a larger <span class="math inline">\(\alpha\)</span> (with caution).</li>
+</ul></li>
+<li>How the controls shift the curve
+<ul>
+<li>Effect size <span class="math inline">\(|d|\)</span> increases → curve moves up/left (less <span class="math inline">\(n\)</span> needed).</li>
+<li><span class="math inline">\(\alpha\)</span> increases (e.g., 0.10 vs 0.05) → curve moves up; <span class="math inline">\(\alpha\)</span> decreases → curve moves down.</li>
+<li>If you enter <span class="math inline">\(t\)</span> instead of <span class="math inline">\(d\)</span>, the app uses <span class="math inline">\(d = t/\sqrt{n}\)</span> at the current <span class="math inline">\(n\)</span> to draw the curve; changing <span class="math inline">\(n\)</span> updates the implied <span class="math inline">\(d\)</span> and therefore the curve.</li>
+</ul></li>
+<li>Shape and diminishing returns
+<ul>
+<li>The curve is steepest at small <span class="math inline">\(n\)</span> and flattens as power approaches 1.</li>
+<li>Because <span class="math inline">\(t = d\sqrt{n}\)</span>, power grows roughly with <span class="math inline">\(\sqrt{n}\)</span>:
+<ul>
+<li>If the effect size halves, expect to need about 4× the <span class="math inline">\(n\)</span> to keep similar power.</li>
+<li>Doubling <span class="math inline">\(n\)</span> helps, but each doubling adds less power than the last.</li>
+</ul></li>
+</ul></li>
+<li>Interpreting the dot and the line
+<ul>
+<li>The dot is your current power at the chosen <span class="math inline">\(n\)</span>.</li>
+<li>If the dot is below the 0.80 line, increase <span class="math inline">\(n\)</span> (or adjust <span class="math inline">\(d\)</span> or <span class="math inline">\(\alpha\)</span>) until the curve crosses 0.80.</li>
+</ul></li>
+<li>Remember
+<ul>
+<li>Power is <span class="math inline">\(P(\text{reject } H_0 \mid \text{effect exists})\)</span> — it is not a <span class="math inline">\(p\)</span>-value and not the probability that <span class="math inline">\(H_0\)</span> is true.</li>
+<li>Pair power planning with a smallest effect size of interest (what <span class="math inline">\(d\)</span> would be meaningful in your context).</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="what-this-means-in-practice" class="level2">
+<h2 class="anchored" data-anchor-id="what-this-means-in-practice">What this means in practice:</h2>
+<ul>
+<li>Statistically significant <span class="math inline">\(\neq\)</span> practically important. With very large <span class="math inline">\(n\)</span>, even tiny effects can be significant.<br>
+</li>
+<li>Non-significant <span class="math inline">\(\neq\)</span> no effect. With small <span class="math inline">\(n\)</span>, a real effect can be missed because power is low.</li>
+</ul>
+</section>
 </section>
 <section id="significance-testing" class="level1 unnumbered">
 <h1 class="unnumbered">Significance Testing</h1>
