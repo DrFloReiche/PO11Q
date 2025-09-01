@@ -406,15 +406,19 @@ t \;=\; \frac{(\bar{x}-\mu_0)/s}{\,1/\sqrt{n}\,} \;=\; d\,\sqrt{n}.
 </section>
 <section id="an-application" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="an-application">An Application</h2>
-<p>To illustrate how this works in practice, I have written <a href="https://drflorianreiche.shinyapps.io/shiny_effect_size/">an application</a> that shows how effect size (Cohen’s <span class="math inline">\(d\)</span> in a one-sample test), sample size (<span class="math inline">\(n\)</span>), and sensitivity (statistical power) work together. The app now lets you choose either an effect size <span class="math inline">\(d\)</span> or a <span class="math inline">\(t\)</span>-statistic as the input and automatically displays the corresponding value of the other using the identity <span class="math inline">\(t = d\sqrt{n}\)</span>.</p>
+<p>To illustrate how this works in practice, I have written <a href="https://drflorianreiche.shinyapps.io/shiny_effect_size/">an application</a> that shows how effect size (Cohen’s <span class="math inline">\(d\)</span> in a one-sample test), sample size (<span class="math inline">\(n\)</span>), and sensitivity (statistical power) work together. The app now lets you choose either an effect size <span class="math inline">\(d\)</span> or a <span class="math inline">\(t\)</span>-statistic as the input and automatically displays the corresponding value of the other using the identity <span class="math inline">\(t = d\sqrt{n}\)</span>. When you use <span class="math inline">\(t\)</span> as the input, tick “Lock value for calculation” (under the input) to convert to a fixed <span class="math inline">\(d\)</span> at the current <span class="math inline">\(n\)</span> so the power curve stays stable while you vary <span class="math inline">\(n\)</span>.</p>
 <p>Here is how to use it:</p>
 <ol type="1">
 <li>Choose input type and set a value:
 <ul>
 <li>Effect size (Small / Medium / Large) — this sets <span class="math inline">\(d = (\bar{x} - \mu_0)/s\)</span> and the app shows the implied <span class="math inline">\(t = d\sqrt{n}\)</span>.</li>
-<li>Or choose the <span class="math inline">\(t\)</span>-statistic <span class="math inline">\(t\)</span> — the app converts it to <span class="math inline">\(d = t/\sqrt{n}\)</span> at the current <span class="math inline">\(n\)</span>.</li>
+<li>Or choose the <span class="math inline">\(t\)</span>-statistic <span class="math inline">\(t\)</span> — the app converts it to <span class="math inline">\(d = t/\sqrt{n}\)</span> at the current <span class="math inline">\(n\)</span> when you lock it.</li>
 </ul></li>
-<li>Click the box underneath to set this value for the calculation.</li>
+<li>Tick “Lock value for calculation” (under the active input) to freeze the effect used for the power curve.
+<ul>
+<li>In <span class="math inline">\(t\)</span> mode, locking converts <span class="math inline">\(t\)</span> at the current <span class="math inline">\(n\)</span> into a fixed <span class="math inline">\(d\)</span>.</li>
+<li>In <span class="math inline">\(d\)</span> mode, locking simply records the lock point; the curve already reflects your chosen <span class="math inline">\(d\)</span>.</li>
+</ul></li>
 <li>Set the sample size <span class="math inline">\(n\)</span>.<br>
 </li>
 <li>Pick <span class="math inline">\(\alpha\)</span> (significance level).<br>
@@ -432,21 +436,21 @@ t \;=\; \frac{(\bar{x}-\mu_0)/s}{\,1/\sqrt{n}\,} \;=\; d\,\sqrt{n}.
 <ul>
 <li>X-axis: sample size <span class="math inline">\(n\)</span> (one-sample test).</li>
 <li>Y-axis: power (0 to 1).</li>
-<li>Solid curve: analytical power for your current settings. If you enter <span class="math inline">\(d\)</span>, the curve uses that <span class="math inline">\(d\)</span>; if you enter <span class="math inline">\(t\)</span>, the app converts to <span class="math inline">\(d = t/\sqrt{n}\)</span> at the current <span class="math inline">\(n\)</span>.</li>
+<li>Solid curve: analytical power for your locked <span class="math inline">\(d\)</span> and <span class="math inline">\(\alpha\)</span>. If you entered <span class="math inline">\(t\)</span>, it was converted to <span class="math inline">\(d\)</span> at the moment you locked it.</li>
 <li>Dashed horizontal line at 0.80: common “adequate power” target.</li>
 <li>Dotted vertical line (grey): your current <span class="math inline">\(n\)</span>; the dot on the curve shows the current power.</li>
 <li>Dotted vertical line (orange) with label: the smallest <span class="math inline">\(n\)</span> that reaches 0.80 power (shown as “n ≈ … @ 0.80 power”) when it exists within the plotted range. The x-axis includes ticks at both the current <span class="math inline">\(n\)</span> and this <span class="math inline">\(n\)</span>.</li>
 </ul></li>
 <li>Finding the sample size you need
 <ul>
-<li>Read the orange line and its label: that <span class="math inline">\(n\)</span> is the approximate sample size required to achieve 80% power for your chosen <span class="math inline">\(d\)</span> (or <span class="math inline">\(t\)</span>) and <span class="math inline">\(\alpha\)</span>.</li>
+<li>Read the orange line and its label: that <span class="math inline">\(n\)</span> is the approximate sample size required to achieve 80% power for your locked <span class="math inline">\(d\)</span> (or locked <span class="math inline">\(t\)</span>, converted to <span class="math inline">\(d\)</span>) and <span class="math inline">\(\alpha\)</span>.</li>
 <li>If no orange line appears (the curve never reaches 0.80 in the range), you need a larger <span class="math inline">\(n\)</span>, a larger effect of interest (bigger <span class="math inline">\(|d|\)</span>), a one-sided test (only if justified), or a larger <span class="math inline">\(\alpha\)</span> (with caution).</li>
 </ul></li>
 <li>How the controls shift the curve
 <ul>
 <li>Effect size <span class="math inline">\(|d|\)</span> increases → curve moves up/left (less <span class="math inline">\(n\)</span> needed).</li>
 <li><span class="math inline">\(\alpha\)</span> increases (e.g., 0.10 vs 0.05) → curve moves up; <span class="math inline">\(\alpha\)</span> decreases → curve moves down.</li>
-<li>If you enter <span class="math inline">\(t\)</span> instead of <span class="math inline">\(d\)</span>, the app uses <span class="math inline">\(d = t/\sqrt{n}\)</span> at the current <span class="math inline">\(n\)</span> to draw the curve; changing <span class="math inline">\(n\)</span> updates the implied <span class="math inline">\(d\)</span> and therefore the curve.</li>
+<li>Changing <span class="math inline">\(n\)</span> after locking does not change the curve; it moves the dot and updates the implied <span class="math inline">\(t(n) = d\sqrt{n}\)</span>. To change the curve using <span class="math inline">\(t\)</span>, enter a new <span class="math inline">\(t\)</span> and lock again.</li>
 </ul></li>
 <li>Shape and diminishing returns
 <ul>
