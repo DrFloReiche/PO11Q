@@ -276,12 +276,13 @@ window.Quarto = {
   <li><a href="#cohens-d-for-a-one-sample-t-test" id="toc-cohens-d-for-a-one-sample-t-test" class="nav-link" data-scroll-target="#cohens-d-for-a-one-sample-t-test">Cohen’s <span class="math inline">\(d\)</span> for a one-sample <em>t</em>-test</a></li>
   <li><a href="#an-application" id="toc-an-application" class="nav-link" data-scroll-target="#an-application">An Application</a>
   <ul class="collapse">
+  <li><a href="#here-is-how-to-use-it" id="toc-here-is-how-to-use-it" class="nav-link" data-scroll-target="#here-is-how-to-use-it">Here is how to use it:</a></li>
   <li><a href="#how-to-read-the-power-vs-n-plot" id="toc-how-to-read-the-power-vs-n-plot" class="nav-link" data-scroll-target="#how-to-read-the-power-vs-n-plot">How to read the Power vs <span class="math inline">\(n\)</span> plot</a></li>
   </ul></li>
-  <li><a href="#what-this-means-in-practice" id="toc-what-this-means-in-practice" class="nav-link" data-scroll-target="#what-this-means-in-practice">What this means in practice:</a></li>
   </ul></li>
-  <li><a href="#significance-testing" id="toc-significance-testing" class="nav-link" data-scroll-target="#significance-testing">Significance Testing</a>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
+  <li><a href="#conceptual---working-with-the-app" id="toc-conceptual---working-with-the-app" class="nav-link" data-scroll-target="#conceptual---working-with-the-app">Conceptual - Working with the App</a></li>
   <li><a href="#r-exercises" id="toc-r-exercises" class="nav-link" data-scroll-target="#r-exercises">R Exercises</a></li>
   <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
   </ul></li>
@@ -405,7 +406,8 @@ t \;=\; \frac{(\bar{x}-\mu_0)/s}{\,1/\sqrt{n}\,} \;=\; d\,\sqrt{n}.
 <section id="an-application" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="an-application">An Application</h2>
 <p>To illustrate how this works in practice, I have written <a href="https://drflorianreiche.shinyapps.io/shiny_effect_size/">an application</a> that lets you evaluate a completed one-sample t-test and plan a replication. You enter the results you observed in that test, and the app shows the statistical power at your observed <span class="math inline">\(n\)</span> (two-sided, at your chosen <span class="math inline">\(\alpha\)</span>). As a special feature, you can switch to the “smallest effect size of interest” (SESOI), which lets you plan the <span class="math inline">\(n\)</span> required for a meaningful effect.</p>
-<p>Here is how to use it:</p>
+<section id="here-is-how-to-use-it" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="here-is-how-to-use-it">Here is how to use it:</h3>
 <ol type="1">
 <li>Enter the observed t-statistic and the observed sample size <span class="math inline">\(n\)</span>.</li>
 <li>Choose <span class="math inline">\(\alpha\)</span> (significance level).</li>
@@ -420,6 +422,7 @@ t \;=\; \frac{(\bar{x}-\mu_0)/s}{\,1/\sqrt{n}\,} \;=\; d\,\sqrt{n}.
 </ul></li>
 </ol>
 <p>In order to choose <span class="math inline">\(d\)</span> appropriately, pick a minimum meaningful change in real units and divide by a typical standard deviation. For example, if you think that a difference of 2 exam points from an assumed null value (such as the fail mark of 40) matters and the SD is about 10, then <span class="math inline">\(d \approx 2/10 = 0.2\)</span> (small).</p>
+</section>
 <section id="how-to-read-the-power-vs-n-plot" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="how-to-read-the-power-vs-n-plot">How to read the Power vs <span class="math inline">\(n\)</span> plot</h3>
 <ul>
@@ -463,19 +466,19 @@ t \;=\; \frac{(\bar{x}-\mu_0)/s}{\,1/\sqrt{n}\,} \;=\; d\,\sqrt{n}.
 <li>You can pair power planning with a SESOI: decide what <span class="math inline">\(d\)</span> would be meaningful in your context and size your study to detect it.</li>
 </ul></li>
 </ul>
-</section>
-</section>
-<section id="what-this-means-in-practice" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="what-this-means-in-practice">What this means in practice:</h2>
+<div class="bulb">
+<p><strong>What this means in practice:</strong></p>
 <ul>
 <li>That a result is statistically significant does not mean that it is practically important. With very large <span class="math inline">\(n\)</span>, even tiny effects can be significant.<br>
 </li>
 <li>Equally, insignificant results do no mean “no true effect”. With small <span class="math inline">\(n\)</span>, a real effect can be missed because power is low.</li>
 </ul>
+</div>
 </section>
 </section>
-<section id="significance-testing" class="level1 unnumbered">
-<h1 class="unnumbered">Significance Testing</h1>
+</section>
+<section id="exercises" class="level1 unnumbered">
+<h1 class="unnumbered">Exercises</h1>
 <div class="bulb">
 <p><strong>Interpreting Significance Tests</strong></p>
 <p>In these exercises, and when reporting statistical results more generally, you’ll be required to interpret the outcome of a significance test. To do this well, it’s important to use language that reflects what null hypothesis significance testing (NHST) actually tells us, without overstating what the test can conclude.</p>
@@ -517,6 +520,35 @@ t \;=\; \frac{(\bar{x}-\mu_0)/s}{\,1/\sqrt{n}\,} \;=\; d\,\sqrt{n}.
 <p><span style="display:block; height: 0.1em;"></span></p>
 <p>Having taught quantitative political analysis for many years, I know that students love to use the word “prove” when they interpret their results. But there is no proof in significance testing, because we deal with probability statements, not certainty.</p>
 </div>
+<section id="conceptual---working-with-the-app" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="conceptual---working-with-the-app">Conceptual - Working with the App</h2>
+<ol type="1">
+<li>Same effect size, different n (mapping <span class="math inline">\(t\)</span>, <span class="math inline">\(n\)</span>, and <span class="math inline">\(\hat d\)</span>)
+<ol type="a">
+<li>Set observed <span class="math inline">\(t=1.6\)</span> and <span class="math inline">\(n=16\)</span>. Note <span class="math inline">\(\hat d = t/\sqrt{n}\)</span> and the power at the observed <span class="math inline">\(n\)</span>.<br>
+</li>
+<li>Now keep <span class="math inline">\(\hat d\)</span> the same but increase <span class="math inline">\(n\)</span>: set <span class="math inline">\(n=64\)</span> and <span class="math inline">\(t=3.2\)</span> (since <span class="math inline">\(t = d \times \sqrt{n}\)</span>). Confirm that <span class="math inline">\(\hat d\)</span> is unchanged while power increases.<br>
+</li>
+<li>Explain why power rises with <span class="math inline">\(n\)</span> even when the underlying effect size <span class="math inline">\(\hat d\)</span> stays the same.</li>
+</ol></li>
+<li>Planning with a SESOI and <span class="math inline">\(\alpha\)</span> sensitivity
+<ol type="a">
+<li>Enter <span class="math inline">\(t=2.0\)</span> and <span class="math inline">\(n=30\)</span> (<span class="math inline">\(\alpha=0.05\)</span>). Record <span class="math inline">\(\hat d\)</span> and the power at the observed <span class="math inline">\(n\)</span>.<br>
+</li>
+<li>Turn on “Use smallest effect size of interest” and choose SESOI <span class="math inline">\(d=0.5\)</span>. Read the orange marker: the required <span class="math inline">\(n\)</span> for <span class="math inline">\(80\%\)</span> power at <span class="math inline">\(\alpha=0.05\)</span>.<br>
+</li>
+<li>Change <span class="math inline">\(\alpha\)</span> to <span class="math inline">\(0.10\)</span> and then to <span class="math inline">\(0.01\)</span>. How does the required <span class="math inline">\(n\)</span> for <span class="math inline">\(80\%\)</span> power shift as <span class="math inline">\(\alpha\)</span> changes? Explain why a stricter <span class="math inline">\(\alpha\)</span> requires a larger <span class="math inline">\(n\)</span> for the same power.</li>
+</ol></li>
+<li>Was the study well powered? Post-hoc check and replication planning
+<ol type="a">
+<li>Suppose your study reported <span class="math inline">\(t=2.1\)</span> with <span class="math inline">\(n=25\)</span> at <span class="math inline">\(\alpha=0.05\)</span>. Enter these and record <span class="math inline">\(\hat d\)</span> and the power at the observed <span class="math inline">\(n\)</span>. Is the power comfortably high?<br>
+</li>
+<li>If you wanted <span class="math inline">\(80\%\)</span> power to detect an effect around this magnitude in a replication, turn on SESOI and choose the closest option to your <span class="math inline">\(\hat d\)</span> (for example, Small <span class="math inline">\(d=0.2\)</span> if <span class="math inline">\(\hat d\)</span> is small, Medium <span class="math inline">\(d=0.5\)</span> if <span class="math inline">\(\hat d \approx 0.5\)</span>). Note the orange “<span class="math inline">\(n\)</span> for <span class="math inline">\(80\%\)</span> power” marker.<br>
+</li>
+<li>Explain why a significant result with low power can be fragile, and how choosing a SESOI (a target <span class="math inline">\(d\)</span>) helps you plan a more reliable replication sample size.</li>
+</ol></li>
+</ol>
+</section>
 <section id="r-exercises" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="r-exercises">R Exercises</h2>
 <p>These exercises will use the <a href="files/Week 9/ks2.csv">ks2.csv</a> dataset. This data comprises fictitious<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> average grades of Key Stage 2 (KS2) students in the UK, with 1,980 KS2 students’ test scores being included for reading (<code>reading</code>), mathematics (<code>maths</code>), and grammar, punctuation, and spelling (<code>gps</code>), as well as the mean of these three test scores (<code>avg\_all</code>). The test scores have been standardised, with 80 representing the lowest possible mark, 120 representing the highest possible mark, 100 representing the minimum passing mark, and -1 representing an ungraded test.</p>
