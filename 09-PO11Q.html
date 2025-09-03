@@ -362,9 +362,9 @@ window.Quarto = {
 <h1 class="unnumbered">How effect size, sample size, and power shape inference</h1>
 <p>In statistical inference we care about two questions:</p>
 <ol type="1">
-<li><strong>Is there evidence of a real effect?</strong> (a hypothesis test / <span class="math inline">\(p\)</span>-value question)<br>
+<li>Is there evidence of a real effect? (a hypothesis test / <span class="math inline">\(p\)</span>-value question)<br>
 </li>
-<li><strong>How big is the effect, and is it meaningful?</strong> (an effect size / estimation question)</li>
+<li>How big is the effect, and is it meaningful? (an effect size / estimation question)</li>
 </ol>
 <p>Three ideas determine how confidently we can answer these:</p>
 <ul>
@@ -372,17 +372,13 @@ window.Quarto = {
 <li>Sample size (<span class="math inline">\(n\)</span>): how much data we have. Bigger <span class="math inline">\(n\)</span> reduces sampling noise, tightens confidence intervals, and increases the chance of detecting real effects.</li>
 <li><a href="https://drfloreiche.github.io/PO91Q/12-Glossary.html">Power (aka “Sensitivity”)</a>: the probability that a test will detect a true effect (reject <span class="math inline">\(H_0\)</span> when it is false). Power grows with larger effects and larger samples, and shrinks when you demand stronger evidence (smaller <span class="math inline">\(\alpha\)</span>) or when variability is high.</li>
 </ul>
-<p><strong>Why this matters</strong></p>
-<ul>
-<li>A tiny effect can be statistically significant with a very large <span class="math inline">\(n\)</span> but still be practically unimportant.<br>
-</li>
-<li>A moderate effect can be missed (non-significant) with a small <span class="math inline">\(n\)</span> because power is low.<br>
-</li>
-<li>Good study planning balances what size of effect matters (your minimum important difference) with a sample size that gives adequate power (often 80%) at your chosen <span class="math inline">\(\alpha\)</span>.</li>
-</ul>
-<p><strong>Rule-of-thumb scenarios</strong></p>
+<p>It is important to consider effect size, sample size, and statistical power together when designing or interpreting a study. A very small effect can become statistically significant with a sufficiently large <span class="math inline">\(n\)</span>, yet still be of little practical importance. <span class="citation" data-cites="prz:2000">Przeworski et al. (2000)</span> and <span class="citation" data-cites="boix:2003">Boix &amp; Stokes (2003)</span>, for example, agree “that the impact of GDP on democratization in the postwar period is negligible, even though it may be statistically significant.” <span class="citation" data-cites="epstein:2006">(Epstein et al., 2006)</span> Conversely, with too small a sample, even a moderate effect may fail to reach significance simply because statistical power is inadequate. Good study planning therefore requires balancing the smallest effect that is considered meaningful (the minimum important difference) against a sample size that provides adequate power at the chosen significance level <span class="math inline">\(\alpha\)</span>. As a rough guide, I have summarised some scenarios for the interplay of effect size and sample size on statistical power.</p>
+<p><br></p>
 <div class="custom-html-table">
 <div style="width:60%; margin:0 auto;">
+<div id="tbl-rulethumb" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<div aria-describedby="tbl-rulethumb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table">
 <thead>
 <tr class="header">
@@ -414,6 +410,12 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-rulethumb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Rule-of-thumb scenarios
+</figcaption>
+</figure>
+</div>
 </div>
 </div>
 <section id="what-is-cohens-d" class="level2">
@@ -476,7 +478,7 @@ t &amp;\;=\; \frac{\bar{x}-\mu_0}{\,s/\sqrt{n}\,} = \frac{(\bar{x}-\mu_0)\cdot(1
 <li><span class="math inline">\(\sqrt{n}\)</span> tells us how sample size sharpens our estimate: larger <span class="math inline">\(n\)</span> shrinks sampling noise.</li>
 </ul>
 <p>So for a fixed <span class="math inline">\(d\)</span>, increasing <span class="math inline">\(n\)</span> makes <span class="math inline">\(t\)</span> larger and pushes us past the critical threshold for significance more often — which is exactly what raises power. The key is that statistical power is defined as the probability of correctly rejecting the null when the effect size is truly <span class="math inline">\(d\)</span>. Equivalently, it is the probability that the test statistic <span class="math inline">\(t\)</span>, which depends on both <span class="math inline">\(d\)</span> and <span class="math inline">\(n\)</span>, will exceed the critical cutoff. Thus, as <span class="math inline">\(n\)</span> increases, the distribution of <span class="math inline">\(t\)</span> shifts further into the rejection region, and the probability of crossing the cutoff – the power – goes up.</p>
-<p>The calculation of power itself is slightly beyond the scope of an introductory level module, because we need a different distribution, a noncentral <span class="math inline">\(t\)</span> distribution to be precise, for this purpose. Instead, I have designed an app which calculates this automatically for you (see below). But we can conclude this discussion with the following statements</p>
+<p>The calculation of power itself is slightly beyond the scope of an introductory level module, because we need a different distribution, a noncentral <span class="math inline">\(t\)</span> distribution to be precise, for this purpose. Instead, I have designed an app which calculates this automatically for you (see below). What might be interesting to know in the context of the lecture, however, is that it is equal to <span class="math inline">\(1-\beta\)</span> where <span class="math inline">\(\beta\)</span> is the Type II Error. Let’s conclude this section with the following statements:</p>
 <div class="bulb">
 <ul>
 <li>For a small effect (<span class="math inline">\(d = 0.20\)</span>), increasing <span class="math inline">\(n\)</span> pushes <span class="math inline">\(t\)</span> upward by <span class="math inline">\(\sqrt{n}\)</span>.<br>
@@ -839,7 +841,7 @@ T \sim t_{\mathrm{df}}(\text{ncp} = \delta).
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-glossary9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Glossary Week 9
+Table&nbsp;2: Glossary Week 9
 </figcaption>
 </figure>
 </div>
@@ -894,6 +896,15 @@ The data are available as a <a href="files/excelfiles/PO11Q_Week 9_Consolidate.c
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="ref-boix:2003" class="csl-entry" role="listitem">
+Boix, C., &amp; Stokes, S. (2003). <span>Endogenous Democratization</span>. <em><span>World Politics</span></em>, <em>55</em>, 517–549. https://doi.org/<a href="https://doi.org/10.1353/wp.2003.0019">https://doi.org/10.1353/wp.2003.0019</a>
+</div>
+<div id="ref-epstein:2006" class="csl-entry" role="listitem">
+Epstein, D. L., Bates, R., Goldstone, J., Kristensen, I., &amp; O’Halloran, S. (2006). <span>Democratic Transitions</span>. <em><span>American Journal of Political Science</span></em>, <em>50</em>(3), 551–569. <a href="https://doi.org/10.1111/j.1540-5907.2006.00201.x">https://doi.org/10.1111/j.1540-5907.2006.00201.x</a>
+</div>
+<div id="ref-prz:2000" class="csl-entry" role="listitem">
+Przeworski, A., Alvarez, M. E., Cheibub, J. A., &amp; Limongi, F. (2000). <em><span class="nocase">Democracy and Development - Political Institutions and Well-Being in the World, 1950-1990</span></em>. Cambridge: Cambridge University Press. <a href="https://doi.org/10.1017/CBO9780511804946">https://doi.org/10.1017/CBO9780511804946</a>
+</div>
 <div id="ref-reiche:forthcoming" class="csl-entry" role="listitem">
 Reiche, F. (forthcoming). <em><span class="nocase">Introduction to Quantitative Methods in the Social Sciences</span></em>. Oxford: Oxford University Press.
 </div>
