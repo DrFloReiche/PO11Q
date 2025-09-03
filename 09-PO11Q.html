@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -268,7 +303,8 @@ window.Quarto = {
   <li><a href="#group-work-self-reflection" id="toc-group-work-self-reflection" class="nav-link active" data-scroll-target="#group-work-self-reflection">Group Work – Self-Reflection</a></li>
   <li><a href="#how-effect-size-sample-size-and-power-shape-inference" id="toc-how-effect-size-sample-size-and-power-shape-inference" class="nav-link" data-scroll-target="#how-effect-size-sample-size-and-power-shape-inference">How effect size, sample size, and power shape inference</a>
   <ul class="collapse">
-  <li><a href="#cohens-d-for-a-one-sample-t-test" id="toc-cohens-d-for-a-one-sample-t-test" class="nav-link" data-scroll-target="#cohens-d-for-a-one-sample-t-test">Cohen’s <span class="math inline">\(d\)</span> for a one-sample <em>t</em>-test</a></li>
+  <li><a href="#what-is-cohens-d" id="toc-what-is-cohens-d" class="nav-link" data-scroll-target="#what-is-cohens-d">What is Cohen’s <span class="math inline">\(d\)</span>?</a></li>
+  <li><a href="#what-is-statistical-power" id="toc-what-is-statistical-power" class="nav-link" data-scroll-target="#what-is-statistical-power">What is statistical power?</a></li>
   <li><a href="#an-application" id="toc-an-application" class="nav-link" data-scroll-target="#an-application">An Application</a>
   <ul class="collapse">
   <li><a href="#here-is-how-to-use-it" id="toc-here-is-how-to-use-it" class="nav-link" data-scroll-target="#here-is-how-to-use-it">Here is how to use it:</a></li>
@@ -332,9 +368,9 @@ window.Quarto = {
 </ol>
 <p>Three ideas determine how confidently we can answer these:</p>
 <ul>
-<li><a href="https://drfloreiche.github.io/PO11Q/12-Glossary.html">Effect size</a>: the magnitude of the difference or relationship. Larger effects are easier to spot and usually more practically important.</li>
+<li><a href="https://drfloreiche.github.io/PO91Q/12-Glossary.html">Effect size</a>: the magnitude of the difference or relationship. Larger effects are easier to spot and usually more practically important.</li>
 <li>Sample size (<span class="math inline">\(n\)</span>): how much data we have. Bigger <span class="math inline">\(n\)</span> reduces sampling noise, tightens confidence intervals, and increases the chance of detecting real effects.</li>
-<li><a href="https://drfloreiche.github.io/PO11Q/12-Glossary.html">Power (aka “Sensitivity”)</a>: the probability that a test will detect a true effect (reject <span class="math inline">\(H_0\)</span> when it is false). Power grows with larger effects and larger samples, and shrinks when you demand stronger evidence (smaller <span class="math inline">\(\alpha\)</span>) or when variability is high.</li>
+<li><a href="https://drfloreiche.github.io/PO91Q/12-Glossary.html">Power (aka “Sensitivity”)</a>: the probability that a test will detect a true effect (reject <span class="math inline">\(H_0\)</span> when it is false). Power grows with larger effects and larger samples, and shrinks when you demand stronger evidence (smaller <span class="math inline">\(\alpha\)</span>) or when variability is high.</li>
 </ul>
 <p><strong>Why this matters</strong></p>
 <ul>
@@ -345,6 +381,8 @@ window.Quarto = {
 <li>Good study planning balances what size of effect matters (your minimum important difference) with a sample size that gives adequate power (often 80%) at your chosen <span class="math inline">\(\alpha\)</span>.</li>
 </ul>
 <p><strong>Rule-of-thumb scenarios</strong></p>
+<div class="custom-html-table">
+<div style="width:60%; margin:0 auto;">
 <table class="table">
 <thead>
 <tr class="header">
@@ -367,7 +405,7 @@ window.Quarto = {
 <tr class="odd">
 <td>Small</td>
 <td>Small</td>
-<td>Low power — may miss real effect</td>
+<td>Low power – may miss real effect</td>
 </tr>
 <tr class="even">
 <td>Large</td>
@@ -376,26 +414,79 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<section id="cohens-d-for-a-one-sample-t-test" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="cohens-d-for-a-one-sample-t-test">Cohen’s <span class="math inline">\(d\)</span> for a one-sample <em>t</em>-test</h2>
-<p>To measure effect size, we will be using Cohen’s <span class="math inline">\(d\)</span>. This is a standardized mean difference between your sample mean and a reference value <span class="math inline">\(\mu_0\)</span>:</p>
+</div>
+</div>
+<section id="what-is-cohens-d" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-cohens-d">What is Cohen’s <span class="math inline">\(d\)</span>?</h2>
+<p>To measure effect size, we will be using Cohen’s <span class="math inline">\(d\)</span>. Cohen’s <span class="math inline">\(d\)</span> is a way of describing how big an effect is, in units that don’t depend on the original scale. Let me explain this by comparing how far the average exam mark (42) from a sample of students is to the pass mark of 40. In short, instead of saying “the mean was 42 vs the null value of 40”, we will ask: “how big is that 2-point shift compared to the typical variation in marks?”</p>
+<p>We start by identifying the observed difference. With a sample mean of 42 (mean indeed!) and a null hypothesis value of 40, the observed difference is</p>
 <p><span class="math display">\[
-d \;=\; \frac{\bar{x} - \mu_0}{s},
+\text{Difference} = 42 - 40 = 2
 \]</span></p>
-<p>where <span class="math inline">\(\bar{x}\)</span> is the sample mean and <span class="math inline">\(s\)</span> is the sample standard deviation. Because <span class="math inline">\(d\)</span> is measured in standard-deviation units, it allows comparison across scales and studies.</p>
-<p>How does this relate to the t-test you know from the lecture? Let’s start with the one-sample t-statistic:</p>
+<p>This raw difference might seem informative at first glance, but it will be hard to compare this across different contexts. Why? Suppose we look at exam scores in two different modules. In course A students’ marks are close bunched together, most within about 5 points of the average. In this setting, a 2-point increase is fairly big compared to the usual spread. In module B, meanwhile, students’ marks vary a lot, often 20 points above or below the average. In this setting, the same 2-point increase is tiny compared to the usual spread.</p>
+<p>This is why we cannot stop at raw differences – we need to find a way to standardise the difference so that we can compare across different contexts. And this is precisely what Cohen’s <span class="math inline">\(d\)</span> does. It is defined as</p>
 <p><span class="math display">\[
-t \;=\; \frac{\bar{x} - \mu_0}{\,s/\sqrt{n}\,}.
+d = \frac{\bar x - \mu_0}{\text{s}}
 \]</span></p>
-<p>The denominator <span class="math inline">\(s/\sqrt{n}\)</span> is the standard error (se) of the mean. It is the typical amount your sample mean <span class="math inline">\(\bar{x}\)</span> will wander around the true value just because of random sampling. As you collect more data (<span class="math inline">\(n\)</span> grows), the denominator <span class="math inline">\(\sqrt{n}\)</span> gets bigger, so the standard error gets smaller.</p>
-<p>If we now divide the numerator and denominator in the <span class="math inline">\(t\)</span> formula by <span class="math inline">\(s\)</span>, we obtain Cohen’s <span class="math inline">\(d\)</span>:</p>
+<p>where <span class="math inline">\(\mu_0\)</span> is the null hypothesis value. This formula standardises the raw distance by dividing it by the standard deviation (s) of marks.</p>
+<p>To continue with our example, if the typical SD of exam scores is about 10 points, then:</p>
 <p><span class="math display">\[
-t \;=\; \frac{(\bar{x}-\mu_0)/s}{\,1/\sqrt{n}\,} \;=\; d\,\sqrt{n}.
+d = \frac{42 - 40}{10} = \frac{2}{10} = 0.20
 \]</span></p>
-<p>Therefore, holding the significance level <span class="math inline">\(\alpha\)</span> fixed, a larger value for <span class="math inline">\(|d|\)</span> or larger <span class="math inline">\(n\)</span> increases <span class="math inline">\(|t|\)</span> and therefore power.</p>
+<p>So our observed effect is <span class="math inline">\(d = 0.20\)</span>. How do we interpret this result? suggested some rough rules of thumb for interpreting <span class="math inline">\(d\)</span>:</p>
 <div class="bulb">
 <p><strong>Interpretation</strong></p>
-<p>Small <span class="math inline">\(d \approx 0.2\)</span>, Medium <span class="math inline">\(d \approx 0.5\)</span>, Large <span class="math inline">\(d \approx 0.8\)</span>. Note that these are rough guidelines, only. The onus is on you as a researcher to judge what is required/acceptable in the context of your project.</p>
+<ul>
+<li><span class="math inline">\(d \approx 0.2 \Rightarrow\)</span> small effect (a subtle shift, often hard to detect)<br>
+</li>
+<li><span class="math inline">\(d \approx 0.5 \Rightarrow\)</span> medium effect (a clear, noticeable shift)</li>
+<li><span class="math inline">\(d \approx 0.8 \Rightarrow\)</span> large effect (a big, obvious shift)</li>
+</ul>
+<p>Note that these are rough guidelines, only. The onus is on you as a researcher to judge what is required/acceptable in the context of your project.</p>
+</div>
+<p>A value of <span class="math inline">\(d = 0.20\)</span> in our example means the average score is 0.2 standard deviations above the null value. That is considered a small effect: the group did a little better than the pass mark, but the improvement is modest relative to the variability in marks.</p>
+<p>In summary, Cohen’s <span class="math inline">\(d\)</span> encourages us to think not just about whether an effect exists, but whether it is <em>meaningfully</em> large. We are now going to use it to determine the statistical power of a one-sample significance test. You will see that smaller <span class="math inline">\(d\)</span> values need larger sample sizes to be detected reliably.</p>
+</section>
+<section id="what-is-statistical-power" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-statistical-power">What is statistical power?</h2>
+<p>Statistical power is the probability that a study will detect an effect if the effect really exists. Formally, we can write this as:</p>
+<p><span class="math display">\[
+\text{Power} = P(\text{reject } H_0 \mid \text{effect exists})
+\]</span></p>
+<ul>
+<li>High power means we are likely to detect real effects.<br>
+</li>
+<li>Low power means we might miss them, even if they exist.</li>
+</ul>
+<p>A common benchmark is 80% power (see ), which means: if the true effect is at least as big as the one we are testing for, then in the long run we would detect it in 80% of studies with the same sample size and test procedure.</p>
+<p>But how do we get from <span class="math inline">\(d\)</span> to power? The link is through the t-statistic. When you read the fomula and description for Cohen’s <span class="math inline">\(d\)</span> earlier, you might have had a deja-vue, because the t-score is defined as</p>
+<p><span class="math display">\[
+t = \frac{\bar x - \mu_0}{\text{se}}, \qquad \text{where se}=\frac{s}{\sqrt{n}}
+\]</span></p>
+<p>This means that <span class="math inline">\(t\)</span> and <span class="math inline">\(d\)</span> are very closely related, namely through this little exercise in algebra:</p>
+<p><span class="math display">\[\begin{align}
+t &amp;\;=\; \frac{\bar{x}-\mu_0}{\,s/\sqrt{n}\,} = \frac{(\bar{x}-\mu_0)\cdot(1/s)}{(s/\sqrt{n})\cdot(1/s)} \;= \\ \\
+  &amp;\;=\; \frac{(\bar{x}-\mu_0)/s}{(s/\sqrt{n})/s} \;=\; \frac{(\bar{x}-\mu_0)/s}{\,1/\sqrt{n}\,} \;= \\ \\
+  &amp;\;=\; \left( \frac{\bar{x}-\mu_0}{s} \right) \cdot \frac{\sqrt{n}}{1}  \;=\; \left( \frac{\bar{x}-\mu_0}{s} \right) \cdot \sqrt{n} \;= \\ \\
+  &amp;\;=\; d\cdot \sqrt{n}.
+\end{align}\]</span></p>
+<ul>
+<li><span class="math inline">\(d\)</span> tells us the size of the effect relative to the spread.<br>
+</li>
+<li><span class="math inline">\(\sqrt{n}\)</span> tells us how sample size sharpens our estimate: larger <span class="math inline">\(n\)</span> shrinks sampling noise.</li>
+</ul>
+<p>So for a fixed <span class="math inline">\(d\)</span>, increasing <span class="math inline">\(n\)</span> makes <span class="math inline">\(t\)</span> larger and pushes us past the critical threshold for significance more often — which is exactly what raises power. The key is that statistical power is defined as the probability of correctly rejecting the null when the effect size is truly <span class="math inline">\(d\)</span>. Equivalently, it is the probability that the test statistic <span class="math inline">\(t\)</span>, which depends on both <span class="math inline">\(d\)</span> and <span class="math inline">\(n\)</span>, will exceed the critical cutoff. Thus, as <span class="math inline">\(n\)</span> increases, the distribution of <span class="math inline">\(t\)</span> shifts further into the rejection region, and the probability of crossing the cutoff – the power – goes up.</p>
+<p>The calculation of power itself is slightly beyond the scope of an introductory level module, because we need a different distribution, a noncentral <span class="math inline">\(t\)</span> distribution to be precise, for this purpose. Instead, I have designed an app which calculates this automatically for you (see below). But we can conclude this discussion with the following statements</p>
+<div class="bulb">
+<ul>
+<li>For a small effect (<span class="math inline">\(d = 0.20\)</span>), increasing <span class="math inline">\(n\)</span> pushes <span class="math inline">\(t\)</span> upward by <span class="math inline">\(\sqrt{n}\)</span>.<br>
+</li>
+<li>With small <span class="math inline">\(n\)</span>, sampling noise keeps <span class="math inline">\(t\)</span> below the cutoff most of the time (low power).<br>
+</li>
+<li>With larger <span class="math inline">\(n\)</span>, the standard error shrinks, <span class="math inline">\(t\)</span> grows, and power increases.<br>
+</li>
+<li>In terms of the exam example, you could use this information for planning a survey: if you care about detecting a small but meaningful 2-point difference, you generally need larger samples than 25 – often well above 100 – to achieve comfortable power (for example, around 80%).</li>
+</ul>
 </div>
 </section>
 <section id="an-application" class="level2 unnumbered">
@@ -417,6 +508,93 @@ t \;=\; \frac{(\bar{x}-\mu_0)/s}{\,1/\sqrt{n}\,} \;=\; d\,\sqrt{n}.
 </ul></li>
 </ol>
 <p>In order to choose <span class="math inline">\(d\)</span> appropriately, pick a minimum meaningful change in real units and divide by a typical standard deviation. For example, if you think that a difference of 2 exam points from an assumed null value (such as the fail mark of 40) matters and the SD is about 10, then <span class="math inline">\(d \approx 2/10 = 0.2\)</span> (small).</p>
+<div class="baser">
+<details>
+<summary>
+How the “Power vs n” curve is calculated
+</summary>
+<p>When you choose a fixed standardized effect size <span class="math inline">\(d\)</span> (either your observed <span class="math inline">\(\hat d = \frac{t}{\sqrt{n_{\text{obs}}}}\)</span> or a SESOI), the app computes the power of a two-sided one-sample t-test for many candidate sample sizes <span class="math inline">\(n\)</span> and plots the result.</p>
+<p>For each <span class="math inline">\(n\)</span>:</p>
+<ul>
+<li>Degrees of freedom: <span class="math inline">\(\mathrm{df} = n - 1\)</span><br>
+</li>
+<li>Noncentrality parameter: <span class="math inline">\(\delta = d\cdot \sqrt{n}\)</span><br>
+</li>
+<li>Critical cutoff (two-sided, level <span class="math inline">\(\alpha\)</span>): <span class="math inline">\(t_{\alpha/2,\ \mathrm{df}}\)</span></li>
+</ul>
+<p>Under a true effect <span class="math inline">\(d\)</span>, the test statistic follows a noncentral t distribution: <span class="math display">\[
+T \sim t_{\mathrm{df}}(\text{ncp} = \delta).
+\]</span></p>
+<p>For a two-sided test, the power is the probability that <span class="math inline">\(|T|\)</span> exceeds the critical cut-off: <span class="math display">\[
+\mathrm{power}(n)
+= \Pr\big(|T| \ge t_{\alpha/2,\ \mathrm{df}} \ \big| \ \delta\big)
+= \Big[1 - F_{\text{nct}}\big(t_{\alpha/2,\ \mathrm{df}};\ \mathrm{df},\ \delta\big)\Big]
++ F_{\text{nct}}\big(-t_{\alpha/2,\ \mathrm{df}};\ \mathrm{df},\ \delta\big),
+\]</span> where <span class="math inline">\(F_{\text{nct}}\)</span> is the CDF of the noncentral t.</p>
+<p>Why do we set <code>sd = 1</code> in code? Because Cohen’s <span class="math inline">\(d\)</span> is already standardized (<span class="math inline">\(d = \Delta/\sigma\)</span>). In <code>power.t.test</code>, <code>delta</code> is a raw difference (such as <span class="math inline">\(\bar x - \mu_0\)</span>) and <code>sd</code> is the population standard deviation. Setting <code>sd = 1</code> and <code>delta = d</code> is equivalent to using an unstandardized <span class="math inline">\(\Delta\)</span> with its true <span class="math inline">\(\sigma\)</span>.</p>
+<p>What the curve means:</p>
+<ul>
+<li>With SESOI off, the curve treats the observed <span class="math inline">\(\hat d = t_{\text{obs}}/\sqrt{n_{\text{obs}}}\)</span> as the “true” effect and shows how power would change if you repeated the study at different <span class="math inline">\(n\)</span>.<br>
+</li>
+<li>With SESOI on, the curve uses your chosen meaningful effect size <span class="math inline">\(d\)</span> instead (good for planning). The required <span class="math inline">\(n\)</span> for a target power (often 80%) can then be read off or solved numerically.</li>
+</ul>
+<p>You can reproduce the curve as follows:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Power of a two-sided one-sample t-test via the noncentral t distribution</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>power_one_sample <span class="ot">&lt;-</span> <span class="cf">function</span>(d, n, <span class="at">alpha =</span> <span class="fl">0.05</span>) {</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  df    <span class="ot">&lt;-</span> n <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  tcrit <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="dv">1</span> <span class="sc">-</span> alpha<span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> df)   <span class="co"># two-sided cutoff</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  delta <span class="ot">&lt;-</span> d <span class="sc">*</span> <span class="fu">sqrt</span>(n)                <span class="co"># noncentrality</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Noncentral t tail probabilities on both sides</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  p_upper <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pt</span>(tcrit, <span class="at">df =</span> df, <span class="at">ncp =</span> delta)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  p_lower <span class="ot">&lt;-</span>     <span class="fu">pt</span>(<span class="sc">-</span>tcrit, <span class="at">df =</span> df, <span class="at">ncp =</span> delta)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  p_upper <span class="sc">+</span> p_lower</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Example settings (change these to match your app’s state)</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>d_use <span class="ot">&lt;-</span> <span class="fl">0.50</span>          <span class="co"># e.g., "medium" SESOI; or set d_use &lt;- tobs/sqrt(nobs)</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>n_seq <span class="ot">&lt;-</span> <span class="dv">5</span><span class="sc">:</span><span class="dv">200</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the curve</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>power_vals <span class="ot">&lt;-</span> <span class="fu">sapply</span>(n_seq, power_one_sample, <span class="at">d =</span> d_use, <span class="at">alpha =</span> alpha)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>df_curve   <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">n =</span> n_seq, <span class="at">power =</span> power_vals)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Optional: check against power.t.test at a single n</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>n_check <span class="ot">&lt;-</span> <span class="dv">30</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">power_one_sample</span>(<span class="at">d =</span> d_use, <span class="at">n =</span> n_check, <span class="at">alpha =</span> alpha)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> stats<span class="sc">::</span><span class="fu">power.t.test</span>(</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> n_check, <span class="at">delta =</span> d_use, <span class="at">sd =</span> <span class="dv">1</span>,</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="at">sig.level =</span> alpha, <span class="at">type =</span> <span class="st">"one.sample"</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>)<span class="sc">$</span>power</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"Check at n=%d: custom=%.4f, power.t.test=%.4f"</span>, n_check, p1, p2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Check at n=30: custom=0.7540, power.t.test=0.7540"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the curve</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_curve, <span class="fu">aes</span>(n, power)) <span class="sc">+</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fl">0.80</span>, <span class="at">linetype =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">sprintf</span>(<span class="st">"Power vs n (one-sample t-test; d = %.2f, alpha = %.2f)"</span>, d_use, alpha),</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Sample size n"</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Power"</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="09-PO11Q_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</details>
+</div>
 </section>
 <section id="how-to-read-the-power-vs-n-plot" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="how-to-read-the-power-vs-n-plot">How to read the Power vs <span class="math inline">\(n\)</span> plot</h3>
