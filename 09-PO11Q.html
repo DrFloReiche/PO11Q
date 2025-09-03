@@ -425,17 +425,17 @@ Table&nbsp;1: Rule-of-thumb scenarios
 <p><span class="math display">\[
 \text{Difference} = 42 - 40 = 2
 \]</span></p>
-<p>This raw difference might seem informative at first glance, but it will be hard to compare this across different contexts. Why? Suppose we look at exam scores in two different modules. In course A students’ marks are close bunched together, most within about 5 points of the average. In this setting, a 2-point increase is fairly big compared to the usual spread. In module B, meanwhile, students’ marks vary a lot, often 20 points above or below the average. In this setting, the same 2-point increase is tiny compared to the usual spread.</p>
+<p>This raw difference might seem informative at first glance, but it will be hard to compare this across different contexts. Why? Suppose we look at exam marks in two different modules. In course A students’ marks are close bunched together, most within about 5 points of the average. In this setting, a 2-point increase is fairly big compared to the usual spread. In module B, meanwhile, students’ marks vary a lot, often 20 points above or below the average. In this setting, the same 2-point increase is tiny compared to the usual spread.</p>
 <p>This is why we cannot stop at raw differences – we need to find a way to standardise the difference so that we can compare across different contexts. And this is precisely what Cohen’s <span class="math inline">\(d\)</span> does. It is defined as</p>
 <p><span class="math display">\[
 d = \frac{\bar x - \mu_0}{\text{s}}
 \]</span></p>
 <p>where <span class="math inline">\(\mu_0\)</span> is the null hypothesis value. This formula standardises the raw distance by dividing it by the standard deviation (s) of marks.</p>
-<p>To continue with our example, if the typical SD of exam scores is about 10 points, then:</p>
+<p>To continue with our example, if the typical standard deviation of exam marks is about 10 points, then:</p>
 <p><span class="math display">\[
 d = \frac{42 - 40}{10} = \frac{2}{10} = 0.20
 \]</span></p>
-<p>So our observed effect is <span class="math inline">\(d = 0.20\)</span>. How do we interpret this result? suggested some rough rules of thumb for interpreting <span class="math inline">\(d\)</span>:</p>
+<p>So our observed effect is <span class="math inline">\(d = 0.20\)</span>. How do we interpret this result? <span class="citation" data-cites="cohen:2013">Cohen (2013)</span> suggested some rough rules of thumb for interpreting <span class="math inline">\(d\)</span>:</p>
 <div class="bulb">
 <p><strong>Interpretation</strong></p>
 <ul>
@@ -446,7 +446,7 @@ d = \frac{42 - 40}{10} = \frac{2}{10} = 0.20
 </ul>
 <p>Note that these are rough guidelines, only. The onus is on you as a researcher to judge what is required/acceptable in the context of your project.</p>
 </div>
-<p>A value of <span class="math inline">\(d = 0.20\)</span> in our example means the average score is 0.2 standard deviations above the null value. That is considered a small effect: the group did a little better than the pass mark, but the improvement is modest relative to the variability in marks.</p>
+<p>A value of <span class="math inline">\(d = 0.20\)</span> in our example means the average mark is 0.2 standard deviations above the null value. That is considered a small effect: the group did a little better than the pass mark, but the improvement is modest relative to the variability in marks.</p>
 <p>In summary, Cohen’s <span class="math inline">\(d\)</span> encourages us to think not just about whether an effect exists, but whether it is <em>meaningfully</em> large. We are now going to use it to determine the statistical power of a one-sample significance test. You will see that smaller <span class="math inline">\(d\)</span> values need larger sample sizes to be detected reliably.</p>
 </section>
 <section id="what-is-statistical-power" class="level2">
@@ -460,7 +460,7 @@ d = \frac{42 - 40}{10} = \frac{2}{10} = 0.20
 </li>
 <li>Low power means we might miss them, even if they exist.</li>
 </ul>
-<p>A common benchmark is 80% power (see ), which means: if the true effect is at least as big as the one we are testing for, then in the long run we would detect it in 80% of studies with the same sample size and test procedure.</p>
+<p>A common benchmark is 80% power (see <span class="citation" data-cites="lakens:2013">Lakens (2013)</span> and <span class="citation" data-cites="button:2013">Button et al. (2013)</span>), which means: if the true effect is at least as big as the one we are testing for, then in the long run we would detect it in 80% of studies with the same sample size and test procedure.</p>
 <p>But how do we get from <span class="math inline">\(d\)</span> to power? The link is through the t-statistic. When you read the fomula and description for Cohen’s <span class="math inline">\(d\)</span> earlier, you might have had a deja-vue, because the t-score is defined as</p>
 <p><span class="math display">\[
 t = \frac{\bar x - \mu_0}{\text{se}}, \qquad \text{where se}=\frac{s}{\sqrt{n}}
@@ -899,8 +899,17 @@ The data are available as a <a href="files/excelfiles/PO11Q_Week 9_Consolidate.c
 <div id="ref-boix:2003" class="csl-entry" role="listitem">
 Boix, C., &amp; Stokes, S. (2003). <span>Endogenous Democratization</span>. <em><span>World Politics</span></em>, <em>55</em>, 517–549. https://doi.org/<a href="https://doi.org/10.1353/wp.2003.0019">https://doi.org/10.1353/wp.2003.0019</a>
 </div>
+<div id="ref-button:2013" class="csl-entry" role="listitem">
+Button, K. S., Ioannidis, J. P. A., Mokrysz, C., Nosek, B. A., Flint, J., Robinson, E. S. J., &amp; Munafò, M. R. (2013). Power failure: Why small sample size undermines the reliability of neuroscience. <em>Nature Reviews Neuroscience</em>, <em>14</em>(5), 365–376. <a href="https://doi.org/10.1038/nrn3475">https://doi.org/10.1038/nrn3475</a>
+</div>
+<div id="ref-cohen:2013" class="csl-entry" role="listitem">
+Cohen, J. (2013). <em>Statistical power analysis for the behavioral sciences</em>. Routledge. <a href="https://doi.org/10.4324/9780203771587">https://doi.org/10.4324/9780203771587</a>
+</div>
 <div id="ref-epstein:2006" class="csl-entry" role="listitem">
 Epstein, D. L., Bates, R., Goldstone, J., Kristensen, I., &amp; O’Halloran, S. (2006). <span>Democratic Transitions</span>. <em><span>American Journal of Political Science</span></em>, <em>50</em>(3), 551–569. <a href="https://doi.org/10.1111/j.1540-5907.2006.00201.x">https://doi.org/10.1111/j.1540-5907.2006.00201.x</a>
+</div>
+<div id="ref-lakens:2013" class="csl-entry" role="listitem">
+Lakens, D. (2013). Calculating and reporting effect sizes to facilitate cumulative science: A practical primer for t-tests and ANOVAs. <em>Frontiers in Psychology</em>, <em>4</em>. <a href="https://doi.org/10.3389/fpsyg.2013.00863">https://doi.org/10.3389/fpsyg.2013.00863</a>
 </div>
 <div id="ref-prz:2000" class="csl-entry" role="listitem">
 Przeworski, A., Alvarez, M. E., Cheibub, J. A., &amp; Limongi, F. (2000). <em><span class="nocase">Democracy and Development - Political Institutions and Well-Being in the World, 1950-1990</span></em>. Cambridge: Cambridge University Press. <a href="https://doi.org/10.1017/CBO9780511804946">https://doi.org/10.1017/CBO9780511804946</a>
