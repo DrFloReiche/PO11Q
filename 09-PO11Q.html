@@ -477,13 +477,13 @@ t &amp;\;=\; \frac{\bar{x}-\mu_0}{\,s/\sqrt{n}\,} = \frac{(\bar{x}-\mu_0)\cdot(1
 </li>
 <li><span class="math inline">\(\sqrt{n}\)</span> tells us how sample size sharpens our estimate: larger <span class="math inline">\(n\)</span> shrinks sampling noise.</li>
 </ul>
-<p>So for a fixed <span class="math inline">\(d\)</span>, increasing <span class="math inline">\(n\)</span> makes <span class="math inline">\(t\)</span> larger and pushes us past the critical threshold for significance more often — which is exactly what raises power. The key is that statistical power is defined as the probability of correctly rejecting the null when the effect size is truly <span class="math inline">\(d\)</span>. Equivalently, it is the probability that the test statistic <span class="math inline">\(t\)</span>, which depends on both <span class="math inline">\(d\)</span> and <span class="math inline">\(n\)</span>, will exceed the critical cutoff. Thus, as <span class="math inline">\(n\)</span> increases, the distribution of <span class="math inline">\(t\)</span> shifts further into the rejection region, and the probability of crossing the cutoff – the power – goes up.</p>
+<p>So for a fixed <span class="math inline">\(d\)</span>, increasing <span class="math inline">\(n\)</span> makes <span class="math inline">\(t\)</span> larger and pushes us past the critical threshold for significance more often — which is exactly what raises power. The key is that statistical power is defined as the probability of correctly rejecting the null when the effect size is truly <span class="math inline">\(d\)</span>. Equivalently, it is the probability that the test statistic <span class="math inline">\(t\)</span>, which depends on both <span class="math inline">\(d\)</span> and <span class="math inline">\(n\)</span>, will exceed the critical cut-off. Thus, as <span class="math inline">\(n\)</span> increases, the distribution of <span class="math inline">\(t\)</span> shifts further into the rejection region, and the probability of crossing the cut-off – the power – goes up.</p>
 <p>The calculation of power itself is slightly beyond the scope of an introductory level module, because we need a different distribution, a noncentral <span class="math inline">\(t\)</span> distribution to be precise, for this purpose. Instead, I have designed an app which calculates this automatically for you (see below). What might be interesting to know in the context of the lecture, however, is that it is equal to <span class="math inline">\(1-\beta\)</span> where <span class="math inline">\(\beta\)</span> is the Type II Error. Let’s conclude this section with the following statements:</p>
 <div class="bulb">
 <ul>
 <li>For a small effect (<span class="math inline">\(d = 0.20\)</span>), increasing <span class="math inline">\(n\)</span> pushes <span class="math inline">\(t\)</span> upward by <span class="math inline">\(\sqrt{n}\)</span>.<br>
 </li>
-<li>With small <span class="math inline">\(n\)</span>, sampling noise keeps <span class="math inline">\(t\)</span> below the cutoff most of the time (low power).<br>
+<li>With small <span class="math inline">\(n\)</span>, sampling noise keeps <span class="math inline">\(t\)</span> below the cut-off most of the time (low power).<br>
 </li>
 <li>With larger <span class="math inline">\(n\)</span>, the standard error shrinks, <span class="math inline">\(t\)</span> grows, and power increases.<br>
 </li>
@@ -506,7 +506,7 @@ t &amp;\;=\; \frac{\bar{x}-\mu_0}{\,s/\sqrt{n}\,} = \frac{(\bar{x}-\mu_0)\cdot(1
 </li>
 <li>If SESOI is off, the app uses the observed effect <span class="math inline">\(\hat d = t/\sqrt{n}\)</span>.<br>
 </li>
-<li>If SESOI is on, the app fixes the curve at your chosen <span class="math inline">\(d\)</span> and, for convenience, shows the required <span class="math inline">\(n\)</span> for 80%% power as an orange dotted line.</li>
+<li>If SESOI is on, the app fixes the curve at your chosen <span class="math inline">\(d\)</span> and, for convenience, shows the required <span class="math inline">\(n\)</span> for 80% power as an orange dotted line.</li>
 </ul></li>
 </ol>
 <p>In order to choose <span class="math inline">\(d\)</span> appropriately, pick a minimum meaningful change in real units and divide by a typical standard deviation. For example, if you think that a difference of 2 exam points from an assumed null value (such as the fail mark of 40) matters and the SD is about 10, then <span class="math inline">\(d \approx 2/10 = 0.2\)</span> (small).</p>
@@ -522,7 +522,7 @@ How the “Power vs n” curve is calculated
 </li>
 <li>Noncentrality parameter: <span class="math inline">\(\delta = d\cdot \sqrt{n}\)</span><br>
 </li>
-<li>Critical cutoff (two-sided, level <span class="math inline">\(\alpha\)</span>): <span class="math inline">\(t_{\alpha/2,\ \mathrm{df}}\)</span></li>
+<li>Critical cut-off (two-sided, level <span class="math inline">\(\alpha\)</span>): <span class="math inline">\(t_{\alpha/2,\ \mathrm{df}}\)</span></li>
 </ul>
 <p>Under a true effect <span class="math inline">\(d\)</span>, the test statistic follows a noncentral t distribution: <span class="math display">\[
 T \sim t_{\mathrm{df}}(\text{ncp} = \delta).
@@ -548,7 +548,7 @@ T \sim t_{\mathrm{df}}(\text{ncp} = \delta).
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Power of a two-sided one-sample t-test via the noncentral t distribution</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>power_one_sample <span class="ot">&lt;-</span> <span class="cf">function</span>(d, n, <span class="at">alpha =</span> <span class="fl">0.05</span>) {</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  df    <span class="ot">&lt;-</span> n <span class="sc">-</span> <span class="dv">1</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  tcrit <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="dv">1</span> <span class="sc">-</span> alpha<span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> df)   <span class="co"># two-sided cutoff</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  tcrit <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="dv">1</span> <span class="sc">-</span> alpha<span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> df)   <span class="co"># two-sided cut-off</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  delta <span class="ot">&lt;-</span> d <span class="sc">*</span> <span class="fu">sqrt</span>(n)                <span class="co"># noncentrality</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Noncentral t tail probabilities on both sides</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  p_upper <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pt</span>(tcrit, <span class="at">df =</span> df, <span class="at">ncp =</span> delta)</span>
@@ -610,13 +610,13 @@ T \sim t_{\mathrm{df}}(\text{ncp} = \delta).
 <li>With SESOI off: uses <span class="math inline">\(\hat d = t/\sqrt{n_{\text{obs}}}\)</span>.</li>
 <li>With SESOI on: uses your chosen <span class="math inline">\(d\)</span> (SESOI).</li>
 </ul></li>
-<li>Dashed horizontal line at 0.80: a common 80%% power target.</li>
+<li>Dashed horizontal line at 0.80: a common 80% power target.</li>
 <li>Dotted vertical line (grey): your observed <span class="math inline">\(n\)</span>; the dot shows power at that <span class="math inline">\(n\)</span>.</li>
-<li>Dotted vertical line (orange): shown only when SESOI is on; marks the smallest <span class="math inline">\(n\)</span> that reaches 0.80 power (labelled as <span class="math inline">\(n \approx \dots\)</span> @ 80%% power).</li>
+<li>Dotted vertical line (orange): shown only when SESOI is on; marks the smallest <span class="math inline">\(n\)</span> that reaches 0.80 power (labelled as <span class="math inline">\(n \approx \dots\)</span> @ 80% power).</li>
 </ul></li>
 <li>Finding the sample size you need
 <ul>
-<li>With SESOI on, read the orange line and label to get the sample size to plan for 80%% power at your chosen <span class="math inline">\(\alpha\)</span>.</li>
+<li>With SESOI on, read the orange line and label to get the sample size to plan for 80% power at your chosen <span class="math inline">\(\alpha\)</span>.</li>
 <li>If the curve never hits 0.80 within the plot range, you would need a larger <span class="math inline">\(n\)</span>, a larger meaningful effect (bigger <span class="math inline">\(|d|\)</span>), a one-sided test (only if justified), or a larger <span class="math inline">\(\alpha\)</span> (with caution).</li>
 </ul></li>
 <li>How the controls shift the curve
