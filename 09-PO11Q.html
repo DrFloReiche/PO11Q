@@ -515,64 +515,64 @@ t &amp;\;=\; \frac{\bar{x}-\mu_0}{\,s/\sqrt{n}\,} = \frac{(\bar{x}-\mu_0)\cdot(1
 <summary>
 How the “Power vs n” curve is calculated
 </summary>
-<p>When you choose a fixed standardized effect size <span class="math inline">\(d\)</span> (either your observed <span class="math inline">\(\hat d = \frac{t}{\sqrt{n_{\text{obs}}}}\)</span> or a SESOI), the app computes the power of a two-sided one-sample t-test for many candidate sample sizes <span class="math inline">\(n\)</span> and plots the result.</p>
+<p>When you choose a fixed standardized effect size <span class="math inline">\(d\)</span> (either your observed <span class="math inline">\(\hat d = \tfrac{t}{\sqrt{n_{\text{obs}}}}\)</span> or a SESOI), the curve shows the power of a two-sided one-sample <span class="math inline">\(t\)</span>-test across many candidate sample sizes <span class="math inline">\(n\)</span>.</p>
 <p>For each <span class="math inline">\(n\)</span>:</p>
 <ul>
 <li>Degrees of freedom: <span class="math inline">\(\mathrm{df} = n - 1\)</span><br>
 </li>
-<li>Noncentrality parameter: <span class="math inline">\(\delta = d\cdot \sqrt{n}\)</span><br>
+<li>Noncentrality parameter: <span class="math inline">\(\delta = d\sqrt{n}\)</span><br>
 </li>
-<li>Critical cut-off (two-sided, level <span class="math inline">\(\alpha\)</span>): <span class="math inline">\(t_{\alpha/2,\ \mathrm{df}}\)</span></li>
+<li>Critical cut-off (two-sided, level <span class="math inline">\(\alpha\)</span>): <span class="math inline">\(t_{\alpha/2,\,\mathrm{df}}\)</span></li>
 </ul>
-<p>Under a true effect <span class="math inline">\(d\)</span>, the test statistic follows a noncentral t distribution: <span class="math display">\[
-T \sim t_{\mathrm{df}}(\text{ncp} = \delta).
+<p>Under a true effect <span class="math inline">\(d\)</span>, the test statistic follows a noncentral <span class="math inline">\(t\)</span> distribution:</p>
+<p><span class="math display">\[
+T \sim t_{\mathrm{df}}(\text{ncp} = \delta)
 \]</span></p>
-<p>For a two-sided test, the power is the probability that <span class="math inline">\(|T|\)</span> exceeds the critical cut-off: <span class="math display">\[
+<p>The power is the probability that <span class="math inline">\(|T|\)</span> exceeds the critical cut-off:</p>
+<p><span class="math display">\[
 \mathrm{power}(n)
-= \Pr\big(|T| \ge t_{\alpha/2,\ \mathrm{df}} \ \big| \ \delta\big)
-= \Big[1 - F_{\text{nct}}\big(t_{\alpha/2,\ \mathrm{df}};\ \mathrm{df},\ \delta\big)\Big]
-+ F_{\text{nct}}\big(-t_{\alpha/2,\ \mathrm{df}};\ \mathrm{df},\ \delta\big),
-\]</span> where <span class="math inline">\(F_{\text{nct}}\)</span> is the CDF of the noncentral t.</p>
-<p>Why do we set <code>sd = 1</code> in code? Because Cohen’s <span class="math inline">\(d\)</span> is already standardized (<span class="math inline">\(d = \Delta/\sigma\)</span>). In <code>power.t.test</code>, <code>delta</code> is a raw difference (such as <span class="math inline">\(\bar x - \mu_0\)</span>) and <code>sd</code> is the population standard deviation. Setting <code>sd = 1</code> and <code>delta = d</code> is equivalent to using an unstandardized <span class="math inline">\(\Delta\)</span> with its true <span class="math inline">\(\sigma\)</span>.</p>
-<p>What the curve means:</p>
+= \Pr\!\left(|T|\ge t_{\alpha/2,\ \mathrm{df}} \,\middle|\, \delta\right)
+= \big[1 - F_{\text{nct}}(t_{\alpha/2,\ \mathrm{df}};\ \mathrm{df},\ \delta)\big]
++ F_{\text{nct}}(-t_{\alpha/2,\ \mathrm{df}};\ \mathrm{df},\ \delta)
+\]</span></p>
+<p>where <span class="math inline">\(F_{\text{nct}}\)</span> is the CDF of the noncentral <span class="math inline">\(t\)</span> distribution.</p>
+<p><strong>What the curve means</strong></p>
 <ul>
-<li>With SESOI off, the curve treats the observed <span class="math inline">\(\hat d = t_{\text{obs}}/\sqrt{n_{\text{obs}}}\)</span> as the “true” effect and shows how power would change if you repeated the study at different <span class="math inline">\(n\)</span>.<br>
+<li>SESOI off: The curve treats the observed <span class="math inline">\(\hat d = t_{\text{obs}}/\sqrt{n_{\text{obs}}}\)</span> as the “true” effect and shows how power would change if you repeated the study with different <span class="math inline">\(n\)</span>.<br>
 </li>
-<li>With SESOI on, the curve uses your chosen meaningful effect size <span class="math inline">\(d\)</span> instead (good for planning). The required <span class="math inline">\(n\)</span> for a target power (often 80%) can then be read off or solved numerically.</li>
+<li>SESOI on: The curve instead uses your chosen meaningful effect size <span class="math inline">\(d\)</span>. In this mode, the app also shows the required <span class="math inline">\(n\)</span> to reach 80% power with an orange marker.</li>
 </ul>
-<p>You can reproduce the curve as follows:</p>
+<p><strong>Reproducing the curve in R</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Power of a two-sided one-sample t-test via the noncentral t distribution</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>power_one_sample <span class="ot">&lt;-</span> <span class="cf">function</span>(d, n, <span class="at">alpha =</span> <span class="fl">0.05</span>) {</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  df    <span class="ot">&lt;-</span> n <span class="sc">-</span> <span class="dv">1</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  tcrit <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="dv">1</span> <span class="sc">-</span> alpha<span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> df)   <span class="co"># two-sided cut-off</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  delta <span class="ot">&lt;-</span> d <span class="sc">*</span> <span class="fu">sqrt</span>(n)                <span class="co"># noncentrality</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Noncentral t tail probabilities on both sides</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  p_upper <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pt</span>(tcrit, <span class="at">df =</span> df, <span class="at">ncp =</span> delta)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  p_lower <span class="ot">&lt;-</span>     <span class="fu">pt</span>(<span class="sc">-</span>tcrit, <span class="at">df =</span> df, <span class="at">ncp =</span> delta)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  p_upper <span class="sc">+</span> p_lower</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Example settings (change these to match your app’s state)</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>d_use <span class="ot">&lt;-</span> <span class="fl">0.50</span>          <span class="co"># e.g., "medium" SESOI; or set d_use &lt;- tobs/sqrt(nobs)</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>n_seq <span class="ot">&lt;-</span> <span class="dv">5</span><span class="sc">:</span><span class="dv">200</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the curve</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>power_vals <span class="ot">&lt;-</span> <span class="fu">sapply</span>(n_seq, power_one_sample, <span class="at">d =</span> d_use, <span class="at">alpha =</span> alpha)</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>df_curve   <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">n =</span> n_seq, <span class="at">power =</span> power_vals)</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Optional: check against power.t.test at a single n</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>n_check <span class="ot">&lt;-</span> <span class="dv">30</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">power_one_sample</span>(<span class="at">d =</span> d_use, <span class="at">n =</span> n_check, <span class="at">alpha =</span> alpha)</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> stats<span class="sc">::</span><span class="fu">power.t.test</span>(</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> n_check, <span class="at">delta =</span> d_use, <span class="at">sd =</span> <span class="dv">1</span>,</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="at">sig.level =</span> alpha, <span class="at">type =</span> <span class="st">"one.sample"</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>)<span class="sc">$</span>power</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"Check at n=%d: custom=%.4f, power.t.test=%.4f"</span>, n_check, p1, p2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Power of a two-sided one-sample t-test via the noncentral t distribution</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>power_one_sample <span class="ot">&lt;-</span> <span class="cf">function</span>(d, n, <span class="at">alpha =</span> <span class="fl">0.05</span>) {</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  df    <span class="ot">&lt;-</span> n <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  tcrit <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="dv">1</span> <span class="sc">-</span> alpha<span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> df)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  delta <span class="ot">&lt;-</span> d <span class="sc">*</span> <span class="fu">sqrt</span>(n)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  p_upper <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pt</span>(tcrit, <span class="at">df =</span> df, <span class="at">ncp =</span> delta)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  p_lower <span class="ot">&lt;-</span>     <span class="fu">pt</span>(<span class="sc">-</span>tcrit, <span class="at">df =</span> df, <span class="at">ncp =</span> delta)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  p_upper <span class="sc">+</span> p_lower</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Example settings</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>d_use <span class="ot">&lt;-</span> <span class="fl">0.50</span>          <span class="co"># e.g., "medium" SESOI; or d_use &lt;- tobs/sqrt(nobs)</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>n_seq <span class="ot">&lt;-</span> <span class="dv">5</span><span class="sc">:</span><span class="dv">200</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the curve</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>power_vals <span class="ot">&lt;-</span> <span class="fu">sapply</span>(n_seq, power_one_sample, <span class="at">d =</span> d_use, <span class="at">alpha =</span> alpha)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>df_curve   <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">n =</span> n_seq, <span class="at">power =</span> power_vals)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Optional: check against power.t.test at a single n</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>n_check <span class="ot">&lt;-</span> <span class="dv">30</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">power_one_sample</span>(<span class="at">d =</span> d_use, <span class="at">n =</span> n_check, <span class="at">alpha =</span> alpha)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> stats<span class="sc">::</span><span class="fu">power.t.test</span>(</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> n_check, <span class="at">delta =</span> d_use, <span class="at">sd =</span> <span class="dv">1</span>,</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">sig.level =</span> alpha, <span class="at">type =</span> <span class="st">"one.sample"</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>)<span class="sc">$</span>power</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"Check at n=%d: custom=%.4f, power.t.test=%.4f"</span>, n_check, p1, p2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Check at n=30: custom=0.7540, power.t.test=0.7540"</code></pre>
 </div>
@@ -595,6 +595,7 @@ T \sim t_{\mathrm{df}}(\text{ncp} = \delta).
 </div>
 </div>
 </div>
+<p>Why <code>sd = 1</code> in the check? Because Cohen’s <span class="math inline">\(d\)</span> is already standardized (<span class="math inline">\(d = \Delta/\sigma\)</span>). The function <code>power.t.test</code> expects the unstandardized difference <span class="math inline">\(\Delta\)</span> and the population standard deviation <span class="math inline">\(\sigma\)</span>. Setting <code>sd = 1</code> and <code>delta = d</code> makes the inputs consistent with a standardized effect size.</p>
 </details>
 </div>
 </section>
