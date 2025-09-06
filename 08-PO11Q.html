@@ -266,6 +266,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#self-assessment-questions" id="toc-self-assessment-questions" class="nav-link active" data-scroll-target="#self-assessment-questions">Self-Assessment Questions</a></li>
+  <li><a href="#the-t-distribution" id="toc-the-t-distribution" class="nav-link" data-scroll-target="#the-t-distribution">The t-distribution</a></li>
   <li><a href="#confidence-intervals" id="toc-confidence-intervals" class="nav-link" data-scroll-target="#confidence-intervals">Confidence Intervals</a>
   <ul class="collapse">
   <li><a href="#calculating-confidence-intervals" id="toc-calculating-confidence-intervals" class="nav-link" data-scroll-target="#calculating-confidence-intervals">Calculating Confidence Intervals</a>
@@ -273,10 +274,7 @@ window.Quarto = {
   <li><a href="#we-know-sigma" id="toc-we-know-sigma" class="nav-link" data-scroll-target="#we-know-sigma">1. We know <span class="math inline">\(\sigma\)</span></a></li>
   <li><a href="#we-dont-know-sigma" id="toc-we-dont-know-sigma" class="nav-link" data-scroll-target="#we-dont-know-sigma">2. We don’t know <span class="math inline">\(\sigma\)</span></a></li>
   </ul></li>
-  </ul></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
-  <ul class="collapse">
-  <li><a href="#conceptual-exercises" id="toc-conceptual-exercises" class="nav-link" data-scroll-target="#conceptual-exercises">Conceptual Exercises</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   <li><a href="#r-exercises" id="toc-r-exercises" class="nav-link" data-scroll-target="#r-exercises">R Exercises</a>
   <ul class="collapse">
   <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
@@ -322,20 +320,62 @@ window.Quarto = {
 <li>What is the difference between the normal distribution and the t-distribution?</li>
 <li>Use the app below (it might take a moment to load, as it is a web-based application) to change the sample size, sample standard deviation and the desired confidence level to see how they affect the width of a confidence interval. Reflect first on how a new value will alter the distribution before carrying out the change.</li>
 </ol>
-<iframe id="mmm-iframe" src="https://drfloreiche.github.io/shinylive/confint/" title="Mean • Median • Mode" style="width:100%; border:0; display:block; min-height:560px;">
+<div class="stop">
+<p>Please stop here and don’t go beyond this point until we have compared notes on your answers.</p>
+</div>
+</section>
+<section id="the-t-distribution" class="level1 unnumbered">
+<h1 class="unnumbered">The t-distribution</h1>
+<p>The Student <span class="math inline">\(t\)</span> distribution is fundamental for inference when working with small samples.<br>
+This interactive app lets you explore how the shape of the distribution changes with the sample size (or degrees of freedom), and how the critical values shift depending on the significance (<span class="math inline">\(\alpha\)</span>) level and whether a test is one- or two-tailed. Use the sliders and options to see how these factors affect hypothesis testing.</p>
+<iframe id="tdist-iframe" src="https://drfloreiche.github.io/shinylive/tdis/" title="t distribution explorer" style="width:100%; border:0; display:block; min-height:600px;">
 </iframe>
 
 <script src="https://cdn.jsdelivr.net/npm/iframe-resizer/js/iframeResizer.min.js"></script>
 <script>
   iFrameResize({
-    checkOrigin: ['https://drfloreiche.github.io/shinylive/confint/'],
-    heightCalculationMethod: 'taggedElement',  // measure #ifr-root
+    checkOrigin: false,              // relax for testing; restrict later
+    heightCalculationMethod: 'max',  // robust for ShinyLive dynamic height
     sizeHeight: true,
-    minHeight: 560,
-    tolerance: 12,  // a few extra pixels for rounding
+    onInit: function(iframe){
+      setTimeout(function(){
+        if (iframe.iFrameResizer) iframe.iFrameResizer.resize();
+      }, 300);
+    },
     log: false
-  }, '#mmm-iframe');
+  }, '#tdist-iframe');
 </script>
+<p>Here are some exercises to familiarise yourself with the distribution:</p>
+<ol type="1">
+<li>How the degrees of freedom <span class="math inline">\(df\)</span> change the shape and critical values
+<ol type="a">
+<li>Set tail type = two-tailed and <span class="math inline">\(\alpha = 0.05\)</span>. Move <span class="math inline">\(n\)</span> from 3 to 50 (<span class="math inline">\(df\)</span> from 2 to 49). Record the critical values <span class="math inline">\(t_{\mathrm{crit}}\)</span> at <span class="math inline">\(n \in \{3, 5, 10, 20, 50\}\)</span>.<br>
+</li>
+<li>Compare these to the normal critical value <span class="math inline">\(z_{0.025} \approx 1.960\)</span>.<br>
+Which <span class="math inline">\(n\)</span> (or <span class="math inline">\(df\)</span>) makes <span class="math inline">\(t_{\mathrm{crit}}\)</span> within 0.05 of 1.96?<br>
+</li>
+<li>Explain why <span class="math inline">\(t\)</span> approaches the standard normal as <span class="math inline">\(df \to \infty\)</span>.</li>
+</ol></li>
+<li>One-tailed vs two-tailed critical regions
+<ol type="a">
+<li>Fix <span class="math inline">\(df = 14\)</span>. Toggle between two-tailed and one-tailed (upper) with <span class="math inline">\(\alpha = 0.05\)</span>.<br>
+Note the two cutpoints for the two-tailed test (<span class="math inline">\(\pm t_{0.025,14}\)</span>) and<br>
+the single cutpoint for the one-tailed test (<span class="math inline">\(t_{0.05,14}\)</span>).<br>
+</li>
+<li>For a test with <span class="math inline">\(H_0: \mu = \mu_0\)</span> and <span class="math inline">\(H_1: \mu &gt; \mu_0\)</span>, which cutpoint is relevant and why?<br>
+</li>
+<li>Verify with shading that the total shaded probability equals <span class="math inline">\(\alpha\)</span> in each case.</li>
+</ol></li>
+<li>Relating <span class="math inline">\(t\)</span> statistics to sample size<br>
+Suppose you observe a one-sample <span class="math inline">\(t\)</span> statistic of <span class="math inline">\(t = 2.10\)</span>.
+<ol type="a">
+<li>For <span class="math inline">\(df = 9\)</span>, determine whether a two-tailed test at <span class="math inline">\(\alpha = 0.05\)</span> rejects <span class="math inline">\(H_0\)</span> by comparing <span class="math inline">\(|t|\)</span> to <span class="math inline">\(t_{0.025,9}\)</span>.<br>
+</li>
+<li>Increase <span class="math inline">\(df\)</span> to 29 and repeat. What changes and why?<br>
+</li>
+<li>Interpret: how does increased <span class="math inline">\(n\)</span> affect the boundary for rejection when the observed <span class="math inline">\(t\)</span> is fixed?</li>
+</ol></li>
+</ol>
 <div class="stop">
 <p>Please stop here and don’t go beyond this point until we have compared notes on your answers.</p>
 </div>
@@ -417,11 +457,46 @@ se=\frac{2}{\sqrt{4}}=1
 <p>You are now ready to do some exercises.</p>
 </section>
 </section>
-</section>
-<section id="exercises" class="level1 unnumbered">
-<h1 class="unnumbered">Exercises</h1>
-<section id="conceptual-exercises" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="conceptual-exercises">Conceptual Exercises<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></h2>
+<section id="exercises" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="exercises">Exercises<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></h2>
+<p>Let’s get started by exploring the dynamics of a confidence interval more generally. You can answer these questions with the app below.</p>
+<ol type="1">
+<li>Exploring the role of sample size
+<ol type="a">
+<li>Set the confidence level to <span class="math inline">\(95\%\)</span> and the sample SD to <span class="math inline">\(s=0.9\)</span>. Vary <span class="math inline">\(n\)</span> from <span class="math inline">\(3\)</span> to <span class="math inline">\(30\)</span> and record the CI half-width <span class="math inline">\(t^* \cdot \dfrac{s}{\sqrt{n}}\)</span> for <span class="math inline">\(n \in \{3,5,10,15,20,30\}\)</span>.</li>
+</ol></li>
+<li>Confidence level and <span class="math inline">\(t^*\)</span>
+<ol type="a">
+<li>Fix <span class="math inline">\(n=10\)</span> and <span class="math inline">\(s=0.9\)</span>. Change the confidence level among <span class="math inline">\(80\%, 90\%, 95\%, 99\%\)</span> and note the corresponding <span class="math inline">\(t^*\)</span> values from the app.<br>
+</li>
+<li>Explain why <span class="math inline">\(t^*\)</span> (and the CI width <span class="math inline">\(2\,t^*\,s/\sqrt{n}\)</span>) increases with the confidence level.<br>
+</li>
+<li>For <span class="math inline">\(n=10\)</span> and <span class="math inline">\(s=0.9\)</span>, by what factor does the CI width at <span class="math inline">\(99\%\)</span> exceed the width at <span class="math inline">\(90\%\)</span>? Calculate <span class="math inline">\(\dfrac{t^*_{0.005,\,9}}{t^*_{0.05,\,9}}\)</span>.</li>
+</ol></li>
+<li>Trade-off between variability and sample size
+<ol type="a">
+<li>With level <span class="math inline">\(95\%\)</span>, compare CI half-widths for <span class="math inline">\((n,s)=(8,0.6)\)</span> and <span class="math inline">\((n,s)=(20,1.0)\)</span>. Which is wider and why? Use <span class="math inline">\(t^* \cdot s/\sqrt{n}\)</span>.<br>
+</li>
+<li>Suppose you must keep <span class="math inline">\(s=0.9\)</span> but you want the half-width <span class="math inline">\(\le 0.30\)</span> at <span class="math inline">\(95\%\)</span>. Use the app to find the smallest <span class="math inline">\(n\)</span> achieving <span class="math inline">\(t^* \cdot \dfrac{0.9}{\sqrt{n}} \le 0.30\)</span>.<br>
+</li>
+<li>Holding <span class="math inline">\(n=12\)</span> fixed, find <span class="math inline">\(s\)</span> such that the full CI width is exactly <span class="math inline">\(0.9\)</span> at <span class="math inline">\(90\%\)</span>. Solve <span class="math inline">\(2\,t^* \cdot \dfrac{s}{\sqrt{12}} = 0.9\)</span> by adjusting <span class="math inline">\(s\)</span> in the app.</li>
+</ol></li>
+</ol>
+<iframe id="mmm-iframe" src="https://drfloreiche.github.io/shinylive/confint/" title="Mean • Median • Mode" style="width:100%; border:0; display:block; min-height:560px;">
+</iframe>
+
+<script src="https://cdn.jsdelivr.net/npm/iframe-resizer/js/iframeResizer.min.js"></script>
+<script>
+  iFrameResize({
+    checkOrigin: ['https://drfloreiche.github.io/shinylive/confint/'],
+    heightCalculationMethod: 'taggedElement',  // measure #ifr-root
+    sizeHeight: true,
+    minHeight: 560,
+    tolerance: 12,  // a few extra pixels for rounding
+    log: false
+  }, '#mmm-iframe');
+</script>
+<p>Now, let’s do some calculations by hand:</p>
 <ol type="1">
 <li>The number of diners visiting a restaurant on a Thursday is normally distributed with a mean of 150 and standard deviation of 30. One Thursday only 100 people eat in the restaurant, and the manager says, “next week will be better”.
 <ol type="a">
