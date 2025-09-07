@@ -266,7 +266,6 @@ window.Quarto = {
    
   <ul>
   <li><a href="#self-assessment-questions" id="toc-self-assessment-questions" class="nav-link active" data-scroll-target="#self-assessment-questions">Self-Assessment Questions</a></li>
-  <li><a href="#the-t-distribution" id="toc-the-t-distribution" class="nav-link" data-scroll-target="#the-t-distribution">The t-distribution</a></li>
   <li><a href="#confidence-intervals" id="toc-confidence-intervals" class="nav-link" data-scroll-target="#confidence-intervals">Confidence Intervals</a>
   <ul class="collapse">
   <li><a href="#calculating-confidence-intervals" id="toc-calculating-confidence-intervals" class="nav-link" data-scroll-target="#calculating-confidence-intervals">Calculating Confidence Intervals</a>
@@ -319,53 +318,6 @@ window.Quarto = {
 <li>Why do we need a t-distribution?</li>
 <li>What is the difference between the normal distribution and the t-distribution?</li>
 <li>Use the app below (it might take a moment to load, as it is a web-based application) to change the sample size, sample standard deviation and the desired confidence level to see how they affect the width of a confidence interval. Reflect first on how a new value will alter the distribution before carrying out the change.</li>
-</ol>
-<div class="stop">
-<p>Please stop here and don’t go beyond this point until we have compared notes on your answers.</p>
-</div>
-</section>
-<section id="the-t-distribution" class="level1 unnumbered">
-<h1 class="unnumbered">The t-distribution</h1>
-<p>The Student <span class="math inline">\(t\)</span> distribution is fundamental for inference when working with small samples.<br>
-This interactive app lets you explore how the shape of the distribution changes with the sample size (or degrees of freedom), and how the critical values shift depending on the significance (<span class="math inline">\(\alpha\)</span>) level and whether a test is one- or two-tailed. Use the sliders and options to see how these factors affect hypothesis testing.</p>
-<iframe id="tdist-iframe" src="https://drfloreiche.github.io/shinylive/tdis/" title="t distribution explorer" style="width:100%; border:0; display:block; min-height:600px;">
-</iframe>
-
-<script src="https://cdn.jsdelivr.net/npm/iframe-resizer/js/iframeResizer.min.js"></script>
-<script>
-  iFrameResize({
-    checkOrigin: false,              // relax for testing; restrict later
-    heightCalculationMethod: 'max',  // robust for ShinyLive dynamic height
-    sizeHeight: true,
-    onInit: function(iframe){
-      setTimeout(function(){
-        if (iframe.iFrameResizer) iframe.iFrameResizer.resize();
-      }, 300);
-    },
-    log: false
-  }, '#tdist-iframe');
-</script>
-<p>Here are some exercises to familiarise yourself with the distribution:</p>
-<ol type="1">
-<li>How the degrees of freedom <span class="math inline">\(df\)</span> change the shape and critical values
-<ol type="a">
-<li>Set tail type = two-tailed and <span class="math inline">\(\alpha = 0.05\)</span>. Move <span class="math inline">\(n\)</span> from 3 to 50 (<span class="math inline">\(df\)</span> from 2 to 49). Record the critical values <span class="math inline">\(t_{\mathrm{crit}}\)</span> at <span class="math inline">\(n \in \{3, 5, 10, 20, 50\}\)</span>.<br>
-</li>
-<li>Compare these to the normal critical value <span class="math inline">\(z_{0.025} \approx 1.960\)</span>.<br>
-Which <span class="math inline">\(n\)</span> (or <span class="math inline">\(df\)</span>) makes <span class="math inline">\(t_{\mathrm{crit}}\)</span> within 0.05 of 1.96?<br>
-</li>
-<li>Explain why <span class="math inline">\(t\)</span> approaches the standard normal as <span class="math inline">\(df \to \infty\)</span>.</li>
-</ol></li>
-<li>One-tailed vs two-tailed critical regions
-<ol type="a">
-<li>Fix <span class="math inline">\(df = 14\)</span>. Toggle between two-tailed and one-tailed (upper) with <span class="math inline">\(\alpha = 0.05\)</span>.<br>
-Note the two cutpoints for the two-tailed test (<span class="math inline">\(\pm t_{0.025,14}\)</span>) and<br>
-the single cutpoint for the one-tailed test (<span class="math inline">\(t_{0.05,14}\)</span>).<br>
-</li>
-<li>For a test with <span class="math inline">\(H_0: \mu = \mu_0\)</span> and <span class="math inline">\(H_1: \mu &gt; \mu_0\)</span>, which cutpoint is relevant and why?<br>
-</li>
-<li>Verify with shading that the total shaded probability equals <span class="math inline">\(\alpha\)</span> in each case.</li>
-</ol></li>
 </ol>
 <div class="stop">
 <p>Please stop here and don’t go beyond this point until we have compared notes on your answers.</p>
