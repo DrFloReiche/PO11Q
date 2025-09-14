@@ -1,5 +1,15 @@
 [
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": " PO11Q: Introduction to Quantitative Political Analysis I",
+    "section": "",
+    "text": "Welcome!\nA vast amount of political research is quantitative, and even if you decide never to conduct quantitative analysis yourself, you will find an introductory level of knowledge in quantitative methods useful to critically engage with your discipline as a whole. Skills in data analysis are also crucial for finding employment in graduate-level jobs.\nThis module will deliver an introduction to quantitative political analysis. It is based on Linke’s typology of Quantitative Methods, and explores each of its tasks (conceptualisation and measurement, numerical data, data analysis, and interpretation) at an introductory level. The module uses the software R.\nThis is the online companion to the seminars on PO11Q. It hosts all of the material needed for the seminars and replaces the physical worksheets which we work through in some of the seminars. This is environmentally friendlier, and once we get to working with R, it also allows you to copy/paste code directly from the code chunks in this online companion.\nI hope you find this useful!\n\n \n\n\n\nCompanion Features\nYou will find embedded in the text six different types of boxes which serve different purposes:\n\nThis box appears whenever I want you to stop at a particular point in the worksheet and to flag up to me that you are done.\n\n\nThis appears when you need to be careful with your coding in R to avoid problems.\n\n\nSome explanations that will hopefully make your work with this webpage or learning the material itself easier.\n\n\nWe will start working with R in week 5, and I have recorded some videos to ease you into working with the program.\n\n\nA brief question which tests your understanding of the previous material.\n\n\nA definition that i simportant for the current discussion.\n\n\n\nAccessibility\nThe companion uses the font “Lexend”. Lexend fonts are intended to reduce visual stress and so improve reading performance. Initially they were designed with dyslexia and struggling readers in mind, but Bonnie Shaver-Troup, creator of the Lexend project, soon found out that these fonts are also great for everyone else.\nCode is displayed in Recursive Mono. The font’s characters share the same width for clear legibility and perfect alignment. This is particularly helpful for use in programming and data-heavy design tasks, but also allows for creative possibilities in display typography.\nEquations and mathematical expressions are set in Fira Math. Fira Math is easy to read with open shapes, clear spacing, and good contrast. This keeps subscripts, superscripts, and fractions legible - even at small sizes. It stays readable on screens and in print, reducing mix-ups between look-alike characters like 1, I, and l.\nIf the three-column layout feels too busy, click the small text icon in the companion’s top-right to switch to Reader Mode. This streamlines the page and minimises the table of contents into a compact bar at the top.\nThe companion also uses a dark mode theme. For many users, including some neurodivergent individuals, dark mode can reduce eye strain and enhance focus by minimising visual overstimulation.\nWhilst I recognise that mobile phones play an essential part in all our daily lives, please note that this companion is optimised for display on tablets, laptops, and desktop computers.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Welcome</span>"
+    ]
+  },
+  {
     "objectID": "01-PO11Q.html",
     "href": "01-PO11Q.html",
     "title": "Week 1",
@@ -275,6 +285,16 @@
     "title": "Week 4",
     "section": "",
     "text": "Self-Assessment Questions1",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Week 4</span>"
+    ]
+  },
+  {
+    "objectID": "04-PO11Q.html#videos",
+    "href": "04-PO11Q.html#videos",
+    "title": "Week 4",
+    "section": "Videos",
+    "text": "Videos\nBy popular request from students in the past, here are two short videos in which I explain how to calculate the mean and the standard deviation. I have gone through this in the lecture, but if you want a refresher before doing the calculations below, feel free to watch these (with earphones if you are in the seminar).\n\nCalculating a Mean\n\n\n\n\nStandard Deviation",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Week 4</span>"
     ]
