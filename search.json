@@ -24,7 +24,7 @@
     "href": "02-PO11Q.html",
     "title": "Week 2",
     "section": "",
-    "text": "Introductions",
+    "text": "Road Map for Today",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Week 2</span>"
     ]
@@ -214,7 +214,7 @@
     "href": "03-PO11Q.html",
     "title": "Week 3",
     "section": "",
-    "text": "Self-Assessment Questions1\nI do not usually provide answers to these questions, as I am expecting you to either attend the seminar, or – in case you cannot make it – to contact me for advice or to share notes with another student. But I have nonetheless put this document together, so that you get an idea about my expectation horizon for answering these. Please bear this in mind in weeks to come.\nAnswers to Self-Reflection Questions (available from October 23)",
+    "text": "Road Map for Today",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Week 3</span>"
     ]
@@ -284,7 +284,7 @@
     "href": "04-PO11Q.html",
     "title": "Week 4",
     "section": "",
-    "text": "Self-Assessment Questions1",
+    "text": "Road Map for Today",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Week 4</span>"
     ]
@@ -354,7 +354,7 @@
     "href": "05-PO11Q.html",
     "title": "Week 5",
     "section": "",
-    "text": "Self-Assessment Questions1",
+    "text": "Road Map for Today",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Week 5</span>"
     ]
@@ -524,7 +524,7 @@
     "href": "07-PO11Q.html",
     "title": "Week 7",
     "section": "",
-    "text": "Self-Assessment Questions1",
+    "text": "Road Map for Today",
     "crumbs": [
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Week 7</span>"
     ]
@@ -664,7 +664,7 @@
     "href": "08-PO11Q.html",
     "title": "Week 8",
     "section": "",
-    "text": "Self-Assessment Questions1",
+    "text": "Road Map for Today",
     "crumbs": [
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Week 8</span>"
     ]
@@ -724,7 +724,7 @@
     "href": "09-PO11Q.html",
     "title": "Week 9",
     "section": "",
-    "text": "Group Work – Self-Reflection1",
+    "text": "Road Map for Today",
     "crumbs": [
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Week 9</span>"
     ]
@@ -804,7 +804,7 @@
     "href": "10-PO11Q.html",
     "title": "Week 10",
     "section": "",
-    "text": "Self-Assessment Questions\n\nHow do causality in every day life and causality in statistics differ?\nExplain the role of symmetry and asymmetry in causality.\nGive an example for a counterfactual.\nWhy is the historical context of the analysis important for establishing causality?\nHow do the attributes of causality relate to the topics on PO11Q?\n\n\nPlease stop here and don’t go beyond this point until we have compared notes on your answers.\n\n\n\nExam Preparation\nWe will go through the solutions to the mock exam today. Please prepare this exam and note questions about the module content which we will discuss.\n\n\nHomework\n\nWork through this week’s flashcards to familiarise yourself with the relevant R functions.\nFind an example for each NEW function and apply it in R to ensure it works\nPrepare yourself for the exam in January\n\n\n\nGlossary\n \n\n\n\n\n\n\n\n\n\n\n\n\n\nTerm\nDescription\n\n\n\n\nasymmetry\nThe notion that while X causes Y, Y does not cause X. It is established with temporal priority, manipulated events, and/or the independence of causes (see Brady (2011))\n\n\ncausal\nIn order to establish a causal relationship, the following criteria must be met concurrently:  \n\n\ncausal loop\nY causes itself (e.g., health; happiness, wealth)\n\n\ninteraction effect\nAn interaction effect occurs when the effect of one independent variable, \\(x_1\\), on a dependent variable, \\(y\\), depends on the level of another independent variable, \\(x_2\\). In other words, the impact of \\(x_1\\) on \\(y\\) is not constant but varies depending on the value of \\(x_2\\), indicating that the two variables jointly influence the outcome in a non-additive way\n\n\nintervening variable\nAn intervening variable is a variable that explains the relationship between two other variables, such that \\(x_1\\) affects \\(x_2\\), and in turn, \\(x_2\\) affects \\(y\\). In this case, the effect of \\(x_1\\) on \\(y\\) is indirect, operating through the intervening variable \\(x_2\\). This is also referred to as indirect causality\n\n\nmulticausality\nMulticausality refers to a situation in which an outcome variable \\(y\\) is influenced by multiple independent variables, such that \\(x_1\\), \\(x_2\\), \\(x_3\\), all contribute to explaining variations in \\(y\\). In this context, no single variable fully accounts for changes in \\(y\\); instead, the outcome is the result of the combined effects of several causes. We distinguish a speacial case here in which the independent variables are interdependent\n\n\nreverse causality\nCausality runs from x to y. If y could also cause x, then we deal with reverse causality\n\n\nspurious\nA relationship between two variables, \\(x_1\\) and \\(y\\), is said to be spurious when it appears to exist in a simple analysis but disappears or weakens substantially once a third variable, \\(x_2\\), is introduced into the analysis. This suggests that the observed association between \\(x_1\\) and \\(y\\) was not causal, but rather the result of a confounding influence from \\(x_2\\)\n\n\nsuppressor\nA suppressor variable is a variable, \\(x_2\\), that increases the predictive validity of another variable, \\(x_1\\), on an outcome \\(y\\) by accounting for irrelevant or misleading variance in \\(x_1\\). In other words, the relationship between \\(x_1\\) and \\(y\\) becomes stronger or more apparent when \\(x_2\\) is included in the analysis, even though \\(x_2\\) may have little or no direct relationship with \\(y\\)\n\n\nsymmetry\nIn the context of causation, symmetry is understood as the law-like regularity of events. There needs to be a recipe (causal mechanism) which regularly produces effects from causes (see Brady (2011))\n\n\n\n\n\n\nTable 1: Glossary Week 10\n\n\n\n\n\n \n\n\nFlashcards\n\n\n\nNew Functions This Week\n\n\n \n\n\n \n\nThe data are available as a .csv file.\n\n\n\n\n\nR Functions This Week\n\n\n \n\n\n \n\nThe data are available as a .csv file.\n\n\n\n\n\nAll R Functions on the Module\n\n\n \n\n\n \n\nThe data are available as a .csv file.\n\n\n\n\n\n\nBrady, H. E. (2011). Causation and Explanation in Social Science. In R. Goodin (Ed.), The Oxford Handbook of Political Science. Oxford University Press. https://doi.org/10.1093/oxfordhb/9780199604456.013.0049",
+    "text": "Road Map for Today\n\n\n\n\n\n\n\nSelf-Assessment Questions\n\n\n\n\nExam Preparation\n\n\n\n\nBreak\n\n\n\n\nExam Preparation\n\n\n\n\n\n\n\n\n\nSelf-Assessment Questions\n\nHow do causality in every day life and causality in statistics differ?\nExplain the role of symmetry and asymmetry in causality.\nGive an example for a counterfactual.\nWhy is the historical context of the analysis important for establishing causality?\nHow do the attributes of causality relate to the topics on PO11Q?\n\n\nPlease stop here and don’t go beyond this point until we have compared notes on your answers.\n\n\n\nExam Preparation\nWe will go through the solutions to the mock exam today. Please prepare this exam and note questions about the module content which we will discuss.\n\n\nHomework\n\nWork through this week’s flashcards to familiarise yourself with the relevant R functions.\nFind an example for each NEW function and apply it in R to ensure it works\nPrepare yourself for the exam in January\n\n\n\nGlossary\n \n\n\n\n\n\n\n\n\n\n\n\n\n\nTerm\nDescription\n\n\n\n\nasymmetry\nThe notion that while X causes Y, Y does not cause X. It is established with temporal priority, manipulated events, and/or the independence of causes (see Brady (2011))\n\n\ncausal\nIn order to establish a causal relationship, the following criteria must be met concurrently:  \n\n\ncausal loop\nY causes itself (e.g., health; happiness, wealth)\n\n\ninteraction effect\nAn interaction effect occurs when the effect of one independent variable, \\(x_1\\), on a dependent variable, \\(y\\), depends on the level of another independent variable, \\(x_2\\). In other words, the impact of \\(x_1\\) on \\(y\\) is not constant but varies depending on the value of \\(x_2\\), indicating that the two variables jointly influence the outcome in a non-additive way\n\n\nintervening variable\nAn intervening variable is a variable that explains the relationship between two other variables, such that \\(x_1\\) affects \\(x_2\\), and in turn, \\(x_2\\) affects \\(y\\). In this case, the effect of \\(x_1\\) on \\(y\\) is indirect, operating through the intervening variable \\(x_2\\). This is also referred to as indirect causality\n\n\nmulticausality\nMulticausality refers to a situation in which an outcome variable \\(y\\) is influenced by multiple independent variables, such that \\(x_1\\), \\(x_2\\), \\(x_3\\), all contribute to explaining variations in \\(y\\). In this context, no single variable fully accounts for changes in \\(y\\); instead, the outcome is the result of the combined effects of several causes. We distinguish a speacial case here in which the independent variables are interdependent\n\n\nreverse causality\nCausality runs from x to y. If y could also cause x, then we deal with reverse causality\n\n\nspurious\nA relationship between two variables, \\(x_1\\) and \\(y\\), is said to be spurious when it appears to exist in a simple analysis but disappears or weakens substantially once a third variable, \\(x_2\\), is introduced into the analysis. This suggests that the observed association between \\(x_1\\) and \\(y\\) was not causal, but rather the result of a confounding influence from \\(x_2\\)\n\n\nsuppressor\nA suppressor variable is a variable, \\(x_2\\), that increases the predictive validity of another variable, \\(x_1\\), on an outcome \\(y\\) by accounting for irrelevant or misleading variance in \\(x_1\\). In other words, the relationship between \\(x_1\\) and \\(y\\) becomes stronger or more apparent when \\(x_2\\) is included in the analysis, even though \\(x_2\\) may have little or no direct relationship with \\(y\\)\n\n\nsymmetry\nIn the context of causation, symmetry is understood as the law-like regularity of events. There needs to be a recipe (causal mechanism) which regularly produces effects from causes (see Brady (2011))\n\n\n\n\n\n\nTable 1: Glossary Week 10\n\n\n\n\n\n \n\n\nFlashcards\n\n\n\nNew Functions This Week\n\n\n \n\n\n \n\nThe data are available as a .csv file.\n\n\n\n\n\nR Functions This Week\n\n\n \n\n\n \n\nThe data are available as a .csv file.\n\n\n\n\n\nAll R Functions on the Module\n\n\n \n\n\n \n\nThe data are available as a .csv file.\n\n\n\n\n\n\nBrady, H. E. (2011). Causation and Explanation in Social Science. In R. Goodin (Ed.), The Oxford Handbook of Political Science. Oxford University Press. https://doi.org/10.1093/oxfordhb/9780199604456.013.0049",
     "crumbs": [
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Week 10</span>"
     ]
