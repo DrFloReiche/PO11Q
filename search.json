@@ -504,7 +504,7 @@
     "href": "05-PO11Q.html#footnotes",
     "title": "Week 5",
     "section": "",
-    "text": "Some of the content of this worksheet is taken from Linke (forthcoming).↩︎\nSource: https://www.garrickadenbuie.com/project/rsthemes/↩︎\nThis is a variation of the Dracula Theme.↩︎\nTo “call” means to execute a command.↩︎\nhttps://cran.r-project.org/web/packages/ updated 03 October 2025↩︎\nThere is a command called order(), but it is not part of the tidyverse, and as this package is steadily on the rise in coding, I am only showing you this here.↩︎",
+    "text": "Some of the content of this worksheet is taken from Linke (forthcoming).↩︎\nSource: https://www.garrickadenbuie.com/project/rsthemes/↩︎\nThis is a variation of the Dracula Theme.↩︎\nTo “call” means to execute a command.↩︎\nhttps://cran.r-project.org/web/packages/ updated 04 October 2025↩︎\nThere is a command called order(), but it is not part of the tidyverse, and as this package is steadily on the rise in coding, I am only showing you this here.↩︎",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Week 5</span>"
     ]
@@ -785,6 +785,16 @@
     "title": "Week 9",
     "section": "Solutions",
     "text": "Solutions\nYou can find the Solutions in the Downloads Section.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Week 9</span>"
+    ]
+  },
+  {
+    "objectID": "09-PO11Q.html#summary",
+    "href": "09-PO11Q.html#summary",
+    "title": "Week 9",
+    "section": "Summary",
+    "text": "Summary\n\nWe set \\(\\alpha\\) in advance to decide our tolerance for false positives. Example: \\(\\alpha\\) = 0.05 means “I will allow at most a 5% chance of rejecting H0 when it is true.”\nWe calculate the p-value for each individual sample. It tells us how extreme that sample’s result is under H0, but it is not an error probability itself.\nIf we repeat the experiment many times under H0, then the proportion of rejections (cases with p &lt; \\(\\alpha\\)) will be about \\(\\alpha\\). That is the long-run error rate guaranteed when we set \\(\\alpha\\) in the first place.\n\n\nTherefore:\nThe p-value is not the probability of a Type I Error. The p-value changes with every sample, \\(\\alpha\\) is fixed in advance, and in the long run the chance of rejecting H\\(_0\\) when H\\(_0\\) is true equals \\(\\alpha\\).",
     "crumbs": [
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Week 9</span>"
     ]
